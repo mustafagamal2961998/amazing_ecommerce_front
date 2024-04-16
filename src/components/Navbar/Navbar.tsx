@@ -36,7 +36,7 @@ const Navbar = () => {
             </div>
             <span className='relative'>
                 <input type='text' placeholder='بحث عن منتج' className='w-[160%] border-2 border-gray-300 rounded-full outline-none' />
-                <FontAwesomeIcon icon={faSearch} className='w-[16px] h-[16px] text-gray-300 absolute left-[-115px] top-2/4 -translate-y-2/4 -translate-x-2/4' />
+                <FontAwesomeIcon icon={faSearch} className='w-[16px] h-[16px] text-gray-300 absolute left-[-80px] top-2/4 -translate-y-2/4 -translate-x-2/4' />
             </span>
         </div>
         <div className='nav h-[71px] p-5 flex flex-row justify-around'>
