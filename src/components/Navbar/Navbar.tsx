@@ -4,7 +4,7 @@ import { faFacebook, faInstagram, faLinkedin, faTiktok, faTwitter, faWhatsapp, f
 import Link from 'next/link';
 import { faCartShopping, faHeart, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
-import Logo from '../../assets/logo.png'
+import Logo from '../../components/Logo/logo.svg'
 import ProfileImg from '../../assets/profile.jpg'
 
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Navbar = () => {
             <Link href='/'>
                 <Image src={Logo} className='w-[170px] h-[38px] ml-auto' alt='Amazing' />
             </Link>
-            <div className='links flex gap-2 items-center text-white text-[14px]'>
+            <div className='links flex gap-5 items-center text-white text-[14px]'>
                 <Link className='relative' href='/'>دولاب رجالي</Link>
                 <Link className='relative' href='/'>دولاب نسائي</Link>
                 <Link className='relative' href='/'>دولاب أطفالي</Link>
