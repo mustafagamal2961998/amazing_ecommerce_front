@@ -1,0 +1,40 @@
+.signup p{
+    color: #252B42;
+}
+
+.signup form input,
+.gender {
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+}
+
+.signup form input::placeholder{
+    color: #E0E0E0;
+}
+
+.login {
+    background-image: linear-gradient(to right, #252B42, #5E6DA8);
+}
+
+.login-link {
+    color: #23A6F0;
+}
+
+.custom-date-input input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.custom-date-input:before {
+    content: "\1F4C5";
+    position: absolute;
+    left: 15px;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: gray;
+    pointer-events: none;
+}
+
+.custom-date-input input[type="date"] {
+    padding-left: 30px;
+}
