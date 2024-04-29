@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/Slogan/Slogan.jsx", "src/components/Navbar/Navbar.jsx", "src/components/Home page/HomePage.jsx", "src/app/auth/signup/page.jsx", "src/app/auth/login/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]
