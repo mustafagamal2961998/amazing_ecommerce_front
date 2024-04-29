@@ -25,7 +25,6 @@ import { usePathname } from 'next/navigation'
 
 const HomePage = () => {
   const pathname = usePathname()
-  console.log(pathname === '/' ? 'yes' : 'no')
 
   const [rightImg, setRightImg] = useState(null);
   const [leftImg, setLeftImg] = useState(null);

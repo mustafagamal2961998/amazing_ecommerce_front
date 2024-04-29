@@ -44,7 +44,7 @@ const products = await GET_PRODUCTS();
                             <PriceRange />
                         </span>
                     </span>
-                    <button className='w-1/4 p-1 bg-[#5E6DA8] text-white rounded-md mb-3 ml-3 float-left'>تطبيق</button>
+                    <button className='w-1/4 p-1 bg-[#5E6DA8] text-white rounded-md mb-3 float-left'>تطبيق</button>
             </aside>
             <span className='sale  w-full relative'>
                 <Image src={rightSale} alt='Amazing' className='w-full h-[549px]' />
@@ -82,3 +82,4 @@ const products = await GET_PRODUCTS();
 }
 
 export default Products
+

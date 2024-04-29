@@ -44,7 +44,7 @@ const page = async ({params}) => {
                     <span className='p-2 text-black rounded-md cursor-pointer'>XXL</span>
                 </span>
             </span>
-        <span className='flex gap-5 p-2 rounded-full text-white bg-[#5E6DA8]'>
+          <span className='flex gap-5 p-2 rounded-full text-white bg-[#5E6DA8]'>
             <FontAwesomeIcon icon={faPlus} className='border-2 rounded-full border-white cursor-pointer' />
               0
             <FontAwesomeIcon icon={faMinus} className='border-2 rounded-full border-white cursor-pointer' />
@@ -175,7 +175,7 @@ const page = async ({params}) => {
       </div>
       <div className='flex flex-col items-start gap-5 mr-36 w-[81%]'>
         <h2 className='font-bold text-[24px]'>منتجات اخرى</h2>
-        <span className='grid grid-cols-5 gap-3'>
+        <span className='grid grid-cols-5'>
           {products['products']?.slice(0, 5).map((productData) => (
             <ProductCard key={productData.id} id={productData.id} title={productData.title} price={productData.price} thumbnail={productData.thumbnail} />
           ))}

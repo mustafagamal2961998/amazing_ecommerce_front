@@ -8,12 +8,11 @@ export default function App() {
   const [minValue2, setMinValue2] = useState(0);
   const [maxValue2, setMaxValue2] = useState(0);
   const handleMinPriceChange = (e) => {
-    setMinValue(e.minValue);
-    setMaxValue(e.maxValue);
+    console.log(e.target.value)
   };
   const handleMaxPriceChange = (e) => {
-    setMinValue(e.minValue);
-    setMaxValue(e.maxValue);
+    setMinValue(`SAR ${e.minValue}`);
+    setMaxValue(`SAR ${e.maxValue}`);
   };
 
   return (
@@ -26,12 +25,12 @@ export default function App() {
           max={2000}
           canMinMaxValueSame={true}
           onInput={(e) => {
-            setMinValue(e.minValue);
-            setMaxValue(e.maxValue);
+            setMinValue(`SAR ${e.minValue}`);
+            setMaxValue(`SAR ${e.maxValue}`);
           }}
           onChange={(e) => {
-            setMinValue2(e.minValue);
-            setMaxValue2(e.maxValue);
+            setMinValue2(`SAR ${e.minValue}`);
+            setMaxValue2(`SAR ${e.maxValue}`);
           }}
           label={false}
           ruler={false}
