@@ -1,0 +1,42 @@
+.wardrobe {
+    background-image: url('../../assets//wardrobe/frame.png');
+    background-size: cover;
+    padding: 0px;
+    object-fit: cover;
+    width: 70%;
+}
+  
+.startRight,
+.middleTopRight,
+.middleRight,
+.middleBottomRight {
+    transform-origin: right;
+    transition: 0.2s;
+}
+
+.startLeft,
+.middleTopLeft,
+.middleLeft,
+.middleBottomLeft,
+.endTop,
+.endBottom {
+    transform-origin: left;
+    transition: 0.3s;
+}
+
+.startRight:hover,
+.startLeft:hover,
+.middleTopRight:hover,
+.middleTopLeft:hover,
+.middleRight:hover,
+.middleLeft:hover,
+.middleBottomRight:hover,
+.middleBottomLeft:hover,
+.endTop:hover,
+.endBottom:hover {
+    transform: rotateY(-105deg);
+}
+  
+.clickable a {
+    display: inline-block; height: 100%; width: 100%;   /*  fill the parent  */
+  }

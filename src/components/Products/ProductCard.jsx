@@ -5,14 +5,14 @@ import Link from "next/link"
 
 const ProductCard = (props) => {
   return (
-    <div className='product relative flex flex-col gap-5 rounded-md shadow p-2'>
+    <div className='product relative w-[80%] flex flex-col gap-5 rounded-md shadow'>
         <FontAwesomeIcon icon={faHeart} className='absolute left-[20px] top-[15px] cursor-pointer text-gray-500 duration-200 hover:text-red-500' />
         <Link href={`/products/${props.id}`}>
-            <Image src={props.thumbnail} width={240} height={215} className='w-[240px] h-[215px] rounded-md' alt={props.title} />
+            <Image src={props.thumbnail} width={240} height={270} className='w-full h-[200px] rounded-md' alt={props.title} />
         </Link>
         <span className='flex flex-col items-start'>
             <p>{props.title}</p>
-            <span className='flex justify-between items-center w-full'>
+            <span className='flex justify-between items-center w-full p-1'>
                 <span className='flex items-center gap-2'>
                     <p className='font-bold'>{props.price} ر.س</p>
                     <p className='text-xs text-gray-500 line-through'>{props.price - 50} ر.س</p>

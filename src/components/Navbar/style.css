@@ -15,5 +15,5 @@
 }
 
 .links a:hover::after {
-    width: 75px;
+    width: 100%;
 }
