@@ -40,9 +40,7 @@ const products = await GET_PRODUCTS();
                     </span>
                     <span className='price p-3 flex flex-col gap-2 items-start'>
                         <p>السعر</p>
-                        <span className='w-full flex items-center gap-2 mt-6'>
                             <PriceRange />
-                        </span>
                     </span>
                     <button className='w-1/4 p-1 bg-[#5E6DA8] text-white rounded-md mb-3 float-left'>تطبيق</button>
             </aside>
@@ -62,7 +60,7 @@ const products = await GET_PRODUCTS();
         </span>
         <section className='flex flex-col items-start gap-5'>
             <h2>بدل مناسبات</h2>
-            <div className='grid grid-cols-4 max-md:grid-cols-2 gap-3'>
+            <div className='grid grid-cols-5 max-md:grid-cols-2 gap-3'>
                 {
                     products['products']?.map((product) => (
                         <ProductCard key={product.id} id={product.id} title={product.title} thumbnail={product.thumbnail} price={product.price} />
