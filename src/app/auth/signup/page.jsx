@@ -2,13 +2,17 @@ import './style.css'
 import Image from "next/image"
 import "react-datepicker/dist/react-datepicker.css";
 import purpleLogo from '../../../components/Logo/purpleLogo.svg'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEnvelope, faEye, faPhone, faUser, faVenusMars } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
 import AppleIcon from '../../../assets/apple.png'
 import GoogleIcon from '../../../assets/google.png'
 import FacebookIcon from '../../../assets/facebook.png'
 import Slogan from '../../../components/Slogan/Slogan';
+import name from '../../../assets/auth/name.svg'
+import email from '../../../assets/auth/email.svg'
+import number from '../../../assets/auth/number.svg'
+import gender from '../../../assets/auth/gender.svg'
+import birthday from '../../../assets/auth/birthday.svg'
+import eye from '../../../assets/auth/eye.svg'
 
 const Signup = () => {
   return (
@@ -20,29 +24,30 @@ const Signup = () => {
         <form>
             <span className='relative'>
                 <input type='text' placeholder='الاسم كامل' className='w-[62%] text-[12px] p-3 mb-3 outline-none' />
-                <FontAwesomeIcon icon={faUser} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
+                <Image src={name} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' alt='Amazing' />
             </span>
             <span className='relative'>
                 <input type='email' placeholder='البريد الالكتروني' className='w-[62%] text-[12px] p-3 mb-3 outline-none' />
-                <FontAwesomeIcon icon={faEnvelope} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
+                <Image src={email} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' alt='Amazing' />
             </span>
             <span className='relative'>
                 <input type='text' placeholder='رقم الجوال' className='w-[62%] text-[12px] p-3 mb-3 outline-none' />
-                <FontAwesomeIcon icon={faPhone} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
+                <Image src={number} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' alt='Amazing' />
             </span>
             <span className='relative'>
                 <select className="gender mb-3 w-[62%] text-[12px] p-2 outline-none">
                     <option value="male">ذكر</option>
                     <option value="female">أنثى</option>
                 </select>
-                <FontAwesomeIcon icon={faVenusMars} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' />
+                <Image src={gender} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' alt='Amazing' />
             </span>
             <span className='custom-date-input relative'>
                 <input type='date' placeholder='تاريخ الميلاد' className='w-[62%] text-[12px] p-3 mb-3 outline-none ' />
+                <Image src={birthday} className='w-[16px] h-[16px] text-gray-300 absolute left-4 top-2/4 -translate-y-2/4 -translate-x-2/4 z-50' alt='Amazing' />
             </span>
             <span className='relative'>
                 <input type='password' placeholder='كلمة المرور' className='w-[62%] text-[12px] p-3 mb-3 outline-none ' />
-                <FontAwesomeIcon icon={faEye} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
+                <Image src={eye} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4 ' alt='Amazing' />
             </span>
             <input type='submit' value='تسجيل' className='signup-btn w-[62%] text-[12px] text-white cursor-pointer p-3 mb-3 mt-5 outline-none' />
             <p className='mb-2'>أو</p>

@@ -17,3 +17,7 @@
 .links a:hover::after {
     width: 100%;
 }
+
+.search-input input::placeholder{
+    margin-right: 120px;
+}

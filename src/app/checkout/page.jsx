@@ -46,10 +46,10 @@ const checkout = () => {
             <Image src={Fawry_logo} className='w-[120px] h-[100px]' alt='Amazing' />
             <Image src={PayPal_logo} className='w-[120px] h-[100px]' alt='Amazing' />
     </span>
-    <form className='w-full rounded-md h-full flex flex-col items-center gap-4 p-5'>
-        <span className='relative w-full mt-[30px]'>
+    <form className='w-3/4 rounded-md h-full flex flex-col items-center gap-4 p-5'>
+        <span className='relative w-full mt-[30px] mb-4'>
             <p className='absolute left-0 text-[#4F5B76]'>Card number</p>
-            <input type='text' placeholder='1234 1234 1234 1234' className='border-[#E0E0E0] border-2 text-left placeholder:absolute placeholder:left-0 p-3 rounded-xl placeholder:text-[#E7E7E7] outline-none w-full mt-[30px]' />
+            <input type='text' placeholder='1234 1234 1234 1234' className='border-[#E0E0E0] border-2 text-left placeholder:absolute placeholder:left-2 p-3 rounded-xl placeholder:text-[#E7E7E7] outline-none w-full mt-[30px]' />
             <span className='flex flex-row-reverse items-center gap-3 absolute -right-14 top-[70%] -translate-x-2/4 -translate-y-2/4'>
                 <Image src={visa} className='w-[24px] h-[16px]' alt='Amazing' />
                 <Image src={masterCard} className='w-[24px] h-[16px]' alt='Amazing' />
@@ -59,25 +59,25 @@ const checkout = () => {
         </span>
         <span className='flex items-center gap-3'>
             <span className='relative'>                    
-                <p className='absolute left-0 top-[-15px] text-[#4F5B76]'>Expiry</p>
-                <input type='text' placeholder='MM / YY' className='border-[#E0E0E0] border-2 text-left placeholder:absolute placeholder:left-0 p-2 mt-[12px] rounded-xl placeholder:text-[#E7E7E7] outline-none w-full' />
+                <p className='absolute left-0 top-[-15px] text-[#4F5B76] -mt-1'>Expiry</p>
+                <input type='text' placeholder='MM / YY' className='border-[#E0E0E0] border-2 text-left placeholder:absolute placeholder:left-2 p-3 mt-[12px] rounded-xl placeholder:text-[#E7E7E7] outline-none w-full' />
             </span>
             <span className='relative'>                    
-                <p className='absolute left-0 top-[-15px] text-[#4F5B76]'>CVV</p>
-                <input type='text' placeholder='CVV' className='border-[#E0E0E0] border-2 text-left placeholder:absolute placeholder:left-0 p-2 mt-[12px] rounded-xl placeholder:text-[#E7E7E7] outline-none w-full' />
+                <p className='absolute left-0 top-[-15px] text-[#4F5B76] -mt-1'>CVV</p>
+                <input type='text' placeholder='CVV' className='border-[#E0E0E0] border-2 text-left placeholder:absolute placeholder:left-2 p-3 mt-[12px] rounded-xl placeholder:text-[#E7E7E7] outline-none w-full' />
             </span>
         </span>
         <span className='flex flex-row-reverse items-center gap-3'>
             <span className='relative'>                    
-                <p className='absolute left-0 top-[-15px] text-[#4F5B76]'>Country</p>
-                <Select options={options} value={value} onChange={changeHandler} className='mt-[12px]' />
+                <p className='absolute left-0 top-[-15px] text-[#4F5B76] -mt-1'>Country</p>
+                <Select options={options} value={value} onChange={changeHandler} className='mt-[12px] border-[#E0E0E0] border-2 rounded-xl' />
             </span>
             <span className='relative'>                    
-                <p className='absolute left-0 top-[-15px] text-[#4F5B76]'>Postal code</p>
-                <input type='text' className='border-[#E0E0E0] border-2 text-left p-2 mt-[12px] rounded-xl outline-none' />
+                <p className='absolute left-0 top-[-15px] text-[#4F5B76] -mt-1'>Postal code</p>
+                <input type='text' className='border-[#E0E0E0] border-2 text-left p-3 mt-[12px] rounded-xl outline-none' />
             </span>
         </span>
-        <input type='submit' value='دفع' className='bg-[#4664FF] p-3 rounded-xl text-white cursor-pointer outline-none w-3/4' />
+        <input type='submit' value='دفع' className='bg-[#4664FF] duration-200 hover:bg-[#4665ffec] p-3 rounded-xl text-white cursor-pointer outline-none w-3/4' />
     </form>
     </div>
   )

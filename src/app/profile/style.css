@@ -2,3 +2,19 @@
     width: 100%;
     margin-left: 68px;
 }
+
+.favourite-products svg {
+    width: 20px;
+    height: 20px;
+}
+
+.similar-products .product img.thumbnail,
+.fav-products .product img.thumbnail{
+  height: 300px;
+}
+
+.css-13cymwt-control{
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 6px !important;
+}
