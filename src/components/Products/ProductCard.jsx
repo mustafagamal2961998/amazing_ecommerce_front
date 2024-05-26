@@ -10,15 +10,10 @@ import { useState } from "react"
 const ProductCard = (props) => {
   const [favImg, setFavImg] = useState(fav);
   return (
-    <div className='product relative w-full flex flex-col justify-center gap-5 rounded-md shadow'>
-        <Image src={favImg} onMouseOver={() => setFavImg(redFav)} onMouseOut={() => setFavImg(fav)} width={20} height={20} className='absolute left-[20px] top-[15px] cursor-pointer w-[20px] h-[20px] object-cover z-50
-        
-        
-        
-        
-        ' alt={props.title} />
+    <div className='product relative flex flex-col gap-5 rounded-md shadow p-2'>
+        <FontAwesomeIcon icon={faHeart} className='absolute left-[20px] top-[15px] cursor-pointer text-gray-500 duration-200 hover:text-red-500' />
         <Link href={`/products/${props.id}`}>
-            <Image src={props.thumbnail} width={240} height={270} className='thumbnail w-full h-[200px] rounded-md object-cover duration-200 hover:opacity-80' alt={props.title} />
+            <Image src={props.thumbnail} width={240} height={215} className='w-[240px] h-[215px] rounded-md' alt={props.title} />
         </Link>
         <span className='flex flex-col p-1'>
             <p className='font-bold'>{props.title}</p>

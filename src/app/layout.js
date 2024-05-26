@@ -16,10 +16,7 @@ const cairo = Cairo({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body dir="rtl" className={cairo.className} >
-        {/* <Navbar /> */}
-        {children}
-      </body>
+      <body dir="rtl" >{children}</body>
     </html>
   );
 }
