@@ -1,74 +1,34 @@
-input[type="range"] {
-  -webkit-appearance: none;
-  width: 200px;
-  height: 20px;
-  border-radius: 12px;
-  background-color: #5E6DA8;
-  direction: rtl
-}
-
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; 
-  width: 20px; 
-  height: 20px; 
+  height: 17px;
+  width: 17px;
   border-radius: 50%;
-  background-color: white;
-  cursor: pointer;
+  background: white;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
 
-.multi-range-slider *{
-  border-radius: 12px;
+input[type="range"]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
 
-.multi-range-slider .bar-inner{
-  border: none;
-  box-shadow: none;
-}
-
-.multi-range-slider .thumb{
-  top: 7px;
-}
-
-.multi-range-slider .thumb::before{
-  border: none;
-  box-shadow: 0px 0px 3px black, inset 0px 0px 1px #fafafa;
-}
-
-.multi-range-slider .bar-left,
-.multi-range-slider .bar-right{
-  box-shadow: none;
-  padding: 9px;
-  border-radius: 12px;
-}
-
-.multi-range-slider .thumb .caption *{
-  display: none;
-}
-
-.minPrice {
+input[type="range"] {
   position: absolute;
-  background-color: #D9D9D9;
-  border-radius: 6px;
-  color: black;
-  border: none;
-  width: 21%;
-  outline: none;
-  right: 21px;
-  top: 32%;
-  font-size: 12px;
-  text-align: center;
+  width: 100%;
+  height: 5px;
+  top: 5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.maxPrice {
-  position: absolute;
-  background-color: #D9D9D9;
-  border-radius: 6px;
-  color: black;
-  border: none;
-  width: 21%;
-  outline: none;
-  left: 21px;
-  top: 32%;
-  font-size: 12px;
-  text-align: center;
+input[type="range"]:first-of-type{
+  right: -5px;
 }

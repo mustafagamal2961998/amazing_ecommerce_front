@@ -2,13 +2,14 @@ import './style.css'
 import Image from "next/image"
 import "react-datepicker/dist/react-datepicker.css";
 import purpleLogo from '../../../components/Logo/purpleLogo.svg'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowLeft, faEnvelope, faEye, faPhone, faUser, faVenusMars } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
 import AppleIcon from '../../../assets/apple.png'
 import GoogleIcon from '../../../assets/google.png'
 import FacebookIcon from '../../../assets/facebook.png'
 import Slogan from '../../../components/Slogan/Slogan';
+import email from '../../../assets/auth/email.svg'
+import eye from '../../../assets/auth/eye.svg'
+import back from '../../../assets/auth/back.svg'
 
 const Login = () => {
   return (  
@@ -20,11 +21,11 @@ const Login = () => {
         <form className='mb-5'>
             <span className='relative'>
                 <input type='email' placeholder='البريد الالكتروني' className='w-[75%] text-[12px] p-3 mb-3 outline-none ' />
-                <FontAwesomeIcon icon={faEnvelope} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
+                <Image src={email} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' alt='Amazing' />
             </span>
             <span className='relative'>
                 <input type='password' placeholder='كلمة المرور' className='w-[75%] text-[12px] p-3 mb-3 outline-none ' />
-                <FontAwesomeIcon icon={faEye} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
+                <Image src={eye} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4 ' alt='Amazing' />
             </span>
             <input type='submit' value='تسجيل الدخول' className='login w-[75%] text-[12px] text-white cursor-pointer p-3 mb-3 mt-5 outline-none' />
             <p className='mb-5'>أو</p>
@@ -45,7 +46,7 @@ const Login = () => {
             <Link href='/' className='shopping-btn block w-[300px] h-[50px] text-[12px] text-white rounded-[12px] mb-5'> 
                 <h3 className='text-white absolute right-5 top-[40%] -translate-y-2/4 -translate-x-2/4'>تصفح المتجر</h3>         
             </Link>
-            <FontAwesomeIcon icon={faArrowLeft} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-[40%] -translate-y-2/4 -translate-x-2/4' />
+            <Image src={back} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-[40%] -translate-y-2/4 -translate-x-2/4' />
         </span>
       </div>
     </div>
