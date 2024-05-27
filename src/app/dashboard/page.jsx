@@ -102,16 +102,16 @@ const Dashboard = () => {
     </main>
     :
     <main className='h-screen w-full login-dashboard'>
-      <form className='dashboard-form flex flex-col justify-center items-center gap-5 absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4 w-1/4 h-3/4 bg-white rounded-md p-5'>
+      <form className='dashboard-form w-1/4 h-fit flex flex-col justify-center items-center gap-5 absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4 bg-white rounded-md p-5'>
         <Image src={purpleLogo} alt='logo' className='w-[200px] h-[70px]' />
         <p className='text-[#252B42] font-bold'>تسجيل الدخول</p>
-        <span className='relative border-[1px] border-[#E0E0E0] rounded-2xl w-3/4'>
-            <input type='email' placeholder='البريد الالكتروني' className='w-[75%] text-[12px] p-3 mb-3 outline-none ' />
-            <Image src={email} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' alt='Amazing' />
+        <span className='relative  w-3/4'>
+            <input type='email' placeholder='البريد الالكتروني' className='border-[1px] border-[#E0E0E0] rounded-2xl w-full text-[12px] p-4 mb-3 outline-none ' />
+            <Image src={email} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-[45%] -translate-y-2/4 -translate-x-2/4' alt='Amazing' />
         </span>
-        <span className='relative  border-[1px] border-[#E0E0E0] rounded-2xl w-3/4'>
-            <input type='password' placeholder='كلمة المرور' className='w-[75%] text-[12px] p-3 mb-3 outline-none ' />
-            <Image src={eye} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4 ' alt='Amazing' />
+        <span className='relative rounded-2xl w-3/4'>
+            <input type='password' placeholder='كلمة المرور' className='border-[1px] border-[#E0E0E0] rounded-2xl w-full text-[12px] p-4 mb-3 outline-none ' />
+            <Image src={eye} className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-[45%] -translate-y-2/4 -translate-x-2/4 ' alt='Amazing' />
         </span>
         <input type='submit' value='تسجيل الدخول' className='login w-[75%] text-[12px] text-white bg-gradient-to-br from-[#252B42] to-[#5E6DA8] rounded-xl cursor-pointer p-3 mb-3 mt-5 outline-none' />
       </form>
