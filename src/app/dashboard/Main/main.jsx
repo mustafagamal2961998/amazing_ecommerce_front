@@ -4,42 +4,13 @@ import DashboardHeader from '../dashboardHeader/dashboardHeader'
 import alertClothes from '../../../assets/dashboard/alertClothes.png'
 import alertVector from '../../../assets/dashboard/alertVector.png'
 import TopArrow from '../../../assets/dashboard/TopArrow.png'
-import { letterFrequency } from '@visx/mock-data';
-import { Group } from '@visx/group';
-import { Bar } from '@visx/shape';
-import { scaleLinear, scaleBand } from '@visx/scale';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useState } from 'react';
 
 const Main = () => {
-    const data = letterFrequency.slice(0, 13);
 
-    const width = 500;
-    const height = 500;
-    const margin = { top: 20, bottom: 20, left: 20, right: 20 };
-  
-    const xMax = width - margin.left - margin.right;
-    const yMax = height - margin.top - margin.bottom;
-  
-    const x = d => d.letter;
-    const y = d => +d.frequency * 100;
-  
-    const xScale = scaleBand({
-      range: [0, xMax],
-      round: true,
-      domain: data.map(x),
-      padding: 0.4,
-    });
-
-    const yScale = scaleLinear({
-      range: [yMax, 0],
-      round: true,
-      domain: [0, Math.max(...data.map(y))],
-    });
-  
-    const compose = (scale, accessor) => data => scale(accessor(data));
-    const xPoint = compose(xScale, x);
-    const yPoint = compose(yScale, y);
+  const [data, setData] = useState(['40%', '30%', '45%', '42%', '60%', '85%', '33%', '15%', '70%', '90%', '94%', '3%', '56%'])
 
   return (
     <main className='pr-[60px] flex flex-col justify-center items-center gap-10 w-4/5'>
@@ -79,8 +50,8 @@ const Main = () => {
         </div>
       </div>
       <div className='w-full flex items-start gap-5'>
-        <div className='relative w-3/4 flex items-center gap-3 border-2 border-[#CFCFCF] rounded-xl rounded-tr-3xl p-3 h-full'>
-          <div className='summary w-2/4 h-full p-3 flex flex-col justify-start items-center gap-[60px]'>
+        <div className='relative w-3/4 flex items-center gap-3 border-2 border-[#CFCFCF] rounded-xl rounded-tr-3xl p-3 h-full overflow-auto'>
+          <div className='summary w-full h-full p-3 flex flex-col justify-start items-center gap-[60px]'>
             <span className='pl-1 w-full flex justify-between items-center'>
               <p className='w-2/5 text-center rounded-tr-3xl rounded-bl-3xl p-3 bg-[#4A588D] text-white absolute -top-[14px] -right-[14px]'>ملخص الشهر</p>
               <p className='mr-auto'>إبريل</p>
@@ -127,44 +98,19 @@ const Main = () => {
               </div>
             </div>
           </div>
-          <div className='w-2/4 h-[650px] p-3'>
-            <svg width={width} height={height} className='mt-[40px] pt-[30px]'>
-              {data.map((d, i) => {
-                const barHeight = yMax - yPoint(d);
-                return (
-                  <Group key={`bar-${i}`}>
-                    <Bar
-                      x={xPoint(d)}
-                      y={yMax - barHeight}
-                      height={barHeight}
-                      width={xScale.bandwidth()}
-                      fill="#4A588D"
-                      ry={12}
-                    />
-                    <text
-                      x={xPoint(d) + xScale.bandwidth() / 2}
-                      y={yMax + 10}
-                      dy=".75em"
-                      fill="black"
-                      fontSize={12}
-                      textAnchor="middle"
-                    >
-                      1
-                    </text>
-                    <text
-                      x={xPoint(d) + xScale.bandwidth() / 2}
-                      y={yMax + 20}
-                      dy=".75em"
-                      fill="black"
-                      fontSize={12}
-                      textAnchor="middle"
-                    >
-                      April
-                    </text>
-                  </Group>
-                );
-              })}
-            </svg>
+          <div className='w-full h-full p-2'>
+            <div className='h-full flex justify-center gap-2'>
+            {data.map((col, i) => (
+              <div key={i} className='flex flex-col justify-end items-center gap-1'>
+                <span className={`w-3 rounded-t-2xl bg-[#4A588D]`} style={{height: col}}></span>
+                <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
+                  <p>1</p>
+                  <p>April</p>
+                </span>
+              </div>
+            ))
+            }
+            </div>
           </div>
         </div>
         <div className='w-1/4 h-full flex flex-col items-center gap-5 border-2 border-[#CFCFCF] rounded-xl rounded-tr-3xl p-3 relative'>
@@ -206,7 +152,7 @@ const Main = () => {
         </div>
       </div>
       <div className='w-full pb-10 flex items-start gap-5'>
-        <div className='relative w-3/4 h-[450px] flex items-start gap-3 bg-[#C9D4FF80] rounded-3xl p-3'>
+        <div className='relative w-3/4 h-full flex items-start gap-3 bg-[#C9D4FF80] rounded-3xl p-3'>
           <div className='w-full p-3 flex flex-col justify-center gap-8 items-center'>
             <p className='w-1/5 text-center rounded-tr-3xl rounded-bl-3xl p-2 bg-[#4A588D] text-white absolute top-0 right-0'>أحدث الطلبات</p>
             <div className='mt-[65px] flex flex-col gap-3 w-full'>
@@ -247,7 +193,7 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div className='relative w-1/4 h-[450px] flex flex-col justify-start gap-5 bg-[#C9D4FF80] rounded-3xl p-4'>
+        <div className='relative w-1/4 h-full flex flex-col justify-start gap-5 bg-[#C9D4FF80] rounded-3xl p-4'>
           <p className='w-3/5 text-center rounded-tr-3xl rounded-bl-3xl p-2 bg-[#4A588D] text-white absolute top-0 right-0'>منتجات نفذت</p>
           <div className='flex flex-col gap-3 w-full mt-[65px]'>
             <span className='flex justify-between items-center gap-2 w-full'>
@@ -257,6 +203,7 @@ const Main = () => {
               </span>
               <p className='font-bold'>500 ر.س</p>
             </span>
+            <hr className='bg-[#FFFFFF] w-full h-[2px]'></hr>
             <span className='flex justify-between items-center gap-2 w-full'>
               <span className='flex items-center gap-2'>
               <Image src={alertClothes} alt='user' className='w-14 h-14' />
@@ -264,6 +211,7 @@ const Main = () => {
               </span>
               <p className='font-bold'>500 ر.س</p>
             </span>
+            <hr className='bg-[#FFFFFF] w-full h-[2px]'></hr>
           </div>
         </div>
       </div>
