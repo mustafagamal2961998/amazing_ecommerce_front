@@ -24,7 +24,7 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons"
 
 const Products = () => {
     const [productsMood, setProductsMood] = useState(true)
-
+d
     const [all, setAll] = useState(true);
     const [men, setMen] = useState(true);
     const [women, setWomen] = useState(true);
