@@ -1,0 +1,68 @@
+.login-dashboard{
+    background-image: url('../../assets/dashboard/LoginBackground.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+li.active::after{
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 85%;
+    width: 4px;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.summary{
+    position: relative;
+}
+
+.summary::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -12px;
+    width: 2px;
+    height: 104%;
+    background-color: #CFCFCF;
+}
+
+.CircularProgressbar .CircularProgressbar-path{
+    stroke: #3A4777 !important;
+}
+
+.CircularProgressbar .CircularProgressbar-text{
+    fill: black !important;
+    font-weight: bold;
+}
+
+svg{
+    width: 100%;
+    height: 100%;
+}
+
+.order-status::after{
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 1px;
+    height: 107%;
+    background-color: #F1F1F1;
+}
+
+.rsis-image{
+    background-color: white;
+}
+
+.slider-container button{
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.upload__image-wrapper div:last-of-type{
+    margin-bottom: 60px;
+}
