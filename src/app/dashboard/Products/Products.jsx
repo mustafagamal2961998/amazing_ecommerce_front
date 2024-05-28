@@ -118,7 +118,7 @@ const Products = () => {
         </div>
         <div className='w-full grid grid-cols-3 gap-5'>
           {products.map((product) => (
-            <div key={product.id} className='relative flex p-5 flex-col justify-center items-center gap-4 p- rounded-xl shadow'>
+            <div key={product.id} className='relative flex p-5 flex-col justify-center items-center gap-4 p- rounded-xl shadow-lg'>
               <ImageSlider images={product.images} />
               <div className='relative mt-52 flex justify-center items-center gap-5 bg-[#EFEFEF] rounded-3xl p-2 w-full'>
                 <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D] z-20'>اسم المنتج</span>
@@ -132,9 +132,7 @@ const Products = () => {
               </div>
               <div className='relative flex justify-center items-center gap-5 bg-[#EFEFEF] rounded-3xl p-2 w-full'>
                 <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>الكمية</span>
-                {product.stock < 40 ? <input type='text' className='bg-[#EFEFEF] text-center outline-none text-black z-10' value={product.stock} /> :
-                <p className='p-3'></p>
-                }
+                <input type='text' className={`bg-[#EFEFEF] text-center ${product.stock < 40 && 'text-[#D3D3D3]'} outline-none text-black z-10`} value={product.stock} />
                 <span className={`cursor-pointer absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl ${product.stock < 40 ? 'bg-[#DDDDDD]' : 'bg-[#4A588D]'}`}>
                   <Image src={product.stock < 40 ? infinityOff : infinityOn} alt={product.title} width={200} height={200} className='w-2/4 h-2/4' />
                 </span>
@@ -155,12 +153,12 @@ const Products = () => {
       <div className='w-full flex justify-between'>
         <div className='w-[65%] flex flex-col gap-5'>
           <div className='flex justify-center items-center'>
-            <span className='w-[205px] h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>اسم المنتج</span>
+            <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>اسم المنتج</span>
             <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
           </div>
           <div className='relative'>
             <textarea className='w-full h-[400px] p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-3xl'></textarea>
-            <span className='absolute top-0 w-[205px] h-[45px] p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-bl-3xl bg-[#4A588D]'>وصف المنتج</span>
+            <span className='absolute top-0 w-1/6 h-[45px] p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-bl-3xl bg-[#4A588D]'>وصف المنتج</span>
           </div>
           <div className='w-full flex items-center gap-8'>
             <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
@@ -202,10 +200,10 @@ const Products = () => {
           <div className='w-full flex items-center gap-8'>
             <div className='relative flex justify-start items-center gap-3 rounded-3xl p-2 w-full'>
               <Image src={tax ? purpleCheckBox : emptyCheckBox} alt='tax' className='w-8 h-8 rounded-md cursor-pointer' onClick={() => setTax(!tax)} />
-              <p>المنتج خاضع للضريبة</p>
+              <p className='text-sm'>المنتج خاضع للضريبة</p>
               { tax &&
               <>
-                <input type='text' className='p-2 w-fit rounded-3xl border-[1px] border-[#C6C6C6] text-center outline-none' value={122} />
+                <input type='text' className='p-2 w-fit rounded-3xl border-[1px] border-[#C6C6C6] text-center outline-none' value={12} />
                 <span className={`cursor-pointer absolute left-0 h-3/4 w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#4A588D]`}>
                   <Image src={percentage} alt='tax' width={200} height={200} className='w-5 h-5' />
                 </span>
@@ -261,8 +259,8 @@ const Products = () => {
       </div>
       <div className='w-full flex flex-col justify-start items-center gap-5'>
         <div className='w-full flex justify-between'>
-          <Image src={manyColors ? purpleCheckBox : emptyCheckBox} alt='tax' className='mr-1 w-8 h-8 rounded-md cursor-pointer' onClick={() => setManyColors(!manyColors)} />
-          <span className='bg-[#538D4A] p-3 rounded-3xl flex justify-center items-center gap-2 text-white'>
+          <Image src={manyColors ? purpleCheckBox : emptyCheckBox} alt='colors' className='mr-2 w-8 h-8 rounded-md cursor-pointer' onClick={() => setManyColors(!manyColors)} />
+          <span className='bg-[#538D4A] pt-2 pb-2 pr-3 pl-3 text-sm cursor-pointer rounded-3xl flex justify-center items-center gap-2 text-white'>
             <Image src={addIcon} alt='tax' className='w-5 h-5 rounded-md cursor-pointer' />
             <p>إضافة لون جديد</p>
           </span>
