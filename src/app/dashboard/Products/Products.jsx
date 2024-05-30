@@ -18,7 +18,6 @@ import percentage from '../../../assets/dashboard/percentage.svg';
 import axios from "axios"
 import ImageSlider from "./Slider"
 import ImageUploading from "react-images-uploading";
-import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircle } from "@fortawesome/free-solid-svg-icons"
 
@@ -266,8 +265,8 @@ const Products = () => {
           </span>
         </div>
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 w-full">
-          <div className="inline-block min-w-full ">
-            <div className="overflow-hidden rounded-3xl">
+          <div className="inline-block min-w-full">
+            <div className="overflow-hidden rounded-3xl border-[1px] border-neutral-200">
               <table className="min-w-full text-center text-sm font-normal text-surface text-white">
                 <thead className="border-b border-neutral-200 bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
                   <tr>
