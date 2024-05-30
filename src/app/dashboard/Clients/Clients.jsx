@@ -423,7 +423,7 @@ const Clients = () => {
           </span>
           <div className='w-3/4 flex flex-col justify-center items-center gap-4'>
             <h2 className='ml-auto font-semibold'>الإثنين 13 مايو 2024</h2>
-            <div className='w-full flex justify-around items-center gap-44 p-4 border-[1px] border-[#F1F1F1] rounded-3xl text-base'>
+            <div className='w-full flex justify-around items-center gap-36 p-4 border-[1px] border-[#F1F1F1] rounded-3xl text-base'>
               <span className='flex items-center gap-2'>
                 <Image src={clothes1} alt='item' className='w-[45px] h-[45px]' />
                 <p>بدلة كاروهات</p>
@@ -446,7 +446,7 @@ const Clients = () => {
                 </span>
                 <p>500.00 ر.س</p>
             </div>
-            <div className='w-full flex justify-around items-center gap-44 p-4 border-[1px] border-[#F1F1F1] rounded-3xl text-base'>
+            <div className='w-full flex justify-around items-center gap-36 p-4 border-[1px] border-[#F1F1F1] rounded-3xl text-base'>
               <span className='flex items-center gap-2'>
                 <Image src={clothes1} alt='item' className='w-[45px] h-[45px]' />
                 <p>بدلة كاروهات</p>
@@ -470,7 +470,7 @@ const Clients = () => {
                 <p>500.00 ر.س</p>
             </div>
             <h2 className='ml-auto font-semibold mt-5'>الأحد 12 مايو 2024</h2>
-            <div className='w-full flex justify-around items-center gap-44 p-4 border-[1px] border-[#F1F1F1] rounded-3xl text-base'>
+            <div className='w-full flex justify-around items-center gap-36 p-4 border-[1px] border-[#F1F1F1] rounded-3xl text-base'>
               <span className='flex items-center gap-2'>
                 <Image src={clothes1} alt='item' className='w-[45px] h-[45px]' />
                 <p>بدلة كاروهات</p>
