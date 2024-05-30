@@ -161,35 +161,35 @@ const Products = () => {
           </div>
           <div className='w-full flex items-center gap-8'>
             <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>سعر التكلفة</span>
+              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>سعر التكلفة</span>
               <input type='text' className='text-center outline-none text-black z-10' value='300' />
               <span className='absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#4A588D]'>ر.س</span>
             </div>
             <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>سعر المنتج</span>
+              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>سعر المنتج</span>
               <input type='text' className='text-center outline-none text-black z-10' value='500' />
               <span className='absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#4A588D]'>ر.س</span>
             </div>
           </div>
           <div className='w-full flex items-center gap-8'>
             <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>السعر المخفض</span>
+              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>السعر المخفض</span>
               <input type='text' className='text-center outline-none text-black z-10' value='450' />
               <span className='absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#4A588D]'>ر.س</span>
             </div>
             <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>نهاية التخفيض</span>
+              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>نهاية التخفيض</span>
               <input type='text' className='text-center outline-none text-black z-10 placeholder:[#D6D6D6]' placeholder='نهاية التخفيض (إختياري)' />
             </div>
           </div>
           <div className='w-full flex items-center gap-8'>
             <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>وزن المنتج</span>
+              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>وزن المنتج</span>
               <input type='text' className='text-center outline-none text-black z-10' value='1.2' />
               <span className='absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#4A588D]'>كجم</span>
             </div>
             <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>الكمية</span>
+              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>الكمية</span>
               <input type='text' className='text-center outline-none text-[#D6D6D6] z-10' value={122} />
               <span className={`cursor-pointer absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#4A588D]`}>
                 <Image src={infinityOff} alt='infinity' width={200} height={200} className='w-2/4 h-2/4' />
@@ -210,7 +210,7 @@ const Products = () => {
               }
             </div>
             <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>التنبيه عند كمية</span>
+              <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>التنبيه عند كمية</span>
               <input type='text' className='text-center outline-none text-black z-10 placeholder:[#D6D6D6]' value={10} />
             </div>
           </div>
@@ -288,7 +288,7 @@ const Products = () => {
                     </td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]">
                       <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-                        <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>الكمية</span>
+                        <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>الكمية</span>
                         <input type='text' className='text-center outline-none text-[#D6D6D6] z-10' value={122} />
                         <span className={`cursor-pointer absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#4A588D]`}>
                           <Image src={infinityOn} alt='infinity' width={200} height={200} className='w-2/4 h-2/4' />
@@ -309,7 +309,7 @@ const Products = () => {
                     </td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]">
                       <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
-                        <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>الكمية</span>
+                        <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white text-xs rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>الكمية</span>
                         <input type='text' className='text-center outline-none z-10' value={50} />
                         <span className={`cursor-pointer absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#C8C8C8]`}>
                           <Image src={infinityOff} alt='infinity' width={200} height={200} className='w-2/4 h-2/4' />
