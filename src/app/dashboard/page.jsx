@@ -6,6 +6,7 @@ import Main from './Main/main'
 import Orders from './Orders/Orders'
 import Products from './Products/Products'
 import Clients from './Clients/Clients'
+import Bills from './Bills/Bills'
 import purpleLogo from '../../components/Logo/purpleLogo.svg'
 import Logo from '../../components/Logo/logo.svg'
 import email from '../../assets/auth/email.svg'
@@ -100,6 +101,7 @@ const Dashboard = () => {
         {mainMood === 'orders' && <Orders />}
         {mainMood === 'products' && <Products />}
         {mainMood === 'clients' && <Clients />}
+        {mainMood === 'bills' && <Bills />}
       </div>
     </main>
     :
