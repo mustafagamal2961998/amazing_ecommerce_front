@@ -10,6 +10,7 @@ import Bills from './Bills/Bills'
 import Reports from './Reports/Reports'
 import Shipping from './Shipping/Shipping'
 import Rating from './Rating/Rating'
+import Settings from './Settings/Settings'
 import purpleLogo from '../../components/Logo/purpleLogo.svg'
 import Logo from '../../components/Logo/logo.svg'
 import email from '../../assets/auth/email.svg'
@@ -108,6 +109,7 @@ const Dashboard = () => {
         {mainMood === 'reports' && <Reports />}
         {mainMood === 'shipping' && <Shipping />}
         {mainMood === 'rating' && <Rating />}
+        {mainMood === 'settings' && <Settings />}
       </div>
     </main>
     :
