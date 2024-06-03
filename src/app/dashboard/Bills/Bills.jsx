@@ -67,7 +67,7 @@ const Bills = () => {
                             </thead>
                             <tbody className="text-black p-3">
                                 <tr className="text-center border-b-[1px] border-[#F2F2F2]">
-                                    <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1]">احمد حسن</td>
+                                    <td className="whitespace-nowrap">احمد حسن</td>
                                     <td className='text-base' dir="ltr">00235</td>
                                     <td className='whitespace-nowrap'>400 ر.س</td>
                                     <td className="p-5" dir="ltr">2024 - 05 - 02</td>
@@ -85,7 +85,7 @@ const Bills = () => {
                                     </td>
                                 </tr>
                                 <tr className="text-center border-b-[1px] border-[#F2F2F2]">
-                                    <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1]">احمد حسن</td>
+                                    <td className="whitespace-nowrap">احمد حسن</td>
                                     <td className='text-base' dir="ltr">00235</td>
                                     <td className='whitespace-nowrap'>400 ر.س</td>
                                     <td className="p-5" dir="ltr">2024 - 05 - 02</td>
@@ -103,7 +103,7 @@ const Bills = () => {
                                     </td>
                                 </tr>
                                 <tr className="text-center border-b-[1px] border-[#F2F2F2]">
-                                    <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1]">احمد حسن</td>
+                                    <td className="whitespace-nowrap">احمد حسن</td>
                                     <td className='text-base' dir="ltr">00235</td>
                                     <td className='whitespace-nowrap'>400 ر.س</td>
                                     <td className="p-5" dir="ltr">2024 - 05 - 02</td>
@@ -121,7 +121,7 @@ const Bills = () => {
                                     </td>
                                 </tr>
                                 <tr className="text-center border-b-[1px] border-[#F2F2F2]">
-                                    <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1]">احمد حسن</td>
+                                    <td className="whitespace-nowrap">احمد حسن</td>
                                     <td className='text-base' dir="ltr">00235</td>
                                     <td className='whitespace-nowrap'>400 ر.س</td>
                                     <td className="p-5" dir="ltr">2024 - 05 - 02</td>
@@ -139,7 +139,7 @@ const Bills = () => {
                                     </td>
                                 </tr>
                                 <tr className="text-center border-b-[1px] border-[#F2F2F2]">
-                                    <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1]">احمد حسن</td>
+                                    <td className="whitespace-nowrap">احمد حسن</td>
                                     <td className='text-base' dir="ltr">00235</td>
                                     <td className='whitespace-nowrap'>400 ر.س</td>
                                     <td className="p-5" dir="ltr">2024 - 05 - 02</td>

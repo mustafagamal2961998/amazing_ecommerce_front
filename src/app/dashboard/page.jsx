@@ -8,6 +8,7 @@ import Products from './Products/Products'
 import Clients from './Clients/Clients'
 import Bills from './Bills/Bills'
 import Reports from './Reports/Reports'
+import Offers from './Offers/Offers'
 import Shipping from './Shipping/Shipping'
 import Rating from './Rating/Rating'
 import Settings from './Settings/Settings'
@@ -110,6 +111,7 @@ const Dashboard = () => {
         {mainMood === 'shipping' && <Shipping />}
         {mainMood === 'rating' && <Rating />}
         {mainMood === 'settings' && <Settings />}
+        {mainMood === 'offers' && <Offers />}
       </div>
     </main>
     :
