@@ -1,11 +1,11 @@
 import HomePage from "../components/Home page/HomePage";
-import Products from "../components/Products/Products";
+import Navbar from "../components/Navbar/Navbar";
 
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <HomePage />
-      {/* <Products /> */}
     </main>
   );
 }

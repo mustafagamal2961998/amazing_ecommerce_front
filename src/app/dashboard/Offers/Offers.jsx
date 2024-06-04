@@ -38,7 +38,7 @@ const Offers = () => {
                     <p className='text-md'>إضافة كوبون جديد</p>
                 </span>
             </div>
-            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 w-full">
+            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 w-[103%]">
                 <div className="inline-block min-w-full">
                     <div className="overflow-hidden rounded-3xl shadow">
                         <table className="min-w-full text-center text-sm font-normal text-surface text-white">
@@ -62,7 +62,7 @@ const Offers = () => {
                                     <td className='relative p-5 flex justify-center items-center'>
                                         <div className='m-auto'>
                                             <Image src={couponOptions} alt="coupon options" className="w-[30px] h-[30px] cursor-pointer" onClick={() => setOptions(!options)} />
-                                            <span className={`w-fit absolute right-[-60px] top-2 bg-white p-5 rounded-3xl shadow-2xl ${options ? 'flex flex-col justify-center items-start gap-3' : 'hidden'}`}>
+                                            <span className={`w-fit z-50 absolute right-[-85px] top-2 bg-white p-5 rounded-3xl shadow-2xl ${options ? 'flex flex-col justify-center items-start gap-3' : 'hidden'}`}>
                                                 <span className='flex items-center gap-2 font-bold select-none cursor-pointer w-full'>
                                                     <Image src={greenEdit} alt="edit" className="w-[30px] h-[30px]" />
                                                     <p>تعديل</p>

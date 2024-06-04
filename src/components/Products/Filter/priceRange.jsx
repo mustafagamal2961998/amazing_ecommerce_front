@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import './style.css'
+import '../style.css'
 
 const PriceRange = () => {
   const [minPrice, setMinPrice] = useState(0);

@@ -1,7 +1,3 @@
-.nav {
-    background-image: linear-gradient(to right, #252B42, #5E6DA8);
-  }
-  
 .links a::after {
     content: '';
     position: absolute;
@@ -16,8 +12,4 @@
 
 .links a:hover::after {
     width: 100%;
-}
-
-.search-input input::placeholder{
-    margin-right: 120px;
 }
