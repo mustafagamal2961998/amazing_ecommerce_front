@@ -1,0 +1,9 @@
+.search-con::after{
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: -13px;
+    width: 1px;
+    height: 163%;
+    background-color: #FFFFFF;
+}
