@@ -17,12 +17,12 @@ const ProductCard = (props) => {
         </Link>
         <span className='flex flex-col p-1'>
             <p className='font-bold z-50'>{props.title}</p>
-            <span className='flex justify-between items-center w-full p-1'>
-                <span className='flex items-center gap-2'>
+            <span className='flex justify-between max-md:justify-center max-md:flex-col items-center w-full p-1'>
+                <span className='flex items-center gap-2 max-md:flex-col max-md:justify-center max-md:items-center'>
                     <p className='font-bold'>{props.price} ر.س</p>
                     <p className='text-xs text-gray-500 line-through'>{(props.price - 2).toFixed(2)} ر.س</p>
                  </span>
-                <Image src={cartPlus} width={35} height={35} className='cursor-pointer mt-[-25px] bg-[#5E6DA8] duration-200 hover:bg-green-500 p-2 rounded-md w-[35px] h-[35px] object-cover' alt={props.title} />
+                <Image src={cartPlus} width={35} height={35} className='cursor-pointer md:mt-[-25px] max-md:mt-2 bg-[#5E6DA8] duration-200 hover:bg-green-500 p-2 rounded-md w-[35px] h-[35px] object-cover' alt={props.title} />
             </span>
         </span>
     </div>
