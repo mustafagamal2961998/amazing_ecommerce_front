@@ -48,19 +48,21 @@ const imgs = [img1, img2, img3,  img4,  img5,  img6,  img7,  img8,  img9,  img10
                                 <Image src={imgs[product.id - 1]} width={500} height={500} alt='product thumbnail' className='w-full h-full object-cover' />
                                 <FavImg />
                                 <p>{product.title}</p>
-                                <span className='flex items-center gap-1'>
+                                <span className='flex items-center gap-1 max-md:flex-col max-md:justify-center'>
                                     <p className='font-bold'>{product.price} ر.س</p>
                                     <p className='text-xs line-through text=[#9B9B9B]'>{(product.price - 2).toFixed(2)} ر.س</p>
                                 </span>
-                                <span className='flex items-center gap-1'>
+                                <span className='flex items-center gap-1 max-md:flex-col max-md:justify-center'>
                                     <p>3 ألوان</p>
-                                    <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#001C63]' />
-                                    <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#409ACE]' />
-                                    <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#1A6872]' />
+                                    <span className='flex items-center gap-1'>
+                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#001C63]' />
+                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#409ACE]' />
+                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#1A6872]' />
+                                    </span>
                                 </span>
                                 <Link href={`/products/${product.id}`} className='w-full p-2 mb-2 hidden group-hover:flex justify-center items-center gap-3 bg-[#404B70] rounded-lg'>
-                                    <p className='text-base text-white'>تفاصيل المنتج</p>
-                                    <Image src={details} alt='product image' className='w-[20px] h-[20px]' />
+                                    <p className='text-base text-white max-md:text-sm'>تفاصيل المنتج</p>
+                                    <Image src={details} alt='product image' className='w-[20px] h-[20px] max-md:w-[14px] max-md:h-[14px]' />
                                 </Link>
                             </div>
                         ))
