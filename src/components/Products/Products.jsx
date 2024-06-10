@@ -47,17 +47,17 @@ const imgs = [img1, img2, img3,  img4,  img5,  img6,  img7,  img8,  img9,  img10
                             <div key={product.id} className='group relative w-full p-1 duration-200 border-2 border-transparent hover:border-[#404B70] rounded-md flex flex-col justify-center items-center gap-2'>
                                 <Image src={imgs[product.id - 1]} width={500} height={500} alt='product thumbnail' className='w-full h-full object-cover' />
                                 <FavImg />
-                                <p>{product.title}</p>
+                                <p className='max-md:text-sm'>{product.title}</p>
                                 <span className='flex items-center gap-1 max-md:flex-col max-md:justify-center'>
-                                    <p className='font-bold'>{product.price} ر.س</p>
-                                    <p className='text-xs line-through text=[#9B9B9B]'>{(product.price - 2).toFixed(2)} ر.س</p>
+                                    <p className='font-bold max-md:text-sm'>{product.price} ر.س</p>
+                                    <p className='text-xs max-md:text-xs line-through text=[#9B9B9B]'>{(product.price - 2).toFixed(2)} ر.س</p>
                                 </span>
                                 <span className='flex items-center gap-1 max-md:flex-col max-md:justify-center'>
-                                    <p>3 ألوان</p>
+                                    <p className='max-md:text-sm'>3 ألوان</p>
                                     <span className='flex items-center gap-1'>
-                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#001C63]' />
-                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#409ACE]' />
-                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] text-[#1A6872]' />
+                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] max-md:w-[14px] max-md:h-[14px] text-[#001C63]' />
+                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] max-md:w-[14px] max-md:h-[14px] text-[#409ACE]' />
+                                        <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] max-md:w-[14px] max-md:h-[14px] text-[#1A6872]' />
                                     </span>
                                 </span>
                                 <Link href={`/products/${product.id}`} className='w-full p-2 mb-2 hidden group-hover:flex justify-center items-center gap-3 bg-[#404B70] rounded-lg'>
