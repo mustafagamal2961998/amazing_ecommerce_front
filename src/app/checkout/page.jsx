@@ -40,7 +40,7 @@ const checkout = () => {
                 <FontAwesomeIcon icon={faArrowLeft} />
             </Link>
             </span>
-            <span className='flex flex-row-reverse items-center gap-7 max-md:gap-2 flex-wrap'>
+            <span className='flex flex-row-reverse justify-center items-center gap-7 max-md:gap-2 flex-wrap'>
                     <Image src={VISA_logo} className='w-[120px] h-[100px]' alt='Amazing' />
                     <Image src={mastercard_logo} className='w-[120px] h-[100px]' alt='Amazing' />
                     <Image src={ApplePay_logo} className='w-[120px] h-[100px]' alt='Amazing' />

@@ -7,3 +7,9 @@
 .css-b62m3t-container{
     padding: 6px;
 }
+
+@media(max-width: 767px){
+    .css-13cymwt-control{
+      padding: 1px !important;
+    }
+}
