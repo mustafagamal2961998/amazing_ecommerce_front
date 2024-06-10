@@ -23,7 +23,7 @@ const HomePage = () => {
     <div className='wardrobe-container relative flex justify-center items-center'>
       {pathname === '/' &&
         <>
-          <Image src={rightBubble} alt='Amazing' className='w-[180px] h-[180px] absolute -top-5 right-5 -z-20' />
+          <Image src={rightBubble} alt='Amazing' className='w-[180px] h-[180px] absolute -top-5 right-5 max-md:right-0 -z-20' />
           <Image src={leftBubble} alt='Amazing' className='w-[180px] h-[180px] absolute -bottom-[50px] left-0 -z-20' />
         </>
       }
