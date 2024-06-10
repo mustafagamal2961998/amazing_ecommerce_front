@@ -30,3 +30,9 @@ span.active::after{
   border-radius: 8px !important;
   padding: 6px !important;
 }
+
+@media(max-width: 767px){
+  .css-13cymwt-control{
+    padding: 2px !important;
+  }
+}
