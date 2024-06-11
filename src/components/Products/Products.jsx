@@ -36,7 +36,7 @@ const imgs = [img1, img2, img3,  img4,  img5,  img6,  img7,  img8,  img9,  img10
                     <div className='flex flex-col justify-center items-center gap-8'>
                         <Link href='/' className='flex gap-2 items-center'>
                             رجوع    
-                            <Image src={arrow} width={8} height={8} alt='back' className='w-[8px] h[8px] mt-1' />
+                            <Image src={arrow} width={8} height={8} alt='back' className='w-[8px] h-[8px] mt-1' />
                         </Link>
                         <Filter />
                     </div>
