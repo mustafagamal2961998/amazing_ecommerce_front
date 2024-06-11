@@ -29,7 +29,7 @@ const page = async ({params}) => {
           <span className='flex items-center text-gray-300'>بدلة بصف أزرار  / <p className='text-black mr-1'> بدل رسمي </p></span>
           <Link href='/' className='flex gap-2 items-center'>
               رجوع    
-              <Image src={arrow} width={8} height={8} alt='back' className='w-[8px] h[8px] mt-1' />
+              <Image src={arrow} width={8} height={8} alt='back' className='w-[8px] h-[8px] mt-1' />
           </Link>
         </span>
         <div className='flex justify-between w-full max-md:flex-col'>
