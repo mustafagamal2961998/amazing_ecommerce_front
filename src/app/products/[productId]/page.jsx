@@ -26,7 +26,7 @@ const page = async ({params}) => {
       <Navbar />
       <div className='flex flex-col items-start gap-5 p-5 w-full pb-5 pt-5 pr-[60px] pl-[60px]'>
         <span className='w-[95%] flex justify-between items-center mt-8 mb-8'>
-          <span className='flex items-center text-gray-300'>بدلة بصف أزرار  / <p className='text-black mr-1'> بدل رسمي </p></span>
+          <span className='flex items-center text-gray-300'> {product.title} / <p className='text-black mr-1'> بدل رسمي </p></span>
           <Link href='/' className='flex gap-2 items-center'>
               رجوع    
               <Image src={arrow} width={8} height={8} alt='back' className='w-[8px] h-[8px] mt-1' />
