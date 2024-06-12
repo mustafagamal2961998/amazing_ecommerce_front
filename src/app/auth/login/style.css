@@ -1,4 +1,4 @@
-.login-con p{
+.login-con p {
     color: #252B42;
 }
 
@@ -8,7 +8,7 @@
     border-radius: 12px;
 }
 
-.login-con form input::placeholder{
+.login-con form input::placeholder {
     color: #E0E0E0;
 }
 

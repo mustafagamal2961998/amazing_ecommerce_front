@@ -1,4 +1,4 @@
-.signup p{
+.signup p {
     color: #252B42;
 }
 
@@ -8,7 +8,7 @@
     border-radius: 12px;
 }
 
-.signup form input::placeholder{
+.signup form input::placeholder {
     color: #E0E0E0;
 }
 

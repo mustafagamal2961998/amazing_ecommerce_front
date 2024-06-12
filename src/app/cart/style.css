@@ -3,7 +3,7 @@ input[type="radio"] {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: transparent; 
+    background-color: transparent;
     outline: none;
     cursor: pointer;
 }
@@ -28,10 +28,10 @@ input[type="radio"]:checked::before {
     background-color: black;
 }
 
-.payment input[type="radio"]:checked::before {
-    background-color: #5E6DA8;
-}
-
 .payment input[type="radio"] {
     border: 2px solid #5E6DA8;
+}
+
+.payment input[type="radio"]:checked::before {
+    background-color: #5E6DA8;
 }
