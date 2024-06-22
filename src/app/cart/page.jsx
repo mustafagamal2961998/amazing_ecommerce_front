@@ -32,13 +32,19 @@ const Cart = () => {
               <Image src={cartItem1} className='w-[200px] h-[200px] mr-[45px] max-md:mr-0' width={200} height={200} alt='Amazing' />
               <span className='flex flex-col items-start gap-4'>
                 <p className='text-xl'>بدلة بصف أزرار</p>
-                <span className='flex items-center gap-3 text-xs font-bold'>
-                  اللون   :
-                  <Image src={cartItem1} className='w-[20px] h-[27px] rounded-md' width={20} height={27} alt='Amazing' />
+                <span className='w-full flex items-center justify-between text-xs font-bold'>
+                  اللون 
+                  <span className='flex items-center gap-2'>
+                    :
+                    <Image src={cartItem1} className='w-[20px] h-[27px] rounded-md' width={20} height={27} alt='Amazing' />
+                  </span>  
                 </span>
-                <span className='flex items-center gap-3 text-xs font-bold'>
-                  المقاس   :
-                  <span className='p-2 bg-[#5E6DA8] text-white rounded-md cursor-pointer'>S</span>
+                <span className='w-full flex items-center justify-between text-xs font-bold'>
+                  المقاس   
+                  <span className='flex items-center gap-2'>
+                    :
+                    <span className='p-2 bg-[#5E6DA8] text-white rounded-md cursor-pointer'>S</span>
+                  </span>
                 </span>
                 <span className='flex gap-5 p-2 mt-[15px] rounded-full text-white bg-[#5E6DA8]'>
                   <FontAwesomeIcon icon={faPlus} className='border-2 rounded-full border-white cursor-pointer' />
@@ -59,18 +65,24 @@ const Cart = () => {
           <div className='w-full flex justify-between max-md:flex-col max-md:items-end items-start'>
             <span className='relative flex items-start gap-2'>
               <span className='bg-[#5E6DA8] text-white rounded-full text-[14px] w-[24px] h-[24px] text-center mr-auto absolute top-2/4 -translate-x-2/4 -translate-y-2/4 right-0 max-md:right-[-60px]'>
-                2
+                1
               </span>
-              <Image src={cartItem2} className='w-[200px] h-[200px] mr-[45px] max-md:mr-0' width={200} height={200} alt='Amazing' />
+              <Image src={cartItem1} className='w-[200px] h-[200px] mr-[45px] max-md:mr-0' width={200} height={200} alt='Amazing' />
               <span className='flex flex-col items-start gap-4'>
                 <p className='text-xl'>بدلة كاروهات</p>
-                <span className='flex items-center gap-3 text-xs font-bold'>
-                  اللون   :
-                  <Image src={cartItem2} className='w-[20px] h-[27px] rounded-md' width={20} height={27} alt='Amazing' />
+                <span className='w-full flex items-center justify-between text-xs font-bold'>
+                  اللون 
+                  <span className='flex items-center gap-2'>
+                    :
+                    <Image src={cartItem1} className='w-[20px] h-[27px] rounded-md' width={20} height={27} alt='Amazing' />
+                  </span>  
                 </span>
-                <span className='flex items-center gap-3 text-xs font-bold'>
-                  المقاس   :
-                  <span className='p-2 bg-[#5E6DA8] text-white rounded-md cursor-pointer'>S</span>
+                <span className='w-full flex items-center justify-between text-xs font-bold'>
+                  المقاس   
+                  <span className='flex items-center gap-2'>
+                    :
+                    <span className='p-2 bg-[#5E6DA8] text-white rounded-md cursor-pointer'>S</span>
+                  </span>
                 </span>
                 <span className='flex gap-5 p-2 mt-[15px] rounded-full text-white bg-[#5E6DA8]'>
                   <FontAwesomeIcon icon={faPlus} className='border-2 rounded-full border-white cursor-pointer' />
@@ -143,7 +155,7 @@ const Cart = () => {
               الإجمالي
               <p className='text-[#434343]'>1040 ر.س</p>
             </span>
-            <Link href='checkout' className='rounded-xl bg-[#3DA241] text-white p-3 w-full mt-auto text-center'>تأكيد الطلب</Link>
+            <Link href='checkout' className='rounded-xl bg-[#3DA241] border-2 border-black text-white p-3 w-full mt-auto text-center'>تأكيد الطلب</Link>
           </div>
         </div>
       </div>
