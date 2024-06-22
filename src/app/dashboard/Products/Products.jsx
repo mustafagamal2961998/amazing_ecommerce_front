@@ -121,7 +121,7 @@ const Products = () => {
               <ImageSlider images={product.images} />
               <div className='relative mt-52 flex justify-center items-center gap-5 bg-[#EFEFEF] rounded-3xl p-2 w-full'>
                 <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D] z-20'>اسم المنتج</span>
-                <input type='text' className='w-fit bg-[#EFEFEF] text-center outline-none text-black z-10' value={product.title} />
+                <input type='text' className='w-fit bg-[#EFEFEF] text-center outline-none text-black z-10' value='اسم المنتج' />
                 <p></p>
               </div>
               <div className='relative flex justify-center items-center gap-5 bg-[#EFEFEF] rounded-3xl p-2 w-full'>
