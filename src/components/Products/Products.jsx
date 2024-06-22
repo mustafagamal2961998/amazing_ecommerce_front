@@ -47,7 +47,7 @@ const imgs = [img1, img2, img3,  img4,  img5,  img6,  img7,  img8,  img9,  img10
                             <div key={product.id} className='group relative w-full p-1 duration-200 border-2 border-transparent hover:border-[#404B70] rounded-md flex flex-col justify-center items-center gap-2'>
                                 <Image src={imgs[product.id - 1]} width={500} height={500} alt='product thumbnail' className='w-full h-full object-cover' />
                                 <FavImg />
-                                <p className='max-md:text-sm'>{product.title}</p>
+                                <p className='max-md:text-sm'>اسم المنتج</p>
                                 <span className='flex items-center gap-1 max-md:flex-col max-md:justify-center'>
                                     <p className='font-bold max-md:text-sm'>{product.price} ر.س</p>
                                     <p className='text-xs max-md:text-xs line-through text=[#9B9B9B]'>{(product.price - 2).toFixed(2)} ر.س</p>
