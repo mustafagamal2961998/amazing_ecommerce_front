@@ -23,11 +23,11 @@ const HomePage = () => {
     <div className='wardrobe-container relative flex justify-center items-center'>
       {pathname === '/' &&
         <>
-          <Image src={rightBubble} alt='Amazing' className='w-[180px] h-[180px] absolute -top-5 right-5 max-md:right-0 -z-20' />
+          <Image src={rightBubble} alt='Amazing' className='w-[180px] h-[180px] absolute -top-5 right-0 max-md:right-0 -z-20' />
           <Image src={leftBubble} alt='Amazing' className='w-[180px] h-[180px] absolute -bottom-[50px] left-0 -z-20' />
         </>
       }
-        <div className={`wardrobe ${mainImg == middleBottomOpen || mainImg == endBottomOpen ? 'h-[720px]' : 'h-[700px]'} ${mainImg == rightOpen || mainImg == leftOpen ? 'h-[760px] mt-[23px]' : 'h-[700px]'} ${mainImg == endBottomOpen || mainImg == endBottomOpen && 'pr-14 w-[92%]'} mt-[40px] w-3/4 relative flex justify-center items-center`}>
+        <div className={`mt-[40px] w-[1400px] h-[500px] 2xl:h-[700px] relative flex justify-center items-center`}>
             <Image src={mainImg ? mainImg : wardrobe} alt='Home page' width={4388} height={2650} className={`w-full h-full`} />
             <div className='wardrobe-overlay flex items-center justify-start' style={{ top: '46px', right: '104px', width: '36%', height: '91%', position: 'absolute', zIndex: '1' }}>
                 <span className='w-full h-full' onMouseOver={() => setMainImg(rightOpen)} onMouseOut={() => setMainImg(wardrobe)}>

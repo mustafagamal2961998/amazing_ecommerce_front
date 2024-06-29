@@ -36,7 +36,7 @@ import Navbar from '../../components/Navbar/Navbar'
 const profile = () => {
     const [products, setProducts] = useState([]);
     const [mode, setMode] = useState('information');
-    const [sidebar, setSidebar] = useState(false);
+    const [sidebar, setSidebar] = useState(true);
     
     const handleMode = (mode) => {
         setMode(mode)
