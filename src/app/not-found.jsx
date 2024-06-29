@@ -14,7 +14,7 @@ export default function Custom404() {
           <h2 className='text-3xl text-black'>هذا الرابط لا يوجد</h2>
           <span className='flex items-center gap-3'>
             <FontAwesomeIcon icon={faGear} className='animate-spin text-2xl text-[#5e6da8]' />
-            <Link href='/' className='font-bold text-2xl text-[#5e6da8d5] hover:text-[#5e6da8b7] duration-200'>الصفحة الرئيسية</Link>
+            <Link href='/' className='font-extrabold text-2xl text-[#5e6da8d5] hover:text-[#5e6da8b7] duration-200'>الصفحة الرئيسية</Link>
           </span>
         </div>
       </main>
