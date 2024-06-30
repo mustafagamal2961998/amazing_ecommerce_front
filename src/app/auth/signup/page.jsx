@@ -1,3 +1,5 @@
+'use client'
+
 import './style.css';
 import Image from "next/image";
 import "react-datepicker/dist/react-datepicker.css";
@@ -13,8 +15,30 @@ import numberIcon from '../../../assets/auth/number.svg';
 import genderIcon from '../../../assets/auth/gender.svg';
 import birthdayIcon from '../../../assets/auth/birthday.svg';
 import eyeIcon from '../../../assets/auth/eye.svg';
+import { useState } from 'react';
+import LoadingSpinner from '../../../components/Loading/LoadingSpinner'
+import { useStatusContext } from '../../../Utils/Status/statusContext'
+import { handleAuth } from '../../../Utils/Auth/Auth'
 
 const Signup = () => {
+
+  const { isLoading, setIsLoading } = useStatusContext();
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    gender: 'male',
+    birthday: '',
+    password: ''
+  })
+
+  const handleFormChange = (e) => {
+    setForm({...form, [e.target.name]: e.target.value});
+  }
+
   return (
     <div className='signup flex flex-row-reverse max-md:flex-col'>
       <Slogan />
@@ -23,10 +47,12 @@ const Signup = () => {
         <p>حساب جديد</p>
         <form>
           <span className='relative'>
-            <input 
+            <input
+              name='name'
               type='text' 
               placeholder='الاسم كامل' 
-              className='w-[62%] text-[12px] p-3 mb-3 outline-none' 
+              className='w-[62%] text-[12px] p-3 mb-3 outline-none'
+              onChange={(e) => handleFormChange(e)} 
             />
             <Image 
               src={nameIcon} 
@@ -36,9 +62,11 @@ const Signup = () => {
           </span>
           <span className='relative'>
             <input 
+              name='email'
               type='email' 
               placeholder='البريد الالكتروني' 
-              className='w-[62%] text-[12px] p-3 mb-3 outline-none' 
+              className='w-[62%] text-[12px] p-3 mb-3 outline-none'
+              onChange={(e) => handleFormChange(e)} 
             />
             <Image 
               src={emailIcon} 
@@ -48,9 +76,11 @@ const Signup = () => {
           </span>
           <span className='relative'>
             <input 
-              type='text' 
+              name='phoneNumber'
+              type='text'
               placeholder='رقم الجوال' 
-              className='w-[62%] text-[12px] p-3 mb-3 outline-none' 
+              className='w-[62%] text-[12px] p-3 mb-3 outline-none'
+              onChange={(e) => handleFormChange(e)} 
             />
             <Image 
               src={numberIcon} 
@@ -59,7 +89,10 @@ const Signup = () => {
             />
           </span>
           <span className='relative'>
-            <select className="gender mb-3 w-[62%] text-[12px] p-2 outline-none">
+            <select className="gender mb-3 w-[62%] text-[12px] p-2 outline-none"
+            name='gender'
+            onChange={(e) => handleFormChange(e)}
+            >
               <option value="male">ذكر</option>
               <option value="female">أنثى</option>
             </select>
@@ -71,9 +104,11 @@ const Signup = () => {
           </span>
           <span className='custom-date-input relative'>
             <input 
-              type='date' 
+              name='birthday'
+              type='date'
               placeholder='تاريخ الميلاد' 
-              className='w-[62%] text-[12px] p-3 mb-3 outline-none' 
+              className='w-[62%] text-[12px] p-3 mb-3 outline-none'
+              onChange={(e) => handleFormChange(e)} 
             />
             <Image 
               src={birthdayIcon} 
@@ -82,22 +117,31 @@ const Signup = () => {
             />
           </span>
           <span className='relative'>
-            <input 
-              type='password' 
+            <input
+              name='password'
+              type={showPassword ? 'text' : 'password'}
               placeholder='كلمة المرور' 
-              className='w-[62%] text-[12px] p-3 mb-3 outline-none' 
+              className='w-[62%] text-[12px] p-3 mb-3 outline-none'
+              onChange={(e) => handleFormChange(e)} 
             />
             <Image 
               src={eyeIcon} 
-              className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' 
-              alt='Amazing' 
+              className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4 cursor-pointer' 
+              alt='Amazing'
+              onClick={() => setShowPassword(!showPassword)}
             />
           </span>
+        {
+        isLoading ?
+          <LoadingSpinner />
+        :
           <input 
             type='submit' 
             value='تسجيل' 
+            onClick={(e) => handleAuth(e, form, 'signup', setIsLoading)}
             className='signup-btn w-[62%] text-[12px] text-white cursor-pointer p-3 mb-3 mt-5 outline-none' 
           />
+        }
           <p className='mb-2'>أو</p>
           <span className='flex flex-row-reverse justify-center items-center gap-3 mb-2'>
             <Link href='/'>

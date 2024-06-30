@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Cairo } from 'next/font/google'
-import Navbar from "../components/Navbar/Navbar";
+import { StatusContextProvider } from '../Utils/Status/statusContext'
 
 export const metadata = {
   title: "Amazing",
@@ -17,8 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body dir="rtl" className={cairo.className} >
-        {/* <Navbar /> */}
-        {children}
+        <StatusContextProvider>
+          {children}
+        </StatusContextProvider>
       </body>
     </html>
   );
