@@ -44,7 +44,7 @@ const imgs = [img1, img2, img3,  img4,  img5,  img6,  img7,  img8,  img9,  img10
                 <section className='product-con w-full grid grid-cols-4 max-md:grid-cols-2 gap-14'>
                     {
                         products['products']?.slice(0, 12).map((product) => (
-                            <div key={product.id} className='group relative w-full p-1 duration-200 border-2 border-transparent hover:border-[#404B70] rounded-md flex flex-col justify-center items-center gap-2'>
+                            <div key={product.id} className='relative w-full p-1 duration-200 border-2 border-transparent hover:border-[#404B70] rounded-md flex flex-col justify-center items-center gap-2'>
                                 <Image src={imgs[product.id - 1]} width={500} height={500} alt='product thumbnail' className='w-full h-full object-cover' />
                                 <FavImg />
                                 <p className='max-md:text-sm'>اسم المنتج</p>
@@ -60,7 +60,7 @@ const imgs = [img1, img2, img3,  img4,  img5,  img6,  img7,  img8,  img9,  img10
                                         <FontAwesomeIcon icon={faCircle} className='w-[20px] h-[20px] max-md:w-[14px] max-md:h-[14px] text-[#1A6872]' />
                                     </span>
                                 </span>
-                                <Link href={`/products/${product.id}`} className='w-full p-2 mb-2 hidden group-hover:flex justify-center items-center gap-3 bg-[#404B70] rounded-lg'>
+                                <Link href={`/products/${product.id}`} className='w-full p-2 mb-2 flex justify-center items-center gap-3 bg-[#404B70] rounded-lg'>
                                     <p className='text-base text-white max-md:text-sm'>تفاصيل المنتج</p>
                                     <Image src={details} alt='product image' className='w-[20px] h-[20px] max-md:w-[14px] max-md:h-[14px]' />
                                 </Link>
