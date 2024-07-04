@@ -284,7 +284,7 @@ const Clients = () => {
         </div>
         <div>
           <Image src={more} alt="more" className="w-[30px] h-[30px] cursor-pointer" onClick={() => setActions(!actions)} />
-          <span className={`w-fit absolute left-44 top-48 bg-white p-5 rounded-3xl shadow-2xl ${actions ? 'flex flex-col justify-center items-start gap-3' : 'hidden'}`}>
+          <span className={`w-fit absolute left-[9%] top-48 bg-white p-5 rounded-3xl shadow-2xl ${actions ? 'flex flex-col justify-center items-start gap-3' : 'hidden'}`}>
             <span className='flex items-center gap-2 font-bold select-none cursor-pointer'>
               <Image src={block} alt="block" className="w-[30px] h-[30px]" />
               <p>حظر</p>
