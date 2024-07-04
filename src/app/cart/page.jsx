@@ -146,7 +146,7 @@ const Cart = () => {
               خصومات
               <p className='text-[#434343]'>00.00 ر.س</p>
             </span>
-            <span className='w-full flex justify-between font-bold'>
+            <span className='w-full flex justify-between gap-2 font-bold'>
               <input type='text' className='w-3/4 p-2 rounded-xl outline-none border-2 border-[#CCCCCC] placeholder:text-[#CCCCCC]' placeholder='ادخل كود الخصم' />
               <button className='rounded-xl bg-[#5E6DA8] text-white p-3'>تطبيق</button>
             </span>
