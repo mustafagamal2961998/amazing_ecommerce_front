@@ -31,35 +31,35 @@ const Orders = () => {
               <div className='grid grid-cols-5 gap-10 w-full'>
                 <div className='p-3 w-[100%] h-[55px] flex items-center justify-start gap-3 rounded-3xl bg-[#FEF5A8] shadow-lg'>
                   <Image src={timer} alt='timer' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                  <p className='text-lg'>طلبات قيد المراجعة</p>
+                  <p className='text-base'>طلبات قيد المراجعة</p>
                 </div>
                 <div className='p-3 w-[100%] h-[55px] flex items-center justify-start gap-3 rounded-3xl bg-[#FEE1A8]'>
                   <Image src={boxTime} alt='timer' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                  <p className='text-lg'>طلبات قيد التحضير</p>
+                  <p className='text-base'>طلبات قيد التحضير</p>
                 </div>
                 <div className='p-3 w-[100%] h-[55px] flex items-center justify-start gap-3 rounded-3xl bg-[#F2FEA8]'>
                   <Image src={shipping} alt='timer' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                  <p className='text-lg'>طلبات قيد الشحن</p>
+                  <p className='text-base'>طلبات قيد الشحن</p>
                 </div>
                 <div className='p-3 w-[100%] h-[55px] flex items-center justify-start gap-3 rounded-3xl bg-[#C9FEA8]'>
                   <Image src={boxTick} alt='timer' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                  <p className='text-lg'>طلبات تم تسليمها</p>
+                  <p className='text-base'>طلبات تم تسليمها</p>
                 </div>
                 <div className='p-3 w-[100%] h-[55px] flex items-center justify-start gap-3 rounded-3xl bg-[#A8FEC0]'>
                   <Image src={tickCircle} alt='timer' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                  <p className='text-lg'>طلبات منجزة</p>
+                  <p className='text-base'>طلبات منجزة</p>
                 </div>
                 <div className='p-3 w-[100%] h-[55px] flex items-center justify-start gap-3 rounded-3xl bg-[#FEA8A8]'>
                   <Image src={boxRemove} alt='timer' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                  <p className='text-lg'>طلبات ملغية</p>
+                  <p className='text-base'>طلبات ملغية</p>
                 </div>
                 <div className='p-3 w-[100%] h-[55px] flex items-center justify-start gap-3 rounded-3xl bg-[#A8CFFE]'>
                   <Image src={rotate} alt='timer' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                  <p className='text-lg'>طلبات مرتجعة</p>
+                  <p className='text-base'>طلبات مرتجعة</p>
                 </div>
                 <div className='p-3 w-[100%] h-[55px] flex items-center justify-start gap-3 rounded-3xl bg-[#FF7A7A]'>
                   <Image src={trash} alt='timer' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                  <p className='text-lg'>طلبات محذوفة</p>
+                  <p className='text-base'>طلبات محذوفة</p>
                 </div>
               </div>
               <div className="flex flex-col w-full">
@@ -78,7 +78,7 @@ const Orders = () => {
                               <Image
                                 src={searchIcon}
                                 alt="search"
-                                className="w-[14px] h-[12px] absolute top-2/4 left-80 -translate-y-2/4 -translate-x-2/4"
+                                className="w-[14px] h-[12px] absolute top-2/4 left-[55%] -translate-y-2/4 -translate-x-2/4"
                               />
                             </th>
                             <th className="px-6 py-4"></th>
