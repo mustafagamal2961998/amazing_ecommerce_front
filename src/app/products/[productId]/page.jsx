@@ -13,6 +13,7 @@ import img1 from '../../../assets/products/pro1.svg'
 import img2 from '../../../assets/products/pro2.svg'
 import img3 from '../../../assets/products/pro3.svg'
 import img4 from '../../../assets/products/pro4.svg'
+import Custom404 from "../../../app/not-found";
 
 const page = async ({params}) => {
   const productId = params.productId;
@@ -193,6 +194,8 @@ const page = async ({params}) => {
       </div>
     </div>
   );
+  }else{
+    return <Custom404 />
   }
 };
 
