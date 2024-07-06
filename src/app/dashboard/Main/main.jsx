@@ -58,19 +58,19 @@ const Main = () => {
             </span>
             <div className='w-full flex justify-center items-center gap-4'>
               <span className='flex flex-col justify-center items-center gap-3 w-full'>
+                <p className='text-[#3A4777]'>المبيعات</p>
+                <CircularProgressbar value={65} className='h-[60px]' text={`213`} />
+              </span>
+              <span className='flex flex-col justify-center items-center gap-3 w-full'>
+                <p className='text-[#3A4777]'>المنتجات</p>
+                <CircularProgressbar value={65} className='h-[60px]' text={`213`} />
+              </span>
+              <span className='flex flex-col justify-center items-center gap-3 w-full'>
                 <p className='text-[#3A4777]'>الزيارات</p>
                 <CircularProgressbar value={80} className='h-[60px]' text={`421`} />
               </span>
               <span className='flex flex-col justify-center items-center gap-3 w-full'>
-                <p className='text-[#3A4777]'>المبيعات</p>
-                <CircularProgressbar value={65} className='h-[60px]' text={`213`} />
-              </span>
-              <span className='flex flex-col justify-center items-center gap-3 w-full'>
-                <p className='text-[#3A4777]'>المبيعات</p>
-                <CircularProgressbar value={65} className='h-[60px]' text={`213`} />
-              </span>
-              <span className='flex flex-col justify-center items-center gap-3 w-full'>
-                <p className='text-[#3A4777]'>المبيعات</p>
+                <p className='text-[#3A4777]'>العملاء</p>
                 <CircularProgressbar value={65} className='h-[60px]' text={`213`} />
               </span>
             </div>
