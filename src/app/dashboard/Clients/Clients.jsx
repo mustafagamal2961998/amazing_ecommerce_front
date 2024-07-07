@@ -262,7 +262,7 @@ const Clients = () => {
       <div className='w-full h-[150px] p-5 rounded-t-3xl bg-gradient-to-br from-[#252B42] to-[#5E6DA8] flex justify-around items-center'>
         <div className='flex flex-col justify-center items-center gap-2'>
           <Image src={userImg} alt="user" className="w-[70px] h-[70px]" />
-          <span className='w-fit p-1 pr-4 pl-4 text-sm rounded-3xl text-center bg-[#BBC5EA] text-black'>احمد حسن</span>
+          <span className='w-fit p-1 pr-4 pl-4 text-sm rounded-3xl text-center bg-[#BBC5EA] text-black'>سيد عبد العظيم</span>
         </div>
         <div className='relative flex justify-center items-center gap-3'>
           <span className='flex flex-col items-center justify-center gap-2 bg-[#C8FEA8] font-bold p-8 rounded-2xl'>
@@ -308,7 +308,7 @@ const Clients = () => {
           <div className='w-[65%] flex items-center justify-center gap-8'>
             <div className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#BBC5EA] shadow-xl'>
               <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-xs text-black rounded-3xl bg-white'>الإسم</span>
-              <span className='text-center outline-none '>احمد حسن</span>
+              <span className='text-center outline-none '>سيد عبد العظيم</span>
             </div>
             <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#BBC5EA] shadow-xl'>
               <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-xs text-black rounded-3xl bg-white'>الجوال</span>

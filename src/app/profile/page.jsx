@@ -68,7 +68,7 @@ const profile = () => {
                         <Image src={profilePicture} className='w-[120px] h-[120px] rounded-full' alt='Amazing' />
                         <Image src={edit} className='w-[24px] h-[24px] absolute left-[15px] bottom-0' alt='Amazing' />
                     </span>
-                    <h2 className='text-white'>احمد حسن علي علي احمد</h2>
+                    <h2 className='text-white'>سيد عبد العظيم</h2>
                 </div>
                 <div className='flex flex-col gap-3 justify-center items-center w-full'>
                     <span className={`${mode === 'information' ? 'bg-white text-black active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`} onClick={() => handleMode('information')}>
@@ -175,7 +175,7 @@ const profile = () => {
                             1
                         </span>
                         <div className='flex-col items-start gap-3 text-black mr-[25px] font-bold'>
-                            <p>احمد حسن</p>
+                            <p>سيد عبد العظيم</p>
                             <p>20109395615+</p>
                             <span className='flex items-center gap-4'>
                                 <p>طالبية - الهرم - الجيزة</p>

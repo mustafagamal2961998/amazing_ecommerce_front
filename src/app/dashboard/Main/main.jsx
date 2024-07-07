@@ -160,7 +160,7 @@ const Main = () => {
                 <span className='flex items-start gap-2'>
                   <Image src={alertVector} alt='user' className='w-14 h-14' />
                   <span className='flex flex-col items-start gap-2'>
-                    <p className='font-bold'>احمد حسن</p>
+                    <p className='font-bold'>سيد عبد العظيم</p>
                     <p className='text-sm text-[#A7A7A7]'>منذ 3 ساعات</p>
                     <p className='text-sm text-[#A7A7A7]'>#0021544</p>
                   </span>
@@ -177,7 +177,7 @@ const Main = () => {
                 <span className='flex items-start gap-2'>
                   <Image src={alertVector} alt='user' className='w-14 h-14' />
                   <span className='flex flex-col items-start gap-2'>
-                    <p className='font-bold'>احمد حسن</p>
+                    <p className='font-bold'>سيد عبد العظيم</p>
                     <p className='text-sm text-[#A7A7A7]'>منذ 3 ساعات</p>
                     <p className='text-sm text-[#A7A7A7]'>#0021544</p>
                   </span>

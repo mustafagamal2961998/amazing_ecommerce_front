@@ -57,7 +57,7 @@ const Support = () => {
                     </span>
                     <span className='flex items-center gap-2'>
                         <Image src={person1} alt='user image' className='w-[50px] h-[50px]' />
-                        <p>احمد حسن</p>
+                        <p>سيد عبد العظيم</p>
                     </span>
                 </div>
                 <div className='w-full h-full flex justify-start items-center'>
@@ -65,7 +65,7 @@ const Support = () => {
                         <div className='w-full cursor-pointer relative flex justify-start items-center gap-2'>
                             <Image src={person1} alt='user image' className='w-[60px] h-[60px]' />
                             <span className='flex flex-col items-start gap-3'>
-                                <p>احمد حسن</p>
+                                <p>سيد عبد العظيم</p>
                                 <p className='text-sm'>الطلب رقم 02354 اريد تبديله...</p>
                             </span>
                             <span className='absolute left-2 top-2 bg-[#FF0000] text-white rounded-full text-xs w-[20px] h-[20px] text-center'>
@@ -113,7 +113,7 @@ const Support = () => {
                     </span>
                     <span className='flex items-center gap-2'>
                         <Image src={person1} alt='user image' className='w-[50px] h-[50px]' />
-                        <p>احمد حسن</p>
+                        <p>سيد عبد العظيم</p>
                     </span>
                 </div>
                 <div className='w-full h-full flex justify-start items-center'>
@@ -121,7 +121,7 @@ const Support = () => {
                         <div className='w-full cursor-pointer relative flex justify-start items-center gap-2'>
                             <Image src={person1} alt='user image' className='w-[60px] h-[60px]' />
                             <span className='flex flex-col items-start gap-3'>
-                                <p>احمد حسن</p>
+                                <p>سيد عبد العظيم</p>
                                 <p className='text-sm'>الطلب رقم 02354 اريد تبديله...</p>
                             </span>
                             <span className='absolute left-2 top-2 bg-[#FF0000] text-white rounded-full text-xs w-[20px] h-[20px] text-center'>

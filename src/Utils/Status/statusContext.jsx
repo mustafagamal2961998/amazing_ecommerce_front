@@ -10,6 +10,14 @@ const StatusContext = createContext({
     setSuccessMsg: () => null,
     err: null,
     setErr: () => null,
+    billMood: false,
+    setBillMood: () => false,
+    billsMood: true,
+    setBillsMood: () => true,
+    salesBills: false,
+    setSalesBills: () => false,
+    purchasesBills: false,
+    setPurchasesBills: () => false,
 });
 
 export const StatusContextProvider = ({ children }) => {
@@ -17,9 +25,13 @@ export const StatusContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [successMsg, setSuccessMsg] = useState(null);
     const [err, setErr] = useState(null);
+    const [billMood, setBillMood] = useState(false);
+    const [billsMood, setBillsMood] = useState(true);
+    const [salesBills, setSalesBills] = useState(false);
+    const [purchasesBills, setPurchasesBills] = useState(false);
 
     return (
-        <StatusContext.Provider value={{ isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, successMsg, setSuccessMsg, err, setErr }}>
+        <StatusContext.Provider value={{ isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, successMsg, setSuccessMsg, err, setErr, billMood, setBillMood, billsMood, setBillsMood, purchasesBills, setPurchasesBills, salesBills, setSalesBills }}>
             { children }
         </StatusContext.Provider>
     );
