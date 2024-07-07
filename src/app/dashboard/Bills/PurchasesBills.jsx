@@ -15,11 +15,10 @@ import Bill from './Bill'
 import { useStatusContext } from "../../../Utils/Status/statusContext";
 
 const PurchasesBills = () => {
-    const [addPurchaseBill, setAddPurchaseBill] = useState(false);
     const [purchasesBillsMood, setPurchasesBillsMood] = useState(false);
     const [showDeletePopup, setShowDeletePopup] = useState(false);
     const [showDeletedPopup, setShowDeletedPopup] = useState(false);
-    const {billMood, setBillMood, setBillsMood, purchasesBills, setPurchasesBills} = useStatusContext();
+    const {billMood, setBillMood, setBillsMood, setPurchasesBills} = useStatusContext();
 
     const handleDeleteBill = (e) => {
         setShowDeletePopup(!showDeletePopup)

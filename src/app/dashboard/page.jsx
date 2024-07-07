@@ -41,7 +41,7 @@ import activeRating from '../../assets/dashboard/activeRating.png'
 import activeSettings from '../../assets/dashboard/activeSettings.png'
 
 const Dashboard = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn] = useState(true);
 
   const [mainMood, setMainMood] = useState('main');
 

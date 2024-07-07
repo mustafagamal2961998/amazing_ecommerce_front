@@ -8,7 +8,7 @@ import Bill from './Bill'
 import { useStatusContext } from "../../../Utils/Status/statusContext";
 
 const SalesBills = () => {
-    const {billMood, setBillMood, setBillsMood, setPurchasesBills , setSalesBills} = useStatusContext();
+    const {billMood, setBillMood, setBillsMood, setPurchasesBills} = useStatusContext();
     
   return (
     billMood ? <Bill /> :
