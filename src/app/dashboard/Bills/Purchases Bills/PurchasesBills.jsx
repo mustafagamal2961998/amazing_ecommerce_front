@@ -1,24 +1,28 @@
-import { useState } from "react";
-import back from '../../../assets/dashboard/back.svg';
-import showPurchasesBills from '../../../assets/dashboard/showPurchasesBills.svg';
-import addOrderImg from '../../../assets/dashboard/addOrder.svg';
-import editIcon from '../../../assets/dashboard/editIcon.svg';
-import deleteIcon from '../../../assets/dashboard/deleteIcon.svg';
-import yes from '../../../assets/dashboard/yes.svg';
-import no from '../../../assets/dashboard/no.svg';
+import back from '../../../../assets/dashboard/back.svg';
+import showPurchasesBills from '../../../../assets/dashboard/showPurchasesBills.svg';
+import addOrderImg from '../../../../assets/dashboard/addOrder.svg';
+import editIcon from '../../../../assets/dashboard/editIcon.svg';
+import deleteIcon from '../../../../assets/dashboard/deleteIcon.svg';
+import yes from '../../../../assets/dashboard/yes.svg';
+import no from '../../../../assets/dashboard/no.svg';
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import printIcon from '../../../assets/dashboard/print.svg';
-import showBill from '../../../assets/dashboard/chevrons-left.svg';
-import Bill from './Bill'
-import { useStatusContext } from "../../../Utils/Status/statusContext";
+import printIcon from '../../../../assets/dashboard/print.svg';
+import showBill from '../../../../assets/dashboard/chevrons-left.svg';
+import Bill from '../Bill'
+import Create from './Create'
+import Edit from './Edit'
+import { useStatusContext } from "../../../../Utils/Status/statusContext";
+import { useState } from 'react';
 
 const PurchasesBills = () => {
     const [purchasesBillsMood, setPurchasesBillsMood] = useState(false);
     const [showDeletePopup, setShowDeletePopup] = useState(false);
     const [showDeletedPopup, setShowDeletedPopup] = useState(false);
     const {billMood, setBillMood, setBillsMood, setPurchasesBills} = useStatusContext();
+    const [createMood, setCreateMood] = useState(false);
+    const [editMood, setEditMood] = useState(false);
 
     const handleDeleteBill = (e) => {
         setShowDeletePopup(!showDeletePopup)
@@ -26,8 +30,8 @@ const PurchasesBills = () => {
 
   return (
     <div className='w-full flex flex-col gap-5'>
-        {!billMood &&
-            <div className='w-full flex justify-between items-center'>
+        {!billMood && !createMood && !editMood &&
+            <div className='w-full flex justify-between items-center pr-20 pl-20'>
                 <h2 className='text-lg'>فواتير المشتريات</h2>
                 <span className='flex items-center gap-2 cursor-pointer' onClick={() => {setBillsMood(true); setPurchasesBills(false);}}>
                     <p className='text-xl text-[#4A588D]'>قائمة الفواتير</p>
@@ -35,17 +39,19 @@ const PurchasesBills = () => {
                 </span>
             </div>
         }
+    { !billMood && !createMood && !editMood &&
         <div className='flex justify-center items-center gap-3'>
-            <div className={`${purchasesBillsMood && 'hidden'} w-[300px] h-[150px] bg-[#E9FBB8] p-2 rounded-2xl flex flex-col justify-center items-center gap-2 select-none cursor-pointer`} onClick={() => setPurchasesBillsMood(false)}>
+            <div className={`${purchasesBillsMood && 'hidden'} w-[300px] h-[150px] bg-[#E9FBB8] p-2 rounded-2xl flex flex-col justify-center items-center gap-2 select-none cursor-pointer`} onClick={() => setCreateMood(true)}>
                 <Image src={addOrderImg} alt='sales bills' className='w-[70px] h-[70px]' />
-                <p className='text-xl' onClick={() => setPurchasesBillsMood(true)}>إضافة فاتورة جديدة</p>
+                <p className='text-xl'>إضافة فاتورة جديدة</p>
             </div>
             <div className={`${purchasesBillsMood && 'hidden'} w-[300px] h-[150px] bg-[#C9E8FF] p-2 rounded-2xl flex flex-col justify-center items-center gap-2 select-none cursor-pointer`} onClick={() => setPurchasesBillsMood(true)}>
                 <Image src={showPurchasesBills} alt='sales bills' className='w-[70px] h-[70px]' />
                 <p className='text-xl'>عرض جميع الفواتير</p>
             </div>
         </div>
-    { purchasesBillsMood && !billMood &&
+    }
+    { purchasesBillsMood && !billMood && !editMood &&
         <div className='w-full flex flex-col items-start gap-5'>
             <div className='relative w-full flex flex-col items-start gap-10 pr-20 pl-20'>
                 <span className='relative w-2/4'>
@@ -87,7 +93,7 @@ const PurchasesBills = () => {
                                         </td>
                                         <td className='relative'>
                                             <span className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 flex justify-center items-center gap-2'>
-                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' />
+                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' onClick={() => setEditMood(true)} />
                                                 <Image src={deleteIcon} alt='delete bill' className='w-[25px] h-[25px]' onClick={(e) => handleDeleteBill(e)} />
                                             </span>
                                         </td>
@@ -111,7 +117,7 @@ const PurchasesBills = () => {
                                         </td>
                                         <td className='relative'>
                                             <span className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 flex justify-center items-center gap-2'>
-                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' />
+                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' onClick={() => setEditMood(true)} />
                                                 <Image src={deleteIcon} alt='delete bill' className='w-[25px] h-[25px]' onClick={(e) => handleDeleteBill(e)} />
                                             </span>
                                         </td>
@@ -135,7 +141,7 @@ const PurchasesBills = () => {
                                         </td>
                                         <td className='relative'>
                                             <span className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 flex justify-center items-center gap-2'>
-                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' />
+                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' onClick={() => setEditMood(true)} />
                                                 <Image src={deleteIcon} alt='delete bill' className='w-[25px] h-[25px]' onClick={(e) => handleDeleteBill(e)} />
                                             </span>
                                         </td>
@@ -159,7 +165,7 @@ const PurchasesBills = () => {
                                         </td>
                                         <td className='relative'>
                                             <span className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 flex justify-center items-center gap-2'>
-                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' />
+                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' onClick={() => setEditMood(true)} />
                                                 <Image src={deleteIcon} alt='delete bill' className='w-[25px] h-[25px]' onClick={(e) => handleDeleteBill(e)} />
                                             </span>
                                         </td>
@@ -183,7 +189,7 @@ const PurchasesBills = () => {
                                         </td>
                                         <td className='relative'>
                                             <span className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 flex justify-center items-center gap-2'>
-                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' />
+                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' onClick={() => setEditMood(true)} />
                                                 <Image src={deleteIcon} alt='delete bill' className='w-[25px] h-[25px]' onClick={(e) => handleDeleteBill(e)} />
                                             </span>
                                         </td>
@@ -207,7 +213,7 @@ const PurchasesBills = () => {
                                         </td>
                                         <td className='relative'>
                                             <span className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 flex justify-center items-center gap-2'>
-                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' />
+                                                <Image src={editIcon} alt='edit bill' className='w-[25px] h-[25px]' onClick={() => setEditMood(true)} />
                                                 <Image src={deleteIcon} alt='delete bill' className='w-[25px] h-[25px]' onClick={(e) => handleDeleteBill(e)} />
                                             </span>
                                         </td>
@@ -237,6 +243,12 @@ const PurchasesBills = () => {
                 }
             </div>
         </div>
+    }
+    { createMood &&
+        <Create />
+    }
+    { editMood &&
+        <Edit />
     }
     { billMood &&
         <Bill />

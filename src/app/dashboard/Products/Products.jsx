@@ -71,7 +71,7 @@ const Products = () => {
     }
 
     const [images, setImages] = useState([]);
-    const maxNumber = 69;
+    const maxNumber = 10;
     const onChange = (imageList, addUpdateIndex) => {
       console.log(imageList, addUpdateIndex);
       setImages(imageList);
@@ -153,6 +153,10 @@ const Products = () => {
         <div className='w-[65%] flex flex-col gap-5'>
           <div className='flex justify-center items-center'>
             <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>اسم المنتج</span>
+            <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
+          </div>
+          <div className='flex justify-center items-center'>
+            <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>كود المنتج</span>
             <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
           </div>
           <div className='relative'>

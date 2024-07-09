@@ -1,13 +1,14 @@
 import Image from "next/image";
-import back from '../../../assets/dashboard/back.svg'
-import removeBill from '../../../assets/dashboard/removeBill.svg'
-import comletedBill from '../../../assets/dashboard/comletedBill.svg'
-import uploadIcon from '../../../assets/dashboard/upload.svg'
+import back from '../../../../assets/dashboard/back.svg'
+import removeBill from '../../../../assets/dashboard/removeBill.svg'
+import comletedBill from '../../../../assets/dashboard/comletedBill.svg'
+import uploadIcon from '../../../../assets/dashboard/upload.svg'
+import editIcon from '../../../../assets/dashboard/editIcon.svg'
 import ImageUploading from "react-images-uploading";
 import { useState } from "react";
-import { useStatusContext } from "../../../Utils/Status/statusContext";
+import { useStatusContext } from "../../../../Utils/Status/statusContext";
 
-const Settings = () => {
+const Edit = () => {
   const [images, setImages] = useState([]);
   const maxNumber = 1;
 
@@ -15,40 +16,40 @@ const Settings = () => {
     setImages(imageList);
   };
 
-  const {setBillsMood, setSettingsMood} = useStatusContext();
+  const {setBillsMood, setPurchasesBills} = useStatusContext();
 
   return (
-    <div className='w-full flex flex-col justify-center items-center gap-10'>
+    <div className='flex flex-col justify-center items-center gap-10'>
       <div className='w-full flex justify-between items-center pr-20 pl-20'>
-          <h2 className='text-lg'>إعدادات الفواتير</h2>
-          <span className='flex items-center gap-2 cursor-pointer' onClick={() => {setBillsMood(true); setSettingsMood(false);}}>
+          <h2 className='text-lg'>تعديل فاتورة مشتريات</h2>
+          <span className='flex items-center gap-2 cursor-pointer' onClick={() => {setBillsMood(true); setPurchasesBills(false);}}>
               <p className='text-xl text-[#4A588D]'>قائمة الفواتير</p>
               <Image src={back} alt='back' className='w-[25px] h-[25px]' />
           </span>
       </div>
       <div className='w-full flex flex-col gap-4 pr-20 pl-64'>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>اسم الشركة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>مصدر الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
+          <Image src={editIcon} alt='edit icon' className='w-[30px] h-[30px] mr-2 cursor-pointer' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>رقم هاتف الشركة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>رقم الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
+          <Image src={editIcon} alt='edit icon' className='w-[30px] h-[30px] mr-2 cursor-pointer' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>ايميل الشركة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>تاريخ الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
+          <Image src={editIcon} alt='edit icon' className='w-[30px] h-[30px] mr-2 cursor-pointer' />
         </div>
-        <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>عنوان الشركة</span>
-          <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
-        </div>
-        <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>قيمة الضريبة المضافة</span>
-          <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
+        <div className='relative flex justify-center items-center'>
+          <textarea className='w-full h-[200px] p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-3xl'></textarea>
+          <span className='absolute right-0 top-0 w-1/6 h-[45px] p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-bl-3xl bg-[#4A588D]'>وصف الفاتورة</span>
+          <Image src={editIcon} alt='edit icon' className='w-[30px] h-[30px] mr-2 cursor-pointer' />
         </div>
         <div className='flex items-center gap-1'>
-        <p>إرفاق شعار الشركة</p>
+        <p>إرفاق صورة الفاتورة</p>
         <ImageUploading
           multiple
           value={images}
@@ -88,9 +89,9 @@ const Settings = () => {
       </div>
       }
       </div>
-      <span className='p-2 rounded-3xl cursor-pointer w-[120px] flex justify-center items-center text-white bg-[#07932E]'>حفظ</span>
+      <span className='p-2 rounded-3xl cursor-pointer w-[120px] mb-3 flex justify-center items-center text-white bg-[#07932E]'>حفظ</span>
     </div>
   )
 }
 
-export default Settings
+export default Edit
