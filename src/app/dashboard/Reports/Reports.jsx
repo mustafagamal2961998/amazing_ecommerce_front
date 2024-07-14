@@ -1,10 +1,10 @@
 import DashboardHeader from '../dashboardHeader/dashboardHeader';
-import sales from '../../../assets/dashboard/box-tick.svg'
+import Sales from './Sales';
 import greenArrow from '../../../assets/dashboard/greenArrow.svg'
 import Image from 'next/image';
 import NotFoundComp from './NotFoundComp';
 import { useState } from 'react';
-import { PieChart, Pie, Cell, Label } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,45 +33,27 @@ const Reports = () => {
       <DashboardHeader />
       <div className='w-full flex flex-col items-start gap-5'>
         <h2 className='text-xl'>التقارير والاحصائيات</h2>
-        <div className='grid grid-cols-5 gap-10 w-full'>
+        <div className='flex justify-center items-center gap-10 w-full pr-10 pl-10'>
             <div className={`p-3 w-[100%] h-[55px] cursor-pointer select-none duration-200 flex items-center justify-start gap-3 rounded-3xl ${mood === 'sales' ? 'bg-[#ADD4FF] shadow-lg' : 'bg-[#DFEEFF]'}`} onClick={() => setMood('sales')}>
-                <Image src={sales} alt='sales' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
+                <span className={`${mood === 'sales' ? 'bg-green-500' : 'bg-white'} w-[40px] h-[40px] p-2 rounded-2xl`}></span>
                 <p className='text-lg'>المبيعات</p>
             </div>
             <div className={`p-3 w-[100%] h-[55px] cursor-pointer select-none duration-200 flex items-center justify-start gap-3 rounded-3xl ${mood === 'products' ? 'bg-[#ADD4FF] shadow-lg' : 'bg-[#DFEEFF]'}`} onClick={() => setMood('products')}>
-                <Image src={sales} alt='products' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
+                <span className={`${mood === 'products' ? 'bg-green-500' : 'bg-white'} w-[40px] h-[40px] p-2 rounded-2xl`}></span>
                 <p className='text-lg'>المنتجات</p>
             </div>
             <div className={`p-3 w-[100%] h-[55px] cursor-pointer select-none duration-200 flex items-center justify-start gap-3 rounded-3xl ${mood === 'clients' ? 'bg-[#ADD4FF] shadow-lg' : 'bg-[#DFEEFF]'}`} onClick={() => setMood('clients')}>
-                <Image src={sales} alt='clients' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
+                <span className={`${mood === 'clients' ? 'bg-green-500' : 'bg-white'} w-[40px] h-[40px] p-2 rounded-2xl`}></span>
                 <p className='text-lg'>العملاء</p>
             </div>
             <div className={`p-3 w-[100%] h-[55px] cursor-pointer select-none duration-200 flex items-center justify-start gap-3 rounded-3xl ${mood === 'visits' ? 'bg-[#ADD4FF] shadow-lg' : 'bg-[#DFEEFF]'}`} onClick={() => setMood('visits')}>
-                <Image src={sales} alt='visits' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
+                <span className={`${mood === 'visits' ? 'bg-green-500' : 'bg-white'} w-[40px] h-[40px] p-2 rounded-2xl`}></span>
                 <p className='text-lg'>الزيارات</p>
-            </div>
-            <div className={`p-3 w-[100%] h-[55px] cursor-pointer select-none duration-200 flex items-center justify-start gap-3 rounded-3xl ${mood === 'mostWanted' ? 'bg-[#ADD4FF] shadow-lg' : 'bg-[#DFEEFF]'}`} onClick={() => setMood('mostWanted')}>
-                <Image src={sales} alt='mostWanted' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                <p className='text-lg'>الأكثر طلبا</p>
-            </div>
-            <div className={`p-3 w-[100%] h-[55px] cursor-pointer select-none duration-200 flex items-center justify-start gap-3 rounded-3xl ${mood === 'mostSearched' ? 'bg-[#ADD4FF] shadow-lg' : 'bg-[#DFEEFF]'}`} onClick={() => setMood('mostSearched')}>
-                <Image src={sales} alt='mostSearched' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                <p className='text-lg'>الأكثر بحثا</p>
-            </div>
-            <div className={`p-3 w-[100%] h-[55px] cursor-pointer select-none duration-200 flex items-center justify-start gap-3 rounded-3xl ${mood === 'paymentAndShipping' ? 'bg-[#ADD4FF] shadow-lg' : 'bg-[#DFEEFF]'}`} onClick={() => setMood('paymentAndShipping')}>
-                <Image src={sales} alt='paymentAndShipping' className='w-[40px] h-[40px] bg-white p-2 rounded-3xl' />
-                <p className='text-lg'>الدفع والشحن</p>
             </div>
         </div>
       </div>
     { mood === 'sales' &&
-        <div className='w-full flex flex-col items-start gap-2'>
-            <p className='text-lg'>مبيعات المنتجات</p>
-            <select className='w-full p-2 outline-none rounded-lg border-2 border-[#CFCFCF]'>
-                <option>مبيعات المنتجات</option>
-            </select>
-            <NotFoundComp />
-        </div>
+        <Sales />
     }
     { mood === 'products' &&
         <div className='w-full flex flex-col items-start gap-2'>
@@ -188,33 +170,6 @@ const Reports = () => {
     { mood === 'visits' &&
         <div className='w-full flex flex-col items-start gap-2'>
             <p className='text-lg'>الزيارات</p>
-            <NotFoundComp />
-        </div>
-    }
-    { mood === 'mostWanted' &&
-        <div className='w-full flex flex-col items-start gap-2'>
-            <p className='text-lg'>مبيعات المنتجات</p>
-            <select className='w-full p-2 outline-none rounded-lg border-2 border-[#CFCFCF]'>
-                <option>مبيعات المنتجات</option>
-            </select>
-            <NotFoundComp />
-        </div>
-    }
-    { mood === 'mostSearched' &&
-        <div className='w-full flex flex-col items-start gap-2'>
-            <p className='text-lg'>مبيعات المنتجات</p>
-            <select className='w-full p-2 outline-none rounded-lg border-2 border-[#CFCFCF]'>
-                <option>مبيعات المنتجات</option>
-            </select>
-            <NotFoundComp />
-        </div>
-    }
-    { mood === 'paymentAndShipping' &&
-        <div className='w-full flex flex-col items-start gap-2'>
-            <p className='text-lg'>مبيعات المنتجات</p>
-            <select className='w-full p-2 outline-none rounded-lg border-2 border-[#CFCFCF]'>
-                <option>مبيعات المنتجات</option>
-            </select>
             <NotFoundComp />
         </div>
     }
