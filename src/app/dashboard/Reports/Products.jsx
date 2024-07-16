@@ -397,16 +397,16 @@ const Products = () => {
                     </div>
                 </div>
                 <div className='p-3 flex justify-center items-center gap-10'>
-                <button className='w-fit p-3 bg-[#07932E] rounded-full flex items-center justify-center gap-5 shadow-xl'>
-                    <p>طباعة التقرير</p>
-                    <Image src={printReport} alt='print report' className='w-[30px] h-[30px]' />
-                </button>
-                <button className='w-fit p-3 bg-[#FFC42D] rounded-full flex items-center justify-center gap-5 shadow-xl'>
-                    <p>تنزيل التقرير</p>
-                    <Image src={download} alt='download report' className='w-[30px] h-[30px]' />
-                </button>
+                    <button className='w-fit p-3 bg-[#07932E] rounded-full flex items-center justify-center gap-5 shadow-xl'>
+                        <p>طباعة التقرير</p>
+                        <Image src={printReport} alt='print report' className='w-[30px] h-[30px]' />
+                    </button>
+                    <button className='w-fit p-3 bg-[#FFC42D] rounded-full flex items-center justify-center gap-5 shadow-xl'>
+                        <p>تنزيل التقرير</p>
+                        <Image src={download} alt='download report' className='w-[30px] h-[30px]' />
+                    </button>
                 </div>
-        </div>
+            </div>
       </div>
     </div>
   )
