@@ -74,7 +74,7 @@ const Products = () => {
             className='p-5 rounded-2xl border-2 border-solid border-[#E1E7EC] h-[500px]'
             >
                 <BarChart
-                width={500}
+                width={400}
                 height={450}
                 data={data}
                 margin={{
@@ -139,7 +139,7 @@ const Products = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[16px] h-[16px] text-[#9BDFC4]' />
                     </span>
                 </div>
-                <PieChart width={500} height={450}>
+                <PieChart width={400} height={450}>
                     <Pie
                     data={searchData}
                     cx={120}
