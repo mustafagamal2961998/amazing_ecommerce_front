@@ -1,3 +1,4 @@
+import './style.css'
 import DashboardHeader from '../dashboardHeader/dashboardHeader';
 import Sales from './Sales';
 import Products from './Products';
