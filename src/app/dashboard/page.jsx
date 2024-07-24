@@ -10,6 +10,7 @@ import Bills from './Bills/Bills'
 import Reports from './Reports/Reports'
 import Offers from './Offers/Offers'
 import Support from './Support/Support'
+import Shipping from './Shipping/Shipping'
 import Rating from './Rating/Rating'
 import Settings from './Settings/Settings'
 import purpleLogo from '../../components/Logo/purpleLogo.svg'
@@ -24,6 +25,7 @@ import bills from '../../assets/dashboard/bills.png'
 import reports from '../../assets/dashboard/reports.png'
 import offers from '../../assets/dashboard/offers.png'
 import support from '../../assets/dashboard/support.png'
+import shipping from '../../assets/dashboard/shipping.png'
 import rating from '../../assets/dashboard/rating.png'
 import settings from '../../assets/dashboard/settings.png'
 import activeMain from '../../assets/dashboard/activeMain.png'
@@ -34,6 +36,7 @@ import activeBills from '../../assets/dashboard/activeBills.png'
 import activeReports from '../../assets/dashboard/activeReports.png'
 import activeOffers from '../../assets/dashboard/activeOffers.png'
 import activeSupport from '../../assets/dashboard/activeSupport.png'
+import activeShipping from '../../assets/dashboard/activeShipping.png'
 import activeRating from '../../assets/dashboard/activeRating.png'
 import activeSettings from '../../assets/dashboard/activeSettings.png'
 
@@ -58,40 +61,44 @@ const Dashboard = () => {
               <p className={`${mainMood === 'main' ? 'text-[#4A588D]' : 'text-white'}`}>الرئيسية</p>
             </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'orders' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('orders')}>
-              <Image src={mainMood === 'orders' ? activeOrders : orders} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'orders' ? activeOrders : orders} alt='orders' className='w-5 h-5' />
               <p className={`${mainMood === 'orders' ? 'text-[#4A588D]' : 'text-white'}`}>الطلبات</p>
               <span className='bg-[#FF0000] text-white text-xs text-center rounded-full w-4 h-4 mr-auto'>12</span>
             </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'products' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('products')}>
-              <Image src={mainMood === 'products' ? activeProducts : products} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'products' ? activeProducts : products} alt='products' className='w-5 h-5' />
               <p className={`${mainMood === 'products' ? 'text-[#4A588D]' : 'text-white'}`}>المنتجات</p>
             </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'clients' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('clients')}>
-              <Image src={mainMood === 'clients' ? activeClients : clients} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'clients' ? activeClients : clients} alt='clients' className='w-5 h-5' />
               <p className={`${mainMood === 'clients' ? 'text-[#4A588D]' : 'text-white'}`}>العملاء</p>
             </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'bills' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('bills')}>
-              <Image src={mainMood === 'bills' ? activeBills : bills} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'bills' ? activeBills : bills} alt='bills' className='w-5 h-5' />
               <p className={`${mainMood === 'bills' ? 'text-[#4A588D]' : 'text-white'}`}>الفواتير</p>
             </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'reports' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('reports')}>
-              <Image src={mainMood === 'reports' ? activeReports : reports} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'reports' ? activeReports : reports} alt='reports' className='w-5 h-5' />
               <p className={`${mainMood === 'reports' ? 'text-[#4A588D]' : 'text-white'}`}>التقارير والإحصائيات</p>
             </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'offers' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('offers')}>
-              <Image src={mainMood === 'offers' ? activeOffers : offers} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'offers' ? activeOffers : offers} alt='offers' className='w-5 h-5' />
               <p className={`${mainMood === 'offers' ? 'text-[#4A588D]' : 'text-white'}`}>التخفيضات والقسائم</p>
             </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'support' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('support')}>
-              <Image src={mainMood === 'support' ? activeSupport : support} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'support' ? activeSupport : support} alt='support' className='w-5 h-5' />
               <p className={`${mainMood === 'support' ? 'text-[#4A588D]' : 'text-white'}`}>الدعم الفني والمساعدة</p>
             </li>
+            <li className={`cursor-pointer p-2 w-full ${mainMood === 'shipping' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('shipping')}>
+              <Image src={mainMood === 'shipping' ? activeShipping : shipping} alt='shipping' className='w-5 h-5' />
+              <p className={`${mainMood === 'shipping' ? 'text-[#4A588D]' : 'text-white'}`}>شركات الشحن</p>
+            </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'rating' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('rating')}>
-              <Image src={mainMood === 'rating' ? activeRating : rating} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'rating' ? activeRating : rating} alt='rating' className='w-5 h-5' />
               <p className={`${mainMood === 'rating' ? 'text-[#4A588D]' : 'text-white'}`}>التقييمات</p>
             </li>
             <li className={`cursor-pointer p-2 w-full ${mainMood === 'settings' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('settings')}>
-              <Image src={mainMood === 'settings' ? activeSettings : settings} alt='main' className='w-5 h-5' />
+              <Image src={mainMood === 'settings' ? activeSettings : settings} alt='settings' className='w-5 h-5' />
               <p className={`${mainMood === 'settings' ? 'text-[#4A588D]' : 'text-white'}`}>الإعدادات</p>
             </li>
           </ul>
@@ -104,6 +111,7 @@ const Dashboard = () => {
         {mainMood === 'reports' && <Reports />}
         {mainMood === 'offers' && <Offers />}
         {mainMood === 'support' && <Support />}
+        {mainMood === 'shipping' && <Shipping />}
         {mainMood === 'rating' && <Rating />}
         {mainMood === 'settings' && <Settings />}
       </div>

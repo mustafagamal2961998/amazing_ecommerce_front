@@ -30,9 +30,35 @@ export const StatusContextProvider = ({ children }) => {
     const [salesBills, setSalesBills] = useState(false);
     const [purchasesBills, setPurchasesBills] = useState(false);
     const [settingsMood, setSettingsMood] = useState(false);
+    const [addCompanyMood, setAddCompanyMood] = useState(false);
+    const [showCompanyMood, setShowCompanyMood] = useState(false);
 
     return (
-        <StatusContext.Provider value={{ isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, successMsg, setSuccessMsg, err, setErr, billMood, setBillMood, billsMood, setBillsMood, purchasesBills, setPurchasesBills, salesBills, setSalesBills, settingsMood, setSettingsMood }}>
+        <StatusContext.Provider 
+        value={{ 
+            isLoggedIn, 
+            setIsLoggedIn, 
+            isLoading, 
+            setIsLoading, 
+            successMsg, 
+            setSuccessMsg, 
+            err, 
+            setErr, 
+            billMood, 
+            setBillMood, 
+            billsMood, 
+            setBillsMood, 
+            purchasesBills, 
+            setPurchasesBills, 
+            salesBills, 
+            setSalesBills, 
+            settingsMood, 
+            setSettingsMood,
+            addCompanyMood, 
+            setAddCompanyMood,
+            showCompanyMood, 
+            setShowCompanyMood
+        }}>
             { children }
         </StatusContext.Provider>
     );

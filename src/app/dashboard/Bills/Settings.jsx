@@ -1,7 +1,7 @@
 import Image from "next/image";
 import back from '../../../assets/dashboard/back.svg'
-import removeBill from '../../../assets/dashboard/removeBill.svg'
-import comletedBill from '../../../assets/dashboard/comletedBill.svg'
+import removeBill from '../../../assets/dashboard/removeImg.svg'
+import comletedBill from '../../../assets/dashboard/comletedImg.svg'
 import uploadIcon from '../../../assets/dashboard/upload.svg'
 import ImageUploading from "react-images-uploading";
 import { useState } from "react";
