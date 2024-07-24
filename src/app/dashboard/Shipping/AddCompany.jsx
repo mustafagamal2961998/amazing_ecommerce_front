@@ -170,7 +170,7 @@ const AddCompany = () => {
         </div>
         }
         <button className='mt-12 w-fit p-3 bg-[#07932E] text-white rounded-full flex items-center justify-center gap-5 shadow-xl'>
-            <p>حفظ التعديلات</p>
+            <p>حفظ</p>
             <Image src={saveCompany} alt='save company' className='w-[30px] h-[30px]' />
         </button>
     </div>
