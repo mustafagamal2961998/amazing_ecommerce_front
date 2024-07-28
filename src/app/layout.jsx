@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Cairo } from 'next/font/google'
 import { StatusContextProvider } from '../Utils/Status/statusContext'
+import MaintenanceMood from '../components/Maintenance Mood/MaintenanceMood'
 
 export const metadata = {
   title: "Amazing",
@@ -18,7 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body dir="rtl" className={cairo.className} >
         <StatusContextProvider>
-          {children}
+          <MaintenanceMood children={children} />
         </StatusContextProvider>
       </body>
     </html>
