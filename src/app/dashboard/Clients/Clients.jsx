@@ -23,7 +23,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
 const Clients = () => {
-  const [client, setClient] = useState(true);
+  const [client, setClient] = useState(false);
   const [actions, setActions] = useState(false);
 
   const [mood, setMood] = useState('details');

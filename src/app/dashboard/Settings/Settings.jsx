@@ -14,6 +14,7 @@ import { useState } from 'react'
 import GeneralSettings from './General Settings/GeneralSettings'
 import Coins from './Coins/Coins'
 import PaymentMethods from './Payment Methods/PaymentMethods'
+import Managers from './Managers/Managers'
 
 const Settings = () => {
     const [mood, setMood] = useState('general settings');
@@ -82,6 +83,9 @@ const Settings = () => {
         }
         {mood === 'paymentMethods' &&
             <PaymentMethods />
+        }
+        {mood === 'managers' &&
+            <Managers />
         }
         </div>
     </main>

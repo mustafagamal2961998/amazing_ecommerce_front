@@ -14,7 +14,7 @@ const Coins = () => {
         <div className='w-full min-h-full -mr-2 p-10 ml-auto shadow-xl bg-[#EFEFEF] rounded-2xl rounded-tr-none flex flex-col items-center gap-10'>
             <h2 className='text-xl font-bold'> العملات المستخدمة</h2>
             <form className='w-full h-full text-right flex flex-col justify-center items-center gap-10'>
-                <div className='w-full flex justify-start items-center gap-20'>
+                <div className='w-full flex justify-center items-center gap-20'>
                     <span className='flex items-center gap-2'>
                         <Image src={ksaFlag} alt='ksa flag' className='w-[24px] h-[24px]' />
                         <h2 className='font-bold text-xl'>الريال السعودي</h2>
@@ -24,7 +24,7 @@ const Coins = () => {
                         { sr && <Image src={checked} alt='checked' className='w-[30px] h-[30px]' /> }
                     </span>
                 </div>
-                <div className='w-full flex justify-start items-center gap-20'>
+                <div className='w-full flex justify-center items-center gap-20'>
                     <span className='flex items-center gap-2'>
                         <Image src={egyptFlag} alt='egypt flag' className='w-[24px] h-[24px]' />
                         <h2 className='font-bold text-xl'>الجنية المصري</h2>
@@ -34,7 +34,7 @@ const Coins = () => {
                         { egp && <Image src={checked} alt='checked' className='w-[30px] h-[30px]' /> }
                     </span>
                 </div>
-                <div className='w-full flex justify-start items-center gap-20'>
+                <div className='w-full flex justify-center items-center gap-20'>
                     <span className='flex items-center gap-2'>
                         <Image src={usaFlag} alt='usa flag' className='w-[24px] h-[24px]' />
                         <h2 className='font-bold text-xl'>الدولار الأمريكي</h2>

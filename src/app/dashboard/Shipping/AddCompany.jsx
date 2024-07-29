@@ -129,9 +129,9 @@ const AddCompany = () => {
         className='w-full flex  gap-3 justify-center items-center'
         >
         </div>
-            <div className='flex items-center gap-1 ml-auto'>
-                <p>تحميل شعار الشركة</p>
-                <ImageUploading
+        <div className='flex items-center gap-1 ml-auto'>
+            <p>تحميل شعار الشركة</p>
+            <ImageUploading
                     multiple
                     value={images}
                     onChange={onChange}
@@ -150,7 +150,7 @@ const AddCompany = () => {
                         />
                         </div>
                     )}
-                </ImageUploading>
+            </ImageUploading>
         </div>
         {images[0] && 
         <div className='w-2/4 bg-[#F1F1F1] p-2 rounded-xl flex flex-row-reverse justify-center items-center gap-10'>
