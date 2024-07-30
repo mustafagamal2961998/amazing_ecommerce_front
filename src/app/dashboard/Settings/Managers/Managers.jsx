@@ -297,15 +297,15 @@ const Managers = () => {
                 <table className="w-fit text-center text-sm  text-surface text-white">
                     <thead className="border-b border-neutral-200 bg-gradient-to-br from-[#0B1C3F] to-[#0b1c3f9d]">
                         <tr>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">م</th>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">الاسم</th>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">الوظيفة</th>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">البريد الإلكتروني</th>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">رقم الهاتف</th>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">الشركة</th>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">الحالة</th>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">تعديل</th>
-                        <th className="w-fit px-6 py-4  border-r-[1px] border-[#E3E3E3] font-bold">حذف</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">م</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">الاسم</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">الوظيفة</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">البريد الإلكتروني</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">رقم الهاتف</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">الشركة</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">الحالة</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">تعديل</th>
+                        <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">حذف</th>
                         </tr>
                     </thead>
                     <tbody className="text-black border-[1px] border-[#E3E3E3] p-3">
@@ -362,17 +362,17 @@ const Managers = () => {
             </div>
             <div className="flex items-center justify-center mt-4">
                 <div className="flex items-center">
-                <FontAwesomeIcon icon={faChevronRight} className='cursor-pointer p-2 rounded-[200%] duration-200 hover:bg-[#00000049]' />
-                <p className='font-bold text-base mx-4'>السابق</p>
-                <button className="px-3 py-1 bg-[#A6C8FF] font-bold rounded-lg mr-2 focus:outline-none">1</button>
-                <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">2</button>
-                <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">3</button>
-                <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">4</button>
-                <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">5</button>
-                <span>...</span>
-                <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">11</button>
-                <p className='font-bold text-base text-[#0F62FE] mx-4'>التالي</p>
-                <FontAwesomeIcon icon={faChevronLeft} className='cursor-pointer text-[#0F62FE] p-2 rounded-[200%] duration-200 hover:bg-[#0f63fe59]' />
+                    <FontAwesomeIcon icon={faChevronRight} className='cursor-pointer p-2 rounded-[200%] duration-200 hover:bg-[#00000049]' />
+                    <p className='font-bold text-base mx-4'>السابق</p>
+                    <button className="px-3 py-1 bg-[#A6C8FF] font-bold rounded-lg mr-2 focus:outline-none">1</button>
+                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">2</button>
+                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">3</button>
+                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">4</button>
+                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">5</button>
+                    <span>...</span>
+                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">11</button>
+                    <p className='font-bold text-base text-[#0F62FE] mx-4'>التالي</p>
+                    <FontAwesomeIcon icon={faChevronLeft} className='cursor-pointer text-[#0F62FE] p-2 rounded-[200%] duration-200 hover:bg-[#0f63fe59]' />
                 </div>
             </div>
         </div>
