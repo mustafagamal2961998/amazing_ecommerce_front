@@ -40,6 +40,7 @@
     "react-simple-image-slider": "^2.4.1",
     "react-slideshow-image": "^4.3.1",
     "react-spinners": "^0.14.1",
+    "react-time-picker": "^7.0.0",
     "recharts": "^2.12.7",
     "sass": "^1.75.0",
     "swiper": "^11.1.3"

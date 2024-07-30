@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 const Main = () => {
 
-  const [data, setData] = useState(['40%', '30%', '45%', '42%', '60%', '85%', '33%', '15%', '70%', '90%', '94%', '3%', '56%'])
+  const [data, setData] = useState(['40%', '30%', '45%', '42%', '60%', '33%', '15%', '70%', '90%', '94%', '3%', '56%'])
 
   return (
     <main className='pr-[60px] flex flex-col justify-center items-center gap-10 w-4/5'>

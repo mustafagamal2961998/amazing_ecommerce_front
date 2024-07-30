@@ -1,7 +1,14 @@
 .react-date-picker__wrapper,
-.react-date-picker.react-date-picker--closed.react-date-picker--disabled {
-    padding: 2px;
+.react-date-picker.react-date-picker--closed.react-date-picker--disabled,
+.react-time-picker__button:enabled,
+.react-time-picker__inputGroup,
+.react-time-picker__wrapper,
+.react-time-picker__inputGroup__amPm {
     border: none !important;
     border-radius: 12px;
-    background-color: #DFEEFF;
+    background-color: #D9D9D9 !important;
+}
+
+.react-time-picker__inputGroup__amPm{
+    margin-top: 4px;
 }

@@ -15,6 +15,7 @@ import GeneralSettings from './General Settings/GeneralSettings'
 import Coins from './Coins/Coins'
 import PaymentMethods from './Payment Methods/PaymentMethods'
 import Managers from './Managers/Managers'
+import Maintenance from './Maintenance/Maintenance'
 
 const Settings = () => {
     const [mood, setMood] = useState('general settings');
@@ -71,7 +72,7 @@ const Settings = () => {
                         <p className={`${mood === 'maintenance' && 'text-white'} text-lg font-bold`}>وضع الصيانة</p>
                     </div>
                 {mood === 'maintenance' &&
-                    <span className='w-[70px] h-[150px] z-10 bg-[#EFEFEF] rounded-2xl rounded-tl-none'></span>
+                    <span className='w-[70px] h-[150px] z-10 bg-[#EFEFEF] rounded-2xl rounded-bl-none'></span>
                 }
                 </div>
             </div>
@@ -86,6 +87,9 @@ const Settings = () => {
         }
         {mood === 'managers' &&
             <Managers />
+        }
+        {mood === 'maintenance' &&
+            <Maintenance />
         }
         </div>
     </main>
