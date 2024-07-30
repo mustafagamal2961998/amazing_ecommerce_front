@@ -25,8 +25,8 @@ const Managers = () => {
             <input type='text' placeholder='اسم المستخدم' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
         </div>
         <div className='w-full flex items-center gap-14'>
-            <input type='text' placeholder='البريد الإلكتروني' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
-            <input type='text' placeholder='كلمة السر' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
+            <input type='email' placeholder='البريد الإلكتروني' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
+            <input type='password' placeholder='كلمة السر' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
         </div>
       </div>
       <div className='w-full relative p-2 border-t-0 border-2 border-solid rounded-2xl border-[#A8A8A8] shadow'>
@@ -326,10 +326,10 @@ const Managers = () => {
                                     </label>
                                 </div>
                             </td>
-                            <td className='p-5 border-r-[1px] border-[#E3E3E3]'>
+                            <td className='border-r-[1px] border-[#E3E3E3]'>
                                 <Image src={editIcon} alt='edit' className='w-6 h-6 m-auto cursor-pointer' />
                             </td>
-                            <td className='p-5 border-r-[1px] border-[#E3E3E3]'>
+                            <td className='border-r-[1px] border-[#E3E3E3]'>
                                 <Image src={deleteIcon} alt='delete' className='w-6 h-6 m-auto cursor-pointer' />
                             </td>
                         </tr>
@@ -350,10 +350,10 @@ const Managers = () => {
                                     </label>
                                 </div>
                             </td>
-                            <td className='p-5 border-r-[1px] border-[#E3E3E3]'>
+                            <td className='border-r-[1px] border-[#E3E3E3]'>
                                 <Image src={editIcon} alt='edit' className='w-6 h-6 m-auto cursor-pointer' />
                             </td>
-                            <td className='p-5 border-r-[1px] border-[#E3E3E3]'>
+                            <td className='border-r-[1px] border-[#E3E3E3]'>
                                 <Image src={deleteIcon} alt='delete' className='w-6 h-6 m-auto cursor-pointer' />
                             </td>
                         </tr>

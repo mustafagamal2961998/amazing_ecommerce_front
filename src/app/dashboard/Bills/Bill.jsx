@@ -20,8 +20,8 @@ const Bill = () => {
                     <span className='flex flex-col justify-center items-start gap-2'>
                         <p className='text-sm'>فاتورة ضريبية مبسطة 844505#</p>
                         <p className='text-sm'>رمز الفاتورة : 0200000</p>
-                        <p className='text-sm'>مصدرة من:</p>'
-                        <ul className='mr-8 -mt-8 list-disc flex flex-col gap-2'>
+                        <p className='text-sm'>مصدرة من:</p>
+                        <ul className='mr-8 list-disc flex flex-col gap-2'>
                             <li className='text-sm'>شركة خلابة</li>
                             <li className='text-sm'>الرقم الضريبي : 310461435700003</li>
                             <li className='text-sm'>المملكة العربية السعودية (SA)</li>
