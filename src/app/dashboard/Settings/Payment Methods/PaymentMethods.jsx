@@ -7,7 +7,7 @@ const PaymentMethods = () => {
     const [cod, setCod] = useState(false);
 
     return (
-        <div className='w-full min-h-full -mr-2 p-10 ml-auto shadow-xl bg-[#EFEFEF] rounded-2xl rounded-tr-none flex flex-col items-center gap-10'>
+        <div className='w-full min-h-full -mr-2 p-10 ml-auto shadow-xl bg-[#EFEFEF] rounded-2xl flex flex-col items-center gap-10'>
             <h2 className='text-xl font-bold'>طرق الدفع</h2>
             <form className='w-full h-full flex flex-col justify-center items-center gap-10'>
                 <div className='w-full flex justify-evenly items-center'>

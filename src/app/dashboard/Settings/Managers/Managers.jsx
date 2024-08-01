@@ -10,7 +10,7 @@ const Managers = () => {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div className='relative w-full ml-auto min-h-full p-5 -mr-2 shadow-lg bg-[#EFEFEF] rounded-3xl rounded-tr-none flex flex-col justify-start items-center gap-10'>
+    <div className='relative w-full ml-auto min-h-full p-5 -mr-2 shadow-lg bg-[#EFEFEF] rounded-3xl flex flex-col justify-start items-center gap-10'>
       <h2 className='text-xl font-bold'>المدراء والصلاحيات</h2>
       <div className='w-full flex flex-col items-start gap-5'>
         <span className='w-1/5 p-2 flex justify-center items-center bg-gradient-to-br from-[#0B1C3F] to-[#0B1C3F] rounded-br-3xl rounded-tl-3xl'>
