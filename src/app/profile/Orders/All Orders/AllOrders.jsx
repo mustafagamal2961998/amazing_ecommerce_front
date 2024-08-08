@@ -11,7 +11,7 @@ const AllOrders = () => {
   return (
     <div className='w-full flex flex-col justify-center items-center gap-10'>
         <div className='w-full flex flex-col justify-center items-center gap-1'>
-            <div className='w-full flex items-center justify-center gap-14 max-md:flex-col max-md:gap-2 p-3 rounded-tr-full rounded-tl-full bg-gradient-to-br from-[#7F7B7F] to-[#E5DEE5]'>
+            <div className='w-full flex items-center justify-center gap-14 max-md:flex-col max-md:gap-2 p-3 rounded-tr-3xl rounded-tl-3xl bg-gradient-to-br from-[#7F7B7F] to-[#E5DEE5]'>
                 <span className='flex flex-col justify-center items-center gap-2'>
                     <p className='text-lg font-bold'>تاريخ الطلب</p>
                     <p className='text-[#5E6DA8]'>16 يوليو 2014</p>
@@ -70,7 +70,7 @@ const AllOrders = () => {
             <p className='m-auto text-[#FF0209] -mt-10'>هذا المنتج قابل للإرجاع حتى 2 أغسطس 2024</p>
         </div>
         <div className='w-full flex flex-col justify-center items-center gap-1'>
-            <div className='w-full flex items-center justify-center gap-14 max-md:flex-col max-md:gap-2 p-3  rounded-tr-full rounded-tl-full bg-gradient-to-br from-[#7F7B7F] to-[#E5DEE5]'>
+            <div className='w-full flex items-center justify-center gap-14 max-md:flex-col max-md:gap-2 p-3  rounded-tr-3xl rounded-tl-3xl bg-gradient-to-br from-[#7F7B7F] to-[#E5DEE5]'>
                 <span className='flex flex-col justify-center items-center gap-2'>
                     <p className='text-lg font-bold'>تاريخ الطلب</p>
                     <p className='text-[#5E6DA8]'>16 يوليو 2014</p>
