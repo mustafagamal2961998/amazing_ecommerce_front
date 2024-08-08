@@ -81,7 +81,7 @@ const Settings = () => {
                 <div className='flex items-center gap-3'>
                     <div className={`w-[270px] h-[150px] cursor-pointer select-none ${mood === 'returnPolicy' ? 'bg-[#0B1C3F]' : 'bg-[#D9E1FF]'} rounded-2xl flex flex-col justify-center items-center gap-2`} onClick={() => handleMood('returnPolicy')}>
                         <Image src={mood === 'returnPolicy' ? activeReturnPolicy: returnPolicy} alt='returnPolicy' className='w-[60px] h-[60px]' />
-                        <p className={`${mood === 'returnPolicy' && 'text-white'} text-lg font-bold`}>وضع الصيانة</p>
+                        <p className={`${mood === 'returnPolicy' && 'text-white'} text-lg font-bold`}>سياسة الاسترجاع</p>
                     </div>
                 {mood === 'returnPolicy' &&
                     <span className='w-[70px] h-[150px] z-10 bg-[#EFEFEF] rounded-2xl rounded-bl-none'></span>
