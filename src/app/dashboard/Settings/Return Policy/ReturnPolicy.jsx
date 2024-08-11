@@ -565,7 +565,7 @@ const ReturnPolicy = () => {
         </div>
         <h2 className='ml-auto font-bold text-xl m-auto'>عدد الأيام المسموح بها للاسترجاع من تاريخ الشراء</h2>
         <span className='flex justify-center items-center gap-4'>
-            <input type='number' className='w-1/4 p-2 bg-[#D9D9D9] outline-none rounded-xl' />
+            <input type='number' min={0} className='w-1/4 p-2 bg-[#D9D9D9] outline-none rounded-xl' />
             <p className='font-bold text-base'>يوم</p>
         </span>
         <h2 className='ml-auto font-bold text-xl m-auto'>تفعيل وإيقاف سياسة الاسترجاع</h2>
