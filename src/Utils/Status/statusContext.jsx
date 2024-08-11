@@ -34,6 +34,7 @@ export const StatusContextProvider = ({ children }) => {
     const [showCompanyMood, setShowCompanyMood] = useState(false);
     const [maintenanceMood, setMaintenanceMood] = useState(false);
     const [sidebar, setSidebar] = useState(true);
+    const [ordersMood, setOrdersMood] = useState('khazanty');
 
     return (
         <StatusContext.Provider 
@@ -63,7 +64,9 @@ export const StatusContextProvider = ({ children }) => {
             maintenanceMood, 
             setMaintenanceMood,
             sidebar,
-            setSidebar
+            setSidebar,
+            ordersMood, 
+            setOrdersMood
         }}>
             { children }
         </StatusContext.Provider>

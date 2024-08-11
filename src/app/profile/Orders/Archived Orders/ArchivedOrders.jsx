@@ -1,12 +1,14 @@
 import Image from 'next/image'
 import cloth from '../../../../assets/dashboard/clothes1.svg'
-import orderTracking from '../../../../assets/profile/orderTracking.svg'
 import reBuy from '../../../../assets/profile/reBuy.svg'
 import notes from '../../../../assets/profile/notes.svg'
 import review from '../../../../assets/profile/review.svg'
-import returnProduct from '../../../../assets/profile/returnProduct.svg'
+import { useStatusContext } from '../../../../Utils/Status/statusContext'
 
 const ArchivedOrders = () => {
+
+    const { setOrdersMood } = useStatusContext();
+
   return (
     <div className='w-full flex flex-col justify-center items-center gap-10'>
         <div className='w-full flex flex-col justify-center items-center gap-1'>
@@ -48,11 +50,11 @@ const ArchivedOrders = () => {
                         <p>شراء مرة أخرى</p>
                         <Image src={reBuy} alt='re buy' className='w-6 h-6 cursor-pointer' />
                     </span>
-                    <span className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#FF9500] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                    <span className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#FF9500] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer' onClick={() => setOrdersMood('notes')}>
                         <p>اكتب ملاحظات للبائع</p>
                         <Image src={notes} alt='notes' className='w-6 h-6 cursor-pointer' />
                     </span>
-                    <span className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#30B0C7] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                    <span className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#30B0C7] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer' onClick={() => setOrdersMood('review')}>
                         <p>اكتب تقييم للمنتج</p>
                         <Image src={review} alt='review' className='w-6 h-6 cursor-pointer' />
                     </span>

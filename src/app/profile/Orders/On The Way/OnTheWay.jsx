@@ -2,8 +2,12 @@ import Image from 'next/image'
 import cloth from '../../../../assets/dashboard/clothes1.svg'
 import orderTracking from '../../../../assets/profile/orderTracking.svg'
 import returnProduct from '../../../../assets/profile/returnProduct.svg'
+import { useStatusContext } from '../../../../Utils/Status/statusContext'
 
 const OnTheWay = () => {
+
+    const { setOrdersMood } = useStatusContext();
+
   return (
     <div className='w-full flex flex-col justify-center items-center gap-10'>
       <div className='w-full flex flex-col justify-center items-center gap-1'>
@@ -41,7 +45,7 @@ const OnTheWay = () => {
                   </span>
               </div>
               <div className='w-1/4 max-md:w-3/4 max-md:pb-10 flex flex-col items-center justify-center gap-3'>
-                  <span className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#FFCC00] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                  <span className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#FFCC00] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer' onClick={() => setOrdersMood('tracking')}>
                       <p>تتبع الطلب</p>
                       <Image src={orderTracking} alt='order tracking' className='w-6 h-6 cursor-pointer' />
                   </span>
@@ -88,7 +92,7 @@ const OnTheWay = () => {
                   </span>
               </div>
               <div className='w-1/4 max-md:w-3/4 max-md:pb-10 flex flex-col items-center justify-center gap-3'>
-                  <span className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#FFCC00] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                  <span className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#FFCC00] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer' onClick={() => setOrdersMood('tracking')}>
                       <p>تتبع الطلب</p>
                       <Image src={orderTracking} alt='order tracking' className='w-6 h-6 cursor-pointer' />
                   </span>
