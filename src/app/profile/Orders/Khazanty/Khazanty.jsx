@@ -3,8 +3,16 @@ import HomePage from "../../../../components/Home page/HomePage"
 import cloth from '../../../../assets/dashboard/clothes1.svg'
 import addToCart from '../../../../assets/profile/addToCart.svg'
 import removeFromCart from '../../../../assets/profile/removeFromCart.svg'
+import { useEffect, useState } from "react"
 
 const Khazanty = () => {
+
+    let [qty, setQty] = useState(1);
+
+    const handleChangeQty = (e) => {
+        setQty(e);
+    }
+
   return (
     <div className='w-full flex flex-col justify-center items-center gap-10'>
         <HomePage />
@@ -28,9 +36,9 @@ const Khazanty = () => {
                         <span className='flex flex-col gap-2 justify-center items-center'>
                             <p className='font-bold'>الكمية</p>
                             <span className='flex items-center gap-2'>
-                                <Image src={addToCart} alt='add to cart' className='w-6 h-6 cursor-pointer' />
-                                <input type='number' min={0} className='w-[40px] outline-none rounded-md bg-[#FFFFFF] text-center' />
-                                <Image src={removeFromCart} alt='remove from cart' className='w-6 h-6 cursor-pointer' />
+                                <Image src={addToCart} alt='add to cart' onClick={() => setQty(qty += 1)} className='w-6 h-6 cursor-pointer' />
+                                <input type='number' min={1} onChange={(e) => handleChangeQty(e.target.value)} value={qty} className='w-[40px] outline-none rounded-md bg-[#FFFFFF] text-center' />
+                                <Image src={removeFromCart} alt='remove from cart' onClick={() => qty >= 1 && setQty(qty -= 1)} className='w-6 h-6 cursor-pointer' />
                             </span>
                         </span>
                     </span>
@@ -63,9 +71,9 @@ const Khazanty = () => {
                         <span className='flex flex-col gap-2 justify-center items-center'>
                             <p className='font-bold'>الكمية</p>
                             <span className='flex items-center gap-2'>
-                                <Image src={addToCart} alt='add to cart' className='w-6 h-6 cursor-pointer' />
-                                <input type='number' min={0} className='w-[40px] outline-none rounded-md bg-[#FFFFFF] text-center' />
-                                <Image src={removeFromCart} alt='remove from cart' className='w-6 h-6 cursor-pointer' />
+                                <Image src={addToCart} alt='add to cart' onClick={() => setQty(qty += 1)} className='w-6 h-6 cursor-pointer' />
+                                <input type='number' min={1} onChange={(e) => handleChangeQty(e.target.value)} value={qty} className='w-[40px] outline-none rounded-md bg-[#FFFFFF] text-center' />
+                                <Image src={removeFromCart} alt='remove from cart' onClick={() => qty >= 1 && setQty(qty -= 1)} className='w-6 h-6 cursor-pointer' />
                             </span>
                         </span>
                     </span>
