@@ -18,7 +18,7 @@ const OnTheWay = () => {
               </span>
               <span className='flex flex-col justify-center items-center gap-2'>
                   <p className='text-lg font-bold'>حالة الطلب</p>
-                  <p className='text-[#5E6DA8]'>تم التسليم</p>
+                  <p className='text-[#5E6DA8]'>لم يتم الشحن بعد</p>
               </span>
               <span className='flex flex-col justify-center items-center gap-2'>
                   <p className='text-lg font-bold'>تاريخ التسليم</p>
@@ -65,7 +65,7 @@ const OnTheWay = () => {
               </span>
               <span className='flex flex-col justify-center items-center gap-2'>
                   <p className='text-lg font-bold'>حالة الطلب</p>
-                  <p className='text-[#5E6DA8]'>تم التسليم</p>
+                  <p className='text-[#5E6DA8]'>لم يتم الشحن بعد</p>
               </span>
               <span className='flex flex-col justify-center items-center gap-2'>
                   <p className='text-lg font-bold'>تاريخ التسليم</p>
