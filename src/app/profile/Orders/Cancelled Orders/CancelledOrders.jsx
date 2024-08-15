@@ -16,7 +16,7 @@ const CancelledOrders = () => {
                   <p className='text-[#5E6DA8]'>تم الإلغاء</p>
               </span>
               <span className='flex flex-col justify-center items-center gap-2'>
-                  <p className='text-lg font-bold'>تاريخ التسليم</p>
+                  <p className='text-lg font-bold'>تاريخ الإلغاء</p>
                   <p className='text-[#5E6DA8]'>17 يوليو 2014</p>
               </span>
               <span className='flex flex-col justify-center items-center gap-2'>
