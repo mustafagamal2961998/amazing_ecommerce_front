@@ -17,25 +17,25 @@ const Information = () => {
                 </span>
             </span>
             <div className='flex flex-col items-center gap-3 mb-5'>
-                <span className='flex items-center justify-start gap-[300px] max-md:gap-[50px] bg-white shadow-md rounded-xl text-center w-3/4'>
-                    <p className='bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl w-[20%] max-md:w-[40%] max-md:text-xs'>البريد الإلكتروني</p>
-                    <p className='font-bold max-md:text-xs md:w-[10%]'>a.hassan@amazing.sa</p>
+                <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
+                    <span className='w-1/6 max-md:w-1/4 text-center bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>البريد الإلكتروني</span>
+                    <p className='font-bold max-md:text-xs m-auto'>a.hassan@amazing.sa</p>
                 </span>
-                <span className='flex items-center justify-start gap-[300px] max-md:gap-[50px] bg-white shadow-md rounded-xl text-center w-3/4'>
-                    <p className='bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl w-[20%] max-md:w-[40%] max-md:text-xs'>رقم الجوال</p>
-                    <p className='font-bold max-md:text-xs md:w-[10%]'>201554854128+</p>
+                <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
+                    <span className='w-1/6 max-md:w-1/4 text-center bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>رقم الجوال</span>
+                    <p className='font-bold max-md:text-xs m-auto'>+201237478521</p>
                 </span>
-                <span className='flex items-center justify-start gap-[300px] max-md:gap-[50px] bg-white shadow-md rounded-xl text-center w-3/4'>
-                    <p className='bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl w-[20%] max-md:w-[40%] max-md:text-xs'>الجنس</p>
-                    <p className='font-bold max-md:text-xs md:w-[10%]'>ذكر</p>
+                <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
+                    <span className='w-1/6 max-md:w-1/4 text-center bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>الجنس</span>
+                    <p className='font-bold max-md:text-xs m-auto'>ذكر</p>
                 </span>
-                <span className='flex items-center justify-start gap-[300px] max-md:gap-[50px] bg-white shadow-md rounded-xl text-center w-3/4'>
-                    <p className='bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl w-[20%] max-md:w-[40%] max-md:text-xs'>تاريخ الميلاد</p>
-                    <p className='font-bold max-md:text-xs md:w-[10%]'>2 يناير 1996</p>
+                <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
+                    <span className='w-1/6 max-md:w-1/4 text-center bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>تاريخ الميلاد</span>
+                    <p className='font-bold max-md:text-xs m-auto'>2 يناير 1996</p>
                 </span>
-                <span className='flex items-center justify-start gap-[300px] max-md:gap-[50px] bg-white shadow-md rounded-xl text-center w-3/4'>
-                    <p className='bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl w-[20%] max-md:w-[40%] max-md:text-xs'>كلمة المرور</p>
-                    <p className='font-bold max-md:text-xs md:w-[10%]'>*************</p>
+                <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
+                    <span className='w-1/6 max-md:w-1/4 text-center bg-[#5E6DA8] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>كلمة المرور</span>
+                    <p className='font-bold max-md:text-xs m-auto'>*************</p>
                 </span>
             </div>
         </section>
