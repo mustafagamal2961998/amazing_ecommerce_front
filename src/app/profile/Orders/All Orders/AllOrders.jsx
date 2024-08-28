@@ -64,8 +64,8 @@ const AllOrders = () => {
                         <p>اكتب تقييم للمنتج</p>
                         <Image src={review} alt='review' className='w-6 h-6 cursor-pointer' />
                     </span>
-                    <span className='w-full h-[40px] md:mb-10 flex justify-evenly items-center shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
-                        <p>إرجاع للمنتج</p>
+                    <span className='w-full h-[40px] md:mb-10 flex justify-evenly items-center shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer' onClick={() => setOrdersMood('returnProduct')}>
+                        <p>إرجاع المنتج</p>
                         <Image src={returnProduct} alt='return product' className='w-6 h-6 cursor-pointer' />
                     </span>
                 </div>
@@ -123,8 +123,8 @@ const AllOrders = () => {
                         <p>اكتب تقييم للمنتج</p>
                         <Image src={review} alt='review' className='w-6 h-6 cursor-pointer' />
                     </span>
-                    <span className='w-full h-[40px] md:mb-10 flex justify-evenly items-center shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
-                        <p>إرجاع للمنتج</p>
+                    <span className='w-full h-[40px] md:mb-10 flex justify-evenly items-center shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer' onClick={() => setOrdersMood('returnProduct')}>
+                        <p>إرجاع المنتج</p>
                         <Image src={returnProduct} alt='return product' className='w-6 h-6 cursor-pointer' />
                     </span>
                 </div>
