@@ -1,121 +1,226 @@
 'use client'
 import './style.css'
+import 'react-circular-progressbar/dist/styles.css';
 import { useState } from 'react'
 import Image from 'next/image'
-import Main from './Main/main'
-import Orders from './Orders/Orders'
-import Products from './Products/Products'
-import Clients from './Clients/Clients'
-import Bills from './Bills/Bills'
-import Reports from './Reports/Reports'
-import Offers from './Offers/Offers'
-import Support from './Support/Support'
-import Shipping from './Shipping/Shipping'
-import Rating from './Rating/Rating'
-import Settings from './Settings/Settings'
+import alertClothes from '../../assets/dashboard/alertClothes.png'
+import alertVector from '../../assets/dashboard/alertVector.png'
+import TopArrow from '../../assets/dashboard/TopArrow.png'
+import { CircularProgressbar } from 'react-circular-progressbar';
 import purpleLogo from '../../components/Logo/purpleLogo.svg'
-import Logo from '../../components/Logo/logo.svg'
 import email from '../../assets/auth/email.svg'
 import eye from '../../assets/auth/eye.svg'
-import main from '../../assets/dashboard/main.png'
-import orders from '../../assets/dashboard/orders.png'
-import products from '../../assets/dashboard/products.png'
-import clients from '../../assets/dashboard/clients.png'
-import bills from '../../assets/dashboard/bills.png'
-import reports from '../../assets/dashboard/reports.png'
-import offers from '../../assets/dashboard/offers.png'
-import support from '../../assets/dashboard/support.png'
-import shipping from '../../assets/dashboard/shipping.png'
-import rating from '../../assets/dashboard/rating.png'
-import settings from '../../assets/dashboard/settings.png'
-import activeMain from '../../assets/dashboard/activeMain.png'
-import activeOrders from '../../assets/dashboard/activeOrders.png'
-import activeProducts from '../../assets/dashboard/activeProducts.png'
-import activeClients from '../../assets/dashboard/activeClients.png'
-import activeBills from '../../assets/dashboard/activeBills.png'
-import activeReports from '../../assets/dashboard/activeReports.png'
-import activeOffers from '../../assets/dashboard/activeOffers.png'
-import activeSupport from '../../assets/dashboard/activeSupport.png'
-import activeShipping from '../../assets/dashboard/activeShipping.png'
-import activeRating from '../../assets/dashboard/activeRating.png'
-import activeSettings from '../../assets/dashboard/activeSettings.png'
+import Wrapper from './Wrapper'
 
 const Dashboard = () => {
   const [isLoggedIn] = useState(true);
 
-  const [mainMood, setMainMood] = useState('main');
-
-  const handleMood = (mood) => {
-    setMainMood(mood);
-  }
+  const [data, setData] = useState(['40%', '30%', '45%', '42%', '60%', '33%', '15%', '70%', '90%', '94%', '3%', '56%'])
 
   return (
     isLoggedIn ?
-    <main className='w-full flex flex-col'>
-      <div className='flex pl-[60px]'>
-        <aside className='dashboard-aside w-1/5 min-h-screen flex flex-col justify-start items-center gap-20 p-5 bg-gradient-to-br from-[#252B42] to-[#5E6DA8]'>
-          <Image src={Logo} alt='logo' className='mt-[40px] w-[170px] h-[38px]' />
-          <ul className='flex flex-col gap-2 w-full'>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'main' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('main')}>
-              <Image src={mainMood === 'main' ? activeMain : main} alt='main' className='w-5 h-5' />
-              <p className={`${mainMood === 'main' ? 'text-[#4A588D]' : 'text-white'}`}>الرئيسية</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'orders' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('orders')}>
-              <Image src={mainMood === 'orders' ? activeOrders : orders} alt='orders' className='w-5 h-5' />
-              <p className={`${mainMood === 'orders' ? 'text-[#4A588D]' : 'text-white'}`}>الطلبات</p>
-              <span className='bg-[#FF0000] text-white text-xs text-center rounded-full w-4 h-4 mr-auto'>12</span>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'products' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('products')}>
-              <Image src={mainMood === 'products' ? activeProducts : products} alt='products' className='w-5 h-5' />
-              <p className={`${mainMood === 'products' ? 'text-[#4A588D]' : 'text-white'}`}>المنتجات</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'clients' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('clients')}>
-              <Image src={mainMood === 'clients' ? activeClients : clients} alt='clients' className='w-5 h-5' />
-              <p className={`${mainMood === 'clients' ? 'text-[#4A588D]' : 'text-white'}`}>العملاء</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'bills' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('bills')}>
-              <Image src={mainMood === 'bills' ? activeBills : bills} alt='bills' className='w-5 h-5' />
-              <p className={`${mainMood === 'bills' ? 'text-[#4A588D]' : 'text-white'}`}>الفواتير</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'reports' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('reports')}>
-              <Image src={mainMood === 'reports' ? activeReports : reports} alt='reports' className='w-5 h-5' />
-              <p className={`${mainMood === 'reports' ? 'text-[#4A588D]' : 'text-white'}`}>التقارير والإحصائيات</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'offers' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('offers')}>
-              <Image src={mainMood === 'offers' ? activeOffers : offers} alt='offers' className='w-5 h-5' />
-              <p className={`${mainMood === 'offers' ? 'text-[#4A588D]' : 'text-white'}`}>التخفيضات والقسائم</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'support' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('support')}>
-              <Image src={mainMood === 'support' ? activeSupport : support} alt='support' className='w-5 h-5' />
-              <p className={`${mainMood === 'support' ? 'text-[#4A588D]' : 'text-white'}`}>الدعم الفني والمساعدة</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'shipping' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('shipping')}>
-              <Image src={mainMood === 'shipping' ? activeShipping : shipping} alt='shipping' className='w-5 h-5' />
-              <p className={`${mainMood === 'shipping' ? 'text-[#4A588D]' : 'text-white'}`}>شركات الشحن</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'rating' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('rating')}>
-              <Image src={mainMood === 'rating' ? activeRating : rating} alt='rating' className='w-5 h-5' />
-              <p className={`${mainMood === 'rating' ? 'text-[#4A588D]' : 'text-white'}`}>التقييمات</p>
-            </li>
-            <li className={`cursor-pointer p-2 w-full ${mainMood === 'settings' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`} onClick={() => handleMood('settings')}>
-              <Image src={mainMood === 'settings' ? activeSettings : settings} alt='settings' className='w-5 h-5' />
-              <p className={`${mainMood === 'settings' ? 'text-[#4A588D]' : 'text-white'}`}>الإعدادات</p>
-            </li>
-          </ul>
-        </aside>
-        {mainMood === 'main' && <Main />}
-        {mainMood === 'orders' && <Orders />}
-        {mainMood === 'products' && <Products />}
-        {mainMood === 'clients' && <Clients />}
-        {mainMood === 'bills' && <Bills />}
-        {mainMood === 'reports' && <Reports />}
-        {mainMood === 'offers' && <Offers />}
-        {mainMood === 'support' && <Support />}
-        {mainMood === 'shipping' && <Shipping />}
-        {mainMood === 'rating' && <Rating />}
-        {mainMood === 'settings' && <Settings />}
+    <Wrapper>
+      <div className='grid grid-cols-4 gap-8 w-full'>
+        <div className='p-3 w-[100%] h-[150px] flex flex-col items-start justify-center gap-4 rounded-2xl bg-[#E2FFDD]'>
+          <p className='text-lg'>المنتجات</p>
+          <p className='text-xl font-bold'>56</p>
+        </div>
+        <div className='p-3 w-[100%] h-[150px] flex flex-col items-start justify-center gap-4 rounded-2xl bg-[#DDFFFD]'>
+          <p className='text-lg'>التصنيفات</p>
+          <p className='text-xl font-bold'>3</p>
+        </div>
+        <div className='p-3 w-[100%] h-[150px] flex flex-col items-start justify-center gap-4 rounded-2xl bg-[#DDE2FF]'>
+          <p className='text-lg'>المخزون</p>
+          <p className='text-xl font-bold'>1022</p>
+        </div>
+        <div className='p-3 w-[100%] h-[150px] flex flex-col items-start justify-center gap-4 rounded-2xl bg-[#DDF3FF]'>
+          <p className='text-lg'>العملاء</p>
+          <p className='text-xl font-bold'>600</p>
+        </div>
+        <div className='p-3 w-[100%] h-[150px] flex flex-col items-start justify-center gap-4 rounded-2xl bg-[#DDE8FF]'>
+          <p className='text-lg'>الطلبات الجديدة</p>
+          <p className='text-xl font-bold'>50</p>
+        </div>
+        <div className='p-3 w-[100%] h-[150px] flex flex-col items-start justify-center gap-4 rounded-2xl bg-[#FFF8DD]'>
+          <p className='text-lg'>طلبات قيد الإنتظار</p>
+          <p className='text-xl font-bold'>40</p>
+        </div>
+        <div className='p-3 w-[100%] h-[150px] flex flex-col items-start justify-center gap-4 rounded-2xl bg-[#FFC6C6]'>
+          <p className='text-lg'>الطلبات الملغية</p>
+          <p className='text-xl font-bold'>10</p>
+        </div>
+        <div className='p-3 w-[100%] h-[150px] flex flex-col items-start justify-center gap-4 rounded-2xl bg-[#FFDDDD]'>
+          <p className='text-lg'>الشكاوي والمقترحات</p>
+          <p className='text-xl font-bold'>6</p>
+        </div>
       </div>
-    </main>
+      <div className='w-full flex items-start gap-5'>
+        <div className='relative w-3/4 flex items-center gap-3 border-2 border-[#CFCFCF] rounded-xl rounded-tr-3xl p-3 h-full overflow-auto'>
+          <div className='summary w-full h-full p-3 flex flex-col justify-start items-center gap-[60px]'>
+            <span className='pl-1 w-full flex justify-between items-center'>
+              <p className='w-2/5 text-center rounded-tr-3xl rounded-bl-3xl p-3 bg-[#4A588D] text-white absolute -top-[14px] -right-[14px]'>ملخص الشهر</p>
+              <p className='mr-auto'>إبريل</p>
+            </span>
+            <div className='w-full flex justify-center items-center gap-4'>
+              <span className='flex flex-col justify-center items-center gap-3 w-full'>
+                <p className='text-[#3A4777]'>المبيعات</p>
+                <CircularProgressbar value={65} className='h-[60px]' text={`213`} />
+              </span>
+              <span className='flex flex-col justify-center items-center gap-3 w-full'>
+                <p className='text-[#3A4777]'>المنتجات</p>
+                <CircularProgressbar value={65} className='h-[60px]' text={`213`} />
+              </span>
+              <span className='flex flex-col justify-center items-center gap-3 w-full'>
+                <p className='text-[#3A4777]'>الزيارات</p>
+                <CircularProgressbar value={80} className='h-[60px]' text={`421`} />
+              </span>
+              <span className='flex flex-col justify-center items-center gap-3 w-full'>
+                <p className='text-[#3A4777]'>العملاء</p>
+                <CircularProgressbar value={65} className='h-[60px]' text={`213`} />
+              </span>
+            </div>
+            <div className='w-full flex flex-col gap-8'>
+              <p className='text-xl font-bold ml-auto'>الأكثر طلبا</p>
+              <div className='flex justify-between items-center w-full bg-[#93A9FF80] rounded-2xl p-3'>
+                <span className='flex items-center gap-2'>
+                  <Image src={alertClothes} alt='most selling' className='w-[45px] h-[45px]' />
+                  <p>بدلة كاروهات</p>
+                </span>
+                <span className='flex items-center gap-2'>
+                  <p className='font-bold'>450</p>
+                  <Image src={TopArrow} alt='most selling' className='w-[24px] h-[24px]' />
+                </span>
+              </div>
+              <div className='flex justify-between items-center w-full bg-[#93A9FF80] rounded-2xl p-3'>
+                <span className='flex items-center gap-2'>
+                  <Image src={alertClothes} alt='most selling' className='w-[45px] h-[45px]' />
+                  <p>بدلة كاروهات</p>
+                </span>
+                <span className='flex items-center gap-2'>
+                  <p className='font-bold'>450</p>
+                  <Image src={TopArrow} alt='most selling' className='w-[24px] h-[24px]' />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className='w-full h-full p-2'>
+            <div className='h-full flex justify-center gap-2'>
+            {data.map((col, i) => (
+              <div key={i} className='flex flex-col justify-end items-center gap-1'>
+                <span className={`w-3 rounded-t-2xl bg-[#4A588D]`} style={{height: col}}></span>
+                <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
+                  <p>1</p>
+                  <p>April</p>
+                </span>
+              </div>
+            ))
+            }
+            </div>
+          </div>
+        </div>
+        <div className='w-1/4 h-full flex flex-col items-center gap-5 border-2 border-[#CFCFCF] rounded-xl rounded-tr-3xl p-3 relative'>
+          <p className='w-2/5 text-center rounded-tr-3xl rounded-bl-3xl p-2 bg-[#4A588D] text-white absolute -top-[2px] -right-[2px]'>التنبيهات</p>
+          <div className='flex flex-col gap-7 mt-[65px]'>
+            <span className='flex items-center gap-2'>
+              <Image src={alertVector} alt='user' className='w-14 h-14' />
+              <span className='flex flex-col text-sm'>
+              زائر اضاف بدلة كاروهات للسلة
+              <p className='text-[#A7A7A7]'>منذ 3 ساعات</p>
+              </span>
+              <Image src={alertClothes} alt='user' className='w-14 h-14' />
+            </span>
+            <span className='flex justify-center items-center gap-2'>
+              <Image src={alertVector} alt='user' className='w-14 h-14' />
+              <span className='flex flex-col text-sm'>
+              زائر اضاف بدلة كاروهات للسلة
+              <p className='text-[#A7A7A7]'>منذ 3 ساعات</p>
+              </span>
+              <Image src={alertClothes} alt='user' className='w-14 h-14' />
+            </span>
+            <span className='flex justify-center items-center gap-2'>
+              <Image src={alertVector} alt='user' className='w-14 h-14' />
+              <span className='flex flex-col text-sm'>
+              زائر اضاف بدلة كاروهات للسلة
+              <p className='text-[#A7A7A7]'>منذ 3 ساعات</p>
+              </span>
+              <Image src={alertClothes} alt='user' className='w-14 h-14' />
+            </span>
+            <span className='flex justify-center items-center gap-2'>
+              <Image src={alertVector} alt='user' className='w-14 h-14' />
+              <span className='flex flex-col text-sm'>
+              زائر اضاف بدلة كاروهات للسلة
+              <p className='text-[#A7A7A7]'>منذ 3 ساعات</p>
+              </span>
+              <Image src={alertClothes} alt='user' className='w-14 h-14' />
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className='w-full pb-10 flex items-start gap-5'>
+        <div className='relative w-3/4 h-full flex items-start gap-3 bg-[#C9D4FF80] rounded-3xl p-3'>
+          <div className='w-full p-3 flex flex-col justify-center gap-8 items-center'>
+            <p className='w-1/5 text-center rounded-tr-3xl rounded-bl-3xl p-2 bg-[#4A588D] text-white absolute top-0 right-0'>أحدث الطلبات</p>
+            <div className='mt-[65px] flex flex-col gap-3 w-full'>
+              <span className='flex items-center justify-between gap-2 bg-white w-full rounded-xl p-7'>
+                <span className='flex items-start gap-2'>
+                  <Image src={alertVector} alt='user' className='w-14 h-14' />
+                  <span className='flex flex-col items-start gap-2'>
+                    <p className='font-bold'>سيد عبد العظيم</p>
+                    <p className='text-sm text-[#A7A7A7]'>منذ 3 ساعات</p>
+                    <p className='text-sm text-[#A7A7A7]'>#0021544</p>
+                  </span>
+                </span>
+                <span className='flex items-start gap-2'>
+                  <Image src={alertClothes} alt='user' className='w-14 h-14' />
+                  <span className='flex flex-col items-start gap-2'>
+                    <p className='font-bold'>بدلة كاروهات</p>
+                    <p>500 ر.س</p>
+                  </span>
+                </span>
+              </span>
+              <span className='flex items-center justify-between gap-2 bg-white w-full rounded-xl p-7'>
+                <span className='flex items-start gap-2'>
+                  <Image src={alertVector} alt='user' className='w-14 h-14' />
+                  <span className='flex flex-col items-start gap-2'>
+                    <p className='font-bold'>سيد عبد العظيم</p>
+                    <p className='text-sm text-[#A7A7A7]'>منذ 3 ساعات</p>
+                    <p className='text-sm text-[#A7A7A7]'>#0021544</p>
+                  </span>
+                </span>
+                <span className='flex items-start gap-2'>
+                  <Image src={alertClothes} alt='user' className='w-14 h-14' />
+                  <span className='flex flex-col items-start gap-2'>
+                    <p className='font-bold'>بدلة كاروهات</p>
+                    <p>500 ر.س</p>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className='relative w-1/4 h-full flex flex-col justify-start gap-5 bg-[#C9D4FF80] rounded-3xl p-4'>
+          <p className='w-3/5 text-center rounded-tr-3xl rounded-bl-3xl p-2 bg-[#4A588D] text-white absolute top-0 right-0'>منتجات نفذت</p>
+          <div className='flex flex-col gap-3 w-full mt-[65px]'>
+            <span className='flex justify-between items-center gap-2 w-full'>
+              <span className='flex items-center gap-2'>
+              <Image src={alertClothes} alt='user' className='w-14 h-14' />
+              بدلة كاروهات
+              </span>
+              <p className='font-bold'>500 ر.س</p>
+            </span>
+            <hr className='bg-[#FFFFFF] w-full h-[2px]'></hr>
+            <span className='flex justify-between items-center gap-2 w-full'>
+              <span className='flex items-center gap-2'>
+              <Image src={alertClothes} alt='user' className='w-14 h-14' />
+              بدلة كاروهات
+              </span>
+              <p className='font-bold'>500 ر.س</p>
+            </span>
+            <hr className='bg-[#FFFFFF] w-full h-[2px]'></hr>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
     :
     <main className='h-screen w-full login-dashboard'>
       <form className='dashboard-form w-1/4 h-fit flex flex-col justify-center items-center gap-5 absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4 bg-white rounded-md p-5'>

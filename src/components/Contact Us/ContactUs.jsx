@@ -17,6 +17,7 @@ import companyLogo from '../../assets/chat/companyLogo.svg'
 import handshake from '../../assets/chat/handshake.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { usePathname } from "next/navigation";
 
 const ContactUs = () => {
     
@@ -43,6 +44,14 @@ const ContactUs = () => {
             setConversationEvaluation(true);
             setStartChat(false);
         }
+    }
+
+    const pathname = usePathname();
+    
+    if(pathname.startsWith('/dashboard')) {
+        return(
+            null
+        )
     }
 
   return (

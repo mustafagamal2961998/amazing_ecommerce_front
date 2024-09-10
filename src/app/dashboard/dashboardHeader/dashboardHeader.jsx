@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import profilePicture from '../../../assets/profile/profilePicture.png'
 
 const DashboardHeader = () => {
   return (
