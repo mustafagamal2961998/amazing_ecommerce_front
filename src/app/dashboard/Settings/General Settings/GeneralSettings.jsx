@@ -4,8 +4,8 @@ import comletedImg from '../../../../assets/dashboard/comletedImg.svg'
 import uploadIcon from '../../../../assets/dashboard/upload.svg'
 import plus from '../../../../assets/dashboard/plus.svg'
 import ImageUploading from "react-images-uploading";
-import { useState } from "react";
 import checked from '../../../../assets/dashboard/checked.svg'
+import { useState } from "react";
 
 const GeneralSettings = () => {
   
