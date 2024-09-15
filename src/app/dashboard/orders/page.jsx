@@ -93,7 +93,7 @@ const Orders = () => {
                             <p className='text-base'>1</p>
                             <Image src={userImg} alt="user" className="w-[40px] h-[40px]" onClick={() => setOrders(false)} />
                             <span className="flex flex-col items-start gap-1">
-                              <p className="text-md font-medium">أحمد حسن</p>
+                              <p className="text-md font-medium">سيد عبد العظيم</p>
                               <span className="flex gap-5 items-center">
                                 <p className="text-[#BFBFBF]">#565654</p>
                                 <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>
@@ -116,7 +116,7 @@ const Orders = () => {
                             <p className='text-base'>2</p>
                             <Image src={userImg} alt="user" className="w-[40px] h-[40px]" />
                             <span className="flex flex-col items-start gap-1">
-                              <p className="text-md font-medium">أحمد حسن</p>
+                              <p className="text-md font-medium">سيد عبد العظيم</p>
                               <span className="flex gap-5 items-center">
                                 <p className="text-[#BFBFBF]">#565654</p>
                                 <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>
@@ -139,7 +139,7 @@ const Orders = () => {
                             <p className='text-base'>3</p>
                             <Image src={userImg} alt="user" className="w-[40px] h-[40px]" />
                             <span className="flex flex-col items-start gap-1">
-                              <p className="text-md font-medium">أحمد حسن</p>
+                              <p className="text-md font-medium">سيد عبد العظيم</p>
                               <span className="flex gap-5 items-center">
                                 <p className="text-[#BFBFBF]">#565654</p>
                                 <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>
@@ -162,7 +162,7 @@ const Orders = () => {
                             <p className='text-base'>4</p>
                             <Image src={userImg} alt="user" className="w-[40px] h-[40px]" />
                             <span className="flex flex-col items-start gap-1">
-                              <p className="text-md font-medium">أحمد حسن</p>
+                              <p className="text-md font-medium">سيد عبد العظيم</p>
                               <span className="flex gap-5 items-center">
                                 <p className="text-[#BFBFBF]">#565654</p>
                                 <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>
@@ -185,7 +185,7 @@ const Orders = () => {
                             <p className='text-base'>5</p>
                             <Image src={userImg} alt="user" className="w-[40px] h-[40px]" />
                             <span className="flex flex-col items-start gap-1">
-                              <p className="text-md font-medium">أحمد حسن</p>
+                              <p className="text-md font-medium">سيد عبد العظيم</p>
                               <span className="flex gap-5 items-center">
                                 <p className="text-[#BFBFBF]">#565654</p>
                                 <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>
@@ -208,7 +208,7 @@ const Orders = () => {
                             <p className='text-base'>6</p>
                             <Image src={userImg} alt="user" className="w-[40px] h-[40px]" />
                             <span className="flex flex-col items-start gap-1">
-                              <p className="text-md font-medium">أحمد حسن</p>
+                              <p className="text-md font-medium">سيد عبد العظيم</p>
                               <span className="flex gap-5 items-center">
                                 <p className="text-[#BFBFBF]">#565654</p>
                                 <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>
@@ -231,7 +231,7 @@ const Orders = () => {
                             <p className='text-base'>7</p>
                             <Image src={userImg} alt="user" className="w-[40px] h-[40px]" />
                             <span className="flex flex-col items-start gap-1">
-                              <p className="text-md font-medium">أحمد حسن</p>
+                              <p className="text-md font-medium">سيد عبد العظيم</p>
                               <span className="flex gap-5 items-center">
                                 <p className="text-[#BFBFBF]">#565654</p>
                                 <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>
@@ -254,7 +254,7 @@ const Orders = () => {
                             <p className='text-base'>8</p>
                             <Image src={userImg} alt="user" className="w-[40px] h-[40px]" />
                             <span className="flex flex-col items-start gap-1">
-                              <p className="text-md font-medium">أحمد حسن</p>
+                              <p className="text-md font-medium">سيد عبد العظيم</p>
                               <span className="flex gap-5 items-center">
                                 <p className="text-[#BFBFBF]">#565654</p>
                                 <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>
@@ -285,7 +285,7 @@ const Orders = () => {
             <div className="flex justify-start items-center gap-2 p-3">
               <Image src={userImg} alt="user" className="w-[40px] h-[40px]" />
               <span className="flex flex-col items-start gap-1">
-                <p className="text-md font-medium">أحمد حسن</p>
+                <p className="text-md font-medium">سيد عبد العظيم</p>
                 <span className="flex gap-5 items-center">
                   <p className="text-[#BFBFBF]">#565654</p>
                   <p className="text-[#BFBFBF] text-sm">رجالي/ بدل رسمي</p>

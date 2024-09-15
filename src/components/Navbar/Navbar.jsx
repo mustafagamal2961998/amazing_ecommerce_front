@@ -45,7 +45,7 @@ const Navbar = () => {
                 <div className='profile flex flex-row-reverse items-center gap-2'>
                     <Link className='flex flex-row-reverse gap-5 items-center' href='/profile'>
                         <Image src={ProfileImg} className='w-[40px] h-[40px] rounded-full' alt='Amazing' />
-                        <p className='text-black text-[12px]'>أحمد حسن</p>
+                        <p className='text-black text-[12px]'>سيد عبد العظيم</p>
                     </Link>
                     <span className='flex flex-row-reverse gap-3'>
                         <Link className='relative flex flex-row-reverse gap-5 items-center' href='cart'>
@@ -87,7 +87,7 @@ const Navbar = () => {
             <div className='profile flex flex-row-reverse items-center gap-5'>
                 <Link className='flex flex-row-reverse gap-5 items-center' href='/profile'>
                     <Image src={ProfileImg} className='w-[40px] h-[40px] rounded-full' alt='Amazing' />
-                    <p className='text-white text-[12px]'>أحمد حسن</p>
+                    <p className='text-white text-[12px]'>سيد عبد العظيم</p>
                 </Link>
                 <span className='flex flex-row-reverse gap-3'>
                     <Link className='relative flex flex-row-reverse gap-5 items-center' href='/cart'>
