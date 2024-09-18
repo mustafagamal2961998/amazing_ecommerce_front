@@ -1,32 +1,26 @@
 'use client'
+import { useState } from "react";
+import Image from "next/image"
 import Navbar from '../../../components/Navbar/Navbar';
 import ProfileSidebar from '../ProfileSidebar';
-import Image from 'next/image';
+import Header from './Header'
 import { useStatusContext } from '../../../Utils/Status/statusContext'
-import allOrders from '../../../assets/profile/1.svg';
-import onTheWay from '../../../assets/profile/2.svg';
-import cancelledOrders from '../../../assets/profile/3.svg';
-import archivedOrders from '../../../assets/profile/4.svg';
-import activeAllOrders from '../../../assets/profile/active1.svg';
-import activeOnTheWay from '../../../assets/profile/active2.svg';
-import activeCancelledOrders from '../../../assets/profile/active3.svg';
-import activeArchivedOrders from '../../../assets/profile/active4.svg';
-import Khazanty from './Khazanty/Khazanty';
-import AllOrders from './All Orders/AllOrders';
-import OnTheWay from './On The Way/OnTheWay';
-import CancelledOrders from './Cancelled Orders/CancelledOrders';
-import ArchivedOrders from './Archived Orders/ArchivedOrders';
-import Review from './Review/Review';
-import Tracking from './Tracking/Tracking';
-import Notes from './Notes/Notes';
-import ReturnProduct from './Return Product/ReturnProduct'
+import { usePathname } from 'next/navigation';
+import HomePage from "../../../components/Home page/HomePage"
+import cloth from '../../../assets/dashboard/clothes1.svg'
+import addToCart from '../../../assets/profile/addToCart.svg'
+import removeFromCart from '../../../assets/profile/removeFromCart.svg'
 
 const Orders = () => {
 
     const { sidebar, ordersMood, setOrdersMood } = useStatusContext();
 
-    const handleOrdersMood = (mood) => {
-      setOrdersMood(mood);
+    const pathname = usePathname();
+
+    let [qty, setQty] = useState(1);
+
+    const handleChangeQty = (e) => {
+        setQty(e);
     }
 
   return (
@@ -34,80 +28,135 @@ const Orders = () => {
       <Navbar />
       <div className='relative flex gap-20 md:pl-[60px]'>
         <ProfileSidebar />
-        <div className={`w-full  ${sidebar ? 'max-md:hidden' : ''} max-md:p-5`}>
-            <section className={`w-full mt-[100px] pb-[60px] flex flex-col gap-5`}>
-              <span className={`relative w-[120px] h-[40px] ${ordersMood === 'khazanty' ? 'bg-[#252B42]' : 'bg-[#404B70]'} p-2 rounded-br-full rounded-tl-full`} onClick={() => handleOrdersMood('khazanty')}>
-                <h2 className='select-none cursor-pointer text-xl text-white max-md:text-xs md:font-bold absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>خزانتي</h2>
-              </span>
-            {ordersMood === 'review' &&
+        <div className={`w-full ${sidebar ? 'max-md:hidden' : ''} max-md:p-5 mt-12 mb-12 flex flex-col gap-8`}>
+            <div className={`w-full mt-[100px] pb-[60px] flex flex-col gap-5`}>
+              <Header />
+              <div className='w-full flex flex-col justify-center items-center gap-10'>
+                <HomePage />
+                <div className='w-3/4 flex flex-col justify-center items-center gap-1'>
+                    <span className='w-full p-3 rounded-tr-full rounded-tl-full bg-gradient-to-br from-[#7F7B7F] to-[#E5DEE5]'>
+                        <p className='text-lg font-bold mr-5'>سلة المشتريات</p>
+                    </span>
+                    <div className='w-full p-5 bg-[#D9D9D98A] flex justify-between items-center max-md:flex-col max-md:justify-center max-md:gap-5'>
+                        <div className='flex items-center gap-3 max-md:flex-col max-md:justify-center'>
+                            <Image src={cloth} alt='cloth' className='w-full' />
+                            <span className='flex flex-col items-start gap-2'>
+                                <p className='text-lg'>بدلة بأزرار</p>
+                                <span className='flex items-center gap-2'>
+                                    اللون
+                                    <p className='text-lg'>: أزرق</p>
+                                </span>
+                                <span className='flex items-center gap-2'>
+                                    المقاس
+                                    <p className='text-lg'>:XL</p>
+                                </span>
+                                <span className='flex flex-col gap-2 justify-center items-center'>
+                                    <p className='font-bold'>الكمية</p>
+                                    <span className='flex items-center gap-2'>
+                                        <Image src={addToCart} alt='add to cart' onClick={() => setQty(qty += 1)} className='w-6 h-6 cursor-pointer' />
+                                        <input type='number' min={1} onChange={(e) => handleChangeQty(e.target.value)} value={qty} className='w-[40px] outline-none rounded-md bg-[#FFFFFF] text-center' />
+                                        <Image src={removeFromCart} alt='remove from cart' onClick={() => qty >= 1 && setQty(qty -= 1)} className='w-6 h-6 cursor-pointer' />
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                        <div className='w-1/4 max-md:w-3/4 flex flex-col items-center justify-center gap-3'>
+                            <span className='relative w-full h-[40px] shadow-lg bg-[#FF9500] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>تعديل</h2>
+                            </span>
+                            <span className='relative w-full h-[40px] shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>إرسال إلي المفضلة</h2>
+                            </span>
+                            <span className='relative w-full h-[40px] shadow-lg bg-[#34C759] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>متابعة عملية الشراء</h2>
+                            </span>
+                        </div>
+                    </div>
+                    <div className='w-full p-5 bg-[#D9D9D98A] rounded-bl-3xl rounded-br-3xl flex justify-between items-center max-md:flex-col max-md:justify-center max-md:gap-5'>
+                        <div className='flex items-center gap-3 max-md:flex-col max-md:justify-center'>
+                            <Image src={cloth} alt='cloth' className='w-full' />
+                            <span className='flex flex-col items-start gap-2'>
+                                <p className='text-lg'>بدلة بأزرار</p>
+                                <span className='flex items-center gap-2'>
+                                    اللون
+                                    <p className='text-lg'>: أزرق</p>
+                                </span>
+                                <span className='flex items-center gap-2'>
+                                    المقاس
+                                    <p className='text-lg'>:XL</p>
+                                </span>
+                                <span className='flex flex-col gap-2 justify-center items-center'>
+                                    <p className='font-bold'>الكمية</p>
+                                    <span className='flex items-center gap-2'>
+                                        <Image src={addToCart} alt='add to cart' onClick={() => setQty(qty += 1)} className='w-6 h-6 cursor-pointer' />
+                                        <input type='number' min={1} onChange={(e) => handleChangeQty(e.target.value)} value={qty} className='w-[40px] outline-none rounded-md bg-[#FFFFFF] text-center' />
+                                        <Image src={removeFromCart} alt='remove from cart' onClick={() => qty >= 1 && setQty(qty -= 1)} className='w-6 h-6 cursor-pointer' />
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                        <div className='w-1/4 max-md:w-3/4 flex flex-col items-center justify-center gap-3'>
+                            <span className='relative w-full h-[40px] shadow-lg bg-[#FF9500] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>تعديل</h2>
+                            </span>
+                            <span className='relative w-full h-[40px] shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>إرسال إلي المفضلة</h2>
+                            </span>
+                            <span className='relative w-full h-[40px] shadow-lg bg-[#34C759] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>متابعة عملية الشراء</h2>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* {pathname ==='/profile/orders/review' &&
               <span className='relative w-[120px] h-[40px] shadow-xl bg-[#30B0C7] p-2 rounded-tr-full rounded-bl-full'>
                 <h2 className='w-max select-none text-md max-md:text-xs absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>تقييم المنتج</h2>
               </span>
             }
-            {ordersMood === 'tracking' &&
+            {pathname ==='/profile/orders/tracking' &&
               <span className='relative w-[120px] h-[40px] shadow-xl bg-[#FFCC00] p-2 rounded-tr-full rounded-bl-full'>
                 <h2 className='w-max select-none text-md max-md:text-xs absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>تتبع الطلب</h2>
               </span>
             }
-            {ordersMood === 'notes' &&
+            {pathname ==='/profile/orders/notes' &&
               <span className='relative w-[120px] h-[40px] shadow-xl bg-[#FF9500] p-2 rounded-tr-full rounded-bl-full'>
                 <h2 className='w-max select-none text-md max-md:text-xs absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>ملاحظات للبائع</h2>
               </span>
             }
-            {ordersMood === 'returnProduct' &&
+            {pathname ==='/profile/orders/returnProduct' &&
               <span className='relative w-[120px] h-[40px] shadow-xl bg-[#FF3B30] p-2 rounded-tr-full rounded-bl-full'>
                 <h2 className='w-max select-none text-md max-md:text-xs absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>إرجاع المنتج</h2>
               </span>
-            }
-            {
-              ordersMood !== 'review' && ordersMood !=='tracking' && ordersMood !=='notes' && ordersMood !=='returnProduct' &&
-              <div className='w-full flex justify-center items-center'>
-                <span className='relative' onClick={() => handleOrdersMood('allOrders')}>
-                  <Image src={ordersMood === 'allOrders' ? activeAllOrders : allOrders} alt='all orders' className='w-full cursor-pointer select-none' />
-                  <h2 className='w-max select-none cursor-pointer text-lg text-white max-md:text-xs md:font-bold absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>جميع الطلبات</h2>
-                </span>
-                <span className='relative' onClick={() => handleOrdersMood('onTheWay')}>
-                  <Image src={ordersMood === 'onTheWay' ? activeOnTheWay : onTheWay} alt='on the way' className='w-full cursor-pointer select-none' />
-                  <h2 className='w-max select-none cursor-pointer text-lg text-white max-md:text-xs md:font-bold absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>لم يتم الشحن بعد</h2>
-                </span>
-                <span className='relative' onClick={() => handleOrdersMood('cancelledOrders')}>
-                  <Image src={ordersMood === 'cancelledOrders' ? activeCancelledOrders : cancelledOrders} alt='cancelled orders' className='w-full cursor-pointer select-none' />
-                  <h2 className='w-max select-none cursor-pointer text-lg text-white max-md:text-xs md:font-bold absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>الطلبات الملغاة</h2>
-                </span>
-                <span className='relative' onClick={() => handleOrdersMood('archivedOrders')}>
-                  <Image src={ordersMood === 'archivedOrders' ? activeArchivedOrders : archivedOrders} alt='archived orders' className='w-full cursor-pointer select-none' />
-                  <h2 className='w-max select-none cursor-pointer text-lg text-white max-md:text-xs md:font-bold absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>الطلبات المؤرشفة</h2>
-                </span>
-              </div>
-            }
-              {
-                ordersMood === 'khazanty' && <Khazanty />
+            } */}
+              {/* {
+                pathname ==='/profile/orders/khazanty' && <Khazanty />
               }
               {
-                ordersMood === 'allOrders' && <AllOrders />
+                pathname ==='/profile/orders/allOrders' && <AllOrders />
               }
               {
-                ordersMood === 'onTheWay' && <OnTheWay />
+                pathname ==='/profile/orders/onTheWay' && <OnTheWay />
               }
               {
-                ordersMood === 'cancelledOrders' && <CancelledOrders />
+                pathname ==='/profile/orders/cancelledOrders' && <CancelledOrders />
               }
               {
-                ordersMood === 'archivedOrders' && <ArchivedOrders />
+                pathname ==='/profile/orders/archivedOrders' && <ArchivedOrders />
               }
               {
-                ordersMood === 'review' && <Review />
+                pathname ==='/profile/orders/review' && <Review />
               }
               {
-                ordersMood === 'tracking' && <Tracking />
+                pathname ==='/profile/orders/tracking' && <Tracking />
               }
               {
-                ordersMood === 'notes' && <Notes />
+                pathname ==='/profile/orders/notes' && <Notes />
               }
               {
-                ordersMood === 'returnProduct' && <ReturnProduct />
-              }
-            </section>
+                pathname ==='/profile/orders/returnProduct' && <ReturnProduct />
+              } */}
+            </div>
         </div>
       </div>
     </div>

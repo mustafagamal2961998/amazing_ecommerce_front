@@ -17,7 +17,7 @@ const Location = () => {
         <Navbar />
         <div className='relative flex gap-20 md:pl-[60px]'>
             <ProfileSidebar />
-            <div className={`w-full  ${sidebar ? 'max-md:hidden' : ''} max-md:p-5`}>
+            <div className={`w-full ${sidebar ? 'max-md:hidden' : ''} max-md:p-5 mt-12 mb-12 flex flex-col gap-8`}>
                 <section className={`w-full mt-[100px] pb-[60px] flex flex-col gap-5`}>
                     <span className='flex justify-between w-full'>
                         <h2 className='text-2xl max-md:text-base font-bold'>عناوين الشحن</h2>

@@ -45,8 +45,8 @@ const ProfileSidebar = () => {
                 <Image src={pathname === '/profile/cards' ? darkCards : cards} className='w-[24px] h-[24px]' alt='Amazing' />
                 <h2 >بطاقات الإئتمان</h2>
             </Link>
-            <Link href='/profile/orders' className={`${pathname === '/profile/orders' ? 'bg-white text-black active' : 'text-white'} relative flex items-center gap-3 rounded-xl cursor-pointer p-3 w-full`}>
-                <Image src={pathname === '/profile/orders' ? darkOrders : orders} className='w-[24px] h-[24px]' alt='Amazing' />
+            <Link href='/profile/orders' className={`${pathname.startsWith('/profile/orders') ? 'bg-white text-black active' : 'text-white'} relative flex items-center gap-3 rounded-xl cursor-pointer p-3 w-full`}>
+                <Image src={pathname.startsWith('/profile/orders') ? darkOrders : orders} className='w-[24px] h-[24px]' alt='Amazing' />
                 <h2>خزانتي</h2>
                 <span className='bg-red-500 text-white rounded-full text-[10px] w-[16px] h-[16px] text-center mr-auto'>
                     1
