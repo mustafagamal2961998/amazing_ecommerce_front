@@ -41,8 +41,8 @@ const Shipping = () => {
 
     return (
         <div className='relative w-full flex flex-col justify-start gap-6'>
-            <span className='absolute -right-14 top-0 p-2 font-bold flex justify-center items-center w-1/6 rounded-2xl rounded-tl-none rounded-br-none rounded-tr-none bg-[#176166] text-white'>الشحن</span>
-            <span className='w-full flex justify-center items-center gap-10'>
+            <span className='absolute -right-14 top-0 p-2 font-bold flex justify-center items-center w-1/6 max-md:w-1/3 rounded-2xl rounded-tl-none rounded-br-none rounded-tr-none bg-[#176166] text-white'>الشحن</span>
+            <span className='w-full flex justify-center items-center gap-10 max-md:mt-12'>
                 <span
                     className='flex items-center gap-3 select-none cursor-pointer'
                     onClick={() => setShippingType('local')}
@@ -77,7 +77,7 @@ const Shipping = () => {
             <span className='w-full flex flex-col items-start gap-3'>
                 <p className='font-bold text-lg ml-auto'>عنوان الشحن</p>
                 <div className='flex flex-col items-start gap-3'>
-                    <div className='w-full flex items-center gap-10'>
+                    <div className='w-full flex items-center gap-10 max-md:flex-col max-md:gap-4'>
                         {shippingType === 'international' && (
                             <span className='w-full flex items-center gap-3'>
                                 <p className='font-bold'>الدولة</p>
@@ -111,7 +111,7 @@ const Shipping = () => {
                             />
                         </span>
                     </div>
-                    <div className='w-full flex items-center gap-10'>
+                    <div className='w-full flex items-center gap-10 max-md:flex-col max-md:gap-4'>
                         <span className='w-full flex items-center gap-3'>
                             <p className='font-bold'>اسم الشارع</p>
                             <input
@@ -133,7 +133,7 @@ const Shipping = () => {
                             />
                         </span>
                     </div>
-                    <span className='w-2/4 flex items-center gap-3'>
+                    <span className='w-2/4 max-md:w-full flex items-center gap-3'>
                         <p className='font-bold'>رقم الهاتف</p>
                         <input
                             required

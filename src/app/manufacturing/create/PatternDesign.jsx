@@ -45,7 +45,7 @@ const PatternDesign = () => {
 
     return (
         <div className='w-full flex flex-col justify-start gap-6'>
-            <span className='w-2/4 flex justify-around items-center gap-4'>
+            <span className='w-2/4 max-md:w-full max-md:flex-col flex justify-around items-center gap-4'>
                 <p className='w-max ml-auto font-bold text-lg'>هل ترغب في عمل تصميم باترون</p>
                 <div className='flex items-center gap-10'>
                     <span
@@ -78,7 +78,7 @@ const PatternDesign = () => {
                     </span>
                 </div>
             </span>
-            <span className='w-2/4 flex justify-around items-center gap-4'>
+            <span className='w-2/4 max-md:w-full max-md:flex-col flex justify-around items-center gap-4'>
                 <p className='w-max ml-auto font-bold text-lg'>طريقة عمل التصميم المطلوب</p>
                 <div className='flex items-center gap-10'>
                     <span
@@ -111,9 +111,9 @@ const PatternDesign = () => {
                     </span>
                 </div>
             </span>
-            <span className='w-full flex justify-between items-center gap-4'>
+            <span className='w-2/4 max-md:w-full max-md:flex-col flex justify-around items-center gap-4'>
                 <p className='w-max ml-auto font-bold text-lg'>في حالة وجود تصميم نرجو رفع ملف PLT</p>
-                <span className='w-3/4 flex flex-col items-center'>
+                <span className='w-3/4 max-md:w-full flex flex-col items-center'>
                     <div className='w-full flex items-center gap-1'>
                         <p>تحميل صور الموديل</p>
                         <ImageUploading
@@ -138,8 +138,8 @@ const PatternDesign = () => {
                         </ImageUploading>
                     </div>
                     {images && images.map((image, index) => (
-                        <div className='w-full bg-[#F1F1F1] p-2 rounded-xl flex flex-row-reverse justify-center items-center gap-10 mb-3' key={index}>
-                            <img src={image.data_url} alt='company image' className='w-[80px] h-[80px]' />
+                        <div className='w-full bg-[#F1F1F1] p-2 rounded-xl flex max-md:flex-col max-md:justify-center max-md:gap-3 flex-row-reverse justify-center items-center gap-10 mb-3' key={index}>
+                            <img src={image.data_url} alt='company image' className='w-[80px] h-[80px] max-md:w-full max-md:h-full' />
                             <span className='flex flex-col items-end gap-3'>
                                 <h2 className='font-bold'>{image.file.name}</h2>
                                 <span className='flex items-center gap-2'>

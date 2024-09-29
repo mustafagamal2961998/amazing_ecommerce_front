@@ -40,8 +40,8 @@ const ClientData = () => {
 
   return (
     <div className='w-full flex flex-col justify-start gap-6'>
-      <span className='w-full flex justify-between items-center'>
-        <p className='font-bold text-lg'>اسم العميل / الشركة</p>
+      <span className='w-full flex justify-between items-center max-md:flex-col max-md:gap-2'>
+        <p className='font-bold text-lg max-md:text-base'>اسم العميل / الشركة</p>
         <input
           required
           type='text'
@@ -49,12 +49,12 @@ const ClientData = () => {
           placeholder='الرجاء كتابة اسم العميل أو الشركة'
           value={clientData.clientName}
           onChange={handleInputChange}
-          className='w-3/4 rounded-lg outline-none p-2 shadow-inner placeholder:text-center placeholder:text-gray placeholder:font-bold'
+          className='w-3/4 max-md:w-full rounded-lg outline-none p-2 shadow-inner placeholder:text-center placeholder:text-gray max-md:placeholder:text-sm md:placeholder:font-bold'
         />
       </span>
-      <span className='w-full flex justify-between items-center'>
-        <p className='font-bold text-lg'>رقم الهاتف</p>
-        <span className='relative w-3/4 flex items-center gap-3'>
+      <span className='w-full flex justify-between items-center max-md:flex-col max-md:gap-2'>
+        <p className='font-bold text-lg max-md:text-base'>رقم الهاتف</p>
+        <span className='relative w-3/4 flex items-center gap-3 max-md:w-full max-md:flex-col max-md:gap-2'>
           <input
             required
             type='text'
@@ -62,7 +62,7 @@ const ClientData = () => {
             placeholder='يفضل كتابة هاتف مرتبط ببرنامج الواتس اب'
             value={clientData.phoneNumber}
             onChange={handleInputChange}
-            className='w-full rounded-lg outline-none p-2 shadow-inner placeholder:text-center placeholder:text-gray placeholder:font-bold pl-14'
+            className='w-3/4 max-md:w-full rounded-lg outline-none p-2 shadow-inner placeholder:text-center placeholder:text-gray max-md:placeholder:text-sm md:placeholder:font-bold'
           />
           <select
             className='rounded-lg p-2 shadow-inner text-transparent outline-none cursor-pointer'
@@ -75,17 +75,17 @@ const ClientData = () => {
           <Image
             src={clientData.country === 'egypt' ? egyptFlag : ksaFlag}
             alt={`علم ${clientData.country === 'egypt' ? 'مصر' : 'السعودية'}`}
-            className='w-8 h-8 absolute left-14 top-3'
+            className='w-8 h-8 absolute left-14 top-3 max-md:top-14 max-md:left-auto'
           />
           <Image
             src={arrowDown}
             alt='arrow down'
-            className='w-4 h-4 absolute left-2 top-5'
+            className='w-4 h-4 absolute left-2 top-5 max-md:top-16 max-md:left-28'
           />
         </span>
       </span>
-      <span className='w-full flex justify-between items-center'>
-        <p className='font-bold text-lg'>البريد الإلكتروني</p>
+      <span className='w-full flex justify-between items-center max-md:flex-col max-md:gap-2'>
+        <p className='font-bold text-lg max-md:text-base'>البريد الإلكتروني</p>
         <input
           required
           type='email'
@@ -93,11 +93,11 @@ const ClientData = () => {
           placeholder='info@amazing.sa'
           value={clientData.email}
           onChange={handleInputChange}
-          className='w-3/4 rounded-lg outline-none p-2 shadow-inner placeholder:text-center placeholder:text-gray placeholder:font-bold'
+          className='w-3/4 max-md:w-full rounded-lg outline-none p-2 shadow-inner placeholder:text-center placeholder:text-gray max-md:placeholder:text-sm md:placeholder:font-bold'
         />
       </span>
-      <span className='w-full flex justify-start items-center'>
-        <p className='font-bold text-lg ml-auto'>العنوان</p>
+      <span className='w-full flex justify-start items-center max-md:flex-col max-md:gap-2'>
+        <p className='font-bold text-lg max-md:text-base ml-auto'>العنوان</p>
         <div className='flex flex-col items-start gap-5 m-auto'>
           <div className='flex items-center gap-10'>
             <span
@@ -131,7 +131,7 @@ const ClientData = () => {
               </span>
             </span>
           </div>
-          <div className='w-full flex items-center gap-10'>
+          <div className='w-full flex items-center gap-10 max-md:flex-col max-md:gap-2'>
             <span className='w-full flex items-center gap-3'>
               <p className='font-bold'>المدينة</p>
               <input
@@ -155,7 +155,7 @@ const ClientData = () => {
               />
             </span>
           </div>
-          <div className='w-full flex items-center gap-10'>
+          <div className='w-full flex items-center gap-10 max-md:flex-col max-md:gap-2'>
             <span className='w-full flex items-center gap-3'>
               <p className='font-bold'>اسم الشارع</p>
               <input

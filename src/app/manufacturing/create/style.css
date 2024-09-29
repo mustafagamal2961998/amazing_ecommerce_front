@@ -12,6 +12,12 @@
     background-color: #FFFFFF;
 }
 
+@media (max-width: 767px) {
+    .info-con:not(:last-child):after {
+        width: 0;
+    }
+}
+
 .info {
     position: relative;
     margin-right: 12px;

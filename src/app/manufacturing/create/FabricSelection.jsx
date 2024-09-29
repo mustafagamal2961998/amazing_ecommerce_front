@@ -43,10 +43,10 @@ const FabricSelection = () => {
 
     return (
         <div className='w-full flex flex-col justify-start gap-6'>
-            <span className='w-full flex justify-start items-center gap-4'>
+            <span className='w-full flex max-md:flex-col justify-start items-center gap-4'>
                 <p className='w-max font-bold text-lg'>الخامة رقم 1</p>
                 <select
-                    className='w-3/4 mr-auto rounded-lg p-2 shadow-inner outline-none cursor-pointer'
+                    className='w-3/4 max-md:w-full mr-auto rounded-lg p-2 shadow-inner outline-none cursor-pointer'
                     value={materialOne}
                     onChange={(e) => setMaterialOne(e.target.value)}
                 >
@@ -55,10 +55,10 @@ const FabricSelection = () => {
                     <option value='material-3'>خامة 3</option>
                 </select>
             </span>
-            <span className='w-full flex justify-start items-center gap-4'>
+            <span className='w-full max-md:flex-col flex justify-start items-center gap-4'>
                 <p className='w-max font-bold text-lg'>الخامة رقم 2</p>
                 <select
-                    className='w-3/4 mr-auto rounded-lg p-2 shadow-inner outline-none cursor-pointer'
+                    className='w-3/4 max-md:w-full mr-auto rounded-lg p-2 shadow-inner outline-none cursor-pointer'
                     value={materialTwo}
                     onChange={(e) => setMaterialTwo(e.target.value)}
                 >
@@ -67,10 +67,10 @@ const FabricSelection = () => {
                     <option value='material-3'>خامة 3</option>
                 </select>
             </span>
-            <span className='w-full flex justify-start items-center gap-4'>
+            <span className='w-full flex max-md:flex-col justify-start items-center gap-4'>
                 <p className='w-max font-bold text-lg'>الخامة رقم 3</p>
                 <select
-                    className='w-3/4 mr-auto rounded-lg p-2 shadow-inner outline-none cursor-pointer'
+                    className='w-3/4 max-md:w-full mr-auto rounded-lg p-2 shadow-inner outline-none cursor-pointer'
                     value={materialThree}
                     onChange={(e) => setMaterialThree(e.target.value)}
                 >
@@ -79,7 +79,7 @@ const FabricSelection = () => {
                     <option value='material-3'>خامة 3</option>
                 </select>
             </span>
-            <span className='w-full flex justify-start items-center gap-24'>
+            <span className='w-full flex max-md:justify-center max-md:gap-4 justify-start items-center gap-24'>
                 <p className='w-max font-bold text-lg'>لون الخامة 1</p>
                 <input 
                     type='color' 
@@ -91,7 +91,7 @@ const FabricSelection = () => {
                 style={{ backgroundColor: materialOneColor }}
                 ></span>
             </span>
-            <span className='w-full flex justify-start items-center gap-24'>
+            <span className='w-full flex max-md:justify-center max-md:gap-4 justify-start items-center gap-24'>
                 <p className='w-max font-bold text-lg'>لون الخامة 2</p>
                 <input 
                     type='color' 
@@ -103,7 +103,7 @@ const FabricSelection = () => {
                 style={{ backgroundColor: materialTwoColor }}
                 ></span>
             </span>
-            <span className='w-full flex justify-start items-center gap-24'>
+            <span className='w-full flex max-md:justify-center max-md:gap-4 justify-start items-center gap-24'>
                 <p className='w-max font-bold text-lg'>لون الخامة 3</p>
                 <input 
                     type='color' 
@@ -118,7 +118,7 @@ const FabricSelection = () => {
             <span className='w-full flex flex-col items-start gap-3'>
                 <p className='w-max font-bold text-lg'>ملاحظات</p>
                 <textarea 
-                    className='w-full h-24 p-2 rounded-lg shadow-inner outline-none placeholder:font-bold placeholder:text-center'
+                    className='w-full h-24 p-2 rounded-lg shadow-inner outline-none md:placeholder:font-bold placeholder:text-center max-md:placeholder:text-sm'
                     placeholder='الرجاء كتابة الملاحظات الخاصة بنوع القماش والاكسسورات الخاصة بالموديل'
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}

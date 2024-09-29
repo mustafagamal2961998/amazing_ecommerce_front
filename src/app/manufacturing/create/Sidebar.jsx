@@ -25,7 +25,7 @@ const Sidebar = () => {
     ];
 
     return (
-        <aside className='relative w-1/4 min-h-screen p-5 flex flex-col items-center gap-4'>
+        <aside className='relative w-1/4 max-md:hidden min-h-screen p-5 flex flex-col items-center gap-4'>
             <div className='w-full h-full opacity-[50%] bg-[#4A4458] rounded-2xl rounded-tr-none rounded-br-none absolute left-0 top-0 -z-10'></div>
             <Image 
                 src={logo}

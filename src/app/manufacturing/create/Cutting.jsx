@@ -23,7 +23,7 @@ const Cutting = () => {
 
   return (
     <div className='w-full flex flex-col justify-start gap-6'>
-      <span className='flex justify-start items-center gap-14'>
+      <span className='flex max-md:flex-col max-md:items-start max-md:gap-3 justify-start items-center gap-14'>
         <p className='font-bold w-max'>وزن التوب</p>
         <span className='flex items-center gap-3'>
           <input
@@ -31,13 +31,13 @@ const Cutting = () => {
             name='fabricWeight'
             value={cuttingData.fabricWeight}
             onChange={handleInputChange}
-            className='w-2/4 p-2 outline-none rounded-md shadow-inner'
+            className='w-2/4 max-md:w-full p-2 outline-none rounded-md shadow-inner'
           />
           <p className='font-bold'>كجم</p>
         </span>
       </span>
 
-      <span className='flex justify-start items-center gap-14'>
+      <span className='flex max-md:flex-col max-md:items-start max-md:gap-3 justify-start items-center gap-14'>
         <p className='font-bold w-max'>طول التوب</p>
         <span className='flex items-center gap-3'>
           <input
@@ -45,13 +45,13 @@ const Cutting = () => {
             name='fabricLength'
             value={cuttingData.fabricLength}
             onChange={handleInputChange}
-            className='w-2/4 p-2 outline-none rounded-md shadow-inner'
+            className='w-2/4 max-md:w-full p-2 outline-none rounded-md shadow-inner'
           />
           <p className='font-bold'>متر</p>
         </span>
       </span>
 
-      <span className='flex justify-start items-center gap-14'>
+      <span className='flex max-md:flex-col max-md:items-start max-md:gap-3 justify-start items-center gap-14'>
         <p className='font-bold w-max'>عرض التوب</p>
         <span className='flex items-center gap-3'>
           <input
@@ -59,13 +59,13 @@ const Cutting = () => {
             name='fabricWidth'
             value={cuttingData.fabricWidth}
             onChange={handleInputChange}
-            className='w-2/4 p-2 outline-none rounded-md shadow-inner'
+            className='w-2/4 max-md:w-full p-2 outline-none rounded-md shadow-inner'
           />
           <p className='font-bold'>متر</p>
         </span>
       </span>
 
-      <span className='flex justify-start items-center gap-14'>
+      <span className='flex max-md:flex-col max-md:items-start max-md:gap-3 justify-start items-center gap-14'>
         <p className='font-bold w-max'>عدد القطع المراد تصنيعها</p>
         <span className='flex items-center gap-3'>
           <input
@@ -73,7 +73,7 @@ const Cutting = () => {
             name='numberOfPieces'
             value={cuttingData.numberOfPieces}
             onChange={handleInputChange}
-            className='w-2/4 p-2 outline-none rounded-md shadow-inner'
+            className='w-2/4 max-md:w-full p-2 outline-none rounded-md shadow-inner'
           />
           <p className='font-bold'>قطعة</p>
         </span>

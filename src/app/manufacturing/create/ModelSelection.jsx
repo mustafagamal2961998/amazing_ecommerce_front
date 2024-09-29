@@ -17,7 +17,6 @@ const ModelSelection = () => {
     const [images, setImages] = useState([]);
     const maxNumber = 10;
 
-    // Load data from localStorage on mount
     useEffect(() => {
         const savedData = JSON.parse(localStorage.getItem('modelSelectionData'));
         if (savedData) {
@@ -56,7 +55,7 @@ const ModelSelection = () => {
 
     return (
         <div className='w-full flex flex-col justify-start gap-6'>
-            <span className='w-full flex justify-between items-center'>
+            <span className='w-full flex justify-between items-center max-md:flex-col max-md:gap-3'>
                 <p className='font-bold text-lg'>نوعية الموديل</p>
                 <div className='flex items-center gap-10'>
                     {['men', 'women', 'kids'].map(kind => (
@@ -79,10 +78,10 @@ const ModelSelection = () => {
                 </div>
             </span>
 
-            <span className='w-full flex justify-start items-center'>
+            <span className='w-full flex justify-start items-center max-md:flex-col max-md:gap-3'>
                 <p className='w-max font-bold text-lg'>اسم الموديل</p>
                 <select
-                    className='w-3/4 mr-auto rounded-lg p-2 shadow-inner outline-none cursor-pointer'
+                    className='w-3/4 max-md:w-full mr-auto rounded-lg p-2 shadow-inner outline-none cursor-pointer'
                     value={selectedModel}
                     onChange={(e) => setSelectedModel(e.target.value)}
                 >
@@ -92,9 +91,9 @@ const ModelSelection = () => {
                 </select>
             </span>
 
-            <span className='w-full flex justify-between items-center'>
+            <span className='w-full flex justify-between items-center max-md:flex-col max-md:gap-3'>
                 <p className='font-bold text-lg'>المقاس المطلوب</p>
-                <div className='flex items-center gap-10'>
+                <div className='flex items-center gap-10 max-md:flex-wrap max-md:gap-3'>
                     {['S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL'].map((size) => (
                         <span
                             key={size}
@@ -140,8 +139,8 @@ const ModelSelection = () => {
                 </div>
 
                 {images && images.map((image, index) => (
-                    <div className='w-2/4 bg-[#F1F1F1] p-2 rounded-xl flex flex-row-reverse justify-center items-center gap-10 mb-3' key={index}>
-                        <img src={image.data_url} alt='company image' className='w-[80px] h-[80px]' />
+                    <div className='w-2/4 max-md:w-full bg-[#F1F1F1] p-2 rounded-xl flex max-md:flex-col flex-row-reverse justify-center items-center gap-10 max-md:gap-3 mb-3' key={index}>
+                        <img src={image.data_url} alt='company image' className='w-[80px] h-[80px] max-md:w-full max-md:h-full' />
                         <span className='flex flex-col items-end gap-3'>
                             <h2 className='font-bold'>{image.file.name}</h2>
                             <span className='flex items-center gap-2'>

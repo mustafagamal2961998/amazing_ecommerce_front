@@ -48,7 +48,7 @@ const Manufacturing = () => {
     }, [singerSewing, orlehSewing, overSewing, eyelets, buttons, zippers, cleaningTape, adidasTape, badge]);
 
     const Option = ({ title, state, setState }) => (
-        <span className='w-2/4 flex justify-around items-center gap-4'>
+        <span className='w-2/4 max-md:w-full flex justify-around items-center gap-4'>
             <span className='ml-auto flex items-center gap-2'>
                 <Image
                     src={arrowLeft}

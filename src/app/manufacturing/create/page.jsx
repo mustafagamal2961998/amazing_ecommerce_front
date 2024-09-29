@@ -94,23 +94,23 @@ const Create = () => {
       <Navbar />
       <div className='w-full h-full bg-[#17616642] flex gap-12'>
         <Sidebar />
-        <div className='w-full flex flex-col items-start gap-3 mt-24 pl-16 pb-12'>
-          <h2 className={`text-2xl font-bold ${currentStep === sidebarItems.length - 1 ? 'mx-auto' : ''}`}>{sidebarItems[currentStep].label}</h2>
-          <form className={`w-full h-full rounded-2xl ${currentStep !== sidebarItems.length - 1 ? 'p-14 bg-[#CAD1D3D9]' : 'p-0 bg-transparent'} flex flex-col gap-12`}>
+        <div className='w-full flex flex-col items-start gap-3 mt-24 md:pl-16 pb-12'>
+          <h2 className={`text-2xl font-bold max-md:text-base max-md:mr-2 ${currentStep === sidebarItems.length - 1 ? 'mx-auto' : ''}`}>{sidebarItems[currentStep].label}</h2>
+          <form className={`w-full min-h-screen h-full rounded-2xl ${currentStep !== sidebarItems.length - 1 ? 'p-14 bg-[#CAD1D3D9]' : 'p-0 bg-transparent'} flex flex-col gap-12`}>
             {renderStep()}
             {currentStep < sidebarItems.length - 1 ? (
               <div className='flex justify-between items-center w-full mt-auto'>
                 <button 
                   type='button'
                   onClick={handlePreviousStep} 
-                  className={`px-20 py-4 font-bold bg-[#0C042D] hover:bg-[#0c042dc9] duration-200 text-white rounded-xl ${currentStep === 0 ? 'hidden' : ''}`}
+                  className={`px-20 max-md:px-10 py-4 max-md:py-2 md:font-bold bg-[#0C042D] hover:bg-[#0c042dc9] duration-200 text-white rounded-xl ${currentStep === 0 ? 'hidden' : ''}`}
                 >
                   السابق
                 </button>
                 <button 
                   type='button'
                   onClick={handleNextStep} 
-                  className='px-20 py-4 font-bold bg-[#0C042D] hover:bg-[#0c042dc9] duration-200 text-white rounded-xl mr-auto'
+                  className='px-20 max-md:px-10 py-4 max-md:py-2 md:font-bold bg-[#0C042D] hover:bg-[#0c042dc9] duration-200 text-white rounded-xl mr-auto'
                 >
                   التالي
                 </button>

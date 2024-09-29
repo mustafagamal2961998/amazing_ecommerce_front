@@ -1,4 +1,6 @@
 .manufacturing {
     background-image: url('../../assets/manufacturing/background.svg');
     background-repeat: no-repeat;
+    min-height: 100vh;
+    height: 100%;
 }
