@@ -17,7 +17,7 @@ const Navbar = () => {
   const pathname = usePathname();
   return (
     <nav className='flex flex-col relative z-50'>
-        <div className={`h-[50px] p-5 max-md:p-2 flex ${pathname === '/products' ? 'flex-row' : 'flex-row-reverse'} justify-between items-center md:pr-[60px] md:pl-[60px]`}>
+        <div className={`bg-white h-[50px] p-5 max-md:p-2 flex ${pathname === '/products' ? 'flex-row' : 'flex-row-reverse'} justify-between items-center md:pr-[60px] md:pl-[60px]`}>
             <div className={`flex flex-row-reverse gap-3 max-md:gap-[2px] items-center ${pathname !== '/products' && 'mr-auto'}`}>
                 <Link href='https://www.facebook.com' target={'_blank'}>
                     <FontAwesomeIcon icon={faFacebook} className='duration-200 hover:text-blue-400 text-blue-500' />

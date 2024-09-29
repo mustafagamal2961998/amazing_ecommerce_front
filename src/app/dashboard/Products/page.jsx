@@ -63,7 +63,6 @@ const Products = () => {
     const [images, setImages] = useState([]);
     const maxNumber = 10;
     const onChange = (imageList, addUpdateIndex) => {
-      console.log(imageList, addUpdateIndex);
       setImages(imageList);
     };
 

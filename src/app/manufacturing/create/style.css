@@ -1,0 +1,28 @@
+.info-con {
+    position: relative;
+}
+
+.info-con:not(:last-child):after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: 2px;
+    background-color: #FFFFFF;
+}
+
+.info {
+    position: relative;
+    margin-right: 12px;
+}
+
+.info::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: -5px;
+    height: calc(100% + 10px);
+    width: 2px;
+    background-color: #FFFFFF;
+}

@@ -20,7 +20,6 @@ const AddProduct = () => {
     const [images, setImages] = useState([]);
     const maxNumber = 10;
     const onChange = (imageList, addUpdateIndex) => {
-      console.log(imageList, addUpdateIndex);
       setImages(imageList);
     };
 
@@ -134,7 +133,7 @@ const AddProduct = () => {
                 )}
               </ImageUploading>
               <Image src={clothes1} alt='Amazing' width={500} height={500} className='w-[250px] h-full mb-auto' />
-          </div>
+            </div>
           </div>
         </div>
         <div className='w-full flex flex-col justify-start items-center gap-5'>

@@ -9,6 +9,7 @@ import whatsappLogo from '../../../assets/manufacturing/whatsapp.svg'
 import { useStatusContext } from '../../../Utils/Status/statusContext'
 
 const Sidebar = () => {
+
     const { manufacturingMood, setManufacturingMood } = useStatusContext();
 
     const sidebarItems = [
@@ -24,7 +25,7 @@ const Sidebar = () => {
     ];
 
     return (
-        <aside className='relative w-1/5 h-screen p-5 flex flex-col items-center gap-4'>
+        <aside className='relative w-1/4 min-h-screen p-5 flex flex-col items-center gap-4'>
             <div className='w-full h-full opacity-[50%] bg-[#4A4458] rounded-2xl rounded-tr-none rounded-br-none absolute left-0 top-0 -z-10'></div>
             <Image 
                 src={logo}
@@ -32,7 +33,7 @@ const Sidebar = () => {
                 loading='lazy'
                 className='w-48'
             />
-            <ul className='w-3/4 mt-24'>
+            <ul className='w-full mt-24'>
                 {sidebarItems.map(item => (
                     <li key={item.mood} className='w-full flex items-center mb-2'>
                         {manufacturingMood === item.mood && 
@@ -43,10 +44,7 @@ const Sidebar = () => {
                                 loading='lazy'
                             />
                         }
-                        <span
-                            className={`${manufacturingMood === item.mood ? 'bg-[#FF9500]' : 'mr-8'} w-full select-none cursor-pointer font-bold rounded-xl p-2 duration-200`}
-                            onClick={() => setManufacturingMood(item.mood)}
-                        >
+                        <span className={`${manufacturingMood === item.mood ? 'bg-[#FF9500]' : 'mr-8'} w-full select-none font-bold rounded-xl p-2 duration-200`}>
                             <p className={`ml-auto ${manufacturingMood === item.mood ? 'text-black' : 'text-white'}`}>
                                 {item.label}
                             </p>
