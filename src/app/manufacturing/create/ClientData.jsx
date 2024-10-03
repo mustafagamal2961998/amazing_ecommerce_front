@@ -65,7 +65,7 @@ const ClientData = () => {
             className='w-3/4 max-md:w-full rounded-lg outline-none p-2 shadow-inner placeholder:text-center placeholder:text-gray max-md:placeholder:text-sm md:placeholder:font-bold'
           />
           <select
-            className='rounded-lg p-2 shadow-inner text-transparent outline-none cursor-pointer'
+            className='rounded-lg p-2 shadow-inner outline-none cursor-pointer'
             value={clientData.country}
             onChange={(e) => handleCountryChange(e.target.value)}
           >
@@ -75,12 +75,7 @@ const ClientData = () => {
           <Image
             src={clientData.country === 'egypt' ? egyptFlag : ksaFlag}
             alt={`علم ${clientData.country === 'egypt' ? 'مصر' : 'السعودية'}`}
-            className='w-8 h-8 absolute left-14 top-3 max-md:top-14 max-md:left-auto'
-          />
-          <Image
-            src={arrowDown}
-            alt='arrow down'
-            className='w-4 h-4 absolute left-2 top-5 max-md:top-16 max-md:left-28'
+            className='w-8 h-8 '
           />
         </span>
       </span>
