@@ -28,15 +28,13 @@ const PatternDesign = () => {
         const patternData = {
             patternDesign,
             manual,
-            images // Include images in the saved data
+            images
         };
-        console.log('Saving data to local storage:', patternData); // Debugging line
         localStorage.setItem('patternDesign', JSON.stringify(patternData));
     }, [patternDesign, manual, images]);
 
     const onChange = (imageList) => {
         setImages(imageList);
-        console.log(imageList);
     };
 
     const handleRemoveImage = (data_url) => () => {
@@ -111,11 +109,11 @@ const PatternDesign = () => {
                     </span>
                 </div>
             </span>
-            <span className='w-2/4 max-md:w-full max-md:flex-col flex justify-around items-center gap-4'>
+            <span className='w-full max-md:flex-col flex justify-around items-center gap-4'>
                 <p className='w-max ml-auto font-bold text-lg'>في حالة وجود تصميم نرجو رفع ملف PLT</p>
                 <span className='w-3/4 max-md:w-full flex flex-col items-center'>
                     <div className='w-full flex items-center gap-1'>
-                        <p>تحميل صور الموديل</p>
+                        <p>تحميل ملف PLT</p>
                         <ImageUploading
                             multiple
                             value={images}

@@ -8,7 +8,7 @@ import Shipping from "./Shipping";
 const Storage = () => {
     const [storage, setStorage] = useState(true);
     const [storageType, setStorageType] = useState('boxes');
-    const [storageDuration, setStorageDuration] = useState(1); // Default to 1 day
+    const [storageDuration, setStorageDuration] = useState(1);
 
     useEffect(() => {
         const savedData = JSON.parse(localStorage.getItem('storageOptions'));
