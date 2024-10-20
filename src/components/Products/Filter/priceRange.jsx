@@ -48,7 +48,7 @@ const PriceRange = () => {
       </div>
       <span className='duration-75 relative w-full h-[15px] bg-[#E4E4E4] rounded-xl'>
         <span id='minPriceProgress' className='duration-75 absolute right-0 bg-[#E4E4E4] z-10 rounded-xl h-[15px]'></span>
-        <span id='maxPriceProgress' className='duration-75 absolute right-0 bg-[#5E6DA8] w-full rounded-xl h-[15px]'></span>
+        <span id='maxPriceProgress' className='duration-75 absolute right-0 bg-[#00B6A9] w-full rounded-xl h-[15px]'></span>
         <input
           type='range'
           step={50}

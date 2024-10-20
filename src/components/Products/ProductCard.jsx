@@ -33,7 +33,7 @@ const ProductCard = (props) => {
                     <p className='font-bold'>{props.price} ر.س</p>
                     <p className='text-xs text-gray-500 line-through'>{(props.price - 2).toFixed(2)} ر.س</p>
                  </span>
-                <Image src={cartPlus} width={35} height={35} className='cursor-pointer md:mt-[-25px] max-md:mt-2 bg-[#5E6DA8] duration-200 hover:bg-green-500 p-2 rounded-md w-[35px] h-[35px] object-cover' alt={props.title} />
+                <Image src={cartPlus} width={35} height={35} className='cursor-pointer md:mt-[-25px] max-md:mt-2 bg-[#00B6A9] duration-200 hover:bg-green-500 p-2 rounded-md w-[35px] h-[35px] object-cover' alt={props.title} />
             </span>
         </span>
     </div>

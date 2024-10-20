@@ -192,7 +192,7 @@ const ProductsReports = () => {
                         <div className="inline-block min-w-full">
                             <div className="overflow-hidden rounded-3xl shadow">
                                 <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                                    <thead className="bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                                    <thead className="bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]">
                                         <tr>
                                             <th className="px-6 py-4 font-normal">اليوم</th>
                                             <th className="px-6 py-4 font-normal">التاريخ</th>

@@ -66,7 +66,7 @@ const ContactUs = () => {
                         <Image src={minimizeChat} alt='minimize chat' className='w-8 h-8 cursor-pointer ml-auto -mt-8' onClick={() => setStartChat(false)} />
                     </span>
                     <span className="flex items-center gap-2 -mt-7">
-                        <p className='font-bold text-[#001C63]'>
+                        <p className='font-bold text-[#00B6A9]'>
                             خدمة عملاء خلابة
                         </p>
                         <Image src={manModel} alt='model'/>
@@ -112,7 +112,7 @@ const ContactUs = () => {
                     }
                     <div className='w-full flex items-start gap-1'>
                         <Image src={manModel} alt='model' className='w-8 h-8 rounded-full' />
-                        <span className='w-full p-3 bg-[#5E6DA88A] rounded-2xl rounded-tr-none flex justify-start'>
+                        <span className='w-full p-3 bg-[#00B6A98A] rounded-2xl rounded-tr-none flex justify-start'>
                             <p className='font-bold text-sm'>
                                 السلام عليكم
                                 <br />
@@ -157,19 +157,19 @@ const ContactUs = () => {
             <>
                 <Image src={closeChat} alt='close chat' className='w-8 h-8 cursor-pointer ml-auto -mt-8' onClick={handleClose} />
                 <div className='p-2 bg-[#D9D9D9B5] flex flex-col justify-center items-center gap-2 rounded-3xl shadow-xl'>
-                    <h2 className='text-2xl max-md:text-base font-bold text-[#001C63]'>
+                    <h2 className='text-2xl max-md:text-base font-bold text-[#00B6A9]'>
                         مرحبا
                     </h2>
-                    <p className='text-[#001C63] text-sm font-bold'>
+                    <p className='text-[#00B6A9] text-sm font-bold'>
                         أهلاً بكم في خدمة عملاء خلابة
                     </p>
-                    <p className='text-[#001C63] text-sm font-bold'>
+                    <p className='text-[#00B6A9] text-sm font-bold'>
                         يسعدنا تقديم المساعدة لكم في أي وقت
                     </p>
                     <Image src={womanModel} alt='model' className='mt-auto -mb-2 w-3/4' />
                 </div>
                 <div className='cursor-pointer flex justify-center items-center px-8 py-2 rounded-full bg-[#D9D9D9B5] shadow-2xl' onClick={() => setStartChat(true)}>
-                    <p className='font-bold text-[#001C63]'>
+                    <p className='font-bold text-[#00B6A9]'>
                         اضغط هنا لبدء المحادثة
                     </p>
                     <Image src={send} alt='start chat' className='w-6 h-6 mr-5' />
@@ -179,7 +179,7 @@ const ContactUs = () => {
             </div>
             :
             <div className='cursor-pointer flex items-center gap-2' onClick={() => setIsChatOpen(!isChatOpen)}>
-                <span className='w-full p-2 bg-[#5E6DA8] flex justify-center items-center rounded-r-full shadow-xl'>
+                <span className='w-full p-2 bg-[#00B6A9] flex justify-center items-center rounded-r-full shadow-xl'>
                     <p className='font-bold text-white'>
                         تحدث معانا  
                     </p>

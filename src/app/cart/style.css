@@ -29,9 +29,9 @@ input[type="radio"]:checked::before {
 }
 
 .payment input[type="radio"] {
-    border: 2px solid #5E6DA8;
+    border: 2px solid #00B6A9;
 }
 
 .payment input[type="radio"]:checked::before {
-    background-color: #5E6DA8;
+    background-color: #00B6A9;
 }

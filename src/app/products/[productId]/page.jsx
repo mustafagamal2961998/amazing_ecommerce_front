@@ -47,14 +47,14 @@ const page = async ({params}) => {
               <span className='size flex flex-col gap-2 items-start'>
                 <p className='font-bold'>المقاس</p>
                 <span className='flex items-center gap-2'>
-                  <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#5E6DA8] text-white font-bold rounded-md cursor-pointer'>S</span>
+                  <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#00B6A9] text-white font-bold rounded-md cursor-pointer'>S</span>
                   <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-white text-black font-bold rounded-md cursor-pointer'>M</span>
                   <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-white text-black font-bold rounded-md cursor-pointer'>L</span>
                   <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-white text-black font-bold rounded-md cursor-pointer'>XL</span>
                   <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-white text-black font-bold rounded-md cursor-pointer'>XXL</span>
                 </span>
               </span>
-              <span className='flex gap-5 p-2 rounded-2xl text-white bg-[#5E6DA8]'>
+              <span className='flex gap-5 p-2 rounded-2xl text-white bg-[#00B6A9]'>
                 <FontAwesomeIcon icon={faPlus} className='border-2 rounded-full border-white cursor-pointer' />
                   0
                 <FontAwesomeIcon icon={faMinus} className='border-2 rounded-full border-white cursor-pointer' />
@@ -64,7 +64,7 @@ const page = async ({params}) => {
                 <p className='text-[#E5A3A3] text-xs line-through'>750 ر.س</p>
               </span>
               <span className='w-[300px] max-md:w-full flex flex-col items-start gap-2'>
-                <button className='bg-[#5E6DA8] duration-200 hover:bg-[#5e6da8da] text-white p-4 rounded-xl relative w-[154%] max-md:w-full'>
+                <button className='bg-[#00B6A9] duration-200 hover:bg-[#00b6a9da] text-white p-4 rounded-xl relative w-[154%] max-md:w-full'>
                   اضف إلى السلة
                   <Image src={cartPlus} className='absolute left-5 top-2/4 -translate-x-2/4 -translate-y-2/4 w-[20px] h-[20px]' />
                 </button>
@@ -72,10 +72,10 @@ const page = async ({params}) => {
                   <button className='bg-[#409F49] duration-200 hover:bg-[#409f4acc] text-white p-[14px] rounded-xl w-full'>
                     اشتري الأن  
                   </button>
-                  <span className='w-[55px] h-[55px] p-4 bg-[#5E6DA8] duration-200 hover:bg-red-500 rounded-xl cursor-pointer relative'>
+                  <span className='w-[55px] h-[55px] p-4 bg-[#00B6A9] duration-200 hover:bg-red-500 rounded-xl cursor-pointer relative'>
                     <FontAwesomeIcon icon={faHeart} className='text-white absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4' />
                   </span>
-                  <span className='w-[55px] h-[55px] p-4 bg-[#5E6DA8] duration-200 hover:bg-black rounded-xl cursor-pointer relative'>
+                  <span className='w-[55px] h-[55px] p-4 bg-[#00B6A9] duration-200 hover:bg-black rounded-xl cursor-pointer relative'>
                     <FontAwesomeIcon icon={faShare} className='text-white absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4' />
                   </span>
                 </span>
@@ -84,7 +84,7 @@ const page = async ({params}) => {
             <ProductImages title={product.title} thumbnail={img1} images={imgs} />
           </div>
           <div className='relative w-full pb-5 flex flex-col gap-5 items-start shadow-md rounded-2xl'>
-            <span className='flex justify-center items-center gap-2 w-[10%] max-md:w-2/4 max-md:text-center p-1 bg-[#5E6DA8] text-white rounded-tr-2xl rounded-bl-2xl'>
+            <span className='flex justify-center items-center gap-2 w-[10%] max-md:w-2/4 max-md:text-center p-1 bg-[#00B6A9] text-white rounded-tr-2xl rounded-bl-2xl'>
               تفاصيل المنتج
             </span>
             <span className='flex items-start gap-36 max-md:flex-col max-md:gap-3 mt-3 mr-16'>

@@ -19,20 +19,20 @@ const Managers = () => {
             <div className='relative w-full ml-auto min-h-full p-5 -mr-2 shadow-lg bg-[#EFEFEF] rounded-3xl flex flex-col justify-start items-center gap-10'>
             <h2 className='text-xl font-bold'>المدراء والصلاحيات</h2>
             <div className='w-full flex flex-col items-start gap-5'>
-                <span className='w-1/5 p-2 flex justify-center items-center bg-gradient-to-br from-[#0B1C3F] to-[#0B1C3F] rounded-br-3xl rounded-tl-3xl'>
+                <span className='w-1/5 p-2 flex justify-center items-center bg-gradient-to-br from-[#00B6A9] to-[##8AD0C3] rounded-br-3xl rounded-tl-3xl'>
                 <p className='font-bold text-white'>إضافة مسئول جديد</p>
                 </span>
                 <div className='w-full flex items-center gap-14'>
-                    <input type='text' placeholder='الاسم الأول' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
-                    <input type='text' placeholder='الاسم الأخير' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
+                    <input type='text' placeholder='الاسم الأول' className='w-full shadow-xl placeholder:text-[#00B6A9] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
+                    <input type='text' placeholder='الاسم الأخير' className='w-full shadow-xl placeholder:text-[#00B6A9] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
                 </div>
                 <div className='w-full flex items-center gap-14'>
-                    <input type='text' placeholder='الوظيفة' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
-                    <input type='text' placeholder='اسم المستخدم' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
+                    <input type='text' placeholder='الوظيفة' className='w-full shadow-xl placeholder:text-[#00B6A9] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
+                    <input type='text' placeholder='اسم المستخدم' className='w-full shadow-xl placeholder:text-[#00B6A9] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
                 </div>
                 <div className='w-full flex items-center gap-14'>
-                    <input type='email' placeholder='البريد الإلكتروني' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
-                    <input type='password' placeholder='كلمة السر' className='w-full shadow-xl placeholder:text-[#5E6DA8] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
+                    <input type='email' placeholder='البريد الإلكتروني' className='w-full shadow-xl placeholder:text-[#00B6A9] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
+                    <input type='password' placeholder='كلمة السر' className='w-full shadow-xl placeholder:text-[#00B6A9] font-bold bg-[#F5F5F5] rounded-full py-3 px-8 outline-none' />
                 </div>
             </div>
             <div className='w-full relative p-2 border-t-0 border-2 border-solid rounded-2xl border-[#A8A8A8] shadow'>
@@ -294,14 +294,14 @@ const Managers = () => {
                     <span class="ms-3 text-sm font-medium">{isActive ? 'نشط' : 'غير نشط'}</span>
                     </label>
             </div>
-            <button className='w-fit py-3 px-8 bg-[#0B1C3F] text-white rounded-full shadow-xl'>
+            <button className='w-fit py-3 px-8 bg-[#00B6A9] text-white rounded-full shadow-xl'>
                 إضافة 
             </button>
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                     <div className="overflow-hidden rounded-3xl border-[1px] border-[#E3E3E3]">
                         <table className="w-fit text-center text-sm  text-surface text-white">
-                            <thead className="border-b border-neutral-200 bg-gradient-to-br from-[#0B1C3F] to-[#0b1c3f9d]">
+                            <thead className="border-b border-neutral-200 bg-gradient-to-br from-[#00B6A9] to-[#00b6a99d]">
                                 <tr>
                                 <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">م</th>
                                 <th className="p-2 border-r-[1px] border-[#E3E3E3] font-bold">الاسم</th>

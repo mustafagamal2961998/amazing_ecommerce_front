@@ -26,10 +26,10 @@ const Client = () => {
   return (
     <Wrapper>
         <div className='w-full flex flex-col justify-center items-center gap-4 shadow-xl rounded-3xl'>
-            <div className='w-full h-[150px] p-5 rounded-t-3xl bg-gradient-to-br from-[#252B42] to-[#5E6DA8] flex justify-around items-center'>
+            <div className='w-full h-[150px] p-5 rounded-t-3xl bg-gradient-to-br from-[#00B6A9] to[#8AD0C3] flex justify-around items-center'>
             <div className='flex flex-col justify-center items-center gap-2'>
                 <Image src={userImg} alt="user" className="w-[70px] h-[70px]" />
-                <span className='w-fit p-1 pr-4 pl-4 text-sm rounded-3xl text-center bg-[#BBC5EA] text-black'>سيد عبد العظيم</span>
+                <span className='w-fit p-1 pr-4 pl-4 text-sm rounded-3xl text-center bg-[#8AD0C3] text-black'>سيد عبد العظيم</span>
             </div>
             <div className='relative flex justify-center items-center gap-3'>
                 <span className='flex flex-col items-center justify-center gap-2 bg-[#C8FEA8] font-bold p-8 rounded-2xl'>
@@ -66,38 +66,38 @@ const Client = () => {
             </div>
             <div className='w-full h-full pb-72 flex flex-col justify-center items-center gap-20'>
             <span className='flex justify-center items-center gap-20'>
-                <p className={`${mood === 'details' ? 'text-[#404D7F] border-b-4 border-b-[#404D7F] rounded-r-sm rounded-l-sm' : 'text-[#6C6C6C]'} cursor-pointer select-none text-lg`} onClick={() => setMood('details')}>بيانات العميل</p>
-                <p className={`${mood === 'favProducts' ? 'text-[#404D7F] border-b-4 border-b-[#404D7F] rounded-r-sm rounded-l-sm' : 'text-[#6C6C6C]'} cursor-pointer select-none text-lg`} onClick={() => setMood('favProducts')}>المفضلات</p>
-                <p className={`${mood === 'ordersHistory' ? 'text-[#404D7F] border-b-4 border-b-[#404D7F] rounded-r-sm rounded-l-sm' : 'text-[#6C6C6C]'} cursor-pointer select-none text-lg`} onClick={() => setMood('ordersHistory')}>سجل المشتريات</p>
+                <p className={`${mood === 'details' ? 'text-[#00B6A9] border-b-4 border-b-[#00B6A9] rounded-r-sm rounded-l-sm' : 'text-[#6C6C6C]'} cursor-pointer select-none text-lg`} onClick={() => setMood('details')}>بيانات العميل</p>
+                <p className={`${mood === 'favProducts' ? 'text-[#00B6A9] border-b-4 border-b-[#00B6A9] rounded-r-sm rounded-l-sm' : 'text-[#6C6C6C]'} cursor-pointer select-none text-lg`} onClick={() => setMood('favProducts')}>المفضلات</p>
+                <p className={`${mood === 'ordersHistory' ? 'text-[#00B6A9] border-b-4 border-b-[#00B6A9] rounded-r-sm rounded-l-sm' : 'text-[#6C6C6C]'} cursor-pointer select-none text-lg`} onClick={() => setMood('ordersHistory')}>سجل المشتريات</p>
             </span>
             { mood === 'details' &&
             <div className='w-full flex flex-col justify-center items-center gap-10'>
                 <div className='w-[65%] flex items-center justify-center gap-8'>
-                <div className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#BBC5EA] shadow-xl'>
+                <div className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#8AD0C3] shadow-xl'>
                     <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-xs text-black rounded-3xl bg-white'>الإسم</span>
                     <span className='text-center outline-none '>سيد عبد العظيم</span>
                 </div>
-                <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#BBC5EA] shadow-xl'>
+                <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#8AD0C3] shadow-xl'>
                     <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-xs text-black rounded-3xl bg-white'>الجوال</span>
                     <span className='text-center '>+966 656585454</span>
                 </div>
                 </div>
                 <div className='w-[65%] flex items-center justify-center gap-8'>
-                <div className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#BBC5EA] shadow-xl'>
+                <div className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#8AD0C3] shadow-xl'>
                     <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-xs text-black rounded-3xl bg-white'>البريد الإلكتروني</span>
                     <span className='text-center outline-none '>a.hassan@amazing.sa</span>
                 </div>
-                <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#BBC5EA] shadow-xl'>
+                <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#8AD0C3] shadow-xl'>
                     <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-xs text-black rounded-3xl bg-white'>النوع</span>
                     <span className='text-center '>ذكر</span>
                 </div>
                 </div>
                 <div className='w-[65%] flex items-center justify-center gap-8'>
-                <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#BBC5EA] shadow-xl'>
+                <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#8AD0C3] shadow-xl'>
                     <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-xs text-black rounded-3xl bg-white'>تاريخ الميلاد</span>
                     <span className='text-center outline-none '>1996 - 01 - 02</span>
                 </div>
-                <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#BBC5EA] shadow-xl'>
+                <div dir="ltr" className='relative flex justify-center items-center gap-5 rounded-3xl p-2 w-full bg-[#8AD0C3] shadow-xl'>
                     <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-xs text-black rounded-3xl bg-white'>تاريخ الإنضمام</span>
                     <span className='text-center '>2024 - 05 - 05</span>
                 </div>
@@ -206,7 +206,7 @@ const Client = () => {
                         </span>
                         <span className='flex flex-col justify-center items-center gap-3'>
                         <p>المقاس</p>
-                        <span className='text-center bg-[#5E6DA8] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
+                        <span className='text-center bg-[#00B6A9] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
                             s
                         </span>
                         </span>
@@ -229,7 +229,7 @@ const Client = () => {
                         </span>
                         <span className='flex flex-col justify-center items-center gap-3'>
                         <p>المقاس</p>
-                        <span className='text-center bg-[#5E6DA8] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
+                        <span className='text-center bg-[#00B6A9] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
                             s
                         </span>
                         </span>
@@ -253,7 +253,7 @@ const Client = () => {
                         </span>
                         <span className='flex flex-col justify-center items-center gap-3'>
                         <p>المقاس</p>
-                        <span className='text-center bg-[#5E6DA8] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
+                        <span className='text-center bg-[#00B6A9] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
                             s
                         </span>
                         </span>

@@ -14,7 +14,7 @@ const Filter = () => {
         <span className='flex items-center gap-2 cursor-pointer select-none' onClick={() => setIsFilterActive(!isFilterActive)}>
             <p>فلتر</p>
         { isFilterActive ?
-            <span className='p-2 bg-[#5E6DA8] rounded-xl'>
+            <span className='p-2 bg-[#00B6A9] rounded-xl'>
                 <Image src={filter} width={20} height={20} alt='filter' className='w-[20px] h-[20px]' />
             </span>
             :
@@ -25,11 +25,11 @@ const Filter = () => {
             <span className='size p-3 flex flex-col gap-2 items-start'>
                 <p className='font-bold'>المقاس</p>
                 <span className='flex items-center gap-2'>
-                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#5E6DA8] text-white rounded-md cursor-pointer'>S</span>
-                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#5E6DA8] text-white rounded-md cursor-pointer'>M</span>
-                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#5E6DA8] text-white rounded-md cursor-pointer'>L</span>
-                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#5E6DA8] text-white rounded-md cursor-pointer'>XL</span>
-                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#5E6DA8] text-white rounded-md cursor-pointer'>XXL</span>
+                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#00B6A9] text-white rounded-md cursor-pointer'>S</span>
+                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#00B6A9] text-white rounded-md cursor-pointer'>M</span>
+                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#00B6A9] text-white rounded-md cursor-pointer'>L</span>
+                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#00B6A9] text-white rounded-md cursor-pointer'>XL</span>
+                    <span className='p-5 w-[35px] h-[35px] flex justify-center items-center bg-[#00B6A9] text-white rounded-md cursor-pointer'>XXL</span>
                 </span>
             </span>
             <span className='color p-3 flex flex-col gap-2 items-start'>
@@ -47,7 +47,7 @@ const Filter = () => {
                 <p>السعر</p>
                 <PriceRange />
             </span>
-            <button className='w-[35%] p-[7px] text-sm bg-[#5E6DA8] text-white rounded-lg mb-3 float-left ml-4'>تطبيق</button>
+            <button className='w-[35%] p-[7px] text-sm bg-[#00B6A9] text-white rounded-lg mb-3 float-left ml-4'>تطبيق</button>
         </div>
     </div>
   )

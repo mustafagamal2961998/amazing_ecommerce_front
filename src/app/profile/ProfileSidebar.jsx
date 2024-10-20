@@ -24,7 +24,7 @@ const ProfileSidebar = () => {
     const pathname = usePathname();
 
   return (
-    <aside className={`relative w-1/4 max-md:w-full min-h-screen ${sidebar ? 'translate-x-0' : 'hidden translate-x-full'} flex flex-col justify-start items-center gap-20 p-5 bg-gradient-to-br from-[#252B42] to-[#5E6DA8]`}>
+    <aside className={`relative w-1/4 max-md:w-full min-h-screen ${sidebar ? 'translate-x-0' : 'hidden translate-x-full'} flex flex-col justify-start items-center gap-20 p-5 bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]`}>
         <div className='mt-[60px] flex flex-col gap-3 justify-center items-center'>
             <Link href='/profile' className='relative'>
                 <Image src={profilePicture} className='w-[120px] h-[120px] rounded-full' alt='Amazing' />
@@ -33,26 +33,26 @@ const ProfileSidebar = () => {
             <h2 className='text-white'>سيد عبد العظيم</h2>
         </div>
         <div className='flex flex-col gap-3 justify-center items-center w-full'>
-            <Link href='/profile' className={`${pathname === '/profile' ? 'bg-white text-black active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
+            <Link href='/profile' className={`${pathname === '/profile' ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
                 <Image src={pathname === '/profile' ? darkInformation : information} className='w-[24px] h-[24px]' alt='Amazing' />
                 <h2>معلومات الحساب</h2>
             </Link>
-            <Link href='/profile/location' className={`${pathname === '/profile/location' ? 'bg-white text-black active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
+            <Link href='/profile/location' className={`${pathname === '/profile/location' ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
                 <Image src={pathname === '/profile/location' ? darkLocation : location} className='w-[24px] h-[24px]' alt='Amazing' />
                 <h2>عناوين الشحن</h2>
             </Link>
-            <Link href='/profile/cards' className={`${pathname === '/profile/cards' ? 'bg-white text-black active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
+            <Link href='/profile/cards' className={`${pathname === '/profile/cards' ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
                 <Image src={pathname === '/profile/cards' ? darkCards : cards} className='w-[24px] h-[24px]' alt='Amazing' />
                 <h2 >بطاقات الإئتمان</h2>
             </Link>
-            <Link href='/profile/orders' className={`${pathname.startsWith('/profile/orders') ? 'bg-white text-black active' : 'text-white'} relative flex items-center gap-3 rounded-xl cursor-pointer p-3 w-full`}>
+            <Link href='/profile/orders' className={`${pathname.startsWith('/profile/orders') ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-center gap-3 rounded-xl cursor-pointer p-3 w-full`}>
                 <Image src={pathname.startsWith('/profile/orders') ? darkOrders : orders} className='w-[24px] h-[24px]' alt='Amazing' />
                 <h2>خزانتي</h2>
                 <span className='bg-red-500 text-white rounded-full text-[10px] w-[16px] h-[16px] text-center mr-auto'>
                     1
                 </span>
             </Link>
-            <Link href='/profile/favourite' className={`${pathname === '/profile/favourite' ? 'bg-white text-black active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
+            <Link href='/profile/favourite' className={`${pathname === '/profile/favourite' ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
                 <Image src={pathname === '/profile/favourite' ? darkFavourite : favourite} className='w-[24px] h-[24px]' alt='Amazing' />
                 <h2>منتجات مفضلة</h2>
             </Link>

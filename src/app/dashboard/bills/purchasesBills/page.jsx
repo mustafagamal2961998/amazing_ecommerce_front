@@ -12,7 +12,7 @@ const PurchasesBills = () => {
         <div className='w-full flex justify-between items-center px-20 mt-5'>
             <h2 className='text-lg'>فواتير المشتريات</h2>
             <Link href='/dashboard/bills' className='flex items-center gap-2 cursor-pointer'>
-                <p className='text-xl text-[#4A588D]'>قائمة الفواتير</p>
+                <p className='text-xl text-[#00B6A9]'>قائمة الفواتير</p>
                 <Image src={back} alt='back' className='w-[25px] h-[25px]' />
             </Link>
          </div>

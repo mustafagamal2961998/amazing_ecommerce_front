@@ -26,7 +26,7 @@ const Cart = () => {
         <div className='grid grid-rows-1 gap-5 w-full'>
           <div className='w-full flex justify-between max-md:flex-col max-md:items-end items-start'>
             <span className='relative flex items-start gap-2'>
-              <span className='bg-[#5E6DA8] text-white rounded-full text-[14px] w-[24px] h-[24px] text-center mr-auto absolute top-2/4 -translate-x-2/4 -translate-y-2/4 right-0 max-md:right-[-60px]'>
+              <span className='bg-[#00B6A9] text-white rounded-full text-[14px] w-[24px] h-[24px] text-center mr-auto absolute top-2/4 -translate-x-2/4 -translate-y-2/4 right-0 max-md:right-[-60px]'>
                 1
               </span>
               <Image src={cartItem1} className='w-[200px] h-[200px] mr-[45px] max-md:mr-0' width={200} height={200} alt='Amazing' />
@@ -43,10 +43,10 @@ const Cart = () => {
                   المقاس   
                   <span className='flex items-center gap-2'>
                     :
-                    <span className='p-2 bg-[#5E6DA8] text-white rounded-md cursor-pointer'>S</span>
+                    <span className='p-2 bg-[#00B6A9] text-white rounded-md cursor-pointer'>S</span>
                   </span>
                 </span>
-                <span className='flex gap-5 p-2 mt-[15px] rounded-full text-white bg-[#5E6DA8]'>
+                <span className='flex gap-5 p-2 mt-[15px] rounded-full text-white bg-[#00B6A9]'>
                   <FontAwesomeIcon icon={faPlus} className='border-2 rounded-full border-white cursor-pointer' />
                   1
                   <FontAwesomeIcon icon={faMinus} className='border-2 rounded-full border-white cursor-pointer' />
@@ -64,7 +64,7 @@ const Cart = () => {
           <hr className='bg-[#DEDEDE] text-[#DEDEDE] w-full h-[1px] rounded-md' />
           <div className='w-full flex justify-between max-md:flex-col max-md:items-end items-start'>
             <span className='relative flex items-start gap-2'>
-              <span className='bg-[#5E6DA8] text-white rounded-full text-[14px] w-[24px] h-[24px] text-center mr-auto absolute top-2/4 -translate-x-2/4 -translate-y-2/4 right-0 max-md:right-[-60px]'>
+              <span className='bg-[#00B6A9] text-white rounded-full text-[14px] w-[24px] h-[24px] text-center mr-auto absolute top-2/4 -translate-x-2/4 -translate-y-2/4 right-0 max-md:right-[-60px]'>
                 1
               </span>
               <Image src={cartItem1} className='w-[200px] h-[200px] mr-[45px] max-md:mr-0' width={200} height={200} alt='Amazing' />
@@ -81,10 +81,10 @@ const Cart = () => {
                   المقاس   
                   <span className='flex items-center gap-2'>
                     :
-                    <span className='p-2 bg-[#5E6DA8] text-white rounded-md cursor-pointer'>S</span>
+                    <span className='p-2 bg-[#00B6A9] text-white rounded-md cursor-pointer'>S</span>
                   </span>
                 </span>
-                <span className='flex gap-5 p-2 mt-[15px] rounded-full text-white bg-[#5E6DA8]'>
+                <span className='flex gap-5 p-2 mt-[15px] rounded-full text-white bg-[#00B6A9]'>
                   <FontAwesomeIcon icon={faPlus} className='border-2 rounded-full border-white cursor-pointer' />
                   1
                   <FontAwesomeIcon icon={faMinus} className='border-2 rounded-full border-white cursor-pointer' />
@@ -103,7 +103,7 @@ const Cart = () => {
         <div className='w-full flex justify-between max-md:flex-col items-start gap-5 mr-[45px] max-md:mr-0'>
           <div className='flex flex-col items-start gap-10 w-full'>
             <div className='location w-full p-5 flex flex-col items-start gap-5 rounded-2xl shadow relative h-[200px]'>
-              <span className='absolute right-0 top-0 rounded-tr-2xl rounded-bl-2xl bg-[#5E6DA8] text-white text-center w-[118px] p-3'>
+              <span className='absolute right-0 top-0 rounded-tr-2xl rounded-bl-2xl bg-[#00B6A9] text-white text-center w-[118px] p-3'>
                 عنوان العميل
               </span>
               <span className='flex items-center gap-3 mt-[60px]'>
@@ -117,7 +117,7 @@ const Cart = () => {
               </span>
             </div>
             <div className='payment w-full p-5 flex flex-col items-start gap-2 rounded-2xl shadow relative h-[200px]'>
-              <span className='absolute right-0 top-0 rounded-tr-2xl rounded-bl-2xl bg-[#5E6DA8] text-white text-center w-[118px] p-3'>
+              <span className='absolute right-0 top-0 rounded-tr-2xl rounded-bl-2xl bg-[#00B6A9] text-white text-center w-[118px] p-3'>
                 طريقة الدفع
               </span>
               <span className='flex items-center gap-3 mt-[60px]'>
@@ -131,7 +131,7 @@ const Cart = () => {
             </div>
           </div>
           <div className='w-1/4 max-md:w-full flex flex-col justify-center items-start gap-5 shadow relative p-5 rounded-2xl h-[440px]'>
-            <span className='absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-[24px] rounded-br-xl rounded-bl-xl bg-[#5E6DA8] text-white text-center w-[118px] p-3'>
+            <span className='absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-[24px] rounded-br-xl rounded-bl-xl bg-[#00B6A9] text-white text-center w-[118px] p-3'>
               ملخص الطلب
             </span>
             <span className='w-full flex justify-between font-bold mt-[45px]'>
@@ -148,7 +148,7 @@ const Cart = () => {
             </span>
             <span className='w-full flex justify-between gap-2 font-bold'>
               <input type='text' className='w-3/4 p-2 rounded-xl outline-none border-2 border-[#CCCCCC] placeholder:text-[#CCCCCC]' placeholder='ادخل كود الخصم' />
-              <button className='rounded-xl bg-[#5E6DA8] text-white p-3'>تطبيق</button>
+              <button className='rounded-xl bg-[#00B6A9] text-white p-3'>تطبيق</button>
             </span>
             <hr className='bg-[#DEDEDE] text-[#DEDEDE] w-full h-[1px] rounded-md' />
             <span className='w-full flex justify-between font-bold'>

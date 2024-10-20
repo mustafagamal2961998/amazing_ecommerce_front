@@ -1,5 +1,5 @@
 .signup p {
-    color: #252B42;
+    color: #00B6A9;
 }
 
 .signup form input,
@@ -13,7 +13,7 @@
 }
 
 .signup-btn {
-    background-image: linear-gradient(to right, #252B42, #5E6DA8);
+    background-image: linear-gradient(to right, #00B6A9, #8AD0C3);
 }
 
 .login-link {

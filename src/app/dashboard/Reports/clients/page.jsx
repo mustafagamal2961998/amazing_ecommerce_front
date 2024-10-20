@@ -54,7 +54,7 @@ const Clients = () => {
             <p className='text-xl'>تقارير العملاء</p>
             <div className='w-full flex items-center gap-5'>
                 <div className='w-2/4 h-full flex flex-col justify-center items-center gap-5 rounded-xl border-[1px] border-[#CFCFCF]'>
-                    <span className='w-full mb-auto text-right p-5 font-bold bg-[#4A588D] text-white rounded-t-xl'>العملاء</span>
+                    <span className='w-full mb-auto text-right p-5 font-bold bg-[#00B6A9] text-white rounded-t-xl'>العملاء</span>
                     <span className='flex flex-col items-center justify-center pb-5'>
                         <PieChart width={250} height={400}>
                             <Pie
@@ -88,7 +88,7 @@ const Clients = () => {
                     </span>
                 </div>
                 <div className='w-2/4 h-full flex flex-col justify-center items-center gap-5 rounded-xl border-[1px] border-[#CFCFCF]'>
-                    <span className='w-full text-right p-5 font-bold bg-[#4A588D] text-white rounded-t-xl'>رضا العملاء</span>
+                    <span className='w-full text-right p-5 font-bold bg-[#00B6A9] text-white rounded-t-xl'>رضا العملاء</span>
                     <div className='p-5 w-full flex justify-between items-center'>
                         <span className='flex items-center gap-1'>
                             <p className='font-bold'>80%</p>
@@ -174,7 +174,7 @@ const Clients = () => {
                     <div className="inline-block min-w-full">
                         <div className="overflow-hidden rounded-3xl shadow">
                             <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                                <thead className="bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                                <thead className="bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]">
                                     <tr>
                                         <th className="px-6 py-4 font-normal">اسم العميل</th>
                                         <th className="px-6 py-4 font-normal">عدد عمليات الشراء</th>

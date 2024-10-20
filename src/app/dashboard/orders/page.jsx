@@ -67,7 +67,7 @@ const Orders = () => {
               <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                 <div className="overflow-hidden rounded-3xl border-[1px] border-[#F1F1F1]">
                   <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                    <thead className="border-b border-neutral-200 bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                    <thead className="border-b border-neutral-200 bg-gradient-to-br from-[#8AD0C3] to-[#00B6A9]">
                       <tr>
                         <th className="px-6 py-4 relative">
                           <input
@@ -308,7 +308,7 @@ const Orders = () => {
                 </span>
                 <span className='flex flex-col justify-center items-center gap-3'>
                   <p>المقاس</p>
-                  <span className='text-center bg-[#5E6DA8] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
+                  <span className='text-center bg-[#8AD0C3] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
                     s
                   </span>
                 </span>
@@ -331,7 +331,7 @@ const Orders = () => {
                 </span>
                 <span className='flex flex-col justify-center items-center gap-3'>
                   <p>المقاس</p>
-                  <span className='text-center bg-[#5E6DA8] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
+                  <span className='text-center bg-[#8AD0C3] rounded-md text-white pt-2 pb-2 pl-3 pr-3'>
                     s
                   </span>
                 </span>
@@ -354,7 +354,7 @@ const Orders = () => {
             </span>
             <span className='w-full flex justify-between gap-3 font-bold'>
               <input type='text' className='w-3/4 p-1 rounded-xl outline-none border-[1px] border-[#CCCCCC] placeholder:text-xs placeholder:font-light placeholder:text-[#CCCCCC] placeholder:pr-1 font-light' placeholder='ادخل كود الخصم' />
-              <button className='text-sm rounded-xl bg-[#5E6DA8] text-white p-1 w-1/4 font-light'>تطبيق</button>
+              <button className='text-sm rounded-xl bg-[#8AD0C3] text-white p-1 w-1/4 font-light'>تطبيق</button>
             </span>
             <hr className='bg-[#DEDEDE] text-[#DEDEDE] w-full h-[1px] rounded-md' />
             <span className='w-full flex justify-between font-bold'>

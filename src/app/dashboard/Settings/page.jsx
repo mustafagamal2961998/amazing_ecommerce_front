@@ -33,14 +33,14 @@ const Settings = () => {
             <div className='relative w-full ml-auto min-h-full p-5 -mr-2 shadow-lg bg-[#EFEFEF] rounded-3xl rounded-tr-none flex flex-col justify-start items-center gap-10'>
                 <h2 className='text-xl font-bold'>الإعدادات الأساسية</h2>
                 <div className='w-full flex flex-col items-start gap-5'>
-                    <span className='w-1/5 p-2 flex justify-center items-center bg-gradient-to-br from-[#0B1C3F] to-[#0B1C3F] rounded-br-3xl rounded-tl-3xl'>
+                    <span className='w-1/5 p-2 flex justify-center items-center bg-gradient-to-br from-[#00B6A9] to-[#00B6A9] rounded-br-3xl rounded-tl-3xl'>
                     <p className='font-bold text-white'>معلومات الشركة</p>
                     </span>
                     <input type='text' placeholder='اسم الشركة باللغة العربية' className='w-full placeholder:text-center font-bold bg-[#D9D9D9] rounded-2xl py-3 px-8 outline-none' />
                     <input type='text' placeholder='اسم الشركة باللغة الإنجليزية' className='w-full placeholder:text-center font-bold bg-[#D9D9D9] rounded-2xl py-3 px-8 outline-none' />
                 </div>
                 <div className='w-full flex flex-col items-start gap-5'>
-                    <span className='w-1/5 p-2 flex justify-center items-center bg-gradient-to-br from-[#0B1C3F] to-[#0B1C3F] rounded-br-3xl rounded-tl-3xl'>
+                    <span className='w-1/5 p-2 flex justify-center items-center bg-gradient-to-br from-[#00B6A9] to-[#00B6A9] rounded-br-3xl rounded-tl-3xl'>
                     <p className='font-bold text-white'>شعار الشركة</p>
                     </span>
                     <div className='flex items-center gap-1 ml-auto mr-12'>
@@ -67,7 +67,7 @@ const Settings = () => {
                         </ImageUploading>
                     </div>
                     {images[0] && 
-                    <div className='w-2/4 mr-12 bg-[#4A588D33] shadow p-2 rounded-xl flex flex-row-reverse justify-center items-center gap-10'>
+                    <div className='w-2/4 mr-12 bg-[#00B6A9] shadow p-2 rounded-xl flex flex-row-reverse justify-center items-center gap-10'>
                         <img src={images[0].data_url} alt='company image' className='w-[80px] h-[80px]' />
                         <span className='flex flex-col items-end gap-3'>
                         <h2 className='font-bold'>{images[0].file.name}</h2>
@@ -84,7 +84,7 @@ const Settings = () => {
                     </div>
                     }
                 </div>
-                <span className='w-1/5 ml-auto p-2 flex justify-center items-center bg-gradient-to-br from-[#0B1C3F] to-[#0B1C3F] rounded-br-3xl rounded-tl-3xl'>
+                <span className='w-1/5 ml-auto p-2 flex justify-center items-center bg-gradient-to-br from-[#00B6A9] to-[#00B6A9] rounded-br-3xl rounded-tl-3xl'>
                     <p className='font-bold text-white'>التصنيفات</p>
                 </span>
                 <div className='flex items-center gap-10'>

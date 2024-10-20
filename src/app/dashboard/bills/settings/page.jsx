@@ -21,29 +21,29 @@ const Settings = () => {
       <div className='w-full flex justify-between items-center pr-20 pl-20'>
           <h2 className='text-lg'>إعدادات الفواتير</h2>
           <Link href='/dashboard/bills' className='flex items-center gap-2 cursor-pointer'>
-              <p className='text-xl text-[#4A588D]'>قائمة الفواتير</p>
+              <p className='text-xl text-[#00B6A9]'>قائمة الفواتير</p>
               <Image src={back} alt='back' className='w-[25px] h-[25px]' />
           </Link>
       </div>
       <div className='w-full flex flex-col gap-4 pr-20 pl-64'>
         <div className='flex justify-center items-center'>
-          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>اسم الشركة</span>
+          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>اسم الشركة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>رقم هاتف الشركة</span>
+          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>رقم هاتف الشركة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>ايميل الشركة</span>
+          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>ايميل الشركة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>عنوان الشركة</span>
+          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>عنوان الشركة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>قيمة الضريبة المضافة</span>
+          <span className='w-2/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>قيمة الضريبة المضافة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
         </div>
         <div className='flex items-center gap-1'>

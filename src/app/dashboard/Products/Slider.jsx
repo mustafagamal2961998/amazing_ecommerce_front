@@ -22,7 +22,7 @@ const ImageSlider = (props) => {
         {images.map((image, index) => (
           <span 
             key={index} 
-            className={`cursor-pointer w-[12px] h-[12px] rounded-full ${index === current ? 'bg-[#4A588D]' : 'bg-[#4A588D5E]'}`} 
+            className={`cursor-pointer w-[12px] h-[12px] rounded-full ${index === current ? 'bg-[#00B6A9]' : 'bg-[#8AD0C3]'}`} 
             onClick={() => handleIndicatorClick(index)}
           ></span>
         ))}

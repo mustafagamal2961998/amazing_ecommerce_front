@@ -16,10 +16,10 @@ const Clients = () => {
         <p className='font-bold'>العملاء</p>
         <div className='w-full flex justify-between items-center'>
           <div className='relative w-2/5'>
-            <input type='text' placeholder='بحث' className='w-full outline-none shadow shadow-[#00000026] p-2 rounded-3xl' onChange={(e) => handleSearch(e.target.value)} />
+            <input type='text' placeholder='بحث' className='w-full outline-none shadow shadow-[] p-2 rounded-3xl' onChange={(e) => handleSearch(e.target.value)} />
             <Image src={searchIcon} alt='search' className='w-[16px] h-[16px] absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
           </div>
-          <span className='flex justify-center items-center gap-2 pt-2 pb-2 pr-8 pl-8 bg-[#4A588D] text-white rounded-3xl cursor-pointer'>
+          <span className='flex justify-center items-center gap-2 pt-2 pb-2 pr-8 pl-8 bg-[#00B6A9] text-white rounded-3xl cursor-pointer'>
             <Image src={addIcon} alt='add' className='w-[16px] h-[16px]' />
             <p className='text-sm'>إضافة عميل جديد</p>
           </span>
@@ -29,7 +29,7 @@ const Clients = () => {
           <div className="inline-block min-w-full">
             <div className="overflow-hidden rounded-3xl border-[1px] border-neutral-200">
               <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                <thead className="border-b border-neutral-200 bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                <thead className="border-b border-neutral-200 bg-gradient-to-br from-[#8AD0C3] to-[#00B6A9]">
                   <tr>
                     <th className="px-6 py-4 font-normal">الإسم</th>
                     <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">البريد الإلكتروني</th>
@@ -54,7 +54,7 @@ const Clients = () => {
                     <td className='whitespace-nowrap border-l-[1px] border-[#F1F1F1]' dir="ltr">+966 656585454</td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]" dir="ltr">2024 - 05 - 05</td>
                     <td className='border-l-[1px] border-[#F1F1F1]'>
-                      <Link href={``} className='w-fit rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2 m-auto'>
+                      <Link href={``} className='w-fit rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2 m-auto'>
                         <span className='w-[20px] h-[20px] rounded-full bg-white relative mr-2'>
                           <Image src={userIcon} alt="user" className="w-[20px] h-[20px] absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4" />
                         </span>
@@ -78,7 +78,7 @@ const Clients = () => {
                     <td className='whitespace-nowrap border-l-[1px] border-[#F1F1F1]' dir="ltr">+966 656585454</td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]" dir="ltr">2024 - 05 - 05</td>
                     <td className='border-l-[1px] border-[#F1F1F1]'>
-                      <Link href={``} className='w-fit rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2 m-auto'>
+                      <Link href={``} className='w-fit rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2 m-auto'>
                         <span className='w-[20px] h-[20px] rounded-full bg-white relative mr-2'>
                           <Image src={userIcon} alt="user" className="w-[20px] h-[20px] absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4" />
                         </span>
@@ -102,7 +102,7 @@ const Clients = () => {
                     <td className='whitespace-nowrap border-l-[1px] border-[#F1F1F1]' dir="ltr">+966 656585454</td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]" dir="ltr">2024 - 05 - 05</td>
                     <td className='border-l-[1px] border-[#F1F1F1]'>
-                      <Link href={``} className='w-fit rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2 m-auto'>
+                      <Link href={``} className='w-fit rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2 m-auto'>
                         <span className='w-[20px] h-[20px] rounded-full bg-white relative mr-2'>
                           <Image src={userIcon} alt="user" className="w-[20px] h-[20px] absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4" />
                         </span>
@@ -126,7 +126,7 @@ const Clients = () => {
                     <td className='whitespace-nowrap border-l-[1px] border-[#F1F1F1]' dir="ltr">+966 656585454</td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]" dir="ltr">2024 - 05 - 05</td>
                     <td className='border-l-[1px] border-[#F1F1F1]'>
-                      <Link href={``} className='w-fit rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2 m-auto'>
+                      <Link href={``} className='w-fit rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2 m-auto'>
                         <span className='w-[20px] h-[20px] rounded-full bg-white relative mr-2'>
                           <Image src={userIcon} alt="user" className="w-[20px] h-[20px] absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4" />
                         </span>
@@ -150,7 +150,7 @@ const Clients = () => {
                     <td className='whitespace-nowrap border-l-[1px] border-[#F1F1F1]' dir="ltr">+966 656585454</td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]" dir="ltr">2024 - 05 - 05</td>
                     <td className='border-l-[1px] border-[#F1F1F1]'>
-                      <Link href={``} className='w-fit rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2 m-auto'>
+                      <Link href={``} className='w-fit rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2 m-auto'>
                         <span className='w-[20px] h-[20px] rounded-full bg-white relative mr-2'>
                           <Image src={userIcon} alt="user" className="w-[20px] h-[20px] absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4" />
                         </span>
@@ -174,7 +174,7 @@ const Clients = () => {
                     <td className='whitespace-nowrap border-l-[1px] border-[#F1F1F1]' dir="ltr">+966 656585454</td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]" dir="ltr">2024 - 05 - 05</td>
                     <td className='border-l-[1px] border-[#F1F1F1]'>
-                      <Link href={``} className='w-fit rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2 m-auto'>
+                      <Link href={``} className='w-fit rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2 m-auto'>
                         <span className='w-[20px] h-[20px] rounded-full bg-white relative mr-2'>
                           <Image src={userIcon} alt="user" className="w-[20px] h-[20px] absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4" />
                         </span>
@@ -198,7 +198,7 @@ const Clients = () => {
                     <td className='whitespace-nowrap border-l-[1px] border-[#F1F1F1]' dir="ltr">+966 656585454</td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]" dir="ltr">2024 - 05 - 05</td>
                     <td className='border-l-[1px] border-[#F1F1F1]'>
-                      <Link href={``} className='w-fit rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2 m-auto'>
+                      <Link href={``} className='w-fit rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2 m-auto'>
                         <span className='w-[20px] h-[20px] rounded-full bg-white relative mr-2'>
                           <Image src={userIcon} alt="user" className="w-[20px] h-[20px] absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4" />
                         </span>
@@ -222,7 +222,7 @@ const Clients = () => {
                     <td className='whitespace-nowrap border-l-[1px] border-[#F1F1F1]' dir="ltr">+966 656585454</td>
                     <td className="p-5 border-l-[1px] border-[#F1F1F1]" dir="ltr">2024 - 05 - 05</td>
                     <td className='border-l-[1px] border-[#F1F1F1]'>
-                      <Link href={``} className='w-fit rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2 m-auto'>
+                      <Link href={``} className='w-fit rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2 m-auto'>
                         <span className='w-[20px] h-[20px] rounded-full bg-white relative mr-2'>
                           <Image src={userIcon} alt="user" className="w-[20px] h-[20px] absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4" />
                         </span>

@@ -22,29 +22,29 @@ const Edit = () => {
       <div className='w-full flex justify-between items-center pr-20 pl-20'>
           <h2 className='text-lg'>تعديل فاتورة مشتريات</h2>
           <Link href='/dashboard/bills/purchasesBills/bills' className='flex items-center gap-2 cursor-pointer'>
-              <p className='text-xl text-[#4A588D]'>قائمة الفواتير</p>
+              <p className='text-xl text-[#00B6A9]'>قائمة الفواتير</p>
               <Image src={back} alt='back' className='w-[25px] h-[25px]' />
           </Link>
       </div>
       <div className='w-full flex flex-col gap-4 pr-20 pl-64'>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>مصدر الفاتورة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>مصدر الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
           <Image src={editIcon} alt='edit icon' className='w-[30px] h-[30px] mr-2 cursor-pointer' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>رقم الفاتورة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>رقم الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
           <Image src={editIcon} alt='edit icon' className='w-[30px] h-[30px] mr-2 cursor-pointer' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>تاريخ الفاتورة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>تاريخ الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
           <Image src={editIcon} alt='edit icon' className='w-[30px] h-[30px] mr-2 cursor-pointer' />
         </div>
         <div className='relative flex justify-center items-center'>
           <textarea className='w-full h-[200px] p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-3xl'></textarea>
-          <span className='absolute right-0 top-0 w-1/6 h-[45px] p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-bl-3xl bg-[#4A588D]'>وصف الفاتورة</span>
+          <span className='absolute right-0 top-0 w-1/6 h-[45px] p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-bl-3xl bg-[#00B6A9]'>وصف الفاتورة</span>
           <Image src={editIcon} alt='edit icon' className='w-[30px] h-[30px] mr-2 cursor-pointer' />
         </div>
         <div className='flex items-center gap-1'>

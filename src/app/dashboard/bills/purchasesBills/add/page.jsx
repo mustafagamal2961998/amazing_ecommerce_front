@@ -22,26 +22,26 @@ const AddBill = () => {
       <div className='w-full flex justify-between items-center pr-20 pl-20'>
           <h2 className='text-lg'>إضافة فاتورة مشتريات</h2>
           <Link href='/dashboard/bills/purchasesBills' className='flex items-center gap-2 cursor-pointer'>
-              <p className='text-xl text-[#4A588D]'>العودة</p>
+              <p className='text-xl text-[#00B6A9]'>العودة</p>
               <Image src={back} alt='back' className='w-[25px] h-[25px]' />
           </Link>
       </div>
       <div className='w-full flex flex-col gap-4 pr-20 pl-64'>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>مصدر الفاتورة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>مصدر الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>رقم الفاتورة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>رقم الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
         </div>
         <div className='flex justify-center items-center'>
-          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>تاريخ الفاتورة</span>
+          <span className='w-1/5 h-full p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>تاريخ الفاتورة</span>
           <input type='text' className='w-full p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-tl-3xl rounded-bl-3xl' />
         </div>
         <div className='relative'>
           <textarea className='w-full h-[200px] p-3 border-[1px] border-[#C6C6C6] text-right outline-none text-black rounded-3xl'></textarea>
-          <span className='absolute top-0 w-1/6 h-[45px] p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-bl-3xl bg-[#4A588D]'>وصف الفاتورة</span>
+          <span className='absolute top-0 w-1/6 h-[45px] p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-bl-3xl bg-[#00B6A9]'>وصف الفاتورة</span>
         </div>
         <div className='flex items-center gap-1'>
         <p>إرفاق صورة الفاتورة</p>

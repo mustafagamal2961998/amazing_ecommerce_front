@@ -25,7 +25,7 @@ const Offers = () => {
                     <input type='text' placeholder='بحث' className='p-2 placeholder:pr-2 placeholder:text-sm w-full shadow-md rounded-full outline-none' />
                     <FontAwesomeIcon icon={faSearch} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
                 </span>
-                <Link href='/dashboard/offers/add' className='flex justify-center items-center gap-2 pt-2 pb-2 pr-8 pl-8 bg-[#4A588D] text-white rounded-3xl cursor-pointer'>
+                <Link href='/dashboard/offers/add' className='flex justify-center items-center gap-2 pt-2 pb-2 pr-8 pl-8 bg-[#00B6A9] text-white rounded-3xl cursor-pointer'>
                     <Image src={plus} alt='add' className='w-[18px] h-[18px]' />
                     <Image src={discountCoupon} alt='offers' className='w-[30px] h-[30px] -mr-4' />
                     <p className='text-md'>إضافة كوبون جديد</p>
@@ -35,7 +35,7 @@ const Offers = () => {
                 <div className="inline-block min-w-full">
                     <div className="overflow-hidden rounded-3xl shadow">
                         <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                            <thead className="bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                            <thead className="bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]">
                                 <tr>
                                     <th className="px-6 py-4 font-normal">عنوان الكوبون</th>
                                     <th className="px-6 py-4 font-normal">تاريخ البدء</th>

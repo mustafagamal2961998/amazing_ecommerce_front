@@ -29,19 +29,19 @@ const Notes = () => {
                         <div className='w-full flex items-center justify-center gap-14 max-md:flex-col max-md:gap-2 p-3 rounded-tr-3xl rounded-tl-3xl bg-gradient-to-br from-[#7F7B7F] to-[#E5DEE5]'>
                             <span className='flex flex-col justify-center items-center gap-2'>
                                 <p className='text-lg font-bold'>تاريخ الطلب</p>
-                                <p className='text-[#5E6DA8]'>16 يوليو 2014</p>
+                                <p className='text-[#00B6A9]'>16 يوليو 2014</p>
                             </span>
                             <span className='flex flex-col justify-center items-center gap-2'>
                                 <p className='text-lg font-bold'>حالة الطلب</p>
-                                <p className='text-[#5E6DA8]'>تم التسليم</p>
+                                <p className='text-[#00B6A9]'>تم التسليم</p>
                             </span>
                             <span className='flex flex-col justify-center items-center gap-2'>
                                 <p className='text-lg font-bold'>تاريخ التسليم</p>
-                                <p className='text-[#5E6DA8]'>17 يوليو 2014</p>
+                                <p className='text-[#00B6A9]'>17 يوليو 2014</p>
                             </span>
                             <span className='flex flex-col justify-center items-center gap-2'>
                                 <p className='text-lg font-bold'>قيمة الطلب</p>
-                                <p className='text-[#5E6DA8]'>500 ر.س</p>
+                                <p className='text-[#00B6A9]'>500 ر.س</p>
                             </span>
                         </div>
                         <div className='w-full p-5 max-md:pb-14 bg-[#D9D9D98A] rounded-br-3xl rounded-bl-3xl flex justify-between items-center max-md:flex-col max-md:justify-center max-md:gap-5'>

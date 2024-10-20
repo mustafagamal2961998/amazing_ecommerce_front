@@ -33,13 +33,13 @@ const Cards = () => {
             <section className={`w-full mt-[100px] pb-[60px] flex flex-col gap-5`}>
                 <span className='flex justify-between w-full'>
                     <h2 className='text-2xl max-md:text-base font-bold'>بطاقات الإئتمان</h2>
-                    <span className='flex items-center gap-2 ml-2 cursor-pointer rounded-2xl bg-[#5E6DA8] p-2 mt-6'>
+                    <span className='flex items-center gap-2 ml-2 cursor-pointer rounded-2xl bg-[#00B6A9] p-2 mt-6'>
                         <Image src={addLocation} className='w-[24px] h-[24px]' alt='Amazing' />
                         <p className='text-white'>إضافة بطاقة جديدة</p>
                     </span>
                 </span>
                 <form className='relative w-full mt-4 bg-[#EDF0FF] rounded-md h-full flex flex-col items-center gap-4 p-5'>
-                    <span className='absolute right-0 p-2 bg-[#5E6DA8] text-white w-[10%] max-md:w-1/4 max-md:text-sm rounded-tr-2xl rounded-bl-2xl text-center mt-[-20px]'>
+                    <span className='absolute right-0 p-2 bg-[#00B6A9] text-white w-[10%] max-md:w-1/4 max-md:text-sm rounded-tr-2xl rounded-bl-2xl text-center mt-[-20px]'>
                         بطاقة جديدة
                     </span>
                     <span className='relative w-3/4 mt-[30px]'>
@@ -72,7 +72,7 @@ const Cards = () => {
                             <input dir='ltr' type='text' className='p-3 max-md:p-2 max-md:placeholder:text-xs mt-[18px] mb-[16px] rounded-xl outline-none w-full' />
                         </span>
                     </span>
-                    <input type='submit' value='حفظ' className='bg-[#5E6DA8] p-3 max-md:p-2 rounded-xl text-white cursor-pointer outline-none w-3/4' />
+                    <input type='submit' value='حفظ' className='bg-[#00B6A9] p-3 max-md:p-2 rounded-xl text-white cursor-pointer outline-none w-3/4' />
                 </form>
                 <h2 className='text-2xl max-md:text-base font-bold'>بطاقات مسجلة</h2>
                 <div className='w-2/4 p-5 m-auto flex justify-between items-center bg-[#EDF0FF] rounded-2xl'>

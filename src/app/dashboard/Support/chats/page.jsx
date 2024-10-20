@@ -16,7 +16,7 @@ const Chats = () => {
             <div className='w-full flex justify-between items-center'>
                 <h2 className='text-lg'>المحادثات المباشرة للعملاء</h2>
                 <Link className='flex items-center gap-2 select-none cursor-pointer' href='/dashboard/support'>
-                    <p className='text-[#4A588D] text-lg'>الدعم الفني والمساعدة</p>
+                    <p className='text-[#00B6A9] text-lg'>الدعم الفني والمساعدة</p>
                     <Image src={back} alt='back' className='w-[25px] h-[25px]' />
                 </Link>
             </div>

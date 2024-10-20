@@ -11,7 +11,7 @@ const Bill = () => {
     <Wrapper>
         <div className='w-full flex flex-col items-start gap-10 pr-20 pl-20'>
             <Link href='/dashboard/bills/salesBills' className='mr-auto flex items-center gap-2 cursor-pointer'>
-                <p className='text-xl text-[#4A588D]'>الفواتير</p>
+                <p className='text-xl text-[#00B6A9]'>الفواتير</p>
                 <Image src={back} alt='back' className='w-[25px] h-[25px]' />
             </Link>
             <div className='w-full h-full p-5 rounded-2xl shadow-lg flex flex-col justify-center items-center gap-10'>

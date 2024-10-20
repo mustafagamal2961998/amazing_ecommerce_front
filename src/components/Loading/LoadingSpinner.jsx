@@ -2,7 +2,7 @@ import { CircleLoader } from 'react-spinners'
 
 const LoadingSpinner = () => {
   return (
-    <CircleLoader color="#5E6DA8" className='m-auto mb-1' />
+    <CircleLoader color="#00B6A9" className='m-auto mb-1' />
   )
 }
 

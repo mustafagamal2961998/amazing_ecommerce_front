@@ -97,7 +97,7 @@ const Products = () => {
               <input type='text' placeholder='بحث' className='w-full outline-none shadow shadow-[#00000026] p-2 rounded-3xl' onChange={(e) => handleSearch(e.target.value)} />
               <Image src={searchIcon} alt='search' className='w-[16px] h-[16px] absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
             </div>
-            <Link href='products/add' className='flex justify-center items-center gap-2 pt-2 pb-2 pr-8 pl-8 bg-[#4A588D] text-white rounded-3xl cursor-pointer'>
+            <Link href='products/add' className='flex justify-center items-center gap-2 pt-2 pb-2 pr-8 pl-8 bg-[#00B6A9] text-white rounded-3xl cursor-pointer'>
               <Image src={addIcon} alt='add' className='w-[16px] h-[16px]' />
               <p className='text-sm'>إضافة منتج جديد</p>
             </Link>
@@ -107,25 +107,25 @@ const Products = () => {
               <div key={product.id} className='relative flex p-5 flex-col justify-center items-center gap-4 p- rounded-xl shadow-lg'>
                 <ImageSlider images={product.images} />
                 <div className='relative mt-52 flex justify-center items-center gap-5 bg-[#EFEFEF] rounded-3xl p-2 w-full'>
-                  <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D] z-20'>اسم المنتج</span>
+                  <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9] z-20'>اسم المنتج</span>
                   <input type='text' className='w-fit bg-[#EFEFEF] text-center outline-none text-black z-10' value='اسم المنتج' />
                   <p></p>
                 </div>
                 <div className='relative flex justify-center items-center gap-5 bg-[#EFEFEF] rounded-3xl p-2 w-full'>
-                  <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>سعر المنتج</span>
+                  <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>سعر المنتج</span>
                   <input type='text' className='bg-[#EFEFEF] text-center outline-none text-black z-10' value={product.price} />
-                  <span className='absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#4A588D]'>ر.س</span>
+                  <span className='absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl bg-[#00B6A9]'>ر.س</span>
                 </div>
                 <div className='relative flex justify-center items-center gap-5 bg-[#EFEFEF] rounded-3xl p-2 w-full'>
-                  <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#4A588D]'>الكمية</span>
+                  <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9]'>الكمية</span>
                   <input type='text' className={`bg-[#EFEFEF] text-center ${product.stock < 40 && 'text-[#D3D3D3]'} outline-none text-black z-10`} value={product.stock} />
-                  <span className={`cursor-pointer absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl ${product.stock < 40 ? 'bg-[#DDDDDD]' : 'bg-[#4A588D]'}`}>
+                  <span className={`cursor-pointer absolute left-0 h-full w-1/4 flex justify-center items-center text-white rounded-tl-3xl rounded-bl-3xl ${product.stock < 40 ? 'bg-[#DDDDDD]' : 'bg-[#00B6A9]'}`}>
                     <Image src={product.stock < 40 ? infinityOff : infinityOn} alt={product.title} width={200} height={200} className='w-2/4 h-2/4' />
                   </span>
                 </div>
                 <div className='w-full flex justify-between items-center gap-3'>
                   <span className='p-2 rounded-3xl cursor-pointer w-2/4 flex justify-center items-center text-white bg-[#07932E]'>حفظ</span>
-                  <span className='p-2 rounded-3xl cursor-pointer w-2/4 flex justify-center items-center gap-2 text-white bg-[#4A588D]'>
+                  <span className='p-2 rounded-3xl cursor-pointer w-2/4 flex justify-center items-center gap-2 text-white bg-[#00B6A9]'>
                     <Image src={details} width={200} height={200} alt='details' className='w-[26px] h-[26px]' />
                     <p>تفاصيل</p>
                   </span>

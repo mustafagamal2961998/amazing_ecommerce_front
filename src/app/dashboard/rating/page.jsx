@@ -16,7 +16,7 @@ const Rating = () => {
                 <FontAwesomeIcon icon={faSearch} className='w-[16px] h-[16px] text-gray-300 absolute left-5 top-2/4 -translate-y-2/4 -translate-x-2/4' />
             </span>
             <div className='w-full grid grid-cols-5 gap-10 pb-5'>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -29,12 +29,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -47,12 +47,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -65,12 +65,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -83,12 +83,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -101,12 +101,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -119,12 +119,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -137,12 +137,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -155,12 +155,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -173,12 +173,12 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>
                 </div>
-                <div className='w-full p-1 border-[1px] border-[#404B70] rounded-2xl flex flex-col justify-center items-center gap-2'>
+                <div className='w-full p-1 border-[1px] border-[#00B6A9] rounded-2xl flex flex-col justify-center items-center gap-2'>
                     <Image src={clothes1} alt='product image' className='w-full h-full object-cover' />
                     <p>اسم المنتج</p>
                     <span className='flex items-center gap-1'>
@@ -191,7 +191,7 @@ const Rating = () => {
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#409ACE]' />
                         <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px] text-[#1A6872]' />
                     </span>
-                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#404B70] rounded-xl'>
+                    <span className='w-full p-2 mb-2 select-none cursor-pointer flex justify-center items-center gap-3 bg-[#00B6A9] rounded-xl'>
                         <Image src={star} alt='product image' className='w-[25px] h-[25px]' />
                         <p className='text-lg text-white'>التقييمات</p>
                     </span>

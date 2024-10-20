@@ -53,7 +53,7 @@ const ReportsPage = () => {
         <div className='w-full mb-auto flex flex-col justify-center items-center gap-4'>
             <div className='w-full flex items-center gap-5'>
                 <div className='w-2/4 h-full flex flex-col justify-center items-center gap-5 rounded-xl border-[1px] border-[#CFCFCF]'>
-                    <span className='w-full mb-auto text-right p-5 font-bold bg-[#4A588D] text-white rounded-t-xl'>ملخص الأسبوع</span>
+                    <span className='w-full mb-auto text-right p-5 font-bold bg-[#00B6A9] text-white rounded-t-xl'>ملخص الأسبوع</span>
                     <span className='flex flex-col items-center justify-center pb-5'>
                         <PieChart width={250} height={400}>
                             <Pie
@@ -87,7 +87,7 @@ const ReportsPage = () => {
                     </span>
                 </div>
                 <div className='w-2/4 h-full flex flex-col justify-center items-center gap-5 rounded-xl border-[1px] border-[#CFCFCF]'>
-                    <span className='w-full mb-auto text-right p-5 font-bold bg-[#4A588D] text-white rounded-t-xl'>ملخص الشهر</span>
+                    <span className='w-full mb-auto text-right p-5 font-bold bg-[#00B6A9] text-white rounded-t-xl'>ملخص الشهر</span>
                     <span className='flex flex-col items-center justify-center pb-5'>
                         <PieChart width={250} height={400}>
                             <Pie
@@ -123,53 +123,53 @@ const ReportsPage = () => {
             </div>
             {/* <div className='flex items-start gap-3'>
                 <div className='relative w-full h-[400px] border-[1px] border-[#ddd] rounded-xl rounded-tr-3xl'>
-                    <p className='w-2/5 text-center rounded-tr-3xl rounded-bl-3xl p-3 bg-[#4A588D] text-white absolute top-0 right-0'>ملخص الاسبوع</p>
+                    <p className='w-2/5 text-center rounded-tr-3xl rounded-bl-3xl p-3 bg-[#00B6A9] text-white absolute top-0 right-0'>ملخص الاسبوع</p>
                     <div className='w-full h-full p-2'>
                         <div className='h-full flex justify-center gap-2'>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[20%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[20%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>السبت</p>
                                     <p>1200 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[18%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[18%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الأحد</p>
                                     <p>990 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[24%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[24%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الاثنين</p>
                                     <p>1300 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[30%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[30%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الثلاثاء</p>
                                     <p>2000 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[50%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[50%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الأربعاء</p>
                                     <p>3400 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[90%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[90%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الخميس</p>
                                     <p>4600 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[100%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[100%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الجمعة</p>
                                     <p>4700 ر.س</p>
@@ -179,53 +179,53 @@ const ReportsPage = () => {
                     </div>
                 </div>
                 <div className='relative w-full h-[400px] border-[1px] border-[#ddd] rounded-xl rounded-tr-3xl'>
-                    <p className='w-2/5 text-center rounded-tr-3xl rounded-bl-3xl p-3 bg-[#4A588D] text-white absolute top-0 right-0'>ملخص الاسبوع</p>
+                    <p className='w-2/5 text-center rounded-tr-3xl rounded-bl-3xl p-3 bg-[#00B6A9] text-white absolute top-0 right-0'>ملخص الاسبوع</p>
                     <div className='w-full h-full p-2'>
                         <div className='h-full flex justify-center gap-2'>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[20%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[20%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>السبت</p>
                                     <p>1200 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[18%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[18%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الأحد</p>
                                     <p>990 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[24%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[24%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الاثنين</p>
                                     <p>1300 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[30%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[30%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الثلاثاء</p>
                                     <p>2000 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[50%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[50%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الأربعاء</p>
                                     <p>3400 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[90%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[90%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الخميس</p>
                                     <p>4600 ر.س</p>
                                 </span>
                             </div>
                             <div className='flex flex-col justify-end items-center gap-1'>
-                                <span className={`w-3 h-[100%] rounded-t-2xl bg-[#4A588D]`}></span>
+                                <span className={`w-3 h-[100%] rounded-t-2xl bg-[#00B6A9]`}></span>
                                 <span className='flex flex-col justify-end items-center gap-1 text-sm font-bold'>
                                     <p>الجمعة</p>
                                     <p>4700 ر.س</p>
@@ -262,7 +262,7 @@ const ReportsPage = () => {
                     <div className="inline-block min-w-full">
                         <div className="overflow-hidden rounded-3xl shadow">
                             <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                                <thead className="bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                                <thead className="bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]">
                                     <tr>
                                         <th className="px-6 py-4 font-normal">اليوم</th>
                                         <th className="px-6 py-4 font-normal">التاريخ</th>
@@ -329,13 +329,13 @@ const ReportsPage = () => {
                         <div className="flex items-center">
                             <FontAwesomeIcon icon={faChevronRight} className='cursor-pointer p-2 rounded-[200%] duration-200 hover:bg-[#00000049]' />
                             <p className='font-bold text-base mx-4'>السابق</p>
-                            <button className="px-3 py-1 bg-[#A6C8FF] font-bold rounded-lg mr-2 focus:outline-none">1</button>
-                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">2</button>
-                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">3</button>
-                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">4</button>
-                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">5</button>
+                            <button className="px-3 py-1 bg-[#8AD0C3] font-bold rounded-lg mr-2 focus:outline-none">1</button>
+                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">2</button>
+                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">3</button>
+                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">4</button>
+                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">5</button>
                             <span>...</span>
-                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">11</button>
+                            <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">11</button>
                             <p className='font-bold text-base text-[#0F62FE] mx-4'>التالي</p>
                             <FontAwesomeIcon icon={faChevronLeft} className='cursor-pointer text-[#0F62FE] p-2 rounded-[200%] duration-200 hover:bg-[#0f63fe59]' />
                         </div>
@@ -367,7 +367,7 @@ const ReportsPage = () => {
                     <h2 className='text-xl'>تقرير <br /> شهري</h2>
                     <Image src={monthly} alt='monthly report' className='w-[100px] h-[100px]' />
                 </span>
-                <span className={`${reportMood === 'yearly' && 'shadow-xl'} w-full h-[150px] cursor-pointer select-none bg-[#5E6DA8D4] rounded-2xl flex justify-center items-center gap-2`} onClick={() => setReportMood('yearly')}>
+                <span className={`${reportMood === 'yearly' && 'shadow-xl'} w-full h-[150px] cursor-pointer select-none bg-[#8AD0C3D4] rounded-2xl flex justify-center items-center gap-2`} onClick={() => setReportMood('yearly')}>
                     <h2 className='text-xl'>تقرير <br /> سنوي</h2>
                     <Image src={yearly} alt='yearly report' className='w-[100px] h-[100px]' />
                 </span>
@@ -439,7 +439,7 @@ const ReportsPage = () => {
                             <div className="inline-block min-w-full">
                                 <div className="overflow-hidden rounded-3xl shadow">
                                     <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                                        <thead className="bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                                        <thead className="bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]">
                                             <tr>
                                                 <th className="px-6 py-4 font-normal">اليوم</th>
                                                 <th className="px-6 py-4 font-normal">التاريخ</th>
@@ -506,13 +506,13 @@ const ReportsPage = () => {
                                 <div className="flex items-center">
                                     <FontAwesomeIcon icon={faChevronRight} className='cursor-pointer p-2 rounded-[200%] duration-200 hover:bg-[#00000049]' />
                                     <p className='font-bold text-base mx-4'>السابق</p>
-                                    <button className="px-3 py-1 bg-[#A6C8FF] font-bold rounded-lg mr-2 focus:outline-none">1</button>
-                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">2</button>
-                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">3</button>
-                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">4</button>
-                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">5</button>
+                                    <button className="px-3 py-1 bg-[#8AD0C3] font-bold rounded-lg mr-2 focus:outline-none">1</button>
+                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">2</button>
+                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">3</button>
+                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">4</button>
+                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">5</button>
                                     <span>...</span>
-                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#a6c8ff70]">11</button>
+                                    <button className="px-3 py-1 text-[#0F62FE] rounded-lg mr-2 focus:outline-none duration-200 hover:bg-[#8ad0c370]">11</button>
                                     <p className='font-bold text-base text-[#0F62FE] mx-4'>التالي</p>
                                     <FontAwesomeIcon icon={faChevronLeft} className='cursor-pointer text-[#0F62FE] p-2 rounded-[200%] duration-200 hover:bg-[#0f63fe59]' />
                                 </div>
@@ -554,7 +554,7 @@ const ReportsPage = () => {
                             <div className="inline-block min-w-full">
                                 <div className="overflow-hidden rounded-3xl shadow">
                                     <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                                        <thead className="bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                                        <thead className="bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]">
                                             <tr>
                                                 <th className="px-6 py-4 font-normal">اليوم</th>
                                                 <th className="px-6 py-4 font-normal">التاريخ</th>
@@ -801,7 +801,7 @@ const ReportsPage = () => {
                           <div className="inline-block min-w-full">
                               <div className="overflow-hidden rounded-3xl shadow">
                                   <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                                      <thead className="bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                                      <thead className="bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]">
                                           <tr>
                                               <th className="px-6 py-4 font-normal">اليوم</th>
                                               <th className="px-6 py-4 font-normal">التاريخ</th>

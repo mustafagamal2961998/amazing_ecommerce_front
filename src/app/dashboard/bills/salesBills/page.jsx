@@ -15,7 +15,7 @@ const SalesBills = () => {
         <div className='w-full pl-10 mt-5 flex justify-between items-center'>
             <h2 className='text-xl'>فواتير المبيعات</h2>
             <Link href='/dashboard/bills' className='flex items-center gap-2 cursor-pointer'>
-                <p className='text-xl text-[#4A588D]'>قائمة الفواتير</p>
+                <p className='text-xl text-[#00B6A9]'>قائمة الفواتير</p>
                 <Image src={back} alt='back' className='w-[25px] h-[25px]' />
             </Link>
         </div>
@@ -27,7 +27,7 @@ const SalesBills = () => {
             <div className="inline-block min-w-full">
                 <div className="overflow-hidden rounded-3xl shadow">
                 <table className="min-w-full text-center text-sm font-normal text-surface text-white">
-                    <thead className="bg-gradient-to-br from-[#252B42] to-[#5E6DA8]">
+                    <thead className="bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]">
                     <tr>
                         <th className="px-6 py-4 font-normal">اسم العميل</th>
                         <th className="px-6 py-4 font-normal">رقم الفاتورة</th>
@@ -50,7 +50,7 @@ const SalesBills = () => {
                                 </span>
                             </td>
                             <td className='relative'>
-                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2'>
+                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2'>
                                     <p>عرض الفاتورة</p>
                                     <Image src={showBill} alt='show bill' className='w-[25px] h-[25px]' />
                                 </Link>
@@ -68,7 +68,7 @@ const SalesBills = () => {
                                 </span>
                             </td>
                             <td className='relative'>
-                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2'>
+                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2'>
                                     <p>عرض الفاتورة</p>
                                     <Image src={showBill} alt='show bill' className='w-[25px] h-[25px]' />
                                 </Link>
@@ -86,7 +86,7 @@ const SalesBills = () => {
                                 </span>
                             </td>
                             <td className='relative'>
-                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2'>
+                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2'>
                                     <p>عرض الفاتورة</p>
                                     <Image src={showBill} alt='show bill' className='w-[25px] h-[25px]' />
                                 </Link>
@@ -104,7 +104,7 @@ const SalesBills = () => {
                                 </span>
                             </td>
                             <td className='relative'>
-                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2'>
+                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2'>
                                     <p>عرض الفاتورة</p>
                                     <Image src={showBill} alt='show bill' className='w-[25px] h-[25px]' />
                                 </Link>
@@ -122,7 +122,7 @@ const SalesBills = () => {
                                 </span>
                             </td>
                             <td className='relative'>
-                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2'>
+                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2'>
                                     <p>عرض الفاتورة</p>
                                     <Image src={showBill} alt='show bill' className='w-[25px] h-[25px]' />
                                 </Link>
@@ -140,7 +140,7 @@ const SalesBills = () => {
                                 </span>
                             </td>
                             <td className='relative'>
-                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#4A588D] text-white flex justify-center items-center gap-2'>
+                                <Link href='/dashboard/bills/salesBills/1' className='absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-3/4 cursor-pointer p-2 rounded-3xl bg-[#00B6A9] text-white flex justify-center items-center gap-2'>
                                     <p>عرض الفاتورة</p>
                                     <Image src={showBill} alt='show bill' className='w-[25px] h-[25px]' />
                                 </Link>

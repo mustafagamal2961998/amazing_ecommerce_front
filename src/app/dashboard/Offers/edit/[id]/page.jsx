@@ -16,7 +16,7 @@ const EditCoupon = () => {
   return (
     <Wrapper>
         <div className='w-3/4 flex flex-col justify-center items-center gap-5 shadow-lg rounded-2xl'>
-            <span className='flex justify-center items-center p-2 mb-auto ml-auto w-1/5 rounded-tr-2xl rounded-bl-2xl bg-[#4A588D] text-white'>
+            <span className='flex justify-center items-center p-2 mb-auto ml-auto w-1/5 rounded-tr-2xl rounded-bl-2xl bg-[#00B6A9] text-white'>
                 <p>التخفيضات والقسائم</p>
             </span>
             <form className='w-full flex flex-col justify-center items-center gap-5 pb-16'>
@@ -31,7 +31,7 @@ const EditCoupon = () => {
                     <p className='font-bold'>نوع الخصم</p>
                     <span className='w-full relative'>
                         <input type='text' className='w-full p-1 pr-4 border-[1px] border-[#D6D6D6] outline-none rounded-lg' />
-                        <select className='w-[12%] outline-none bg-[#4A588D] text-white text-center rounded-lg absolute left-0 top-0'>
+                        <select className='w-[12%] outline-none bg-[#00B6A9] text-white text-center rounded-lg absolute left-0 top-0'>
                             <option className='bg-white text-black'>نسبة(%)</option>
                             <option className='bg-white text-black'>ر.س</option>
                         </select>
@@ -82,8 +82,8 @@ const EditCoupon = () => {
                     <input type='number' className='w-full p-1 pr-4 border-[1px] border-[#D6D6D6] outline-none rounded-lg placeholder:text-black' placeholder='0' />
                 </div>
                 <div className='w-full flex justify-center items-center gap-5 mt-12'>
-                    <input type='submit' value='حفظ' className='w-[250px] p-2 rounded-3xl bg-[#4A588D] text-white' />
-                    <Link href='/dashboard/offers' className='w-[250px] p-2 rounded-3xl cursor-pointer select-none flex justify-center items-center gap-5 bg-[#4A588D] text-white'>
+                    <input type='submit' value='حفظ' className='w-[250px] p-2 rounded-3xl bg-[#00B6A9] text-white' />
+                    <Link href='/dashboard/offers' className='w-[250px] p-2 rounded-3xl cursor-pointer select-none flex justify-center items-center gap-5 bg-[#00B6A9] text-white'>
                         <Image src={back} alt='back' className='w-[25px] h-[25px]' />
                         <p>رجوع</p>
                     </Link>

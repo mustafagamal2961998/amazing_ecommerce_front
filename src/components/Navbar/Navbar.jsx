@@ -12,9 +12,24 @@ import Image from 'next/image';
 import Logo from '../../components/Logo/logo.svg'
 import ProfileImg from '../../assets/profile.jpg'
 import { usePathname } from 'next/navigation';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { GET_SECTIONS } from '../../Utils/APIs';
 
 const Navbar = () => {
   const pathname = usePathname();
+  
+  const [sections, setSections] = useState([]);
+
+  const getSections = async () => {
+    const sections = await axios.get(GET_SECTIONS)
+    setSections(sections.data.data);
+  }
+
+  useEffect(() => {
+    getSections();
+  }, [])
+
   return (
     <nav className='flex flex-col relative z-50'>
         <div className={`bg-white h-[50px] p-5 max-md:p-2 flex ${pathname === '/products' ? 'flex-row' : 'flex-row-reverse'} justify-between items-center md:pr-[60px] md:pl-[60px]`}>
@@ -69,14 +84,17 @@ const Navbar = () => {
                 </span>
             }
         </div>
-        <div className='nav bg-gradient-to-br from-[#252B42] to-[#5E6DA8] h-[71px] max-md:h-[140px] p-5 flex flex-row justify-between max-md:flex-col max-md:justify-center max-md:items-center max-md:gap-2 pb-5 pt-5 pr-[60px] pl-[60px]'>
+        <div className='nav bg-gradient-to-br from-[#8AD0C3] to-[#00B6A9] h-[71px] max-md:h-[140px] p-5 flex flex-row justify-between max-md:flex-col max-md:justify-center max-md:items-center max-md:gap-2 pb-5 pt-5 pr-[60px] pl-[60px]'>
             <Link href='/'>
                 <Image src={Logo} className='w-[170px] h-[38px] ml-auto' alt='Amazing' />
             </Link>
             <div className='links flex gap-5 items-center text-white text-[14px]'>
-                <Link className='relative' href='/'>دولاب رجالي</Link>
-                <Link className='relative' href='/'>دولاب نسائي</Link>
-                <Link className='relative' href='/'>دولاب أطفالي</Link>
+                {
+                    sections.map((section) => (
+                     <Link key={section.id} className='relative' href={`/section/${section.id}/${section.slug}`}>{section.name}</Link>
+                    ))
+                }
+
             </div>
         { pathname === '/products' ?
             <span className='relative w-[15%] max-md:w-full'>
