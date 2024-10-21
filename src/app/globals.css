@@ -7,18 +7,82 @@ svg {
   height: 20px;
 }
 
-@keyframes move {
+@keyframes move1 {
   0% {
-    transform: translateX(50%);
+    transform: translate(0, 0);
   }
   50% {
-    transform: translateY(-50%);
+    transform: translate(30px, -30px);
   }
   100% {
-    transform: translateX(50%);
+    transform: translate(0, 0);
   }
 }
 
-.animate-move {
-  animation: move 10s linear infinite;
+@keyframes move2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, 30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes move3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(40px, -40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes move4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-40px, 40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes move5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(50px, -50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animate-move1 {
+  animation: move1 10s ease-in-out infinite;
+}
+
+.animate-move2 {
+  animation: move2 10s ease-in-out infinite;
+}
+
+.animate-move3 {
+  animation: move3 10s ease-in-out infinite;
+}
+
+.animate-move4 {
+  animation: move4 10s ease-in-out infinite;
+}
+
+.animate-move5 {
+  animation: move5 10s ease-in-out infinite;
 }

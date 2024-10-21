@@ -139,21 +139,9 @@ const Signup = () => {
             type='submit' 
             value='تسجيل' 
             onClick={(e) => handleAuth(e, form, 'signup', setIsLoading)}
-            className='signup-btn w-[62%] text-[12px] text-white cursor-pointer p-3 mb-3 mt-5 outline-none' 
+            className='w-[62%] text-md bg-gradient-to-r from-[#09A489B2] to-[#C9B10087] cursor-pointer p-3 mb-3 mt-5 outline-none' 
           />
         }
-          <p className='mb-2'>أو</p>
-          <span className='flex flex-row-reverse justify-center items-center gap-3 mb-2'>
-            <Link href='/'>
-              <Image src={AppleIcon} className='w-[55px]' alt='login with apple' />
-            </Link>
-            <Link href='/'>
-              <Image src={GoogleIcon} className='w-[55px]' alt='login with google' />
-            </Link>
-            <Link href='/'>
-              <Image src={FacebookIcon} className='w-[55px]' alt='login with facebook' />
-            </Link>
-          </span>
         </form>
         <span> لديك حساب بالفعل ؟<Link className='login-link mt-5' href='/auth/login'> تسجيل الدخول </Link></span>
       </div>
