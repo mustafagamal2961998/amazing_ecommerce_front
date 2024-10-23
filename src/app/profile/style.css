@@ -31,6 +31,33 @@ span.active::after{
   padding: 6px !important;
 }
 
+.react-international-phone-input-container {
+  direction: ltr;
+  width: 100% !important;
+}
+
+.react-international-phone-country-selector-button,
+.react-international-phone-input {
+  width: 100% !important;
+  border: none !important;
+  text-align: center;
+}
+
+.react-international-phone-input-container .react-international-phone-input--disabled,
+.react-international-phone-country-selector-button__button-content,
+.react-international-phone-country-selector,
+.react-international-phone-country-selector-button--disabled {
+  background-color: white !important;
+}
+
+.custom-date-input input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.custom-date-input input[type="date"] {
+  padding-left: 30px;
+}
+
 @media(max-width: 767px){
   .css-13cymwt-control{
     padding: 2px !important;

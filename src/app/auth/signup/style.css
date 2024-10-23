@@ -1,7 +1,3 @@
-.signup p {
-    color: #00B6A9;
-}
-
 .signup form input,
 .gender {
     border: 1px solid #E0E0E0;
@@ -14,10 +10,6 @@
 
 .signup-btn {
     background-image: linear-gradient(to right, #00B6A9, #8AD0C3);
-}
-
-.login-link {
-    color: #23A6F0;
 }
 
 .custom-date-input input[type="date"]::-webkit-calendar-picker-indicator {

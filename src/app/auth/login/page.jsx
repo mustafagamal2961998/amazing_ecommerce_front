@@ -15,7 +15,7 @@ import { handleAuth } from '../../../Utils/Auth/Auth';
 import { useState } from 'react';
 
 const Login = () => {
-  const { isLoading, setIsLoading } = useStatusContext();
+  const { isLoading, setIsLoading, setIsLoggedIn } = useStatusContext();
   const [showPassword, setShowPassword] = useState(false);
   
   const [form, setForm] = useState({
@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   return (
-    <div className='flex flex-row-reverse max-md:flex-col items-center justify-center'>
+    <div className='flex flex-row-reverse max-md:flex-col items-center justify-center bg-[#BCE3DC]'>
       <Slogan />
       <div className='flex flex-col justify-center items-center gap-5 text-center max-md:w-full p-5 w-[40%]'>
         <Image src={purpleLogo} className='max-md:hidden mb-4' alt='Amazing' />
@@ -75,7 +75,7 @@ const Login = () => {
                 type='submit' 
                 value='تسجيل الدخول' 
                 className='w-2/4 text-md bg-gradient-to-r from-[#09A489B2] to-[#C9B10087] cursor-pointer p-3 mb-3 mt-5 outline-none rounded-lg' 
-                onClick={(e) => handleAuth(e, form, 'login', setIsLoading)}
+                onClick={(e) => handleAuth(e, form, 'login', setIsLoading, setIsLoggedIn)}
               />
             )
           }

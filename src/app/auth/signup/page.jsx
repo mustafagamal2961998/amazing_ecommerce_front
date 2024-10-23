@@ -27,11 +27,12 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const [form, setForm] = useState({
-    name: '',
+    first_name: '',
+    last_name: '',
     email: '',
-    phoneNumber: '',
+    mobile: '',
     gender: 'male',
-    birthday: '',
+    date_of_birth: '',
     password: ''
   })
 
@@ -40,7 +41,7 @@ const Signup = () => {
   }
 
   return (
-    <div className='signup flex flex-row-reverse max-md:flex-col'>
+    <div className='signup flex flex-row-reverse max-md:flex-col bg-[#BCE3DC]'>
       <Slogan />
       <div className='flex flex-col justify-center items-center gap-5 text-center max-md:w-full p-5 w-[40%]'>
         <Image src={purpleLogo} className='max-md:hidden' alt='Amazing' />
@@ -48,16 +49,30 @@ const Signup = () => {
         <form>
           <span className='relative'>
             <input
-              name='name'
+              name='first_name'
               type='text' 
-              placeholder='الاسم كامل' 
+              placeholder='الاسم الأول' 
               className='w-[62%] text-[12px] p-3 mb-3 outline-none'
               onChange={(e) => handleFormChange(e)} 
             />
             <Image 
               src={nameIcon} 
               className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' 
-              alt='Amazing' 
+              alt='الاسم الأول' 
+            />
+          </span>
+          <span className='relative'>
+            <input
+              name='last_name'
+              type='text' 
+              placeholder='الاسم الأخير' 
+              className='w-[62%] text-[12px] p-3 mb-3 outline-none'
+              onChange={(e) => handleFormChange(e)} 
+            />
+            <Image 
+              src={nameIcon} 
+              className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' 
+              alt='الاسم الأخير' 
             />
           </span>
           <span className='relative'>
@@ -76,7 +91,7 @@ const Signup = () => {
           </span>
           <span className='relative'>
             <input 
-              name='phoneNumber'
+              name='mobile'
               type='text'
               placeholder='رقم الجوال' 
               className='w-[62%] text-[12px] p-3 mb-3 outline-none'
@@ -85,7 +100,7 @@ const Signup = () => {
             <Image 
               src={numberIcon} 
               className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' 
-              alt='Amazing' 
+              alt='رقم الجوال' 
             />
           </span>
           <span className='relative'>
@@ -99,12 +114,12 @@ const Signup = () => {
             <Image 
               src={genderIcon} 
               className='w-[16px] h-[16px] text-gray-300 absolute left-6 top-2/4 -translate-y-2/4 -translate-x-2/4' 
-              alt='Amazing' 
+              alt='النوع' 
             />
           </span>
           <span className='custom-date-input relative'>
             <input 
-              name='birthday'
+              name='date_of_birth'
               type='date'
               placeholder='تاريخ الميلاد' 
               className='w-[62%] text-[12px] p-3 mb-3 outline-none'
@@ -113,7 +128,7 @@ const Signup = () => {
             <Image 
               src={birthdayIcon} 
               className='w-[16px] h-[16px] text-gray-300 absolute left-4 top-2/4 -translate-y-2/4 -translate-x-2/4 z-50' 
-              alt='Amazing' 
+              alt='تاريخ الميلاد' 
             />
           </span>
           <span className='relative'>

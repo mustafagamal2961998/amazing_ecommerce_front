@@ -1,17 +1,30 @@
 import axios from "axios";
+import { LOGIN, REGISTER } from "../APIs";
+import { handleShowAlert } from '../Alerts/handleShowAlert'
+import Cookies from 'js-cookie';
 
-export const handleAuth = async (e, form, url, setIsLoading) => {
-
+export const handleAuth = async (e, form, url, setIsLoading, setIsLoggedIn) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-        url === 'signup' ? console.log(url, form) : console.log(url, {email: form.email, password: form.password})
-        // const res = await axios.post(url, form);
-        // const data = res.data;
-        // return data;
-    }catch(err) {
-        console.log(err)
-    }finally{
+        if(url === 'signup') {
+            const res = await axios.post(REGISTER, form);
+            setTimeout(() => {
+                location.pathname = '/auth/login';
+            }, 2000)
+            handleShowAlert(res.data.statusCode, res.data.message)
+        }else if(url === 'login') {
+            const res = await axios.post(LOGIN, form);
+            if(res.data.statusCode === 200){
+                Cookies.set('token', res.data.data.access_token);
+                setIsLoggedIn(true);
+                location.pathname = '/';
+            }
+            handleShowAlert(res.data.statusCode, res.data.message)
+        }
+    } catch(error) {
+        handleShowAlert(error.response.status, error.response.data.message)
+    } finally{
         setIsLoading(false);
     }
 }

@@ -17,20 +17,52 @@ import favourite from '../../assets/profile/favourite.png'
 import darkFavourite from '../../assets/profile/darkFavourite.png'
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import axios from "axios"
+import { useState } from "react"
+import add from '../../assets/dashboard/add.svg'
+import { CONFIG } from "../../Utils/Auth/Config"
+import { handleShowAlert } from "../../Utils/Alerts/handleShowAlert"
 
 const ProfileSidebar = () => {
 
-    const { sidebar, setSidebar } = useStatusContext();
+    const { sidebar, setSidebar, userInfo, setUserInfo } = useStatusContext();
+
+    const [avatar, setAvatar] = useState(null);
+    const [password, setPassword] = useState('');
+
     const pathname = usePathname();
+
+    const handleAvatarChange = async () => {
+        const userData = new FormData();
+        userData.append('email', userInfo.email);
+        userData.append('mobile', userInfo.mobile);
+        userData.append('gender', userInfo.gender);
+        userData.append('date_of_birth', userInfo.date_of_birth);
+        userData.append('first_name', userInfo.first_name);
+        userData.append('last_name', userInfo.last_name);
+        userData.append('password', password);
+
+        if (avatar) {
+            userData.append('avatar', avatar); 
+        }
+
+        try {
+            const res = await axios.post('http://192.168.1.93:8000/api/profile/update', userData, CONFIG);
+            const data = res.data;
+            handleShowAlert(data.statusCode, data.message)
+        } catch (error) {
+            handleShowAlert(error.response.status, error.response.data.message);
+        }
+    };
 
   return (
     <aside className={`relative w-1/4 max-md:w-full min-h-screen ${sidebar ? 'translate-x-0' : 'hidden translate-x-full'} flex flex-col justify-start items-center gap-20 p-5 bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]`}>
         <div className='mt-[60px] flex flex-col gap-3 justify-center items-center'>
             <Link href='/profile' className='relative'>
-                <Image src={profilePicture} className='w-[120px] h-[120px] rounded-full' alt='Amazing' />
+                <Image src={userInfo?.avatar} className='w-[120px] h-[120px] rounded-full' width={120} height={120} alt='avatar' />
                 <Image src={edit} className='w-[24px] h-[24px] absolute left-[15px] bottom-0' alt='Amazing' />
             </Link>
-            <h2 className='text-white'>سيد عبد العظيم</h2>
+            <h2 className='text-white'>{userInfo?.first_name} {userInfo?.last_name}</h2>
         </div>
         <div className='flex flex-col gap-3 justify-center items-center w-full'>
             <Link href='/profile' className={`${pathname === '/profile' ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>

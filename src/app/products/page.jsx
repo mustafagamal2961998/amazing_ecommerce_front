@@ -3,7 +3,7 @@ import Products from "../../components/Products/Products";
 const products = () => {
   return (
     <div>
-      <Products />
+      <Products section={'الكل'} category={'تشيرتات'} />
     </div>
   )
 }

@@ -18,6 +18,8 @@ const StatusContext = createContext({
     setSalesBills: () => false,
     purchasesBills: false,
     setPurchasesBills: () => false,
+    userInfo: null,
+    setUserInfo: () => null,
 });
 
 export const StatusContextProvider = ({ children }) => {
@@ -34,6 +36,7 @@ export const StatusContextProvider = ({ children }) => {
     const [showCompanyMood, setShowCompanyMood] = useState(false);
     const [maintenanceMood, setMaintenanceMood] = useState(false);
     const [sidebar, setSidebar] = useState(true);
+    const [userInfo, setUserInfo] = useState(null);
     const [ordersMood, setOrdersMood] = useState('khazanty');
     const [manufacturingMood, setManufacturingMood] = useState('clientData');
 
@@ -69,7 +72,9 @@ export const StatusContextProvider = ({ children }) => {
             ordersMood, 
             setOrdersMood,
             manufacturingMood, 
-            setManufacturingMood
+            setManufacturingMood,
+            userInfo,   
+            setUserInfo
         }}>
             { children }
         </StatusContext.Provider>
