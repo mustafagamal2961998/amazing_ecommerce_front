@@ -16,8 +16,8 @@ span.active::after{
 }
 
 .favourite-products svg {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .similar-products .product img.thumbnail,
@@ -48,6 +48,16 @@ span.active::after{
 .react-international-phone-country-selector,
 .react-international-phone-country-selector-button--disabled {
   background-color: white !important;
+  border-radius: 12px;
+}
+
+.react-international-phone-input-container .react-international-phone-country-selector-button:hover{
+  background-color: white !important;
+}
+
+.react-international-phone-input-container .react-international-phone-input {
+  font-size: 16px !important;
+  font-weight: bold !important;
 }
 
 .custom-date-input input[type="date"]::-webkit-calendar-picker-indicator {

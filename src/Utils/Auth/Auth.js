@@ -9,9 +9,13 @@ export const handleAuth = async (e, form, url, setIsLoading, setIsLoggedIn) => {
     try {
         if(url === 'signup') {
             const res = await axios.post(REGISTER, form);
-            setTimeout(() => {
-                location.pathname = '/auth/login';
-            }, 2000)
+            if(res.data.statusCode === 200){
+                setTimeout(() => {
+                    location.pathname = '/auth/login';
+                }, 2000)
+            }else if (res.data.statusCode === 422) {
+                handleShowAlert(res.data.statusCode, res.data.message)
+            }
             handleShowAlert(res.data.statusCode, res.data.message)
         }else if(url === 'login') {
             const res = await axios.post(LOGIN, form);
@@ -19,8 +23,9 @@ export const handleAuth = async (e, form, url, setIsLoading, setIsLoggedIn) => {
                 Cookies.set('token', res.data.data.access_token);
                 setIsLoggedIn(true);
                 location.pathname = '/';
+            }else if (res.data.statusCode === 422) {
+                handleShowAlert(res.data.statusCode, res.data.message)
             }
-            handleShowAlert(res.data.statusCode, res.data.message)
         }
     } catch(error) {
         handleShowAlert(error.response.status, error.response.data.message)

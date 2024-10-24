@@ -18,50 +18,84 @@ import darkFavourite from '../../assets/profile/darkFavourite.png'
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import axios from "axios"
-import { useState } from "react"
-import add from '../../assets/dashboard/add.svg'
 import { CONFIG } from "../../Utils/Auth/Config"
 import { handleShowAlert } from "../../Utils/Alerts/handleShowAlert"
+import { GET_USER_INFO, UPDATE_PROFILE } from "../../Utils/APIs"
+import Swal from "sweetalert2"
 
 const ProfileSidebar = () => {
 
     const { sidebar, setSidebar, userInfo, setUserInfo } = useStatusContext();
 
-    const [avatar, setAvatar] = useState(null);
-    const [password, setPassword] = useState('');
-
     const pathname = usePathname();
 
-    const handleAvatarChange = async () => {
+    const handleAvatarChange = async (avatar) => {
         const userData = new FormData();
+
         userData.append('email', userInfo.email);
         userData.append('mobile', userInfo.mobile);
         userData.append('gender', userInfo.gender);
         userData.append('date_of_birth', userInfo.date_of_birth);
         userData.append('first_name', userInfo.first_name);
         userData.append('last_name', userInfo.last_name);
-        userData.append('password', password);
 
-        if (avatar) {
-            userData.append('avatar', avatar); 
-        }
+        Swal.fire({
+            title: "يجب إدخال كلمة السر",
+            input: "text",
+            inputAttributes: {
+              autocapitalize: "off"
+            },
+            showCancelButton: true,
+            confirmButtonText: "حفظ",
+            showLoaderOnConfirm: true,
+            preConfirm: async (password) => {
 
-        try {
-            const res = await axios.post('http://192.168.1.93:8000/api/profile/update', userData, CONFIG);
-            const data = res.data;
-            handleShowAlert(data.statusCode, data.message)
-        } catch (error) {
-            handleShowAlert(error.response.status, error.response.data.message);
-        }
+                if (avatar) {
+                    userData.append('avatar', avatar); 
+                }
+
+                try {
+                    userData.append('password', password);
+            
+                    const res = await axios.post(UPDATE_PROFILE, userData, CONFIG);
+                    const data = res.data;
+
+                    const response = await axios.get(GET_USER_INFO, CONFIG);
+                    const userInfo = response.data.data;
+                    setUserInfo(userInfo);
+
+                    handleShowAlert(data.statusCode, data.message);
+                } catch (error) {
+                    console.log(error)
+                }
+                },
+                    allowOutsideClick: () => !Swal.isLoading()
+            })
     };
 
   return (
     <aside className={`relative w-1/4 max-md:w-full min-h-screen ${sidebar ? 'translate-x-0' : 'hidden translate-x-full'} flex flex-col justify-start items-center gap-20 p-5 bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]`}>
         <div className='mt-[60px] flex flex-col gap-3 justify-center items-center'>
-            <Link href='/profile' className='relative'>
-                <Image src={userInfo?.avatar} className='w-[120px] h-[120px] rounded-full' width={120} height={120} alt='avatar' />
-                <Image src={edit} className='w-[24px] h-[24px] absolute left-[15px] bottom-0' alt='Amazing' />
-            </Link>
+            <span className='relative'>
+                <Image 
+                    src={userInfo?.avatar} 
+                    className='w-[120px] h-[120px] rounded-full' 
+                    width={120} 
+                    height={120} 
+                    alt='صورة الملف الشخصي' 
+                />
+                <Image 
+                    src={edit} 
+                    className='w-[24px] h-[24px] absolute left-[15px] bottom-0' 
+                    alt='تعديل الصورة الشخصية' 
+                />
+                <input 
+                    type='file' 
+                    onChange={(e) => handleAvatarChange(e.target.files[0])} 
+                    className='absolute left-[15px] bottom-0 w-full h-full opacity-0 cursor-pointer z-10'
+                    accept="image/*"
+                />
+            </span>
             <h2 className='text-white'>{userInfo?.first_name} {userInfo?.last_name}</h2>
         </div>
         <div className='flex flex-col gap-3 justify-center items-center w-full'>

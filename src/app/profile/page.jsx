@@ -15,20 +15,19 @@ import { CONFIG } from '../../Utils/Auth/Config';
 import { GetUserInfo } from '../../Utils/Auth/UserInfo';
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
+
 const Profile = () => {
     const { sidebar, setSidebar, userInfo, setUserInfo } = useStatusContext();
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({});
-    const [loading, setLoading] = useState(false); // To handle form submission status
+    const [loading, setLoading] = useState(false); 
 
-    // Initialize form data from userInfo
     useEffect(() => {
         if (userInfo) {
             setFormData(userInfo);
         }
     }, [userInfo]);
 
-    // Handle input change for each form field
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevData => ({
@@ -37,15 +36,13 @@ const Profile = () => {
         }));
     };
 
-    // Handle profile update
     const handleProfileUpdate = async () => {
-        // Perform some basic validation
         if (!formData.email || !formData.first_name || !formData.last_name || !formData.mobile) {
             handleShowAlert(400, 'Please fill all the required fields.');
             return;
         }
 
-        setLoading(true); // Start loading when form is submitted
+        setLoading(true); 
         const userData = new FormData();
 
         userData.append('email', formData.email);
@@ -93,7 +90,7 @@ const Profile = () => {
                                     className='flex items-center gap-2 ml-5 cursor-pointer mt-4'
                                     type='button'
                                     onClick={handleProfileUpdate}
-                                    disabled={loading} // Disable button when loading
+                                    disabled={loading} 
                                 >
                                     <FontAwesomeIcon
                                         icon={faSave}
@@ -117,7 +114,6 @@ const Profile = () => {
                             )}
                         </span>
                         <div className='flex flex-col items-center gap-4 mb-5'>
-                            {/* First Name */}
                             <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
                                 <span className='w-1/6 max-md:w-1/4 text-center bg-[#00B6A9] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>
                                     الاسم الأول
@@ -132,8 +128,6 @@ const Profile = () => {
                                     required
                                 />
                             </span>
-                            
-                            {/* Last Name */}
                             <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
                                 <span className='w-1/6 max-md:w-1/4 text-center bg-[#00B6A9] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>
                                     الاسم الأخير
@@ -148,8 +142,6 @@ const Profile = () => {
                                     required
                                 />
                             </span>
-                            
-                            {/* Email */}
                             <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
                                 <span className='w-1/6 max-md:w-1/4 text-center bg-[#00B6A9] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>
                                     البريد الإلكتروني
@@ -164,8 +156,6 @@ const Profile = () => {
                                     required
                                 />
                             </span>
-
-                            {/* Mobile */}
                             <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
                                 <span className='w-1/6 max-md:w-1/4 text-center bg-[#00B6A9] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>
                                     رقم الجوال
@@ -177,8 +167,6 @@ const Profile = () => {
                                     disabled={!isEditing}
                                 />
                             </span>
-
-                            {/* Gender */}
                             <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
                                 <span className='w-1/6 max-md:w-1/4 text-center bg-[#00B6A9] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>
                                     الجنس
@@ -194,8 +182,6 @@ const Profile = () => {
                                     <option value="female">أنثى</option>
                                 </select>
                             </span>
-
-                            {/* Date of Birth */}
                             <span className='custom-date-input flex items-center bg-white shadow-md rounded-xl w-3/4'>
                                 <span className='w-1/6 max-md:w-1/4 text-center bg-[#00B6A9] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>
                                     تاريخ الميلاد
@@ -209,8 +195,6 @@ const Profile = () => {
                                     disabled={!isEditing}
                                 />
                             </span>
-
-                            {/* Password */}
                             <span className='flex items-center bg-white shadow-md rounded-xl w-3/4'>
                                 <span className='w-1/6 max-md:w-1/4 text-center bg-[#00B6A9] text-white p-2 max-md:p-1 rounded-tr-xl rounded-br-xl max-md:text-xs'>
                                     كلمة المرور
