@@ -5,15 +5,11 @@ import Names from './Names';
 import Logos from './Logos';
 import Images from './Images';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import 'swiper/css';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import { useEffect, useState } from 'react';
-import Image from "next/image";
-import axios from 'axios';
-import { GET_EXAMPLES, GET_IMAGES, GET_LOGOS, GET_NAMES } from '../../../Utils/APIs';
 
 const Print = () => {
     const [selectedOption, setSelectedOption] = useState('none');
@@ -56,7 +52,6 @@ const Print = () => {
                     </div>
                 ))}
             </div>
-
             {(selectedOption === 'examples') && (
                 <Examples />
             )}
