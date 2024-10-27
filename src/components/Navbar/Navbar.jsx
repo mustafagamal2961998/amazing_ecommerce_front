@@ -39,11 +39,13 @@ const Navbar = () => {
     };
 
     const token = Cookies.get('token');
+    
     const checkIsLoggedIn = async () => {
         if (token) {
             await GetUserInfo().then((data) => setUserInfo(data));
             setIsLoggedIn(true);
         }else {
+            Cookies.remove('token');
             setIsLoggedIn(false);
         }
     };

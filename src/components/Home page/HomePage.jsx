@@ -1,7 +1,7 @@
 'use client'
 
 import Landing from "./Landing";
-import Print from "./Print";
+import Print from "./Print/Print";
 import PrintType from "./PrintType";
 import PrintSizes from "./PrintSizes";
 import ModelType from "./ModelType";
