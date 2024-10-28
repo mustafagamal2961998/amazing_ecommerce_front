@@ -5,22 +5,15 @@ import sun from '../../assets/home page/sun.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { GET_MODELS } from "../../Utils/APIs";
+import { GET_DATA } from "../../Utils/Data/getData";
 
 const ModelType = () => {
     const [selectedModel, setSelectedModel] = useState(null);
     const [models, setModels] = useState([]);
-    
-    const getModels = async () => {
-        const res = await axios.get(GET_MODELS);
-        const data = res.data.data;
-        setModels(data);
-        setSelectedModel(data[0].id)
-    }
 
     useEffect(() => {
-        getModels();
+        GET_DATA(GET_MODELS).then((data) => {setModels(data); setSelectedModel(data[0].id)});
     }, [])
 
     const handleModelClick = (id) => {

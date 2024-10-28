@@ -4,22 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import sun from '../../assets/home page/sun.svg';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { GET_DATA } from '../../Utils/Data/getData';
 import { GET_MATERIALS } from '../../Utils/APIs';
 
 const MaterialType = () => {
-    const [selectedMaterial, setSelectedMaterial] = useState('cotton100');
+    const [selectedMaterial, setSelectedMaterial] = useState(1);
     const [materials, setMaterials] = useState([]);
     
-    const getMaterials = async () => {
-        const res = await axios.get(GET_MATERIALS);
-        const data = res.data.data;
-        setMaterials(data);
-        setSelectedMaterial(data[0].id)
-    }
-
     useEffect(() => {
-        getMaterials();
+        GET_DATA(GET_MATERIALS).then(data => {setMaterials(data); setSelectedMaterial(data[0].id)});
     }, []);
 
     const handleMaterialClick = (id) => {

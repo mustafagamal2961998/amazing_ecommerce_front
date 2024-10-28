@@ -5,29 +5,19 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import sun from '../../assets/home page/sun.svg';
-import axios from "axios";
 import { GET_PRINT_TYPES } from "../../Utils/APIs";
+import { GET_DATA } from "../../Utils/Data/getData";
 
 const PrintType = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [printTypes, setPrintTypes] = useState([]);
-
-    const getPrintTypes = async () => {
-        try {
-            const res = await axios.get(GET_PRINT_TYPES);
-            const data = res.data.data;
-            setPrintTypes(data);
-        } catch (error) {
-            console.error("Error fetching print types:", error);
-        }
-    };
 
     const handleOptionClick = (id) => {
         setSelectedOption(prevOption => (prevOption === id ? null : id));
     };
 
     useEffect(() => {
-        getPrintTypes();
+        GET_DATA(GET_PRINT_TYPES).then((data) => setPrintTypes(data));
     }, []);
 
     return (
