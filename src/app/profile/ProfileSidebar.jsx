@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useStatusContext } from '../../Utils/Status/statusContext'
-import profilePicture from '../../assets/profile/profilePicture.png'
 import edit from '../../assets/profile/edit.png'
 import information from '../../assets/profile/information.png'
 import darkInformation from '../../assets/profile/darkInformation.png'

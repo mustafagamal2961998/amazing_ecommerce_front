@@ -14,3 +14,8 @@ export const GET_EXAMPLES = `${BASE_URL}examples/`
 export const GET_NAMES = `${BASE_URL}names`
 export const GET_LOGOS = `${BASE_URL}logos`
 export const GET_IMAGES = `${BASE_URL}images`
+export const GET_PRINT_TYPES = `${BASE_URL}printtypes`
+export const GET_MODELS = `${BASE_URL}models`
+export const GET_MATERIALS = `${BASE_URL}materials`
+
+export const GET_PRODUCT_DASHBOARD = `${BASE_URL}dashboard/products`

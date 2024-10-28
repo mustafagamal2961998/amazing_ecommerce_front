@@ -3,25 +3,27 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import sun from '../../assets/home page/sun.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { GET_MATERIALS } from '../../Utils/APIs';
 
 const MaterialType = () => {
     const [selectedMaterial, setSelectedMaterial] = useState('cotton100');
+    const [materials, setMaterials] = useState([]);
+    
+    const getMaterials = async () => {
+        const res = await axios.get(GET_MATERIALS);
+        const data = res.data.data;
+        setMaterials(data);
+        setSelectedMaterial(data[0].id)
+    }
 
-    const materials = [
-        { id: 'cotton100', label: 'قطن 100', labelEn: '100% Cotton' },
-        { id: 'cottonBlend', label: 'قطن مخلوط', labelEn: 'Cotton Blend' },
-        { id: 'polyester', label: 'بلوستر', labelEn: 'Polyester' },
-        { id: 'fauxLeather', label: 'جلد صناعي', labelEn: 'Faux Leather' },
-        { id: 'naturalLeather', label: 'جلد طبيعي', labelEn: 'Natural Leather' },
-        { id: 'naturalFur', label: 'فرو طبيعي', labelEn: 'Natural Fur' },
-        { id: 'fauxFur', label: 'فرو صناعي', labelEn: 'Faux Fur' },
-        { id: 'fauxWool', label: 'صوف صناعي', labelEn: 'Faux Wool' },
-        { id: 'naturalWool', label: 'صوف طبيعي', labelEn: 'Natural Wool' },
-    ];
+    useEffect(() => {
+        getMaterials();
+    }, []);
 
     const handleMaterialClick = (id) => {
-        setSelectedMaterial(selectedMaterial === id ? null : id);
+        setSelectedMaterial(selectedMaterial === id ? 1 : id);
     };
 
     return (
@@ -38,7 +40,7 @@ const MaterialType = () => {
                     className='w-12 absolute left-0 top-0'
                 />
             </div>    
-            <div className='flex flex-wrap justify-center items-center gap-10'>
+            <div className='flex flex-wrap justify-center items-center gap-20'>
                 {materials.map(material => (
                     <div key={material.id} className='w-fit flex justify-center items-center gap-4 font-bold'>
                         <span 
@@ -53,8 +55,8 @@ const MaterialType = () => {
                             }
                         </span>
                         <div className='flex flex-col items-start gap-2'>
-                            <p>{material.label}</p>
-                            <p>{material.labelEn}</p>
+                            <p>{material.name_ar}</p>
+                            <p>{material.name_en}</p>
                         </div>
                     </div>
                 ))}

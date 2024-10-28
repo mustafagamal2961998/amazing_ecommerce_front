@@ -2,7 +2,6 @@
 import './style.css';
 import Image from 'next/image';
 import cartItem1 from '../../assets/cartItem1.png';
-import cartItem2 from '../../assets/cartItem2.png';
 import trash from '../../assets/trash.png';
 import edit from '../../assets/edit.png';
 import locationAdd from '../../assets/locationAdd.png';

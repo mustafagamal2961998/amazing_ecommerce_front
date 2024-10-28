@@ -3,24 +3,32 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import sun from '../../assets/home page/sun.svg';
+import axios from "axios";
+import { GET_PRINT_TYPES } from "../../Utils/APIs";
 
 const PrintType = () => {
-    const [selectedOption, setSelectedOption] = useState('none');
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [printTypes, setPrintTypes] = useState([]);
 
-    const options = [
-        { id: 'none', label: 'بدون', labelEn: 'None' },
-        { id: 'heatTransferPrinting', label: 'طباعة حراري', labelEn: 'Heat Transfer Printing' },
-        { id: 'embroidery', label: 'تطريز', labelEn: 'Embroidery' },
-        { id: 'threeDtext', label: 'نص ثلاثي الأبعاد', labelEn: '3D Text' },
-        { id: 'stencilDyeing', label: 'تصبيغ شبلونة', labelEn: 'Stencil Dyeing' },
-        { id: 'jacquardFabric', label: 'نسيج', labelEn: 'Jacquard Fabric' },
-    ];
+    const getPrintTypes = async () => {
+        try {
+            const res = await axios.get(GET_PRINT_TYPES);
+            const data = res.data.data;
+            setPrintTypes(data);
+        } catch (error) {
+            console.error("Error fetching print types:", error);
+        }
+    };
 
     const handleOptionClick = (id) => {
-        setSelectedOption(selectedOption === id ? null : id);
+        setSelectedOption(prevOption => (prevOption === id ? null : id));
     };
+
+    useEffect(() => {
+        getPrintTypes();
+    }, []);
 
     return (
         <div className='w-full flex flex-col justify-center items-center gap-5'>
@@ -36,14 +44,31 @@ const PrintType = () => {
                     className='w-12 absolute left-0 top-0'
                 />
             </div>
-            <div className='w-full flex justify-center items-center gap-4'>
-                {options.map(option => (
-                    <div key={option.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
+            <div className='w-full flex justify-center items-center gap-20 flex-wrap'>
+                <div className='flex justify-center items-center gap-4 font-bold w-fit'>
+                    <span 
+                        className={`w-8 h-8 flex justify-center items-center ${selectedOption === null ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
+                        onClick={() => setSelectedOption(null)}
+                    >
+                        {selectedOption === null && 
+                            <FontAwesomeIcon
+                                icon={faCheck}
+                                className='w-7 h-7'
+                            />
+                        }
+                    </span>
+                    <div className='flex flex-col items-start gap-2'>
+                        <p>بدون</p>
+                        <p>none</p>
+                    </div>
+                </div>
+                {printTypes.map(printType => (
+                    <div key={printType.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
                         <span 
-                            className={`w-8 h-8 flex justify-center items-center ${selectedOption !== option.id && 'bg-[#F5F3F3]'} border-2 border-black cursor-pointer`}
-                            onClick={() => handleOptionClick(option.id)}
+                            className={`w-8 h-8 flex justify-center items-center ${selectedOption === printType.id ? '' : 'bg-[#F5F3F3]'} border-2 border-black cursor-pointer`}
+                            onClick={() => handleOptionClick(printType.id)}
                         >
-                            {selectedOption === option.id && 
+                            {selectedOption === printType.id && 
                                 <FontAwesomeIcon
                                     icon={faCheck}
                                     className='w-7 h-7'
@@ -51,8 +76,8 @@ const PrintType = () => {
                             }
                         </span>
                         <div className='flex flex-col items-start gap-2'>
-                            <p>{option.label}</p>
-                            <p>{option.labelEn}</p>
+                            <p>{printType.name_ar}</p>
+                            <p>{printType.name_en}</p>
                         </div>
                     </div>
                 ))}

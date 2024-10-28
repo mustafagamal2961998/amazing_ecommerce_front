@@ -5,8 +5,6 @@ import { faFacebook, faInstagram, faLinkedin, faTiktok, faTwitter, faWhatsapp, f
 } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import cartNav from '../../assets/cartNav.png';
-import favNav from '../../assets/favNav.png';
 import purpleFav from '../../assets/purpleFav.svg';
 import purpleCart from '../../assets/purpleCart.svg';
 import Image from 'next/image';

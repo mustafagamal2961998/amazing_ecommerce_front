@@ -34,7 +34,7 @@ const PrintSizes = () => {
                     className='w-12 absolute left-0 top-0'
                 />
             </div>
-            <div className='w-full flex justify-center items-center gap-4'>
+            <div className='w-full flex justify-center items-center gap-20 flex-wrap'>
                 {options.map(option => (
                     <div key={option.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
                         <span 

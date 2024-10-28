@@ -4,28 +4,27 @@ import Image from "next/image";
 import sun from '../../assets/home page/sun.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { GET_MODELS } from "../../Utils/APIs";
 
 const ModelType = () => {
-    const [selectedModel, setSelectedModel] = useState('tshirt');
+    const [selectedModel, setSelectedModel] = useState(null);
+    const [models, setModels] = useState([]);
+    
+    const getModels = async () => {
+        const res = await axios.get(GET_MODELS);
+        const data = res.data.data;
+        setModels(data);
+        setSelectedModel(data[0].id)
+    }
 
-    const models = [
-        { id: 'tshirt', label: 'تيشيرت', labelEn: 'T-shirt' },
-        { id: 'blazers', label: 'بليزر', labelEn: 'Blazers' },
-        { id: 'shirt', label: 'قميص', labelEn: 'Shirt' },
-        { id: 'polo', label: 'بولو', labelEn: 'Polo' },
-        { id: 'hoodie', label: 'هودي', labelEn: 'Hoodie' },
-        { id: 'jacket', label: 'جاكت', labelEn: 'Jacket' },
-        { id: 'jakaia', label: 'جكايا', labelEn: 'Jakaia' },
-        { id: 'tekoh', label: 'تكوه', labelEn: 'Tekoh' },
-        { id: 'ball', label: 'كورة', labelEn: 'Ball' },
-        { id: 'meshkshk', label: 'مشكشك', labelEn: 'Meshkshk' },
-        { id: 'coppolo', label: 'كوبولو', labelEn: 'Coppolo' },
-        { id: 'fur', label: 'فروة', labelEn: 'Fur' },
-    ];
+    useEffect(() => {
+        getModels();
+    }, [])
 
     const handleModelClick = (id) => {
-        setSelectedModel(selectedModel === id ? null : id);
+        setSelectedModel(selectedModel === id ? 1 : id);
     };
 
     return (
@@ -42,7 +41,7 @@ const ModelType = () => {
                     className='w-12 absolute left-0 top-0'
                 />
             </div>
-            <div className='flex flex-wrap justify-center items-center gap-10'>
+            <div className='flex flex-wrap justify-center items-center gap-20'>
                 {models.map(model => (
                     <div key={model.id} className='w-fit flex justify-center items-center gap-4 font-bold'>
                         <span 
@@ -57,8 +56,8 @@ const ModelType = () => {
                             }
                         </span>
                         <div className='flex flex-col items-start gap-2'>
-                            <p>{model.label}</p>
-                            <p>{model.labelEn}</p>
+                            <p>{model.name_ar}</p>
+                            <p>{model.name_en}</p>
                         </div>
                     </div>
                 ))}

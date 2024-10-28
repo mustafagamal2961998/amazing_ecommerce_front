@@ -13,6 +13,7 @@ import addIcon from '../../../assets/dashboard/plus.svg'
 import axios from "axios"
 import ImageSlider from "./Slider"
 import Link from "next/link"
+import { GET_PRODUCT_DASHBOARD } from "../../../Utils/APIs"
 
 const Products = () => {
 
@@ -25,18 +26,17 @@ const Products = () => {
 
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('https://dummyjson.com/products', {
-          params: { limit: 200 }
-        });
-        const data = await res.data;
+        const res = await axios.get(GET_PRODUCT_DASHBOARD);
+        const data = await res.data.data;
     
-        const categories = [];
-        if (men) categories.push('mens-shirts');
-        if (women) categories.push('womens-dresses');
-        if (kids) categories.push('sunglasses');
+        // const categories = [];
+        // if (men) categories.push('mens-shirts');
+        // if (women) categories.push('womens-dresses');
+        // if (kids) categories.push('sunglasses');
 
-        const products = data.products.filter(product => categories.includes(product.category));
-        setProducts(products)
+        // const products = data.products.filter(product => categories.includes(product.category));
+        setProducts(data)
+        console.log(data)
         }catch (error) {
           console.error('Error fetching products:', error);
         }
@@ -52,7 +52,7 @@ const Products = () => {
 
     const handleSearch = async (searchKey) => {
       try{
-        const res = await axios.get(`https://dummyjson.com/products/search?q=${searchKey}`);
+        const res = await axios.get(GET_PRODUCT_DASHBOARD, {params: {name: searchKey}});
         const data = await res.data;
         setProducts(data.products)
       }catch(err){
@@ -69,6 +69,7 @@ const Products = () => {
     useEffect(() => {
       fetchProducts();
       handleCategory();
+      console.log(products)
     }, [all, men, women, kids])
 
   return (
@@ -105,7 +106,7 @@ const Products = () => {
           <div className='w-full grid grid-cols-3 gap-5'>
             {products.map((product) => (
               <div key={product.id} className='relative flex p-5 flex-col justify-center items-center gap-4 p- rounded-xl shadow-lg'>
-                <ImageSlider images={product.images} />
+                <ImageSlider images={product.sizes[0].images} />
                 <div className='relative mt-52 flex justify-center items-center gap-5 bg-[#EFEFEF] rounded-3xl p-2 w-full'>
                   <span className='absolute right-0 h-full w-1/4 flex justify-center items-center text-white rounded-tr-3xl rounded-br-3xl bg-[#00B6A9] z-20'>اسم المنتج</span>
                   <input type='text' className='w-fit bg-[#EFEFEF] text-center outline-none text-black z-10' value='اسم المنتج' />
