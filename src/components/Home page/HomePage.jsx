@@ -3,7 +3,7 @@
 import Landing from "./Landing";
 import Print from "./Print/Print";
 import PrintType from "./PrintType";
-import PrintSizes from "./PrintSizes";
+import PrintSizesAndDirections from "./PrintSizesAndDirections";
 import ModelType from "./ModelType";
 import PrintColor from "./PrintColor";
 import MaterialType from "./MaterialType";
@@ -15,7 +15,7 @@ const HomePage = () => {
       <Landing />
       <Print />
       <PrintType />
-      <PrintSizes />
+      <PrintSizesAndDirections />
       <ModelType />
       <PrintColor />
       <MaterialType />

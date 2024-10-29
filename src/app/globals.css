@@ -86,3 +86,13 @@ svg {
 .animate-move5 {
   animation: move5 10s ease-in-out infinite;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

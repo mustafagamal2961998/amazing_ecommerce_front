@@ -15,6 +15,7 @@ export const GET_NAMES = `${BASE_URL}names`
 export const GET_LOGOS = `${BASE_URL}logos`
 export const GET_IMAGES = `${BASE_URL}images`
 export const GET_PRINT_TYPES = `${BASE_URL}printtypes`
+export const GET_SIZES_DIRECTIONS = `${BASE_URL}sizedirections`
 export const GET_MODELS = `${BASE_URL}models`
 export const GET_MATERIALS = `${BASE_URL}materials`
 

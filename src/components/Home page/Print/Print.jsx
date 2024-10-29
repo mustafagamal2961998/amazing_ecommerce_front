@@ -13,13 +13,15 @@ import { useEffect, useState } from 'react';
 
 const Print = () => {
     const [selectedOption, setSelectedOption] = useState('none');
+    const [number, setNumber] = useState(0);
 
     const options = [
         { id: 'none', label: 'بدون', labelEn: 'None' },
         { id: 'examples', label: 'امثلة', labelEn: 'Examples' },
         { id: 'names', label: 'اسماء', labelEn: 'Names' },
         { id: 'logos', label: 'شعار', labelEn: 'Logos' },
-        { id: 'images', label: 'صورة', labelEn: 'Images' }
+        { id: 'images', label: 'صورة', labelEn: 'Images' },
+        { id: 'number', label: 'رقم', labelEn: 'Number' },
     ];
 
     const handleOptionClick = (id) => {
@@ -66,6 +68,15 @@ const Print = () => {
 
             {(selectedOption === 'images') && (
                 <Images />
+            )}
+
+            {(selectedOption === 'number') && (
+            <input
+                type='number'
+                className='w-full rounded-3xl border-2 border-[#C1C1C1] outline-none p-3'
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+            />
             )}
         </div>
     );
