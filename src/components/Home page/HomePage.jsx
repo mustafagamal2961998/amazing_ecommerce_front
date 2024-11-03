@@ -16,9 +16,9 @@ const HomePage = () => {
       <Print />
       <PrintType />
       <PrintSizesAndDirections />
-      <ModelType />
       <PrintColor />
       <MaterialType />
+      <ModelType />
       <HomePageCart />
     </div>
   )

@@ -8,15 +8,31 @@ import { GET_DATA } from '../../Utils/Data/getData';
 import { GET_MATERIALS } from '../../Utils/APIs';
 
 const MaterialType = () => {
-    const [selectedMaterial, setSelectedMaterial] = useState(1);
+    const [selectedMaterial, setSelectedMaterial] = useState(null);
     const [materials, setMaterials] = useState([]);
-    
+
     useEffect(() => {
-        GET_DATA(GET_MATERIALS).then(data => {setMaterials(data); setSelectedMaterial(data[0].id)});
+        const fetchMaterials = async () => {
+            const data = await GET_DATA(GET_MATERIALS);
+            setMaterials(data);
+            setSelectedMaterial(data[0]?.id || null);
+        };
+
+        fetchMaterials();
     }, []);
 
+    useEffect(() => {
+        const custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+        custom_order.material_id = selectedMaterial; 
+        window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
+    }, [selectedMaterial]);
+
     const handleMaterialClick = (id) => {
-        setSelectedMaterial(selectedMaterial === id ? 1 : id);
+        if (selectedMaterial === id) {
+            setSelectedMaterial(materials[0]?.id || null);
+        } else {
+            setSelectedMaterial(id);
+        }
     };
 
     return (
@@ -37,7 +53,7 @@ const MaterialType = () => {
                 {materials.map(material => (
                     <div key={material.id} className='w-fit flex justify-center items-center gap-4 font-bold'>
                         <span 
-                            className={`w-8 h-8 flex justify-center items-center ${selectedMaterial !== material.id && 'bg-[#F5F3F3]'} border-2 border-black cursor-pointer`}
+                            className={`w-8 h-8 flex justify-center items-center ${selectedMaterial !== material.id ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
                             onClick={() => handleMaterialClick(material.id)}
                         >
                             {selectedMaterial === material.id && 

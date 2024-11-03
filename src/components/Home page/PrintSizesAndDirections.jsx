@@ -13,16 +13,34 @@ const PrintSizesAndDirections = () => {
 
     const handleOptionClick = (id) => {
         if (selectedOptions.includes(id)) {
-            setSelectedOptions(selectedOptions.filter(option => option !== id));
+            const updatedOptions = selectedOptions.filter(option => option !== id);
+            setSelectedOptions(updatedOptions);
+            updateLocalStorage(updatedOptions);
+            
+            if (updatedOptions.length === 0 && sizesAndDirections.length > 0) {
+                const firstOptionId = sizesAndDirections[0].id;
+                setSelectedOptions([firstOptionId]);
+                updateLocalStorage([firstOptionId]);
+            }
         } else {
-            setSelectedOptions([...selectedOptions, id]);
+            const updatedOptions = [...selectedOptions, id];
+            setSelectedOptions(updatedOptions);
+            updateLocalStorage(updatedOptions);
         }
+    };
+
+    const updateLocalStorage = (options) => {
+        let custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+        custom_order.sizedirection_ids = options; 
+        window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
     };
 
     useEffect(() => {
         GET_DATA(GET_SIZES_DIRECTIONS).then((data) => {
             setSizesAndDirections(data);
-            setSelectedOptions([data[0]?.id]); 
+            const firstOptionId = data[0]?.id;
+            setSelectedOptions([firstOptionId]); 
+            updateLocalStorage([firstOptionId]); 
         });
     }, []);
 
@@ -44,7 +62,7 @@ const PrintSizesAndDirections = () => {
                 {sizesAndDirections.map(option => (
                     <div key={option.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
                         <span
-                            className={`w-8 h-8 flex justify-center items-center ${!selectedOptions.includes(option.id) && 'bg-[#F5F3F3]'} border-2 border-black cursor-pointer`}
+                            className={`w-8 h-8 flex justify-center items-center ${!selectedOptions.includes(option.id) ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
                             onClick={() => handleOptionClick(option.id)}
                         >
                             {selectedOptions.includes(option.id) && (

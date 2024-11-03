@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import sun from '../../assets/home page/sun.svg';
 import color from '../../assets/home page/color.png';
@@ -10,8 +10,21 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 const PrintColor = () => {
     const [selectedColor, setSelectedColor] = useState(null);
 
+    useEffect(() => {
+        const storedColor = JSON.parse(window.localStorage.getItem('custom_order'))?.print_color || null;
+        setSelectedColor(storedColor);
+    }, []);
+
     const handleColorClick = (color) => {
-        setSelectedColor(selectedColor === color ? null : color);
+        const newColor = selectedColor === color ? null : color;
+        setSelectedColor(newColor);
+        updateLocalStorage(newColor);
+    };
+
+    const updateLocalStorage = (color) => {
+        let custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+        custom_order.print_color = color; 
+        window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
     };
 
     return (
@@ -31,7 +44,7 @@ const PrintColor = () => {
             <div className='w-full flex justify-start items-center gap-4 font-bold'>
                 <span 
                     className={`w-8 h-8 flex justify-center items-center ${selectedColor !== 'none' ? 'bg-[#F5F3F3]' : 'bg-transparent'} border-2 border-black cursor-pointer`}
-                    onClick={() => handleColorClick('none')}
+                    onClick={() => handleColorClick(null)}
                 >
                     {!selectedColor && 
                         <FontAwesomeIcon
@@ -64,6 +77,6 @@ const PrintColor = () => {
             </div>
         </div>
     );
-}
+};
 
 export default PrintColor;

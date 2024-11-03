@@ -19,4 +19,8 @@ export const GET_SIZES_DIRECTIONS = `${BASE_URL}sizedirections`
 export const GET_MODELS = `${BASE_URL}models`
 export const GET_MATERIALS = `${BASE_URL}materials`
 
+export const GET_CART_ITEMS = `${BASE_URL}carts`
+export const ADD_TO_CART = `${BASE_URL}carts`
+export const REMOVE_FROM_CART = `${BASE_URL}carts`
+
 export const GET_PRODUCT_DASHBOARD = `${BASE_URL}dashboard/products`

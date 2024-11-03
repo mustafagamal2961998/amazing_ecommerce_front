@@ -16,9 +16,21 @@ const PrintType = () => {
         setSelectedOption(prevOption => (prevOption === id ? null : id));
     };
 
+    const handleChoosePrintType = () => {
+        let custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+
+        custom_order.print_type = selectedOption;
+
+        window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
+    };
+
     useEffect(() => {
         GET_DATA(GET_PRINT_TYPES).then((data) => setPrintTypes(data));
     }, []);
+
+    useEffect(() => {
+        handleChoosePrintType();
+    }, [selectedOption]);
 
     return (
         <div className='w-full flex flex-col justify-center items-center gap-5'>

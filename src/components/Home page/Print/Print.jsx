@@ -6,9 +6,6 @@ import Logos from './Logos';
 import Images from './Images';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import 'swiper/css';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
 import { useEffect, useState } from 'react';
 
 const Print = () => {
@@ -25,11 +22,28 @@ const Print = () => {
     ];
 
     const handleOptionClick = (id) => {
-        setSelectedOption(selectedOption === id ? 'none' : id);
+        const newOption = selectedOption === id ? 'none' : id;
+        setSelectedOption(newOption);
     };
 
     useEffect(() => {
-    }, [selectedOption]);
+        const customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+
+        // Reset custom order based on selected option
+        if (selectedOption === 'none') {
+            customOrder.example_id = null;
+            customOrder.name_id = null;
+            customOrder.logo_id = null;
+            customOrder.image_id = null;
+            customOrder.number = null;
+        } else {
+            // Store the selected option
+            customOrder[selectedOption + '_id'] = selectedOption; // Assuming each option corresponds to a specific key
+            customOrder.number = selectedOption === 'number' ? number : customOrder.number; // Only set the number if 'number' is selected
+        }
+
+        window.localStorage.setItem('custom_order', JSON.stringify(customOrder));
+    }, [selectedOption, number]);
 
     return (
         <div className='w-full p-10 flex flex-col items-center gap-6'>
@@ -54,32 +68,20 @@ const Print = () => {
                     </div>
                 ))}
             </div>
-            {(selectedOption === 'examples') && (
-                <Examples />
-            )}
-
-            {(selectedOption === 'names') && (
-                <Names />
-            )}
-
-            {(selectedOption === 'logos') && (
-                <Logos />
-            )}
-
-            {(selectedOption === 'images') && (
-                <Images />
-            )}
-
-            {(selectedOption === 'number') && (
-            <input
-                type='number'
-                className='w-full rounded-3xl border-2 border-[#C1C1C1] outline-none p-3'
-                value={number}
-                onChange={(e) => setNumber(e.target.value)}
-            />
+            {selectedOption === 'examples' && <Examples />}
+            {selectedOption === 'names' && <Names />}
+            {selectedOption === 'logos' && <Logos />}
+            {selectedOption === 'images' && <Images />}
+            {selectedOption === 'number' && (
+                <input
+                    type='number'
+                    className='w-full rounded-3xl border-2 border-[#C1C1C1] outline-none p-3'
+                    value={number}
+                    onChange={(e) => setNumber(Number(e.target.value))}
+                />
             )}
         </div>
     );
-}
+};
 
 export default Print;

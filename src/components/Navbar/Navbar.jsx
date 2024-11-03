@@ -76,7 +76,7 @@ const Navbar = () => {
                         </Link>
                     )}
                     <span className='flex flex-row-reverse gap-3'>
-                        <Link className='relative flex flex-row-reverse gap-5 items-center' href='cart'>
+                        <Link className='relative flex flex-row-reverse gap-5 items-center' href='/cart'>
                             <Image src={purpleCart} width={20} height={20} alt='cart' className='w-[20px] h-[20px]' />
                             <span className='absolute -right-1 top-0 bg-red-500 text-white rounded-full text-[8px] w-[12px] h-[12px] text-center'>1</span>
                         </Link>
