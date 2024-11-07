@@ -21,28 +21,38 @@ const Print = () => {
         { id: 'number', label: 'رقم', labelEn: 'Number' },
     ];
 
+    useEffect(() => {
+        const customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+        setSelectedOption(customOrder.selectedOption || 'none'); 
+        setNumber(customOrder.number || 0); 
+    }, []);
+
     const handleOptionClick = (id) => {
         const newOption = selectedOption === id ? 'none' : id;
         setSelectedOption(newOption);
     };
 
-    useEffect(() => {
-        const customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
-
-        // Reset custom order based on selected option
+    const updateLocalStorage = (customOrder) => {
+        customOrder.selectedOption = selectedOption;
         if (selectedOption === 'none') {
             customOrder.example_id = null;
             customOrder.name_id = null;
             customOrder.logo_id = null;
             customOrder.image_id = null;
+            customOrder.example_img = null;
+            customOrder.name_img = null;
+            customOrder.logo_img = null;
+            customOrder.image_img = null;
             customOrder.number = null;
-        } else {
-            // Store the selected option
-            customOrder[selectedOption + '_id'] = selectedOption; // Assuming each option corresponds to a specific key
-            customOrder.number = selectedOption === 'number' ? number : customOrder.number; // Only set the number if 'number' is selected
+        } else if (selectedOption === 'number') {
+            customOrder.number = number > 0 ? number : null; 
         }
-
         window.localStorage.setItem('custom_order', JSON.stringify(customOrder));
+    };
+
+    useEffect(() => {
+        const customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+        updateLocalStorage(customOrder);
     }, [selectedOption, number]);
 
     return (
@@ -51,8 +61,10 @@ const Print = () => {
                 {options.map(option => (
                     <div key={option.id} className='flex justify-center items-center gap-4 font-bold'>
                         <span
-                            className={`w-8 h-8 flex justify-center items-center ${selectedOption !== option.id && 'bg-[#F5F3F3]'} border-2 border-black cursor-pointer`}
+                            className={`w-8 h-8 flex justify-center items-center ${selectedOption !== option.id ? 'bg-[#F5F3F3]' : 'bg-[#E0E0E0]'} border-2 border-black cursor-pointer`}
                             onClick={() => handleOptionClick(option.id)}
+                            role="button"
+                            aria-pressed={selectedOption === option.id}
                         >
                             {selectedOption === option.id && 
                                 <FontAwesomeIcon
@@ -75,9 +87,11 @@ const Print = () => {
             {selectedOption === 'number' && (
                 <input
                     type='number'
+                    min="0" 
                     className='w-full rounded-3xl border-2 border-[#C1C1C1] outline-none p-3'
                     value={number}
                     onChange={(e) => setNumber(Number(e.target.value))}
+                    aria-label="Enter a number"
                 />
             )}
         </div>

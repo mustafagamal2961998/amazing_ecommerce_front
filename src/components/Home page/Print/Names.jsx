@@ -15,44 +15,61 @@ import { GET_DATA } from "../../../Utils/Data/getData";
 const Names = () => {
     const [names, setNames] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null); 
+    const [selectedName, setSelectedName] = useState(null); 
     const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    const handleOptionClick = (id) => {
-        setSelectedOption(selectedOption === id ? null : id);
+    const handleOptionClick = (id, img) => {
+        setSelectedOption(prev => (prev === id ? null : id));
+        setSelectedName(prev => (prev === img ? null : img));
     };
 
-    const search = async () => {
+    const fetchNames = async (search = '') => {
+        setLoading(true);
+        setError(null);
         try {
-            if (searchTerm === '') return;
-            const res = await axios.get(GET_NAMES, { params: { name: searchTerm } });
+            const res = await axios.get(GET_NAMES, { params: { name: search } });
             const data = res.data.data;
             setNames(data);
         } catch (err) {
-            console.log(err);
+            console.error(err);
+            setError('Failed to fetch names. Please try again.');
+        } finally {
+            setLoading(false);
         }
     };
 
     const handleChooseName = () => {
-        let custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {}; 
+        let customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {}; 
+        customOrder.name_id = selectedOption;
+        customOrder.name_img = selectedName;
 
-        custom_order.name_id = selectedOption;
-
-        window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
-
-        console.log(custom_order);
+        customOrder.logo_id = null;
+        customOrder.logo_img = null;
+        customOrder.image_id = null;
+        customOrder.image_img = null;
+        customOrder.example_id = null;
+        customOrder.example_img = null;
+        customOrder.number = null;
+        window.localStorage.setItem('custom_order', JSON.stringify(customOrder));
     };
 
     useEffect(() => {
-        GET_DATA(GET_NAMES).then((data) => setNames(data));
-        console.log(names);
+        fetchNames(); 
     }, []);
 
     useEffect(() => {
-        search();
+        if (searchTerm) {
+            const timer = setTimeout(() => fetchNames(searchTerm), 300); 
+            return () => clearTimeout(timer);
+        } else {
+            fetchNames();
+        }
     }, [searchTerm]);
 
     useEffect(() => {
-        handleChooseName();
+        handleChooseName(); 
     }, [selectedOption]);
 
     return (
@@ -71,17 +88,24 @@ const Names = () => {
                     />
                 )}
             </div>
+
+            {loading && <p>Loading...</p>}
+            {error && <p className='text-red-500'>{error}</p>}
+
             <Swiper spaceBetween={50} slidesPerView={6} className='cursor-grab'>
                 {names.map((name) => (
-                    <SwiperSlide key={name.id} className='relative' onClick={() => handleOptionClick(name.id)}>
-                        <Image
-                            width={300}
-                            height={300}
-                            src={name.media}
-                            alt={name.name}
-                            className='w-3/4'
-                        />
-                        <span className={`w-6 h-6 flex justify-center items-center bg-[#F5F3F3] border-2 border-black cursor-pointer absolute right-5 top-3`}>
+                    <SwiperSlide key={name.id} onClick={() => handleOptionClick(name.id, name.media)}>
+                        <div className='relative flex flex-col justify-center items-center gap-3'>
+                            <Image
+                                width={300}
+                                height={300}
+                                src={name.media}
+                                alt={name.name}
+                                className='w-3/4'
+                            />
+                            <p className='text-xs font-bold text-gray-500'>{name.price} ر.س</p>
+                        </div>
+                        <span className={`w-6 h-6 flex justify-center items-center bg-[#F5F3F3] border-2 border-black cursor-pointer absolute right-5 top-0`}>
                             {selectedOption === name.id && (
                                 <FontAwesomeIcon
                                     icon={faCheck}

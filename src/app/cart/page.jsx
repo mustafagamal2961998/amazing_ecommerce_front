@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '../../components/Navbar/Navbar';
 import { GET_DATA } from '../../Utils/Data/getData';
-import { GET_CART_ITEMS, GET_USER_INFO, REMOVE_FROM_CART } from '../../Utils/APIs';
+import { BASE_URL, GET_CART_ITEMS, GET_USER_INFO, REMOVE_FROM_CART } from '../../Utils/APIs';
 import axios from 'axios';
 import { CONFIG } from '../../Utils/Auth/Config';
 import { handleShowAlert } from '../../Utils/Alerts/handleShowAlert';
@@ -20,10 +20,17 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   const [selectedAddress, setSelectedAddress] = useState(null);
+  const [paymentMethod, setPaymentMethod] = useState('cod');
+
+  const shippingFees = 40;
 
   const fetchData = async () => {
     const cartData = await GET_DATA(GET_CART_ITEMS);
-    setCartItems(cartData);
+    if(cartData.cartitems) {
+      setCartItems(cartData.cartitems);
+    }else {
+      setCartItems(cartData);
+    }
     const userData = await GET_DATA(GET_USER_INFO);
     setUserInfo(userData);
   };
@@ -61,6 +68,32 @@ const Cart = () => {
     fetchData();
   };
 
+  const addOrder = async (e) => {
+    e.preventDefault();
+
+
+    const orderData = {
+      cartitems: cartItems.map(item => ({
+        ...item, 
+        product_id: item.product.id 
+      })),
+      payment: {
+          payment_method: paymentMethod
+      },
+      address: {
+        address_id: selectedAddress 
+      }
+    };
+
+    try {
+      const res = await axios.post(BASE_URL + 'orders', {data: orderData}, CONFIG)
+      const data = res.data;
+      handleShowAlert(data.statusCode, data.message);
+    }catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div className='w-full flex flex-col'>
       <Navbar />
@@ -79,7 +112,7 @@ const Cart = () => {
                   <span className='bg-[#00B6A9] text-white rounded-full text-[14px] w-[24px] h-[24px] text-center mr-auto absolute top-2/4 -translate-x-2/4 -translate-y-2/4 right-0 max-md:right-[-60px]'>
                     {i + 1}
                   </span>
-                  <Image src={item.product.colors[0].images[0].url} className='w-[200px] h-[200px] mr-[45px] max-md:mr-0' width={200} height={200} alt={item.product.name} />
+                  <Image src={item.color.images[0].url} className='w-[200px] h-[200px] mr-[45px] max-md:mr-0' width={200} height={200} alt={item.product.name} />
                   <span className='flex flex-col items-start gap-4'>
                     <p className='text-xl'>{item.product.name}</p>
                     <span className='w-full flex items-center justify-between text-xs font-bold'>
@@ -150,11 +183,11 @@ const Cart = () => {
                   طريقة الدفع
                 </span>
                 <span className='flex items-center gap-3 mt-[60px]'>
-                  <input type='radio' id='paymentOnDelivery' name='paymentMethod' defaultChecked />
+                  <input type='radio' id='paymentOnDelivery' name='paymentMethod' defaultChecked onChange={() => setPaymentMethod('cod')} />
                   <label htmlFor='paymentOnDelivery'>الدفع عند التسليم</label>
                 </span>
                 <span className='flex items-center gap-3'>
-                  <input type='radio' id='paymentByCard' name='paymentMethod' />
+                  <input type='radio' id='paymentByCard' name='paymentMethod' onChange={() => setPaymentMethod('card')} />
                   <label htmlFor='paymentByCard'>الدفع بالبطاقة</label>
                 </span>
               </div>
@@ -165,11 +198,11 @@ const Cart = () => {
               </span>
               <span className='w-full flex justify-between font-bold mt-[45px]'>
                 عدد المنتجات ({cartItems.length})
-                <p className='text-[#434343]'>1000 ر.س</p>
+                <p className='text-[#434343]'>{cartItems.reduce((acc, item) => acc + item.total, 0)} ر.س</p>
               </span>
               <span className='w-full flex justify-between font-bold'>
                 مصاريف الشحن
-                <p className='text-[#434343]'>40 ر.س</p>
+                <p className='text-[#434343]'>{shippingFees} ر.س</p>
               </span>
               <span className='w-full flex justify-between font-bold'>
                 خصومات
@@ -182,9 +215,9 @@ const Cart = () => {
               <hr className='bg-[#DEDEDE] w-full h-[1px] rounded-md' />
               <span className='w-full flex justify-between font-bold'>
                 الإجمالي
-                <p className='text-[#434343]'>1040 ر.س</p>
+                <p className='text-[#434343]'>{cartItems.reduce((acc, item) => acc + item.total, 0) + shippingFees} ر.س</p>
               </span>
-              <Link href='checkout' className='rounded-xl bg-[#3DA241] border-2 border-black text-white p-3 w-full mt-auto text-center'>تأكيد الطلب</Link>
+              <button onClick={(e) => addOrder(e)} className='rounded-xl bg-[#3DA241] border-2 border-black text-white p-3 w-full mt-auto text-center'>تأكيد الطلب</button>
             </div>
           </div>
         </div>

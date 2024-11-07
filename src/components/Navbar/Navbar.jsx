@@ -12,10 +12,11 @@ import Logo from '../../components/Logo/logo.svg';
 import ProfileImg from '../../assets/profile.jpg';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { GET_SECTIONS } from '../../Utils/APIs';
+import { GET_CART_ITEMS, GET_SECTIONS } from '../../Utils/APIs';
 import { GetUserInfo } from '../../Utils/Auth/UserInfo';
 import { useStatusContext } from '../../Utils/Status/statusContext';
 import Cookies from 'js-cookie';
+import { GET_DATA } from '../../Utils/Data/getData';
 
 const socialLinks = [
     { icon: faFacebook, url: 'https://www.facebook.com' },
@@ -30,6 +31,7 @@ const socialLinks = [
 const Navbar = () => {
     const { userInfo, setUserInfo, isLoggedIn, setIsLoggedIn } = useStatusContext();
     const [sections, setSections] = useState([]);
+    const [cartItemsLength, setCartItemsLength] = useState(0);
 
     const getSections = async () => {
         const response = await axios.get(GET_SECTIONS);
@@ -51,6 +53,9 @@ const Navbar = () => {
     useEffect(() => {
         getSections();
         checkIsLoggedIn();
+        if(isLoggedIn){
+            GET_DATA(GET_CART_ITEMS).then((data) => console.log(data.cartitems.length));
+        }
     }, []);
 
     return (
@@ -78,7 +83,7 @@ const Navbar = () => {
                     <span className='flex flex-row-reverse gap-3'>
                         <Link className='relative flex flex-row-reverse gap-5 items-center' href='/cart'>
                             <Image src={purpleCart} width={20} height={20} alt='cart' className='w-[20px] h-[20px]' />
-                            <span className='absolute -right-1 top-0 bg-red-500 text-white rounded-full text-[8px] w-[12px] h-[12px] text-center'>1</span>
+                            <span className='absolute -right-1 top-0 bg-red-500 text-white rounded-full text-[8px] w-[12px] h-[12px] text-center'>{cartItemsLength || 0}</span>
                         </Link>
                         <Link className='relative flex flex-row-reverse gap-5 items-center' href='profile'>
                             <Image src={purpleFav} width={20} height={20} alt='fav' className='w-[20px] h-[20px]' />

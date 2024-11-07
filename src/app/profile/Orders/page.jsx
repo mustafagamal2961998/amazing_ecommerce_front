@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image"
 import Navbar from '../../../components/Navbar/Navbar';
 import ProfileSidebar from '../ProfileSidebar';
@@ -11,151 +11,119 @@ import cloth from '../../../assets/dashboard/clothes1.svg'
 import addToCart from '../../../assets/profile/addToCart.svg'
 import removeFromCart from '../../../assets/profile/removeFromCart.svg'
 
+import orderTracking from '../../../assets/profile/orderTracking.svg'
+import reBuy from '../../../assets/profile/reBuy.svg'
+import notes from '../../../assets/profile/notes.svg'
+import review from '../../../assets/profile/review.svg'
+import returnProduct from '../../../assets/profile/returnProduct.svg'
+import Link from 'next/link'
+import { GET_DATA } from "../../../Utils/Data/getData";
+import { GET_ORDERS } from "../../../Utils/APIs";
+import { CONFIG } from "../../../Utils/Auth/Config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
+
 const Orders = () => {
 
     const { sidebar, ordersMood, setOrdersMood } = useStatusContext();
+    const [orders, setOrders] = useState([]);
 
-    const pathname = usePathname();
-
-    let [qty, setQty] = useState(1);
-
-    const handleChangeQty = (e) => {
-        setQty(e);
-    }
+    useEffect(() => {
+      GET_DATA(GET_ORDERS, CONFIG).then((data) => setOrders(data));
+    }, [])
 
   return (
     <div className='min-h-screen'>
       <Navbar />
       <div className='relative flex gap-20 md:pl-[60px]'>
         <ProfileSidebar />
-        <div className={`w-full ${sidebar ? 'max-md:hidden' : ''} max-md:p-5 mt-12 mb-12 flex flex-col gap-8`}>
-            <div className={`w-full mt-[100px] pb-[60px] flex flex-col gap-5`}>
-              <Header />
-              <div className='w-full flex flex-col justify-center items-center gap-10'>
-                <HomePage />
-                <div className='w-3/4 flex flex-col justify-center items-center gap-1'>
-                    <span className='w-full p-3 rounded-tr-full rounded-tl-full bg-gradient-to-br from-[#7F7B7F] to-[#E5DEE5]'>
-                        <p className='text-lg font-bold mr-5'>سلة المشتريات</p>
-                    </span>
-                    <div className='w-full p-5 bg-[#D9D9D98A] flex justify-between items-center max-md:flex-col max-md:justify-center max-md:gap-5'>
-                        <div className='flex items-center gap-3 max-md:flex-col max-md:justify-center'>
-                            <Image src={cloth} alt='cloth' className='w-full' />
-                            <span className='flex flex-col items-start gap-2'>
-                                <p className='text-lg'>بدلة بأزرار</p>
-                                <span className='flex items-center gap-2'>
-                                    اللون
-                                    <p className='text-lg'>: أزرق</p>
-                                </span>
-                                <span className='flex items-center gap-2'>
-                                    المقاس
-                                    <p className='text-lg'>:XL</p>
-                                </span>
-                                <span className='flex flex-col gap-2 justify-center items-center'>
-                                    <p className='font-bold'>الكمية</p>
-                                    <span className='flex items-center gap-2'>
-                                        <Image src={addToCart} alt='add to cart' onClick={() => setQty(qty += 1)} className='w-6 h-6 cursor-pointer' />
-                                        <input type='number' min={1} onChange={(e) => handleChangeQty(e.target.value)} value={qty} className='w-[40px] outline-none rounded-md bg-[#FFFFFF] text-center' />
-                                        <Image src={removeFromCart} alt='remove from cart' onClick={() => qty >= 1 && setQty(qty -= 1)} className='w-6 h-6 cursor-pointer' />
+        <div className='w-full flex flex-col items-center gap-6 p-5'>
+          <Header />
+          <div className={`w-full ${sidebar ? 'max-md:hidden' : ''} max-md:p-5 mt-12 mb-12 flex flex-col gap-8`}>
+            {
+              orders && orders.length > 0 ?
+              orders.map((order) => (
+                <div key={order.id} className='w-full flex flex-col justify-center items-center gap-1'>
+                    <div className='w-full flex items-center justify-center gap-14 max-md:flex-col max-md:gap-2 p-3  rounded-tr-3xl rounded-tl-3xl bg-gradient-to-br from-[#7F7B7F] to-[#E5DEE5]'>
+                        <span className='flex flex-col justify-center items-center gap-2'>
+                            <p className='text-lg font-bold'>تاريخ الطلب</p>
+                            <p className='text-[#00B6A9]'>{order.created_at}</p>
+                        </span>
+                        <span className='flex flex-col justify-center items-center gap-2'>
+                            <p className='text-lg font-bold'>حالة الطلب</p>
+                            <p className='text-[#00B6A9]'>{order.status}</p>
+                        </span>
+                        <span className='flex flex-col justify-center items-center gap-2'>
+                            <p className='text-lg font-bold'>تاريخ التسليم</p>
+                            <p className='text-[#00B6A9]'>{order.updated_at}</p>
+                        </span>
+                        <span className='flex flex-col justify-center items-center gap-2'>
+                            <p className='text-lg font-bold'>قيمة الطلب</p>
+                            <p className='text-[#00B6A9]'>{order.total} ر.س</p>
+                        </span>
+                    </div>
+                    <div className='w-full p-5 bg-[#D9D9D98A] rounded-br-3xl rounded-bl-3xl flex justify-between items-center max-md:flex-col max-md:justify-center max-md:gap-5'>
+                      <div className='flex flex-col items-start gap-6'>
+                        {
+                          order.orderitems.map((item) => (
+                            <div key={item.id} className='flex items-center gap-6 max-md:flex-col max-md:justify-center'>
+                                <Image src={item.color_image} width={200} height={200} alt={item.product.name} className='w-2/4 rounded-md' />
+                                <span className='flex flex-col items-start gap-2 font-bold'>
+                                    <p className='text-lg'>{item.name}</p>
+                                    <span className='flex items-center gap-2 font-bold'>
+                                        اللون
+                                        <FontAwesomeIcon
+                                        icon={faCircle}
+                                        className='w-6 h-6'
+                                        style={{color: item.product.colors[0].color_code}}
+                                        />
+                                    </span>
+                                    <span className='flex items-center gap-2 font-bold'>
+                                        المقاس
+                                        <p className='text-lg'>:{item.size_code}</p>
+                                    </span>
+                                    <span className='flex items-center gap-2 font-bold'>
+                                        الكمية
+                                        <p className='text-lg'>:{item.quantity}</p>
+                                    </span>
+                                    <span className='flex items-center gap-2 font-bold'>
+                                        إجمالي السعر
+                                        <p className='text-lg'>:{item.total * item.quantity} ر.س</p>
                                     </span>
                                 </span>
-                            </span>
+                            </div>
+                          ))
+                        }
                         </div>
-                        <div className='w-1/4 max-md:w-3/4 flex flex-col items-center justify-center gap-3'>
-                            <span className='relative w-full h-[40px] shadow-lg bg-[#FF9500] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
-                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>تعديل</h2>
-                            </span>
-                            <span className='relative w-full h-[40px] shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
-                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>إرسال إلي المفضلة</h2>
-                            </span>
-                            <span className='relative w-full h-[40px] shadow-lg bg-[#34C759] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
-                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>متابعة عملية الشراء</h2>
-                            </span>
-                        </div>
-                    </div>
-                    <div className='w-full p-5 bg-[#D9D9D98A] rounded-bl-3xl rounded-br-3xl flex justify-between items-center max-md:flex-col max-md:justify-center max-md:gap-5'>
-                        <div className='flex items-center gap-3 max-md:flex-col max-md:justify-center'>
-                            <Image src={cloth} alt='cloth' className='w-full' />
-                            <span className='flex flex-col items-start gap-2'>
-                                <p className='text-lg'>بدلة بأزرار</p>
-                                <span className='flex items-center gap-2'>
-                                    اللون
-                                    <p className='text-lg'>: أزرق</p>
-                                </span>
-                                <span className='flex items-center gap-2'>
-                                    المقاس
-                                    <p className='text-lg'>:XL</p>
-                                </span>
-                                <span className='flex flex-col gap-2 justify-center items-center'>
-                                    <p className='font-bold'>الكمية</p>
-                                    <span className='flex items-center gap-2'>
-                                        <Image src={addToCart} alt='add to cart' onClick={() => setQty(qty += 1)} className='w-6 h-6 cursor-pointer' />
-                                        <input type='number' min={1} onChange={(e) => handleChangeQty(e.target.value)} value={qty} className='w-[40px] outline-none rounded-md bg-[#FFFFFF] text-center' />
-                                        <Image src={removeFromCart} alt='remove from cart' onClick={() => qty >= 1 && setQty(qty -= 1)} className='w-6 h-6 cursor-pointer' />
-                                    </span>
-                                </span>
-                            </span>
-                        </div>
-                        <div className='w-1/4 max-md:w-3/4 flex flex-col items-center justify-center gap-3'>
-                            <span className='relative w-full h-[40px] shadow-lg bg-[#FF9500] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
-                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>تعديل</h2>
-                            </span>
-                            <span className='relative w-full h-[40px] shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
-                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>إرسال إلي المفضلة</h2>
-                            </span>
-                            <span className='relative w-full h-[40px] shadow-lg bg-[#34C759] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
-                                <h2 className='w-max select-none text-lg text-white max-md:text-base absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>متابعة عملية الشراء</h2>
-                            </span>
+                        <div className='w-1/4 max-md:w-3/4 max-md:pb-10 flex flex-col items-center justify-center gap-3'>
+                            <Link href={`/profile/orders/all/tracking/1`} className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#FFCC00] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <p>تتبع الطلب</p>
+                                <Image src={orderTracking} alt='order tracking' className='w-6 h-6 cursor-pointer' />
+                            </Link>
+                            <Link href={`/products/1`} className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#34C759] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <p>شراء مرة أخرى</p>
+                                <Image src={reBuy} alt='re buy' className='w-6 h-6 cursor-pointer' />
+                            </Link>
+                            <Link href={`/profile/orders/all/notes/1`} className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#FF9500] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <p>اكتب ملاحظات للبائع</p>
+                                <Image src={notes} alt='notes' className='w-6 h-6 cursor-pointer' />
+                            </Link>
+                            <Link href={`/profile/orders/all/review/1`} className='w-full h-[40px] flex justify-evenly items-center shadow-lg bg-[#30B0C7] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <p>اكتب تقييم للمنتج</p>
+                                <Image src={review} alt='review' className='w-6 h-6 cursor-pointer' />
+                            </Link>
+                            <Link href={`/profile/orders/all/return/1`} className='w-full h-[40px] md:mb-10 flex justify-evenly items-center shadow-lg bg-[#FF3B30] p-2 rounded-br-full rounded-tl-full select-none cursor-pointer'>
+                                <p>إرجاع المنتج</p>
+                                <Image src={returnProduct} alt='return product' className='w-6 h-6 cursor-pointer' />
+                            </Link>
                         </div>
                     </div>
+                    <p className='m-auto text-[#FF0209] -mt-10'>هذا المنتج قابل للإرجاع حتى 2 أغسطس 2024</p>
                 </div>
-            </div>
-            {/* {pathname ==='/profile/orders/review' &&
-              <span className='relative w-[120px] h-[40px] shadow-xl bg-[#30B0C7] p-2 rounded-tr-full rounded-bl-full'>
-                <h2 className='w-max select-none text-md max-md:text-xs absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>تقييم المنتج</h2>
-              </span>
+              ))
+              :
+              <p>لا يوجد طلبات حاليا</p>
             }
-            {pathname ==='/profile/orders/tracking' &&
-              <span className='relative w-[120px] h-[40px] shadow-xl bg-[#FFCC00] p-2 rounded-tr-full rounded-bl-full'>
-                <h2 className='w-max select-none text-md max-md:text-xs absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>تتبع الطلب</h2>
-              </span>
-            }
-            {pathname ==='/profile/orders/notes' &&
-              <span className='relative w-[120px] h-[40px] shadow-xl bg-[#FF9500] p-2 rounded-tr-full rounded-bl-full'>
-                <h2 className='w-max select-none text-md max-md:text-xs absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>ملاحظات للبائع</h2>
-              </span>
-            }
-            {pathname ==='/profile/orders/returnProduct' &&
-              <span className='relative w-[120px] h-[40px] shadow-xl bg-[#FF3B30] p-2 rounded-tr-full rounded-bl-full'>
-                <h2 className='w-max select-none text-md max-md:text-xs absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>إرجاع المنتج</h2>
-              </span>
-            } */}
-              {/* {
-                pathname ==='/profile/orders/khazanty' && <Khazanty />
-              }
-              {
-                pathname ==='/profile/orders/allOrders' && <AllOrders />
-              }
-              {
-                pathname ==='/profile/orders/onTheWay' && <OnTheWay />
-              }
-              {
-                pathname ==='/profile/orders/cancelledOrders' && <CancelledOrders />
-              }
-              {
-                pathname ==='/profile/orders/archivedOrders' && <ArchivedOrders />
-              }
-              {
-                pathname ==='/profile/orders/review' && <Review />
-              }
-              {
-                pathname ==='/profile/orders/tracking' && <Tracking />
-              }
-              {
-                pathname ==='/profile/orders/notes' && <Notes />
-              }
-              {
-                pathname ==='/profile/orders/returnProduct' && <ReturnProduct />
-              } */}
             </div>
         </div>
       </div>

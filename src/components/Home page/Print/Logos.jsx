@@ -13,11 +13,13 @@ import { GET_LOGOS } from "../../../Utils/APIs";
 
 const Logos = () => {
     const [logos, setLogos] = useState([]);
+    const [selectedLogo, setSelectedLogo] = useState(null);
     const [selectedOption, setSelectedOption] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
 
-    const handleOptionClick = (id) => {
-        setSelectedOption(selectedOption === id ? null : id);
+    const handleOptionClick = (id, img) => {
+        setSelectedOption(prev => (prev === id ? null : id)); 
+        setSelectedLogo(prev => (prev === img ? null : img)); 
     };
 
     const getLogos = async () => {
@@ -31,11 +33,6 @@ const Logos = () => {
     };
 
     const searchLogos = async () => {
-        if (searchTerm === '') {
-            getLogos();
-            return;
-        }
-
         try {
             const res = await axios.get(GET_LOGOS, { params: { name: searchTerm } });
             const data = res.data.data;
@@ -47,7 +44,17 @@ const Logos = () => {
 
     const handleChooseLogo = () => {
         let customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
-        customOrder.logo_id = selectedOption;
+        customOrder.logo_id = selectedOption; 
+        customOrder.logo_img = selectedLogo; 
+        
+        customOrder.name_id = null;
+        customOrder.name_img = null;
+        customOrder.image_id = null;
+        customOrder.image_img = null;
+        customOrder.example_id = null;
+        customOrder.example_img = null;
+        customOrder.number = null;
+
         window.localStorage.setItem('custom_order', JSON.stringify(customOrder));
     };
 
@@ -56,7 +63,11 @@ const Logos = () => {
     }, []);
 
     useEffect(() => {
-        searchLogos();
+        if (searchTerm === '') {
+            getLogos(); 
+        } else {
+            searchLogos();
+        }
     }, [searchTerm]);
 
     useEffect(() => {
@@ -81,15 +92,18 @@ const Logos = () => {
             </div>
             <Swiper spaceBetween={50} slidesPerView={6} className='cursor-grab'>
                 {logos.map((logo) => (
-                    <SwiperSlide key={logo.id} className='relative' onClick={() => handleOptionClick(logo.id)}>
-                        <Image
-                            width={300}
-                            height={300}
-                            src={logo.image}
-                            alt='شعار'
-                            className='w-3/4'
-                        />
-                        <span className={`w-6 h-6 flex justify-center items-center bg-[#F5F3F3] border-2 border-black cursor-pointer absolute right-5 top-3`}>
+                    <SwiperSlide key={logo.id} onClick={() => handleOptionClick(logo.id, logo.image)}>
+                        <div className='relative flex flex-col justify-center items-center gap-3'>
+                            <Image
+                                width={300}
+                                height={300}
+                                src={logo.image}
+                                alt='شعار'
+                                className='w-3/4'
+                            />
+                            <p className='text-xs font-bold text-gray-500'>{logo.price} ر.س</p>
+                        </div>
+                        <span className={`w-6 h-6 flex justify-center items-center bg-[#F5F3F3] border-2 border-black cursor-pointer absolute right-5 top-0`}>
                             {selectedOption === logo.id && (
                                 <FontAwesomeIcon
                                     icon={faCheck}

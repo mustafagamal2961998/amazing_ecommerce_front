@@ -6,8 +6,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
 import axios from "axios";
 import { GET_EXAMPLES } from "../../../Utils/APIs";
 
@@ -15,9 +13,11 @@ const Examples = () => {
     const [examples, setExamples] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedExampleImg, setSelectedExampleImg] = useState(null);
 
-    const handleOptionClick = (id) => {
-        setSelectedOption(selectedOption === id ? null : id);
+    const handleOptionClick = (id, img) => {
+        setSelectedOption(prev => (prev === id ? null : id));
+        setSelectedExampleImg(prev => (prev === img ? null : img));
     };
 
     const getExamples = async () => {
@@ -45,21 +45,12 @@ const Examples = () => {
         }
     };
 
-    const handleChooseExample = () => {
-        let custom_order = JSON.parse(window.localStorage.getItem('custom_order'));
-
-        if (custom_order) {
-            custom_order.example_id = selectedOption;
-        } else {
-            custom_order = {
-                example_id: selectedOption
-            };
-        }
-        window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
-    };
-
     useEffect(() => {
         getExamples();
+        const storedExample = JSON.parse(window.localStorage.getItem('custom_order'))?.example_id || null;
+        const storedExample_img = JSON.parse(window.localStorage.getItem('custom_order'))?.example_img || null;
+        setSelectedOption(storedExample);
+        setSelectedExampleImg(storedExample_img);
     }, []);
 
     useEffect(() => {
@@ -67,7 +58,12 @@ const Examples = () => {
     }, [searchTerm]);
 
     useEffect(() => {
-        handleChooseExample();
+        const customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+        customOrder.example_id = selectedOption || null; 
+        customOrder.example_img = selectedExampleImg || null; 
+
+        
+        window.localStorage.setItem('custom_order', JSON.stringify(customOrder));
     }, [selectedOption]);
 
     return (
@@ -88,15 +84,18 @@ const Examples = () => {
             </div>
             <Swiper spaceBetween={50} slidesPerView={6} className='cursor-grab'>
                 {examples.map((example) => (
-                    <SwiperSlide key={example.id} className='relative' onClick={() => handleOptionClick(example.id)}>
-                        <Image
-                            width={300}
-                            height={300}
-                            src={example.media}
-                            alt={example.name}
-                            className='w-3/4'
-                        />
-                        <span className={`w-6 h-6 flex justify-center items-center bg-[#F5F3F3] border-2 border-black cursor-pointer absolute right-5 top-3`}>
+                    <SwiperSlide key={example.id} onClick={() => handleOptionClick(example.id, example.media)}>
+                        <div className='relative flex flex-col justify-center items-center gap-3'>
+                            <Image
+                                width={300}
+                                height={300}
+                                src={example.media}
+                                alt={example.name}
+                                className='w-3/4'
+                            />
+                            <p className='text-xs font-bold text-gray-500'>{example.price} ر.س</p>
+                        </div>
+                        <span className={`w-6 h-6 flex justify-center items-center bg-[#F5F3F3] border-2 border-black cursor-pointer absolute right-5 top-0`}>
                             {selectedOption === example.id && (
                                 <FontAwesomeIcon
                                     icon={faCheck}

@@ -8,8 +8,6 @@ import information from '../../assets/profile/information.png'
 import darkInformation from '../../assets/profile/darkInformation.png'
 import location from '../../assets/profile/location.png'
 import darkLocation from '../../assets/profile/darkLocation.png'
-import cards from '../../assets/profile/cards.png'
-import darkCards from '../../assets/profile/darkCards.png'
 import orders from '../../assets/profile/orders.png'
 import darkOrders from '../../assets/profile/darkOrders.png'
 import favourite from '../../assets/profile/favourite.png'
@@ -19,12 +17,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import axios from "axios"
 import { CONFIG } from "../../Utils/Auth/Config"
 import { handleShowAlert } from "../../Utils/Alerts/handleShowAlert"
-import { GET_USER_INFO, UPDATE_PROFILE } from "../../Utils/APIs"
+import { GET_ORDERS, GET_USER_INFO, UPDATE_PROFILE } from "../../Utils/APIs"
 import Swal from "sweetalert2"
+import { useEffect, useState } from "react"
+import { GET_DATA } from "../../Utils/Data/getData"
 
 const ProfileSidebar = () => {
 
     const { sidebar, setSidebar, userInfo, setUserInfo } = useStatusContext();
+    const [cartLength, setCartLength] = useState(0);
 
     const pathname = usePathname();
 
@@ -72,6 +73,10 @@ const ProfileSidebar = () => {
             })
     };
 
+    useEffect(() => {
+        GET_DATA(GET_ORDERS, CONFIG).then((data) => setCartLength(data.length || 0));
+    }, [])
+
   return (
     <aside className={`relative w-1/4 max-md:w-full min-h-screen ${sidebar ? 'translate-x-0' : 'hidden translate-x-full'} flex flex-col justify-start items-center gap-20 p-5 bg-gradient-to-br from-[#00B6A9] to-[#8AD0C3]`}>
         <div className='mt-[60px] flex flex-col gap-3 justify-center items-center'>
@@ -106,15 +111,11 @@ const ProfileSidebar = () => {
                 <Image src={pathname === '/profile/location' ? darkLocation : location} className='w-[24px] h-[24px]' alt='Amazing' />
                 <h2>عناوين الشحن</h2>
             </Link>
-            <Link href='/profile/cards' className={`${pathname === '/profile/cards' ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>
-                <Image src={pathname === '/profile/cards' ? darkCards : cards} className='w-[24px] h-[24px]' alt='Amazing' />
-                <h2 >بطاقات الإئتمان</h2>
-            </Link>
             <Link href='/profile/orders' className={`${pathname.startsWith('/profile/orders') ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-center gap-3 rounded-xl cursor-pointer p-3 w-full`}>
                 <Image src={pathname.startsWith('/profile/orders') ? darkOrders : orders} className='w-[24px] h-[24px]' alt='Amazing' />
-                <h2>خزانتي</h2>
+                <h2>مشترياتي</h2>
                 <span className='bg-red-500 text-white rounded-full text-[10px] w-[16px] h-[16px] text-center mr-auto'>
-                    1
+                    {cartLength}
                 </span>
             </Link>
             <Link href='/profile/favourite' className={`${pathname === '/profile/favourite' ? 'bg-white text-[#00b6a9] active' : 'text-white'} relative flex items-start gap-3 rounded-xl cursor-pointer p-3 w-full`}>

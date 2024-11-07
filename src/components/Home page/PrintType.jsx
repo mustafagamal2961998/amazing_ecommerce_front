@@ -11,16 +11,23 @@ import { GET_DATA } from "../../Utils/Data/getData";
 const PrintType = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [printTypes, setPrintTypes] = useState([]);
+    const [selectedPrintType, setSelectedPrintType] = useState(null);
 
-    const handleOptionClick = (id) => {
+    useEffect(() => {
+        const customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+        setSelectedOption(customOrder.print_type || null);
+        setSelectedOption(customOrder.print_name || null);
+    }, []);
+
+    const handleOptionClick = (id, name) => {
         setSelectedOption(prevOption => (prevOption === id ? null : id));
+        setSelectedPrintType(prevOption => (prevOption === name ? null : name));
     };
 
     const handleChoosePrintType = () => {
-        let custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
-
+        const custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
         custom_order.print_type = selectedOption;
-
+        custom_order.print_name = selectedPrintType;
         window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
     };
 
@@ -50,7 +57,7 @@ const PrintType = () => {
                 <div className='flex justify-center items-center gap-4 font-bold w-fit'>
                     <span 
                         className={`w-8 h-8 flex justify-center items-center ${selectedOption === null ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
-                        onClick={() => setSelectedOption(null)}
+                        onClick={() => handleOptionClick(null)}
                     >
                         {selectedOption === null && 
                             <FontAwesomeIcon
@@ -67,8 +74,8 @@ const PrintType = () => {
                 {printTypes.map(printType => (
                     <div key={printType.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
                         <span 
-                            className={`w-8 h-8 flex justify-center items-center ${selectedOption === printType.id ? '' : 'bg-[#F5F3F3]'} border-2 border-black cursor-pointer`}
-                            onClick={() => handleOptionClick(printType.id)}
+                            className={`w-8 h-8 flex justify-center items-center ${selectedOption === printType.id ? '' : 'bg-[#F5F3F3]' } border-2 border-black cursor-pointer`}
+                            onClick={() => handleOptionClick(printType.id, printType.name_ar)}
                         >
                             {selectedOption === printType.id && 
                                 <FontAwesomeIcon
@@ -80,6 +87,7 @@ const PrintType = () => {
                         <div className='flex flex-col items-start gap-2'>
                             <p>{printType.name_ar}</p>
                             <p>{printType.name_en}</p>
+                            <p className='text-xs font-bold text-gray-500'>{printType.price} ر.س</p>
                         </div>
                     </div>
                 ))}

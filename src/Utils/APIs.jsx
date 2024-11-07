@@ -24,3 +24,16 @@ export const ADD_TO_CART = `${BASE_URL}carts`
 export const REMOVE_FROM_CART = `${BASE_URL}carts`
 
 export const GET_PRODUCT_DASHBOARD = `${BASE_URL}dashboard/products`
+
+export const GET_CLIENTS = `${BASE_URL}dashboard/users/`
+export const GET_CLIENT = `${BASE_URL}dashboard/users/`
+export const UPDATE_CLIENT = `${BASE_URL}dashboard/users/`
+
+export const GET_SHIPPING_COMPANIES = `${BASE_URL}dashboard/shippingcompanies/`
+export const GET_SHIPPING_COMPANY = `${BASE_URL}dashboard/shippingcompanies/`
+export const ADD_SHIPPING_COMPANY = `${BASE_URL}dashboard/shippingcompanies/`
+export const UPDATE_SHIPPING_COMPANY = `${BASE_URL}dashboard/shippingcompanies/`
+export const DELETE_SHIPPING_COMPANY = `${BASE_URL}dashboard/shippingcompanies/`
+
+export const ADD_ORDER = `${BASE_URL}orders/`
+export const GET_ORDERS = `${BASE_URL}orders/`

@@ -11,36 +11,46 @@ const PrintSizesAndDirections = () => {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [sizesAndDirections, setSizesAndDirections] = useState([]);
 
-    const handleOptionClick = (id) => {
-        if (selectedOptions.includes(id)) {
-            const updatedOptions = selectedOptions.filter(option => option !== id);
-            setSelectedOptions(updatedOptions);
-            updateLocalStorage(updatedOptions);
-            
-            if (updatedOptions.length === 0 && sizesAndDirections.length > 0) {
-                const firstOptionId = sizesAndDirections[0].id;
-                setSelectedOptions([firstOptionId]);
-                updateLocalStorage([firstOptionId]);
-            }
-        } else {
-            const updatedOptions = [...selectedOptions, id];
-            setSelectedOptions(updatedOptions);
-            updateLocalStorage(updatedOptions);
+    const handleOptionClick = (id, name_ar) => {
+        const updatedOptions = selectedOptions.some(option => option.id === id)
+            ? selectedOptions.filter(option => option.id !== id)
+            : [...selectedOptions, { id, name_ar }];
+        
+        setSelectedOptions(updatedOptions);
+        updateLocalStorage(updatedOptions);
+
+        if (updatedOptions.length === 0 && sizesAndDirections.length > 0) {
+            const firstOptionId = sizesAndDirections[0].id;
+            const firstOptionNameAr = sizesAndDirections[0].name_ar;
+            setSelectedOptions([{ id: firstOptionId, name_ar: firstOptionNameAr }]);
+            updateLocalStorage([{ id: firstOptionId, name_ar: firstOptionNameAr }]);
         }
     };
 
     const updateLocalStorage = (options) => {
+        const ids = options.map(option => option.id);
+        const names_ar = options.map(option => option.name_ar);
+
         let custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
-        custom_order.sizedirection_ids = options; 
+
+        custom_order.sizedirection_ids = ids;
+        custom_order.sizedirection_names_ar = names_ar;
+
         window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
     };
 
     useEffect(() => {
         GET_DATA(GET_SIZES_DIRECTIONS).then((data) => {
             setSizesAndDirections(data);
-            const firstOptionId = data[0]?.id;
-            setSelectedOptions([firstOptionId]); 
-            updateLocalStorage([firstOptionId]); 
+
+            const storedOrder = JSON.parse(window.localStorage.getItem('custom_order'));
+            const initialSelection = storedOrder?.sizedirection_ids?.map((id, index) => ({
+                id,
+                name_ar: storedOrder.sizedirection_names_ar[index]
+            })) || [{ id: data[0]?.id, name_ar: data[0]?.name_ar }];
+            
+            setSelectedOptions(initialSelection);
+            updateLocalStorage(initialSelection);
         });
     }, []);
 
@@ -62,10 +72,10 @@ const PrintSizesAndDirections = () => {
                 {sizesAndDirections.map(option => (
                     <div key={option.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
                         <span
-                            className={`w-8 h-8 flex justify-center items-center ${!selectedOptions.includes(option.id) ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
-                            onClick={() => handleOptionClick(option.id)}
+                            className={`w-8 h-8 flex justify-center items-center ${!selectedOptions.some(o => o.id === option.id) ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
+                            onClick={() => handleOptionClick(option.id, option.name_ar)}
                         >
-                            {selectedOptions.includes(option.id) && (
+                            {selectedOptions.some(o => o.id === option.id) && (
                                 <FontAwesomeIcon
                                     icon={faCheck}
                                     className='w-7 h-7 text-black'
@@ -75,6 +85,7 @@ const PrintSizesAndDirections = () => {
                         <div className='flex flex-col items-start gap-2'>
                             <p>{option.name_ar}</p>
                             <p>{option.name_en}</p>
+                            <p className='text-xs font-bold text-gray-500'>{option.price} ر.س</p>
                         </div>
                     </div>
                 ))}

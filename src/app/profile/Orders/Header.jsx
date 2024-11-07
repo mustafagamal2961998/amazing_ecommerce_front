@@ -12,12 +12,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const Header = () => {
-    const pathname = usePathname()
+    const pathname = usePathname();
+
   return (
     <div className='w-full flex flex-col gap-4'>
-        <Link href='/profile/orders' className={`ml-auto relative w-[120px] h-[40px] ${pathname === '/profile/orders' ? 'bg-[#00B6A9]' : 'bg-[#8AD0C3]'} p-2 rounded-br-full rounded-tl-full`}>
-            <h2 className='select-none cursor-pointer text-xl text-white max-md:text-xs md:font-bold absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'>خزانتي</h2>
-        </Link>
         <div className='w-full flex max-md:gap-5 justify-center items-center'>
             <Link href='/profile/orders/all' className='relative'>
                 <Image src={pathname.startsWith('/profile/orders/all') ? activeAllOrders : allOrders} alt='all orders' className='w-full cursor-pointer select-none' />
