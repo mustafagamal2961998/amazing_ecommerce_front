@@ -54,7 +54,7 @@ const Navbar = () => {
         getSections();
         checkIsLoggedIn();
         if(isLoggedIn){
-            GET_DATA(GET_CART_ITEMS).then((data) => console.log(data.cartitems.length));
+            GET_DATA(GET_CART_ITEMS).then((data) => setCartItemsLength(data?.cartitems.length || 0));
         }
     }, []);
 

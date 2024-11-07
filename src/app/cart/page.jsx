@@ -25,12 +25,8 @@ const Cart = () => {
   const shippingFees = 40;
 
   const fetchData = async () => {
-    const cartData = await GET_DATA(GET_CART_ITEMS);
-    if(cartData.cartitems) {
-      setCartItems(cartData.cartitems);
-    }else {
-      setCartItems(cartData);
-    }
+    await GET_DATA(GET_CART_ITEMS).then((data) => setCartItems(data?.cartitems || []));
+
     const userData = await GET_DATA(GET_USER_INFO);
     setUserInfo(userData);
   };
@@ -70,15 +66,9 @@ const Cart = () => {
 
   const addOrder = async (e) => {
     e.preventDefault();
-
-
     const orderData = {
-      cartitems: cartItems.map(item => ({
-        ...item, 
-        product_id: item.product.id 
-      })),
       payment: {
-          payment_method: paymentMethod
+        payment_method: paymentMethod
       },
       address: {
         address_id: selectedAddress 
@@ -89,8 +79,13 @@ const Cart = () => {
       const res = await axios.post(BASE_URL + 'orders', {data: orderData}, CONFIG)
       const data = res.data;
       handleShowAlert(data.statusCode, data.message);
+      setCartItems([]);
+      localStorage.removeItem('custom_order');
     }catch (err) {
       console.log(err)
+      if(err?.response?.status === 500) {
+        handleShowAlert(422, 'يرجى إختيار عنوان الشحن')
+      }
     }
   }
 
@@ -152,24 +147,23 @@ const Cart = () => {
                   عنوان العميل
                 </span>
                 <div className='flex flex-col items-start gap-4 mt-[60px]'>
-                  {userInfo && userInfo.addresses.length > 0 ? (
-                    userInfo.addresses.map((address) => (
-                      <span key={address.id} className='flex items-center gap-3'>
-                        <input
-                          type='radio'
-                          name='address'
-                          checked={selectedAddress === address.id}
-                          onChange={() => setSelectedAddress(address.id)}
-                        />
-                        {address.country_code} - {address.city} - {address.street}
-                        <Link href='/profile/location'>
-                          <Image src={edit} className='w-[18px] h-[18px] cursor-pointer' width={18} height={18} alt='تعديل العنوان' />
-                        </Link>
-                      </span>
-                    ))
-                  ) : (
-                    <p className='text-center'>لا توجد عناوين مسجلة</p>
-                  )}
+                {userInfo && userInfo.addresses.length > 0 ? (
+                  userInfo.addresses.map((address, index) => (
+                    <span key={address.id} className='flex items-center gap-3'>
+                      <input
+                        type='radio'
+                        name='address'
+                        onChange={() => setSelectedAddress(address.id)}
+                      />
+                      {address.country_code} - {address.city} - {address.street}
+                      <Link href='/profile/location'>
+                        <Image src={edit} className='w-[18px] h-[18px] cursor-pointer' width={18} height={18} alt='تعديل العنوان' />
+                      </Link>
+                    </span>
+                  ))
+                ) : (
+                  <p className='text-center'>لا توجد عناوين مسجلة</p>
+                )}
                 </div>
                 <span className='flex items-center gap-2'>
                   <Link href='/profile/location'>
