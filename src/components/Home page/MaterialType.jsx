@@ -16,7 +16,6 @@ const MaterialType = () => {
             const data = await GET_DATA(GET_MATERIALS);
             setMaterials(data);
 
-            // Initialize selection from local storage if available
             const storedOrder = JSON.parse(window.localStorage.getItem('custom_order'));
             const initialMaterialId = storedOrder?.material_id || data[0]?.id || null;
             setSelectedMaterial(initialMaterialId);
@@ -28,20 +27,18 @@ const MaterialType = () => {
     useEffect(() => {
         const custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
 
-        // Store the selected material's ID and name_ar in local storage
         if (selectedMaterial !== null) {
             const selectedMaterialData = materials.find(material => material.id === selectedMaterial);
-            custom_order.material_id = selectedMaterial; // Save selected material's ID
-            custom_order.material_name_ar = selectedMaterialData?.name_ar || ''; // Save selected material's name_ar
+            custom_order.material_id = selectedMaterial; 
+            custom_order.material_name_ar = selectedMaterialData?.name_ar || ''; 
 
             window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
         }
     }, [selectedMaterial, materials]);
 
     const handleMaterialClick = (id) => {
-        // Deselect the current material or select a new one
         if (selectedMaterial === id) {
-            const newMaterialId = materials[0]?.id || null; // Revert to the first material if the same one is clicked
+            const newMaterialId = materials[0]?.id || null; 
             setSelectedMaterial(newMaterialId);
         } else {
             setSelectedMaterial(id);

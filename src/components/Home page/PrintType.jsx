@@ -71,7 +71,7 @@ const PrintType = () => {
                         <p>none</p>
                     </div>
                 </div>
-                {printTypes.map(printType => (
+                {printTypes && printTypes.length > 0 && printTypes.map(printType => (
                     <div key={printType.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
                         <span 
                             className={`w-8 h-8 flex justify-center items-center ${selectedOption === printType.id ? '' : 'bg-[#F5F3F3]' } border-2 border-black cursor-pointer`}

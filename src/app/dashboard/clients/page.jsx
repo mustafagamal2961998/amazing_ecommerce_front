@@ -20,7 +20,7 @@ const Clients = () => {
     const fetchClients = async () => {
       const data = await GET_DATA(GET_CLIENTS);
       setClients(data);
-      setFilteredClients(data); // Initialize with all clients
+      setFilteredClients(data); 
     };
 
     fetchClients();
