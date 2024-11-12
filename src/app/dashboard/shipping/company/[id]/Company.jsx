@@ -18,6 +18,7 @@ const ShippingCompanyPage = (props) => {
     const [company, setCompany] = useState(null);
     const [isActive, setIsActive] = useState(false);
     const [image, setImage] = useState(null);
+    const [updatedImage, setUpdatedImage] = useState(null);
 
     const id = props.id;
 
@@ -25,7 +26,7 @@ const ShippingCompanyPage = (props) => {
         GET_DATA(GET_SHIPPING_COMPANY + id).then((data) => {
             setCompany(data);
             setIsActive(data.status === 'active');
-            setImage(data.image); // Set the initial image
+            setImage(data.image); 
         });
     }, [id]);
 
@@ -40,11 +41,12 @@ const ShippingCompanyPage = (props) => {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setImage(URL.createObjectURL(file)); // Create a local URL for preview
+            setImage(URL.createObjectURL(file)); 
             setCompany(prev => ({
                 ...prev,
-                logo: file // Set the file object for uploading
+                logo: file 
             }));
+            setUpdatedImage(file)
         }
     };
 
@@ -59,34 +61,15 @@ const ShippingCompanyPage = (props) => {
         formData.append('contract_end_date', company.contract_end_date);
         
         if(image) {
-            formData.append('logo', company.image);
+            formData.append('logo', updatedImage);
         }
 
         formData.append('status', isActive ? 'active' : 'archived');
 
         try {
-            console.log(
-                {
-                    "name": company.name,
-                    "mobile": company.mobile,
-                    "email": company.email,
-                    "contract_start_date": company.contract_start_date,
-                    "contract_end_date": company.contract_end_date,
-                    "status": isActive ? 'active' : 'archived',
-                }
-            )
-            const res = await axios.put(UPDATE_SHIPPING_COMPANY + id, {
-                "name": company.name,
-                "mobile": company.mobile,
-                "email": company.email,
-                "contract_start_date": company.contract_start_date,
-                "contract_end_date": company.contract_end_date,
-                "status": isActive ? 'active' : 'archived',
-            }, CONFIG);
-            
+            const res = await axios.post(UPDATE_SHIPPING_COMPANY + id, formData, CONFIG);
             const data = res.data;
             handleShowAlert(data.statusCode, data.message);
-            console.log(data)
         } catch (error) {
             console.log("Failed to update company", error);
         }
@@ -94,7 +77,9 @@ const ShippingCompanyPage = (props) => {
 
     const handleDelete = async () => {
         try {
-            await DELETE_DATA(DELETE_SHIPPING_COMPANY + id);
+            const res = await axios.delete(DELETE_SHIPPING_COMPANY + id);
+            const data = res.data;
+            handleShowAlert(data.statusCode, data.message);
         } catch (error) {
             console.log("Failed to delete company", error);
         }

@@ -85,8 +85,8 @@ const ProductData = (props) => {
         {
           selectedSize.discount_rate ? 
           <span className='flex items-center gap-3 mt-[26px]'>
-                <p className='font-bold'>{selectedSize.discount_price} ر.س</p>
-                <p className='text-[#E5A3A3] text-xs line-through'>{selectedSize.basic_price} ر.س</p>
+              <p className='font-bold'>{selectedSize.discount_price} ر.س</p>
+              <p className='text-[#E5A3A3] text-xs line-through'>{selectedSize.basic_price} ر.س</p>
           </span>
           :
           <p className='font-bold'>{selectedSize.basic_price} ر.س</p>
