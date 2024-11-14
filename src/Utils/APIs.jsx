@@ -23,7 +23,7 @@ export const GET_CART_ITEMS = `${BASE_URL}carts`
 export const ADD_TO_CART = `${BASE_URL}carts`
 export const REMOVE_FROM_CART = `${BASE_URL}carts`
 
-export const GET_PRODUCT_DASHBOARD = `${BASE_URL}dashboard/products`
+export const GET_PRODUCTS_DASHBOARD = `${BASE_URL}dashboard/products`
 
 export const GET_CLIENTS = `${BASE_URL}dashboard/users/`
 export const GET_CLIENT = `${BASE_URL}dashboard/users/`

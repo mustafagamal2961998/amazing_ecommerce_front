@@ -12,7 +12,7 @@ const ImageSlider = (props) => {
   return (
     <span className='absolute top-0 w-full flex flex-col justify-center items-center gap-2 float-start'>
       <Image 
-        src={images[current]} 
+        src={images[current].url} 
         alt='Amazing' 
         width={500} 
         height={500} 

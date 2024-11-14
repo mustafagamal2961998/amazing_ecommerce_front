@@ -48,8 +48,8 @@ const Clients = () => {
           <div className='relative w-2/5'>
             <input
               type='text'
-              placeholder='بحث'
-              className='w-full outline-none shadow shadow-[] p-2 rounded-3xl'
+              placeholder='بحث حسب الإسم، البريد الإلكتروني، أو الجوال'
+              className='w-full outline-none shadow p-2 rounded-3xl'
               value={searchTerm}
               onChange={(e) => handleSearch(e.target.value)}
             />
@@ -75,7 +75,7 @@ const Clients = () => {
                 </tr>
               </thead>
               <tbody className="text-black border-[1px] border-[#F1F1F1] p-3">
-                {filteredClients.map((client, i) => (
+                {filteredClients && filteredClients.length > 0 ? filteredClients.map((client, i) => (
                   <tr key={client.id} className="text-center border-b-[1px] border-[#F1F1F1]">
                     <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1]">
                       <div className="flex justify-start items-center gap-2 p-3">
@@ -100,7 +100,13 @@ const Clients = () => {
                       </Link>
                     </td>
                   </tr>
-                ))}
+                )) : (
+                  <tr>
+                    <td colSpan="5" className="text-center py-4 text-lg text-gray-500">
+                      لا توجد نتائج
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>

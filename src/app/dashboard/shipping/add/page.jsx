@@ -3,7 +3,6 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import Wrapper from "../../Wrapper"
-import back from '../../../../assets/dashboard/back.svg'
 import saveCompany from '../../../../assets/dashboard/saveCompany.svg'
 import removeImg from '../../../../assets/dashboard/removeImg.svg'
 import comletedImg from '../../../../assets/dashboard/comletedImg.svg'
@@ -13,6 +12,8 @@ import axios from "axios"
 import { ADD_SHIPPING_COMPANY } from "../../../../Utils/APIs"
 import { CONFIG } from "../../../../Utils/Auth/Config"
 import { handleShowAlert } from "../../../../Utils/Alerts/handleShowAlert"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBackward } from "@fortawesome/free-solid-svg-icons"
 
 const AddCompany = () => {
     const [formData, setFormData] = useState({
@@ -32,7 +33,7 @@ const AddCompany = () => {
         setImages(imageList);
         setFormData((prevData) => ({
             ...prevData,
-            logo: imageList[0]
+            logo: imageList[0].file
         }));
     };
 
@@ -61,15 +62,15 @@ const AddCompany = () => {
                     <h2 className='text-lg'>إضافة شركة</h2>
                     <Link
                         href='/dashboard/shipping'
-                        className='py-3 px-8 bg-[#0E183B] cursor-pointer select-none flex items-center justify-center gap-3 rounded-xl'
+                        className='py-3 px-8 bg-[#00B6A9] cursor-pointer select-none flex items-center justify-center gap-3 rounded-xl'
                     >
                         <p className='text-white'>العودة إلى قائمة الشركات</p>
-                        <Image src={back} alt='back' className='w-[16px] h-[16px]' />
+                        <FontAwesomeIcon icon={faBackward} className='w-[16px] h-[16px] text-white' />
                     </Link>
                 </div>
                 <div className='w-full flex gap-3 justify-center items-center'>
                     <div className='w-3/4 flex items-center gap-3'>
-                        <span className='w-[300px] py-3 px-8 bg-[#0E183B] text-white flex items-center justify-center gap-3 rounded-xl'>اسم الشركة</span>
+                        <span className='w-[300px] py-3 px-8 bg-[#00B6A9] text-white flex items-center justify-center gap-3 rounded-xl'>اسم الشركة</span>
                         <input
                             type='text'
                             name='name'
@@ -81,7 +82,7 @@ const AddCompany = () => {
                 </div>
                 <div className='w-full flex gap-3 justify-center items-center'>
                     <div className='w-3/4 flex items-center gap-3'>
-                        <span className='w-[300px] py-3 px-8 bg-[#0E183B] text-white flex items-center justify-center gap-3 rounded-xl'>هاتف الشركة</span>
+                        <span className='w-[300px] py-3 px-8 bg-[#00B6A9] text-white flex items-center justify-center gap-3 rounded-xl'>هاتف الشركة</span>
                         <input
                             type='text'
                             name='mobile'
@@ -93,7 +94,7 @@ const AddCompany = () => {
                 </div>
                 <div className='w-full flex gap-3 justify-center items-center'>
                     <div className='w-3/4 flex items-center gap-3'>
-                        <span className='w-[300px] py-3 px-8 bg-[#0E183B] text-white flex items-center justify-center gap-3 rounded-xl'>البريد الالكتروني</span>
+                        <span className='w-[300px] py-3 px-8 bg-[#00B6A9] text-white flex items-center justify-center gap-3 rounded-xl'>البريد الالكتروني</span>
                         <input
                             type='text'
                             name='email'
@@ -105,7 +106,7 @@ const AddCompany = () => {
                 </div>
                 <div className='w-full flex gap-3 justify-center items-center'>
                     <div className='w-3/4 flex items-center gap-3'>
-                        <span className='w-[300px] py-3 px-8 bg-[#0E183B] text-white flex items-center justify-center gap-3 rounded-xl'>تاريخ بداية التعاقد</span>
+                        <span className='w-[300px] py-3 px-8 bg-[#00B6A9] text-white flex items-center justify-center gap-3 rounded-xl'>تاريخ بداية التعاقد</span>
                         <input
                             type='date'
                             name='contract_start_date'
@@ -117,7 +118,7 @@ const AddCompany = () => {
                 </div>
                 <div className='w-full flex gap-3 justify-center items-center'>
                     <div className='w-3/4 flex items-center gap-3'>
-                        <span className='w-[300px] py-3 px-8 bg-[#0E183B] text-white flex items-center justify-center gap-3 rounded-xl'>تاريخ نهاية التعاقد</span>
+                        <span className='w-[300px] py-3 px-8 bg-[#00B6A9] text-white flex items-center justify-center gap-3 rounded-xl'>تاريخ نهاية التعاقد</span>
                         <input
                             type='date'
                             name='contract_end_date'

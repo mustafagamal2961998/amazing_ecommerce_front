@@ -27,7 +27,7 @@ const Shipping = () => {
                 <h2 className='text-lg'>شركات الشحن</h2>
                 <Link
                 href='/dashboard/shipping/add'
-                className='py-3 px-8 bg-[#0E183B] cursor-pointer select-none flex items-center justify-center gap-3 rounded-xl'
+                className='py-3 px-8 bg-[#00B6A9] cursor-pointer select-none flex items-center justify-center gap-3 rounded-xl'
                 >
                     <p
                     className='text-white'
@@ -60,7 +60,7 @@ const Shipping = () => {
                         </div>
                         <Link
                         href={`/dashboard/shipping/company/${company.id}`}
-                        className='w-[250px] py-3 px-8 bg-[#0E183B] cursor-pointer select-none flex items-center justify-center gap-3 rounded-xl'
+                        className='w-[250px] py-3 px-8 bg-[#00B6A9] cursor-pointer select-none flex items-center justify-center gap-3 rounded-xl'
                         >
                             <p
                             className='text-white'

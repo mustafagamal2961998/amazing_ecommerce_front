@@ -2,17 +2,17 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Wrapper from "../../../Wrapper";
-import back from '../../../../../assets/dashboard/back.svg';
-import smsa from '../../../../../assets/dashboard/smsa.svg';
 import saveCompany from '../../../../../assets/dashboard/saveCompany.svg';
 import deleteCompany from '../../../../../assets/dashboard/deleteCompany.svg';
 import Link from "next/link";
-import { GET_DATA, PUT_DATA, DELETE_DATA } from "../../../../../Utils/Data/getData";
+import { GET_DATA } from "../../../../../Utils/Data/getData";
 import { GET_SHIPPING_COMPANY, UPDATE_SHIPPING_COMPANY, DELETE_SHIPPING_COMPANY } from "../../../../../Utils/APIs";
 import NotFoundComp from "../../../reports/NotFoundComp";
 import axios from "axios";
 import { handleShowAlert } from "../../../../../Utils/Alerts/handleShowAlert";
 import { CONFIG } from "../../../../../Utils/Auth/Config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackward } from "@fortawesome/free-solid-svg-icons";
 
 const ShippingCompanyPage = (props) => {
     const [company, setCompany] = useState(null);
@@ -97,10 +97,10 @@ const ShippingCompanyPage = (props) => {
                     <h2 className='text-lg'>تعديل الشركة</h2>
                     <Link
                         href='/dashboard/shipping'
-                        className='py-3 px-8 bg-[#0E183B] cursor-pointer select-none flex items-center justify-center gap-3 rounded-xl'
+                        className='py-3 px-8 bg-[#00B6A9] cursor-pointer select-none flex items-center justify-center gap-3 rounded-xl'
                     >
                         <p className='text-white'>العودة إلى قائمة الشركات</p>
-                        <Image src={back} alt='back' className='w-[16px] h-[16px]' />
+                        <FontAwesomeIcon icon={faBackward} className='w-[16px] h-[16px] text-white' />
                     </Link>
                 </div>
                 <div className='w-[250px] h-[200px] p-5 rounded-xl bg-[#D9D9D9] shadow-lg flex justify-center items-center cursor-pointer' onClick={() => document.getElementById('imageUpload').click()}>
@@ -132,7 +132,7 @@ const ShippingCompanyPage = (props) => {
                 ].map((field, index) => (
                     <div key={index} className='w-full flex gap-3 justify-center items-center'>
                         <div className='w-3/4 flex items-center gap-3'>
-                            <span className='w-[300px] py-3 px-8 bg-[#0E183B] text-white flex items-center justify-center gap-3 rounded-xl'>
+                            <span className='w-[300px] py-3 px-8 bg-[#00B6A9] text-white flex items-center justify-center gap-3 rounded-xl'>
                                 {field.label}
                             </span>
                             <input
@@ -147,7 +147,7 @@ const ShippingCompanyPage = (props) => {
                 ))}
                 <div className='w-full flex gap-3 justify-center items-center'>
                     <div className='w-3/4 flex items-center gap-3'>
-                        <span className='w-[300px] py-3 px-8 bg-[#0E183B] text-white flex items-center justify-center gap-3 rounded-xl'>
+                        <span className='w-[300px] py-3 px-8 bg-[#00B6A9] text-white flex items-center justify-center gap-3 rounded-xl'>
                             حالة التعاقد
                         </span>
                         <label className="inline-flex items-center cursor-pointer">
