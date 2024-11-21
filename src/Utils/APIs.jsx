@@ -1,5 +1,5 @@
-// export const BASE_URL = 'http://192.168.1.93:8000/api/'
-export const BASE_URL = 'https://minscp.com/ecom/backend/api/'
+export const BASE_URL = 'http://192.168.1.93:8000/api/'
+// export const BASE_URL = 'https://minscp.com/ecom/backend/api/'
 export const REGISTER = `${BASE_URL}register`
 export const LOGIN = `${BASE_URL}login`
 export const UPDATE_PROFILE = `${BASE_URL}profile/update`
