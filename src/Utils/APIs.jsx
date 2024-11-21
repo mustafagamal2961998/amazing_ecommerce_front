@@ -1,4 +1,5 @@
-export const BASE_URL = 'http://192.168.1.93:8000/api/'
+// export const BASE_URL = 'http://192.168.1.93:8000/api/'
+export const BASE_URL = 'https://minscp.com/ecom/backend/api/'
 export const REGISTER = `${BASE_URL}register`
 export const LOGIN = `${BASE_URL}login`
 export const UPDATE_PROFILE = `${BASE_URL}profile/update`
@@ -23,12 +24,18 @@ export const GET_CART_ITEMS = `${BASE_URL}carts`
 export const ADD_TO_CART = `${BASE_URL}carts`
 export const REMOVE_FROM_CART = `${BASE_URL}carts`
 
-export const GET_PRODUCTS_DASHBOARD = `${BASE_URL}dashboard/products`
 
 export const GET_CLIENTS = `${BASE_URL}dashboard/users/`
 export const GET_CLIENT = `${BASE_URL}dashboard/users/`
 export const UPDATE_CLIENT = `${BASE_URL}dashboard/users/`
 
+export const GET_PRODUCTS_DASHBOARD = `${BASE_URL}dashboard/products`
+export const ADD_PRODUCT = `${BASE_URL}dashboard/products/`
+export const UPDATE_PRODUCT = `${BASE_URL}dashboard/products/`
+export const UPDATE_COLOR = `${BASE_URL}dashboard/colors/`
+export const DELETE_COLOR = `${BASE_URL}dashboard/colors/`
+export const GET_PRODUCT_DASHBOARD = `${BASE_URL}dashboard/products/`
+export const GET_CATEGORIES_DASHBOARD = `${BASE_URL}dashboard/categories/`
 export const GET_SHIPPING_COMPANIES = `${BASE_URL}dashboard/shippingcompanies/`
 export const GET_SHIPPING_COMPANY = `${BASE_URL}dashboard/shippingcompanies/`
 export const ADD_SHIPPING_COMPANY = `${BASE_URL}dashboard/shippingcompanies/`

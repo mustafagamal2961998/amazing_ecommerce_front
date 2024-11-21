@@ -8,11 +8,12 @@ const ImageSlider = (props) => {
   const handleIndicatorClick = (index) => {
     setCurrent(index);
   };
+  console.log(images)
 
   return (
     <span className='absolute top-0 w-full flex flex-col justify-center items-center gap-2 float-start'>
       <Image 
-        src={images[current].url} 
+        src={images&& images[current]?.url} 
         alt='Amazing' 
         width={500} 
         height={500} 

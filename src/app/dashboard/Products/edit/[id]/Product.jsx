@@ -1,23 +1,29 @@
 'use client'
-import Wrapper from '../../Wrapper'
-import add from '../../../../assets/dashboard/add.svg'
-import addIcon from '../../../../assets/dashboard/plus.svg'
+import Wrapper from '../../../Wrapper'
+import add from '../../../../../assets/dashboard/add.svg'
+import addIcon from '../../../../../assets/dashboard/plus.svg'
 import ImageUploading from "react-images-uploading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircle } from "@fortawesome/free-solid-svg-icons"
+import { faCircle, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-import { ADD_PRODUCT, GET_CATEGORIES_DASHBOARD, GET_MODELS } from '../../../../Utils/APIs'
-import DynamicJoditEditor from './Jodit';
-import { handleShowAlert } from '../../../../Utils/Alerts/handleShowAlert'
-import { CONFIG } from '../../../../Utils/Auth/Config'
+import { ADD_PRODUCT, DELETE_COLOR, GET_CATEGORIES_DASHBOARD, GET_MODELS, GET_PRODUCT_DASHBOARD, UPDATE_COLOR } from '../../../../../Utils/APIs'
+import DynamicJoditEditor from '../../add/Jodit';
+import { handleShowAlert } from '../../../../../Utils/Alerts/handleShowAlert'
+import { CONFIG } from '../../../../../Utils/Auth/Config'
+import { useStatusContext } from '../../../../../Utils/Status/statusContext';
+import Loading from '../../../../../components/Loading/LoadingSpinner'
 
-const AddProduct = () => {
+const Product = (props) => {
+    const id = props.id;
+
+    const [product, setProduct] = useState([]);
     const [images, setImages] = useState([]);
     const [name, setName] = useState('');
     const [stock, setStock] = useState(0);
     const [colors, setColors] = useState([]);
+    const [oldColors, setOldColors] = useState([]);
     const [sizes, setSizes] = useState([]);
     const [colorName, setColorName] = useState('');
     const [colorCode, setColorCode] = useState('');
@@ -26,30 +32,53 @@ const AddProduct = () => {
     const [endDate, setEndDate] = useState('');
     const [discount, setDiscount] = useState('');
     const [price, setPrice] = useState('');
-
-    const maxNumber = 10;
-    const onChange = (imageList, addUpdateIndex) => {
-      setImages(imageList);
-    };
+    const { isLoading, setIsLoading } = useStatusContext();
+    const [selectedModel, setSelectedModel] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
+    const [status, setStatus] = useState('active');
+    const [colorId, setColorId] = useState(null);
 
     const [content, setContent] = useState('');
     const handleEditorChange = (newContent) => {
       setContent(newContent);
     };
 
+    const fetchProduct = async () => {
+        setIsLoading(true)
+        try {
+            const res = await axios.get(GET_PRODUCT_DASHBOARD + id);
+            const data = res.data.data;
+            setProduct(data);
+            setColors(data.colors);
+            setOldColors(data.colors);
+            setSizes(data.sizes);
+            setName(data.name);
+            setStock(data.stock);
+            setContent(data.description);
+            setSelectedModel(data.model_id)
+            setSelectedCategory(data.category_id)
+            setStatus(data.status)
+        }catch(error) {
+            console.log(error)
+        }finally {
+            setIsLoading(false)
+        }
+    }
+
+    const maxNumber = 10;
+    const onChange = (imageList, addUpdateIndex) => {
+      setImages(imageList);
+    };
+
     const [models, setModels] = useState([])
-    const [selectedModel, setSelectedModel] = useState(null);
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(null);
-
-
 
     const fetchModels = async () => {
       try {
         const res = await axios.get(GET_MODELS);
         const data = res.data.data;
         setModels(data)
-        setSelectedModel(data[0].id)
       }catch(error) {
         console.log(error)
       }
@@ -60,7 +89,6 @@ const AddProduct = () => {
         const res = await axios.get(GET_CATEGORIES_DASHBOARD);
         const data = res.data.data;
         setCategories(data)
-        setSelectedCategory(data[0].id)
       }catch(error) {
         console.log(error)
       }
@@ -115,8 +143,8 @@ const AddProduct = () => {
         handleShowAlert(422, 'برجاء اختيار اسم اللون و درجة اللون و صور المنتجات بهذا اللون');
         return;
       }
-
-      setColors([...colors, { color_name: colorName, color_code: colorCode, images: images.map((image) => image.file), showImages: images }])
+      
+      setColors([...colors, { id: Date.now(), color_name: colorName, color_code: colorCode, images: images.map((image) => image.file) }])
 
       setColorCode('');
       setColorName('');
@@ -141,28 +169,18 @@ const AddProduct = () => {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      const product = {
-        name: name,
-        description: content,
-        category_id: selectedCategory,
-        model_id: selectedModel,
-        sizes,
-        colors,
-        stock,
-        status: 'active'
-      }
 
+      const updatedColors = colors.filter((color) => !oldColors.some((oldColor) => oldColor.color_code === color.color_code));
       try {
         const formData = new FormData();
+        formData.append('name', name);
+        formData.append('description', content);
+        formData.append('category_id', selectedCategory);
+        formData.append('model_id', selectedModel);
+        formData.append('stock', stock);
+        formData.append('status', status);
 
-        formData.append('name', product.name);
-        formData.append('description', product.description);
-        formData.append('category_id', product.category_id);
-        formData.append('model_id', product.model_id);
-        formData.append('stock', product.stock);
-        formData.append('status', product.status);
-
-        product.colors.forEach((color, index) => {
+        updatedColors.forEach((color, index) => {
           formData.append(`colors[${index}][color_code]`, color.color_code);
           formData.append(`colors[${index}][color_name]`, color.color_name);
           color.images.forEach((image, imageIndex) => {
@@ -170,7 +188,7 @@ const AddProduct = () => {
           });
         });
         
-        product.sizes.forEach((size, index) => {
+        sizes.forEach((size, index) => {
           formData.append(`sizes[${index}][basic_price]`, +size.basic_price);
           formData.append(`sizes[${index}][discount_rate]`, +size.discount_rate);
           formData.append(`sizes[${index}][end_date]`, size.end_date);
@@ -178,7 +196,8 @@ const AddProduct = () => {
           formData.append(`sizes[${index}][start_date]`, size.start_date);
         });
 
-        const res = await axios.post(ADD_PRODUCT, formData, CONFIG);
+        const res = await axios.post(ADD_PRODUCT + id, formData, CONFIG);
+        console.log(res.data)
         handleShowAlert(res.data.statusCode, res.data.message);
         setStock(0);
         setColors([]);
@@ -190,6 +209,72 @@ const AddProduct = () => {
         console.log(err)
       }
     }
+
+    const handleUpdateColor = (color) => {
+      setColorId(color.id);
+      window.scroll({
+        top: 0,
+        behavior: 'smooth'
+      })
+      setIsEditing(true);
+      setColorName(color.color_name);
+      setColorCode(color.color_code);
+    }
+
+    const updateColor = async () => {
+      if(images.length === 0) {
+        handleShowAlert(422, 'برجاء اختيار صور المنتجات بهذا اللون');
+        return;
+      }
+
+      try {
+        const formData = new FormData();
+
+        formData.append('color_name', colorName);
+        formData.append('color_code', colorCode);
+    
+        images.forEach((image) => {
+          if (image.file) {
+            formData.append('images[]', image.file); 
+            console.log('image.file ===', image.file);
+          }
+        });
+        const res = await axios.post(UPDATE_COLOR + colorId, formData, CONFIG);
+
+        setIsEditing(false);
+        setColorId(null);
+        setImages([])
+        setColorCode('');
+        setColorName('');
+        handleShowAlert(res.data.statusCode, res.data.message);
+        fetchProduct();
+      }catch(err) {
+        console.log(err)
+      }
+    }
+
+    const handleRemoveColor = async (color) => {
+      try {
+        const res =await axios.delete(DELETE_COLOR + color.id)
+        const data = res.data;
+        console.log(data)
+        handleShowAlert(res.data.statusCode, res.data.message);
+        fetchProduct();
+      }catch(err) {
+        console.log(err)
+      }
+    }
+
+    const handleRemoveSize = (size) => {
+      const updatedSizes = sizes.filter((s) => s.size_code !== size.size_code);
+      setSizes(updatedSizes);
+    }
+
+    useEffect(() => {
+      fetchProduct();
+    }, [id])
+
+    if(isLoading) return <Loading />
 
   return (
     <Wrapper>
@@ -203,7 +288,7 @@ const AddProduct = () => {
             </div>
             <div className='w-full flex flex-col items-start'>
               <span className='w-fit h-[45px] p-3 flex justify-center items-center text-white rounded-tr-3xl rounded-bl-md bg-[#00B6A9]'>وصف المنتج</span>
-              <DynamicJoditEditor value={content} onChange={handleEditorChange} />
+              <DynamicJoditEditor value={product.description} onChange={handleEditorChange} />
             </div>
             <div className='w-full flex items-center gap-8'>
               <div className='relative flex justify-center items-center gap-5 border-[1px] border-[#C6C6C6] rounded-3xl p-2 w-full'>
@@ -304,7 +389,7 @@ const AddProduct = () => {
                     &nbsp;
                     {imageList.map((image, index) => (
                       <div key={index} className="image-item">
-                        <img src={image.data_url} alt="" className='mb-2 rounded-lg w-20' width="100" onClick={() => onImageUpdate(index)} />
+                        <img src={image.data_url || image.url} alt="" className='mb-2 rounded-lg w-20' width="100" onClick={() => onImageUpdate(index)} />
                       </div>
                     ))}
                     <span
@@ -322,9 +407,9 @@ const AddProduct = () => {
           </div>
         </div>
         <div className='w-full flex flex-col justify-start items-center gap-5'>
-          <span className='w-full bg-[#00B6A9] pt-2 pb-2 pr-3 pl-3 text-sm cursor-pointer rounded-3xl flex justify-center items-center gap-2 text-white mr-auto' onClick={handleAddColor}>
+          <span className='w-full bg-[#00B6A9] pt-2 pb-2 pr-3 pl-3 text-sm cursor-pointer rounded-3xl flex justify-center items-center gap-2 text-white mr-auto' onClick={isEditing ? updateColor : handleAddColor}>
             <Image src={addIcon} alt='add color' className='w-5 h-5 rounded-md cursor-pointer' />
-            <p>إضافة لون</p>
+            <p>{isEditing ? 'تحديث' : 'إضافة'} لون</p>
           </span>
           <span className='w-full bg-[#00B6A9] pt-2 pb-2 pr-3 pl-3 text-sm cursor-pointer rounded-3xl flex justify-center items-center gap-2 text-white mr-auto' onClick={handleAddSize}>
             <Image src={addIcon} alt='add size' className='w-5 h-5 rounded-md cursor-pointer' />
@@ -338,23 +423,31 @@ const AddProduct = () => {
                     <tr>
                       <th className="px-6 py-4 font-normal">اللون</th>
                       <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">اسم اللون</th>
-                      <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">صور المنتج باللون</th>
+                      <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">تعديل</th>
+                      <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">حذف</th>
                     </tr>
                   </thead>
                   <tbody className="text-black border-[1px] border-[#F1F1F1] p-3">
                     {
-                      colors.map((color, index) => (
+                      colors && colors.length > 0 && colors.map((color, index) => (
                         <tr className="text-center border-b-[1px] border-[#F1F1F1]" key={index}>
                           <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1]">
                             <FontAwesomeIcon icon={faCircle} className='w-[30px] h-[30px]' style={{color: color.color_code}} />
                           </td>
                           <td className='text-base border-l-[1px] border-[#F1F1F1]'>{color.color_name}</td>
-                          <td className='whitespace-nowrap flex items-center justify-center gap-3 border-l-[1px] border-[#F1F1F1]'>
-                            {
-                              color.showImages.map((image, index) => (
-                                <Image key={index} src={image.data_url} alt={color.color_name} width='50' height='50' className='rounded-md' />
-                              ))
-                            }
+                          <td className='border-l-[1px] border-[#F1F1F1]'>
+                            <FontAwesomeIcon
+                            icon={faEdit}
+                            className='w-4 h-4 cursor-pointer duration-200 text-blue-500 hover:text-blue-400'
+                            onClick={() => handleUpdateColor(color)}
+                            />
+                          </td>
+                          <td className='border-l-[1px] border-[#F1F1F1]'>
+                            <FontAwesomeIcon
+                            icon={faTrash}
+                            className='w-4 h-4 cursor-pointer duration-200 text-red-500 hover:text-red-400'
+                            onClick={() => handleRemoveColor(color)}
+                            />
                           </td>
                         </tr>
                       ))
@@ -375,17 +468,25 @@ const AddProduct = () => {
                       <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">نسبة التخفيض</th>
                       <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">تاريخ بداية التخفيض</th>
                       <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">تاريخ انتهاء التخفيض</th>
+                      <th className="px-6 py-4 font-normal border-[1px] border-[#F1F1F1]">حذف</th>
                     </tr>
                   </thead>
                   <tbody className="text-black border-[1px] border-[#F1F1F1] p-3">
                     {
-                      sizes.map((size, index) => (
+                      sizes && sizes.length > 0 && sizes.map((size, index) => (
                         <tr className="text-center border-b-[1px] border-[#F1F1F1]" key={index}>
                           <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1] font-bold">{size.size_code.toUpperCase()}</td>
                           <td className='text-base border-l-[1px] border-[#F1F1F1]'>{size.basic_price} ر.س</td>
                           <td className='border-l-[1px] border-[#F1F1F1]'>{size.discount_rate !== '' ? size.discount_rate + ' %' : ''}</td>
                           <td className='border-l-[1px] border-[#F1F1F1]'>{size.start_date}</td>
                           <td className='border-l-[1px] border-[#F1F1F1]'>{size.end_date}</td>
+                          <td className='border-l-[1px] border-[#F1F1F1]'>
+                            <FontAwesomeIcon
+                            icon={faTrash}
+                            className='w-4 h-4 cursor-pointer duration-200 text-red-500 hover:text-red-400'
+                            onClick={() => handleRemoveSize(size)}
+                            />
+                          </td>
                         </tr>
                       ))
                     }
@@ -400,4 +501,4 @@ const AddProduct = () => {
   )
 }
 
-export default AddProduct
+export default Product

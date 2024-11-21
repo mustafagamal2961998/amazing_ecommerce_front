@@ -51,9 +51,8 @@ const Product = async ({ params }) => {
           <span className="flex justify-center items-center gap-2 w-[10%] max-md:w-2/4 max-md:text-center p-1 bg-[#00B6A9] text-white rounded-tr-2xl rounded-bl-2xl">
             تفاصيل المنتج
           </span>
-          <span className="flex items-start gap-36 max-md:flex-col max-md:gap-3 mt-3 mr-16">
-            {product.description}
-          </span>
+          <div className='h-full p-14' dangerouslySetInnerHTML={{ __html: product?.description }}>
+          </div>
         </div>
         <div className="similar-products flex flex-col items-start gap-5 w-full">
           <h2 className="font-bold text-[24px]">منتجات اخرى</h2>

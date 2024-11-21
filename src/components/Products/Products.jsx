@@ -10,7 +10,6 @@ import FavImg from './FavImg'
 
 const Products = (props) => {
     const products = props.products;
-    console.log(products[0].colors[0].images[0].url)
   return (
     <section className='w-full flex flex-col items-start gap-5 pr-[50px] pl-[50px] pt-5 pb-5'>
         <span className='w-full flex justify-between items-center'>
