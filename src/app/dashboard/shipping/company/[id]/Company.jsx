@@ -7,7 +7,6 @@ import deleteCompany from '../../../../../assets/dashboard/deleteCompany.svg';
 import Link from "next/link";
 import { GET_DATA } from "../../../../../Utils/Data/getData";
 import { GET_SHIPPING_COMPANY, UPDATE_SHIPPING_COMPANY, DELETE_SHIPPING_COMPANY } from "../../../../../Utils/APIs";
-import NotFoundComp from "../../../reports/NotFoundComp.jsx";
 import axios from "axios";
 import { handleShowAlert } from "../../../../../Utils/Alerts/handleShowAlert";
 import { CONFIG } from "../../../../../Utils/Auth/Config";

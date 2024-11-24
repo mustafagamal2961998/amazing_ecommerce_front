@@ -18,7 +18,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import Image from 'next/image'
 import { GET_DATA } from '../../../../Utils/Data/getData'
 import { GET_CLIENT } from '../../../../Utils/APIs'
-import NotFoundComp from '../../reports/NotFoundComp.jsx'
 import axios from 'axios'
 import { handleShowAlert } from '../../../../Utils/Alerts/handleShowAlert'
 

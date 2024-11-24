@@ -9,7 +9,6 @@ import Image from 'next/image'
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
-import NotFoundComp from './NotFoundComp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Cell, Pie, PieChart } from 'recharts';
