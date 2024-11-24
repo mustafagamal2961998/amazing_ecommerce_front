@@ -85,7 +85,7 @@ const ShippingCompanyPage = (props) => {
         }
     };
 
-    if (!company) return <NotFoundComp />;
+    if (!company) return <p>لا توجد بيانات لعرضها</p>;
 
     return (
         <Wrapper>

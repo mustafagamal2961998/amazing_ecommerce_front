@@ -24,7 +24,7 @@ const Products = (props) => {
         </span>
         <div className='product-con w-full grid grid-cols-4 max-md:grid-cols-2 gap-14'>
             {
-                products.map((product) => (
+                products && products.length > 0 && products.map((product) => (
                     <div key={product.id} className='relative w-full p-1 duration-200 border-2 border-transparent hover:border-[#00B6A9] rounded-md flex flex-col justify-center items-center gap-2'>
                         <Image 
                         src={product.colors[0].images[0].url}

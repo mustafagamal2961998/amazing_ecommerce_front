@@ -352,7 +352,7 @@ const ReportsPage = () => {
                     </div>
                 </div>
             ) : (
-                <NotFoundComp />
+                <p>لا توجد بيانات لعرضها</p>
             )}
             {/* <div className='w-full flex justify-center items-center gap-20'>
                 <span className={`${reportMood === 'daily' && 'shadow-xl'} w-full h-[150px] cursor-pointer select-none bg-[#E9FBB8] rounded-2xl flex justify-center items-center gap-2`} onClick={() => setReportMood('daily')}>

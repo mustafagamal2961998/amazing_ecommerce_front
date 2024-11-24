@@ -132,7 +132,7 @@ const Client = (props) => {
         setFilteredOrders(filtered);
     }, [searchQuery, orderType, client]);
 
-    if (!client) return <NotFoundComp />
+    if (!client) return <p>Loading...</p>
 
     return (
         <Wrapper>
@@ -286,7 +286,7 @@ const Client = (props) => {
                                                 }
                                             </div>
                                         ))
-                                        : <NotFoundComp />
+                                        : <p>لا توجد بيانات لعرضها</p>
                                 }
                             </div>
                         </div>
