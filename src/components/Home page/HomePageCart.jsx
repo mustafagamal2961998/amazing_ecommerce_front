@@ -147,7 +147,7 @@ const HomePageCart = () => {
           </button>
         </div>
       </div>
-      <Link href='/checkout' className='font-bold text-center'>
+      <Link href='/cart' className='font-bold text-center'>
         عربة المنتجات
         <br />
         Cart items
