@@ -1,6 +1,8 @@
 'use client'
 
+import axios from "axios";
 import { useState, useEffect } from "react"
+import { GET_MATERIALS } from "../../../Utils/APIs";
 
 const FabricSelection = () => {
     const [materialOne, setMaterialOne] = useState('material-1');
@@ -14,7 +16,26 @@ const FabricSelection = () => {
 
     const [notes, setNotes] = useState('');
 
-    
+    const [materials, setMaterials] = useState([]);
+
+    const fetchMaterials = async () => {
+        try {
+            const res = await axios.get(GET_MATERIALS);
+            const data = res.data.data;
+            setMaterials(data);
+
+            setMaterialOne(data[0].name_ar);
+            setMaterialTwo(data[1].name_ar);
+            setMaterialThree(data[2].name_ar);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        fetchMaterials();
+    }, [])
+
     useEffect(() => {
         const savedData = JSON.parse(localStorage.getItem('fabricSelection'));
         if (savedData) {
@@ -50,9 +71,11 @@ const FabricSelection = () => {
                     value={materialOne}
                     onChange={(e) => setMaterialOne(e.target.value)}
                 >
-                    <option value='material-1'>خامة 1</option>
-                    <option value='material-2'>خامة 2</option>
-                    <option value='material-3'>خامة 3</option>
+                    {
+                        materials.map((material) => (
+                            <option key={material.id} value={material.name_ar}>{material.name_ar}</option>
+                        ))
+                    }
                 </select>
             </span>
             <span className='w-full max-md:flex-col flex justify-start items-center gap-4'>
@@ -62,9 +85,11 @@ const FabricSelection = () => {
                     value={materialTwo}
                     onChange={(e) => setMaterialTwo(e.target.value)}
                 >
-                    <option value='material-1'>خامة 1</option>
-                    <option value='material-2'>خامة 2</option>
-                    <option value='material-3'>خامة 3</option>
+                    {
+                        materials.map((material) => (
+                            <option key={material.id} value={material.name_ar}>{material.name_ar}</option>
+                        ))
+                    }
                 </select>
             </span>
             <span className='w-full flex max-md:flex-col justify-start items-center gap-4'>
@@ -74,9 +99,11 @@ const FabricSelection = () => {
                     value={materialThree}
                     onChange={(e) => setMaterialThree(e.target.value)}
                 >
-                    <option value='material-1'>خامة 1</option>
-                    <option value='material-2'>خامة 2</option>
-                    <option value='material-3'>خامة 3</option>
+                    {
+                        materials.map((material) => (
+                            <option key={material.id} value={material.name_ar}>{material.name_ar}</option>
+                        ))
+                    }
                 </select>
             </span>
             <span className='w-full flex max-md:justify-center max-md:gap-4 justify-start items-center gap-24'>

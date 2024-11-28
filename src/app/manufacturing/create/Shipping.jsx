@@ -81,19 +81,17 @@ const Shipping = () => {
                         {shippingType === 'international' && (
                             <span className='w-full flex items-center gap-3'>
                                 <p className='font-bold'>الدولة</p>
-                                <input
-                                    required
-                                    type='text'
-                                    value={country}
-                                    onChange={(e) => setCountry(e.target.value)}
-                                    className='w-full rounded-full outline-none p-2 shadow-inner'
-                                />
+                                <select className='w-full rounded-full outline-none p-2 shadow-inner'value={country} onChange={(e) => setCountry(e.target.value)}>
+                                    <option value='egypt'>مصر</option>
+                                    <option value='ksa'>المملكة العربية السعودية</option>
+                                </select>
                             </span>
                         )}
                         <span className='w-full flex items-center gap-3'>
                             <p className='font-bold'>المدينة</p>
                             <input
                                 required
+                                placeholder='اسم المدينة'
                                 type='text'
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
@@ -104,6 +102,7 @@ const Shipping = () => {
                             <p className='font-bold'>المنطقة</p>
                             <input
                                 required
+                                placeholder='اسم المنطقة'
                                 type='text'
                                 value={region}
                                 onChange={(e) => setRegion(e.target.value)}
@@ -116,6 +115,7 @@ const Shipping = () => {
                             <p className='font-bold'>اسم الشارع</p>
                             <input
                                 required
+                                placeholder='اسم الشارع'
                                 type='text'
                                 value={street}
                                 onChange={(e) => setStreet(e.target.value)}
@@ -126,6 +126,7 @@ const Shipping = () => {
                             <p className='font-bold'>رقم البناية</p>
                             <input
                                 required
+                                placeholder='رقم البناية'
                                 type='text'
                                 value={buildingNumber}
                                 onChange={(e) => setBuildingNumber(e.target.value)}
@@ -137,6 +138,7 @@ const Shipping = () => {
                         <p className='font-bold'>رقم الهاتف</p>
                         <input
                             required
+                            placeholder='رقم الهاتف'
                             type='text'
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}

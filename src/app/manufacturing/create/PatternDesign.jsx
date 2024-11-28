@@ -1,26 +1,27 @@
-'use client'
+'use client';
 
-import { faCheck } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState, useEffect } from "react"
-import removeImg from '../../../assets/dashboard/removeImg.svg'
-import comletedImg from '../../../assets/dashboard/comletedImg.svg'
-import uploadIcon from '../../../assets/dashboard/upload.svg'
-import ImageUploading from "react-images-uploading";
+import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import uploadIcon from '../../../assets/dashboard/upload.svg';
+import removeImg from '../../../assets/dashboard/removeImg.svg';
+import comletedImg from '../../../assets/dashboard/comletedImg.svg';
+import { useStatusContext } from "../../../Utils/Status/statusContext";
 
 const PatternDesign = () => {
     const [patternDesign, setPatternDesign] = useState(true);
     const [manual, setManual] = useState(true);
-    const [images, setImages] = useState([]);
-    const maxNumber = 10;
+    const [pltFiles, setPltFiles] = useState([]);
+    const {pltFile, setPltFile} = useStatusContext();
 
     useEffect(() => {
         const savedData = JSON.parse(localStorage.getItem('patternDesign'));
         if (savedData) {
             setPatternDesign(savedData.patternDesign);
             setManual(savedData.manual);
-            setImages(savedData.images || []);
+            setPltFiles(savedData.pltFiles || []);
+            setPltFile(savedData.pltFiles || []);
         }
     }, []);
 
@@ -28,17 +29,25 @@ const PatternDesign = () => {
         const patternData = {
             patternDesign,
             manual,
-            images
+            pltFiles
         };
+        setPltFile(pltFiles)
         localStorage.setItem('patternDesign', JSON.stringify(patternData));
-    }, [patternDesign, manual, images]);
+    }, [patternDesign, manual, pltFiles]);
 
-    const onChange = (imageList) => {
-        setImages(imageList);
+    const handleFileChange = (e) => {
+        const files = Array.from(e.target.files || []);
+        setPltFile(e.target.files[0])
+        const newPltFiles = files.map(file => ({
+            file,
+            name: file.name,
+            size: file.size
+        }));
+        setPltFiles([...pltFiles, ...newPltFiles]);
     };
 
-    const handleRemoveImage = (data_url) => () => {
-        setImages(images.filter(image => image.data_url !== data_url));
+    const handleRemoveFile = (fileName) => {
+        setPltFiles(pltFiles.filter(file => file.name !== fileName));
     };
 
     return (
@@ -114,48 +123,49 @@ const PatternDesign = () => {
                 <span className='w-3/4 max-md:w-full flex flex-col items-center'>
                     <div className='w-full flex items-center gap-1'>
                         <p>تحميل ملف PLT</p>
-                        <ImageUploading
-                            multiple
-                            value={images}
-                            onChange={onChange}
-                            maxNumber={maxNumber}
-                            dataURLKey="data_url"
-                            acceptType={["jpg", "png"]}
-                        >
-                            {({ onImageUpload, dragProps }) => (
-                                <div className="upload__image-wrapper">
-                                    <Image
-                                        src={uploadIcon}
-                                        alt='upload icon'
-                                        className='w-[40px] h-[40px] cursor-pointer'
-                                        onClick={onImageUpload}
-                                        {...dragProps}
-                                    />
-                                </div>
-                            )}
-                        </ImageUploading>
+                        <label className="cursor-pointer">
+                            <input
+                                type="file"
+                                accept=".plt"
+                                className="hidden"
+                                onChange={handleFileChange}
+                                multiple
+                            />
+                            <Image
+                                src={uploadIcon}
+                                alt='upload icon'
+                                className='w-[40px] h-[40px]'
+                            />
+                        </label>
                     </div>
-                    {images && images.map((image, index) => (
+                    {pltFiles.map((file, index) => (
                         <div className='w-full bg-[#F1F1F1] p-2 rounded-xl flex max-md:flex-col max-md:justify-center max-md:gap-3 flex-row-reverse justify-center items-center gap-10 mb-3' key={index}>
-                            <img src={image.data_url} alt='company image' className='w-[80px] h-[80px] max-md:w-full max-md:h-full' />
+                            <div className='w-[80px] h-[80px] max-md:w-full max-md:h-full flex items-center justify-center bg-white rounded-lg'>
+                                <p className="text-lg font-bold">.PLT</p>
+                            </div>
                             <span className='flex flex-col items-end gap-3'>
-                                <h2 className='font-bold'>{image.file.name}</h2>
+                                <h2 className='font-bold'>{file.name}</h2>
                                 <span className='flex items-center gap-2'>
                                     <p className='text-[#A9ACB4]'>.KB</p>
-                                    <p className='text-[#A9ACB4]'>{(image.file.size / 1000).toFixed(2)}</p>
+                                    <p className='text-[#A9ACB4]'>{(file.size / 1000).toFixed(2)}</p>
                                 </span>
                             </span>
                             <span className='flex items-center gap-2'>
                                 <p className='text-lg font-bold'>Completed</p>
                                 <Image src={comletedImg} alt='completed image' className='w-[40px] h-[40px]' />
                             </span>
-                            <Image src={removeImg} alt='remove image' className='w-[40px] h-[40px] cursor-pointer' onClick={handleRemoveImage(image.data_url)} />
+                            <Image 
+                                src={removeImg} 
+                                alt='remove image' 
+                                className='w-[40px] h-[40px] cursor-pointer' 
+                                onClick={() => handleRemoveFile(file.name)} 
+                            />
                         </div>
                     ))}
                 </span>
             </span>
         </div>
-    )
-}
+    );
+};
 
 export default PatternDesign;

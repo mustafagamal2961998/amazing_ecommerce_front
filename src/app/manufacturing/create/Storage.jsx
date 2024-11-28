@@ -66,51 +66,56 @@ const Storage = () => {
                     </span>
                 </div>
             </span>
-            <span className='w-2/4 max-md:w-full max-md:flex-col max-md:gap-3 flex justify-between items-center'>
-                <p className='font-bold'>نوعية التخزين</p>
-                <div className='flex flex-col items-start gap-3'>
-                    <span 
-                        className='flex items-center gap-6 cursor-pointer select-none'
-                        onClick={() => setStorageType('boxes')}
-                    >
-                        <p className='font-bold'>تخزين المنتج في كراتين</p>
-                        <span className={`relative w-5 h-5 p-1 rounded-full ${storageType === 'boxes' ? 'bg-[#34C759]' : 'bg-[#FFFFFF]'} border-[1px] border-black`}>
-                            {
-                                storageType === 'boxes' &&
-                                <FontAwesomeIcon
-                                    icon={faCheck}
-                                    className='text-xs absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
-                                />
-                            }
-                        </span>
+            {
+                storage &&
+                <>                
+                    <span className='w-2/4 max-md:w-full max-md:flex-col max-md:gap-3 flex justify-between items-center'>
+                        <p className='font-bold'>نوعية التخزين</p>
+                        <div className='flex flex-col items-start gap-3'>
+                            <span 
+                                className='flex items-center gap-6 cursor-pointer select-none'
+                                onClick={() => setStorageType('boxes')}
+                            >
+                                <p className='font-bold'>تخزين المنتج في كراتين</p>
+                                <span className={`relative w-5 h-5 p-1 rounded-full ${storageType === 'boxes' ? 'bg-[#34C759]' : 'bg-[#FFFFFF]'} border-[1px] border-black`}>
+                                    {
+                                        storageType === 'boxes' &&
+                                        <FontAwesomeIcon
+                                            icon={faCheck}
+                                            className='text-xs absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
+                                        />
+                                    }
+                                </span>
+                            </span>
+                            <span 
+                                className='flex items-center gap-6 cursor-pointer select-none'
+                                onClick={() => setStorageType('bags')}
+                            >
+                                <p className='font-bold'>تخزين المنتج في أكياس كبيرة</p>
+                                <span className={`relative w-5 h-5 p-1 rounded-full ${storageType === 'bags' ? 'bg-[#34C759]' : 'bg-[#FFFFFF]'} border-[1px] border-black`}>
+                                    {
+                                        storageType === 'bags' &&
+                                        <FontAwesomeIcon
+                                            icon={faCheck}
+                                            className='text-xs absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
+                                        />
+                                    }
+                                </span>
+                            </span>
+                        </div>
                     </span>
-                    <span 
-                        className='flex items-center gap-6 cursor-pointer select-none'
-                        onClick={() => setStorageType('bags')}
-                    >
-                        <p className='font-bold'>تخزين المنتج في أكياس كبيرة</p>
-                        <span className={`relative w-5 h-5 p-1 rounded-full ${storageType === 'bags' ? 'bg-[#34C759]' : 'bg-[#FFFFFF]'} border-[1px] border-black`}>
-                            {
-                                storageType === 'bags' &&
-                                <FontAwesomeIcon
-                                    icon={faCheck}
-                                    className='text-xs absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4'
-                                />
-                            }
-                        </span>
+                    <span className='w-2/4 max-md:w-full flex items-center gap-10'>
+                        <p className='font-bold'>مدة التخزين</p>
+                        <input
+                            type='number'
+                            value={storageDuration}
+                            onChange={(e) => setStorageDuration(e.target.value)}
+                            className='w-1/4 p-2 outline-none rounded-md shadow-inner'
+                        />
+                        <p className='font-bold'>يوم</p>
                     </span>
-                </div>
-            </span>
-            <span className='w-2/4 max-md:w-full flex items-center gap-10'>
-                <p className='font-bold'>مدة التخزين</p>
-                <input
-                    type='number'
-                    value={storageDuration}
-                    onChange={(e) => setStorageDuration(e.target.value)}
-                    className='w-1/4 p-2 outline-none rounded-md shadow-inner'
-                />
-                <p className='font-bold'>يوم</p>
-            </span>
+                </>
+            }
             <Shipping />
         </div>
     );

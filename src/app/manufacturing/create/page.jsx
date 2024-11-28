@@ -96,38 +96,27 @@ const Create = () => {
         <Sidebar />
         <div className='w-full flex flex-col items-start gap-3 mt-24 md:pl-16 pb-12'>
           <h2 className={`text-2xl font-bold max-md:text-base max-md:mr-2 ${currentStep === sidebarItems.length - 1 ? 'mx-auto' : ''}`}>{sidebarItems[currentStep].label}</h2>
-          <form className={`w-full min-h-screen h-full rounded-2xl ${currentStep !== sidebarItems.length - 1 ? 'p-14 bg-[#CAD1D3D9]' : 'p-0 bg-transparent'} flex flex-col gap-12`}>
+          <form className={`w-full h-fit rounded-2xl ${currentStep !== sidebarItems.length - 1 ? 'p-14 bg-[#CAD1D3D9]' : 'p-0 bg-transparent'} flex flex-col gap-12`}>
             {renderStep()}
             {currentStep < sidebarItems.length - 1 ? (
               <div className='flex justify-between items-center w-full mt-auto'>
                 <button 
                   type='button'
                   onClick={handlePreviousStep} 
-                  className={`px-20 max-md:px-10 py-4 max-md:py-2 md:font-bold bg-[#0C042D] hover:bg-[#0c042dc9] duration-200 text-white rounded-xl ${currentStep === 0 ? 'hidden' : ''}`}
+                  className={`px-20 max-md:px-10 py-4 max-md:py-2 md:font-bold bg-[#01A185] hover:bg-[#86CEC1] hover:text-black duration-200 text-white rounded-xl ${currentStep === 0 ? 'hidden' : ''}`}
                 >
                   السابق
                 </button>
                 <button 
                   type='button'
                   onClick={handleNextStep} 
-                  className='px-20 max-md:px-10 py-4 max-md:py-2 md:font-bold bg-[#0C042D] hover:bg-[#0c042dc9] duration-200 text-white rounded-xl mr-auto'
+                  className='px-20 max-md:px-10 py-4 max-md:py-2 md:font-bold bg-[#01A185] hover:bg-[#86CEC1] hover:text-black duration-200 text-white rounded-xl mr-auto'
                 >
                   التالي
                 </button>
               </div>
             ) : (
-              // <button 
-              //   type='submit'
-              //   className='px-20 py-4 mb-12 font-bold bg-[#20B038] hover:bg-[#20b038c9] duration-200 text-white rounded-xl w-fit m-auto'
-              // >
-              //   تقديم الطلب
-              // </button>
-              <Link 
-                href='/manufacturing/done'
-                className='px-20 py-4 mb-12 font-bold bg-[#20B038] hover:bg-[#20b038c9] duration-200 text-white rounded-xl w-fit m-auto'
-              >
-                تقديم الطلب
-              </Link>
+              <></>
             )}
           </form>
         </div>

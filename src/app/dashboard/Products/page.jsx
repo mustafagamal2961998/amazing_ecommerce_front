@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { handleShowAlert } from "../../../Utils/Alerts/handleShowAlert"
 import Swal from "sweetalert2"
+import ProductsLinks from './ProductsLinks';
 
 const Products = () => {
 
@@ -105,6 +106,7 @@ const Products = () => {
   return (
     <Wrapper>
       <div className='w-full flex flex-col items-start gap-5'>
+          <ProductsLinks />
           <div className='grid grid-cols-4 gap-3'>
             <span className='w-full flex items-center gap-2 pt-2 pb-2 pr-8 pl-8 rounded-3xl bg-[#FEF5A8] cursor-pointer select-none' onClick={() => setSectionId(null)}>
               <Image src={!sectionId ? Checked : CheckBox} alt='all' className='w-[16px] h-[16px]' />

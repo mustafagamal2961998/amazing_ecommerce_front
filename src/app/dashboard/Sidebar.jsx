@@ -23,12 +23,13 @@ import activeSupport from '../../assets/dashboard/activeSupport.svg'
 import activeShipping from '../../assets/dashboard/activeShipping.svg'
 import activeRating from '../../assets/dashboard/activeRating.svg'
 import activeSettings from '../../assets/dashboard/activeSettings.svg'
+import sun from '../../assets/dashboard/sun.svg'
 import Link from 'next/link'
 
 const Sidebar = () => {
     const pathname = usePathname();
   return (
-    <aside className='w-1/5 min-h-screen -mt-[50px] flex flex-col justify-start items-center gap-20 p-5 bg-gradient-to-br from-[#8AD0C3] to-[#00B6A9]'>
+    <aside className='relative w-1/5 min-h-screen -mt-[50px] flex flex-col justify-start items-center gap-20 p-5 bg-gradient-to-br from-[#8AD0C3] to-[#00B6A9]'>
         <Image src={Logo} alt='logo' className='mt-[40px] w-[170px] h-[38px]' />
         <div className='w-full flex flex-col gap-2'>
             <Link href='/dashboard' className={`cursor-pointer p-2 w-full ${pathname === '/dashboard' && 'bg-white active relative'} rounded-xl flex justify-start items-center gap-2`}>
@@ -77,6 +78,11 @@ const Sidebar = () => {
                 <p className={`${pathname.startsWith('/dashboard/settings') ? 'text-[#00B6A9]' : 'text-white'}`}>الإعدادات</p>
             </Link>
         </div>
+        <Image
+        src={sun}
+        className='w-2/4 h-fit absolute bottom-0 right-0'
+        alt='sun'
+        />
     </aside>
   )
 }

@@ -65,7 +65,7 @@ const ClientData = () => {
             className='w-3/4 max-md:w-full rounded-lg outline-none p-2 shadow-inner placeholder:text-center placeholder:text-gray max-md:placeholder:text-sm md:placeholder:font-bold'
           />
           <select
-            className='rounded-lg p-2 shadow-inner outline-none cursor-pointer'
+            className='w-full rounded-lg p-2 shadow-inner outline-none cursor-pointer'
             value={clientData.country}
             onChange={(e) => handleCountryChange(e.target.value)}
           >
@@ -131,6 +131,7 @@ const ClientData = () => {
               <p className='font-bold'>المدينة</p>
               <input
                 required
+                placeholder='اسم المدينة'
                 type='text'
                 name='city'
                 value={clientData.city}
@@ -142,6 +143,7 @@ const ClientData = () => {
               <p className='font-bold'>المنطقة</p>
               <input
                 required
+                placeholder='اسم المنطقة'
                 type='text'
                 name='area'
                 value={clientData.area}
@@ -155,6 +157,7 @@ const ClientData = () => {
               <p className='font-bold'>اسم الشارع</p>
               <input
                 required
+                placeholder='اسم الشارع'
                 type='text'
                 name='streetName'
                 value={clientData.streetName}
@@ -166,6 +169,7 @@ const ClientData = () => {
               <p className='font-bold'>رقم البناية</p>
               <input
                 required
+                placeholder='رقم البناية'
                 type='text'
                 name='buildingNumber'
                 value={clientData.buildingNumber}

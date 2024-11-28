@@ -20,6 +20,10 @@ const StatusContext = createContext({
     setPurchasesBills: () => false,
     userInfo: null,
     setUserInfo: () => null,
+    modelImages: [],
+    setModelImages: () => [],
+    pltFile: null,
+    setPltFile: () => null,
 });
 
 export const StatusContextProvider = ({ children }) => {
@@ -39,6 +43,8 @@ export const StatusContextProvider = ({ children }) => {
     const [userInfo, setUserInfo] = useState(null);
     const [ordersMood, setOrdersMood] = useState('khazanty');
     const [manufacturingMood, setManufacturingMood] = useState('clientData');
+    const [modelImages, setModelImages] = useState([]);
+    const [pltFile, setPltFile] = useState(null);
 
     return (
         <StatusContext.Provider 
@@ -74,7 +80,11 @@ export const StatusContextProvider = ({ children }) => {
             manufacturingMood, 
             setManufacturingMood,
             userInfo,   
-            setUserInfo
+            setUserInfo,
+            modelImages, 
+            setModelImages,
+            pltFile,
+            setPltFile,
         }}>
             { children }
         </StatusContext.Provider>

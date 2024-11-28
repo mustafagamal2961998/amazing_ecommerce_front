@@ -1,3 +1,4 @@
+'use client'
 import '../style.css'
 import logo from '../../../assets/manufacturing/logo.svg'
 import shakehands from '../../../assets/manufacturing/shakehands.svg'
@@ -8,8 +9,22 @@ import facebookLogo from '../../../assets/manufacturing/facebook.svg'
 import youtubeLogo from '../../../assets/manufacturing/youtube.svg'
 import whatsappLogo from '../../../assets/manufacturing/whatsapp.svg'
 import Navbar from '../../../components/Navbar/Navbar'
+import { useStatusContext } from '../../../Utils/Status/statusContext'
+import { useEffect, useState } from 'react'
 
 const Done = () => {
+  const [orderNumber, setOrderNumber] = useState(null);
+    
+    useEffect(() => {   
+        window.localStorage.getItem('orderNumber') && setOrderNumber(window.localStorage.getItem('orderNumber'));
+
+    }, [])
+
+    const handleExit = () => {
+        window.localStorage.removeItem('orderNumber');
+        window.location.href = '/';
+    }
+
   return (
     <div className='w-full flex flex-col'>
         <Navbar />
@@ -35,16 +50,16 @@ const Done = () => {
             <div className='w-1/4 max-md:w-full flex flex-col justify-center items-center gap-4'>
                 <p className='font-bold text-xl max-md:text-base text-[#62010D]'>رقم الطلب الخاص بك هو</p>
                 <span className='w-full bg-[#17616642] text-[#62010D] text-3xl max-md:text-base font-bold p-6 rounded-full flex justify-center items-center'>
-                    <p>112</p>
+                    <p>{orderNumber}</p>
                 </span>
                 <p className='font-bold text-[#FF0000] max-md:text-sm'>الرجاء الاحتفاظ بهذا الرقم لمتابعة حالة الطلب</p>
             </div>
-            <Link 
-            href='/manufacturing'
-            className='px-20 py-4 font-bold bg-[#0C042D] hover:bg-[#0c042dc9] duration-200 text-white rounded-xl max-md:text-sm max-md:font-normal'
+            <button 
+            className='px-20 py-4 font-bold bg-[#01A185] hover:bg-[#86CEC1] hover:text-black duration-200 text-white rounded-xl max-md:text-sm max-md:font-normal'
+            onClick={handleExit}
             >
                 الصفحة الرئيسية
-            </Link>
+            </button>
             <div className='flex justify-center items-center gap-4 mt-auto md:ml-auto'>
                 <Link
                     href={`https://www.facebook.com`}
