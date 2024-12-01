@@ -57,7 +57,7 @@ const Print = () => {
 
     return (
         <div className='w-full p-10 flex flex-col items-center gap-6'>
-            <div className='flex justify-center items-center gap-10'>
+            <div className='flex flex-wrap justify-center items-center gap-10'>
                 {options.map(option => (
                     <div key={option.id} className='flex justify-center items-center gap-4 font-bold'>
                         <span

@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { handleShowAlert } from '../../Utils/Alerts/handleShowAlert';
 import { CONFIG } from '../../Utils/Auth/Config';
+import Cookies from 'js-cookie';
 import { GetUserInfo } from '../../Utils/Auth/UserInfo';
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
@@ -21,9 +22,10 @@ const Profile = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({});
     const [loading, setLoading] = useState(false); 
+    const token = Cookies.get('token');
 
     useEffect(() => {
-        if (userInfo) {
+        if (userInfo && token) {
             setFormData(userInfo);
         }
     }, [userInfo]);
@@ -35,6 +37,12 @@ const Profile = () => {
             [name]: value,
         }));
     };
+
+    useEffect(() => {
+        if(!token){
+            window.location.pathname = '/auth/login';
+        }
+    }, [])
 
     const handleProfileUpdate = async () => {
         if (!formData.email || !formData.first_name || !formData.last_name || !formData.mobile) {
@@ -66,6 +74,8 @@ const Profile = () => {
             setLoading(false); 
         }
     };
+
+    if(!token) return null;
 
     return (
         <div className='min-h-screen bg-[#f5f7fa]'>

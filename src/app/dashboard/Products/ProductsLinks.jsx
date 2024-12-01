@@ -30,6 +30,12 @@ const ProductsLinks = () => {
         مقاسات الطباعة
         </Link>
         <Link
+        href={'/dashboard/products/sectionType'}
+        className={`w-max py-2 px-8 duration-200 cursor-pointer rounded-br-3xl rounded-tl-3xl hover:rounded-tl-none hover:rounded-br-none hover:rounded-tr-3xl hover:rounded-bl-3xl hover:underline text-white hover:bg-[#014E40] ${pathname === '/dashboard/products/sectionType' ? 'bg-[#014E40] underline' : 'bg-[#007762]'}`}
+        >
+        نوع القسم
+        </Link>
+        <Link
         href={'/dashboard/products/modelType'}
         className={`w-max py-2 px-8 duration-200 cursor-pointer rounded-br-3xl rounded-tl-3xl hover:rounded-tl-none hover:rounded-br-none hover:rounded-tr-3xl hover:rounded-bl-3xl hover:underline text-white hover:bg-[#014E40] ${pathname === '/dashboard/products/modelType' ? 'bg-[#014E40] underline' : 'bg-[#007762]'}`}
         >

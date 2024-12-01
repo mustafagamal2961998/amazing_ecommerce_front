@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <div className='flex flex-row-reverse max-md:flex-col items-center justify-center bg-[#BCE3DC]'>
       <Slogan />
-      <div className='flex flex-col justify-center items-center gap-5 text-center max-md:w-full p-5 w-[40%]'>
+      <div className='flex flex-col justify-center items-center gap-5 text-center max-md:w-full p-5 w-[40%] max-md:absolute max-md:top-1/4'>
         <Image src={purpleLogo} className='max-md:hidden mb-4' alt='Amazing' />
         <p className='text-lg font-semibold text-black'>تسجيل الدخول</p>
         <form className='flex flex-col items-center w-full'>

@@ -22,9 +22,7 @@ const ModelType = () => {
     useEffect(() => {
         GET_DATA(GET_MODELS).then((data) => {
             setModels(data);
-            if (data.length > 0) {
-                setSelectedModel(data[0].id);
-            }
+            setSelectedModel(data[0].id);
         });
     }, []);
 
@@ -124,7 +122,7 @@ const ModelType = () => {
                 />
             </div>
 
-            <div className='flex flex-wrap justify-center items-center gap-20'>
+            <div className='flex flex-wrap justify-center items-center gap-10'>
                 {models.map((model) => (
                     <div key={model.id} className='w-fit flex justify-center items-center gap-4 font-bold'>
                         <span 
@@ -139,8 +137,8 @@ const ModelType = () => {
                             }
                         </span>
                         <div className='flex flex-col items-start gap-2'>
-                            <p>{model.name_ar}</p>
-                            <p>{model.name_en}</p>
+                            <p className='text-center'>{model.name_ar}</p>
+                            <p className='text-center'>{model.name_en}</p>
                         </div>
                     </div>
                 ))}
@@ -148,7 +146,28 @@ const ModelType = () => {
 
             {products.length > 0 && (
                 <div className='w-full p-5'>
-                    <Swiper spaceBetween={50} slidesPerView={6}>
+                    <Swiper
+                        spaceBetween={20}
+                        slidesPerView={1}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 3,
+                                spaceBetween: 20,
+                            },
+                            1024: {
+                                slidesPerView: 4,
+                                spaceBetween: 30,
+                            },
+                            1280: {
+                                slidesPerView: 5,
+                                spaceBetween: 30,
+                            },
+                        }}
+                    >
                         {products.map((item) => (
                             <SwiperSlide key={item.id} className='relative w-full h-full cursor-grab'>
                                 <div className={`w-full h-[500px] p-5 bg-[#F5F3F3] rounded-md flex flex-col justify-between items-center gap-3`} onClick={() => handleProductSelect(item.id)}>
@@ -166,9 +185,9 @@ const ModelType = () => {
                                         height={1200}
                                         src={item.selectedImage || item.colors[0]?.images[0].url}
                                         alt={item.name}
-                                        className='w-full h-[200px] object-cover'
+                                        className='w-full h-[200px] object-cover rounded-md'
                                     />
-                                    <p>{item.name}</p>
+                                    <p className='text-center text-sm font-medium'>{item.name}</p>
 
                                     <span className='flex items-center gap-2'>
                                         {item.colors.map((color, index) => (

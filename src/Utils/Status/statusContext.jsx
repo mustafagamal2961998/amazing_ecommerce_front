@@ -24,6 +24,8 @@ const StatusContext = createContext({
     setModelImages: () => [],
     pltFile: null,
     setPltFile: () => null,
+    customImg: null,
+    setCustomImg: () => null,
 });
 
 export const StatusContextProvider = ({ children }) => {
@@ -45,6 +47,7 @@ export const StatusContextProvider = ({ children }) => {
     const [manufacturingMood, setManufacturingMood] = useState('clientData');
     const [modelImages, setModelImages] = useState([]);
     const [pltFile, setPltFile] = useState(null);
+    const [customImg, setCustomImg] = useState(null);
 
     return (
         <StatusContext.Provider 
@@ -85,6 +88,8 @@ export const StatusContextProvider = ({ children }) => {
             setModelImages,
             pltFile,
             setPltFile,
+            customImg,
+            setCustomImg
         }}>
             { children }
         </StatusContext.Provider>

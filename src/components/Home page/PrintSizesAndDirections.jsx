@@ -1,4 +1,5 @@
 'use client';
+
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
@@ -11,47 +12,57 @@ const PrintSizesAndDirections = () => {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [sizesAndDirections, setSizesAndDirections] = useState([]);
 
+    // Function to check if an option is selected
+    const isSelected = (id) => selectedOptions.some(option => option.id === id);
+
+    // Handle click event for option selection
     const handleOptionClick = (id, name_ar) => {
-        const updatedOptions = selectedOptions.some(option => option.id === id)
-            ? selectedOptions.filter(option => option.id !== id)
-            : [...selectedOptions, { id, name_ar }];
-        
+        const updatedOptions = isSelected(id)
+            ? selectedOptions.filter(option => option.id !== id) // Deselect if already selected
+            : [...selectedOptions, { id, name_ar }]; // Select if not selected
+
         setSelectedOptions(updatedOptions);
         updateLocalStorage(updatedOptions);
 
+        // Auto-select the first option if none are selected
         if (updatedOptions.length === 0 && sizesAndDirections.length > 0) {
-            const firstOptionId = sizesAndDirections[0].id;
-            const firstOptionNameAr = sizesAndDirections[0].name_ar;
-            setSelectedOptions([{ id: firstOptionId, name_ar: firstOptionNameAr }]);
-            updateLocalStorage([{ id: firstOptionId, name_ar: firstOptionNameAr }]);
+            const firstOption = sizesAndDirections[0];
+            setSelectedOptions([{ id: firstOption.id, name_ar: firstOption.name_ar }]);
+            updateLocalStorage([{ id: firstOption.id, name_ar: firstOption.name_ar }]);
         }
     };
 
+    // Update local storage with the selected options
     const updateLocalStorage = (options) => {
         const ids = options.map(option => option.id);
         const names_ar = options.map(option => option.name_ar);
 
-        let custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
-
+        const custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
         custom_order.sizedirection_ids = ids;
         custom_order.sizedirection_names_ar = names_ar;
 
         window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
     };
 
+    // Fetch sizes and directions data
     useEffect(() => {
-        GET_DATA(GET_SIZES_DIRECTIONS).then((data) => {
-            setSizesAndDirections(data);
+        GET_DATA(GET_SIZES_DIRECTIONS)
+            .then((data) => {
+                setSizesAndDirections(data);
 
-            const storedOrder = JSON.parse(window.localStorage.getItem('custom_order'));
-            const initialSelection = storedOrder?.sizedirection_ids?.map((id, index) => ({
-                id,
-                name_ar: storedOrder.sizedirection_names_ar[index]
-            })) || [{ id: data[0]?.id, name_ar: data[0]?.name_ar }];
-            
-            setSelectedOptions(initialSelection);
-            updateLocalStorage(initialSelection);
-        });
+                // Retrieve stored selection from localStorage
+                const storedOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+                const initialSelection = storedOrder?.sizedirection_ids?.map((id, index) => ({
+                    id,
+                    name_ar: storedOrder.sizedirection_names_ar[index]
+                })) || [{ id: data[0]?.id, name_ar: data[0]?.name_ar }];
+                
+                setSelectedOptions(initialSelection);
+                updateLocalStorage(initialSelection);
+            })
+            .catch((err) => {
+                console.error("Failed to fetch sizes and directions:", err);
+            });
     }, []);
 
     return (
@@ -72,10 +83,12 @@ const PrintSizesAndDirections = () => {
                 {sizesAndDirections.map(option => (
                     <div key={option.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
                         <span
-                            className={`w-8 h-8 flex justify-center items-center ${!selectedOptions.some(o => o.id === option.id) ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
+                            className={`w-8 h-8 flex justify-center items-center ${!isSelected(option.id) ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
                             onClick={() => handleOptionClick(option.id, option.name_ar)}
+                            role="button"
+                            aria-pressed={isSelected(option.id)}
                         >
-                            {selectedOptions.some(o => o.id === option.id) && (
+                            {isSelected(option.id) && (
                                 <FontAwesomeIcon
                                     icon={faCheck}
                                     className='w-7 h-7 text-black'

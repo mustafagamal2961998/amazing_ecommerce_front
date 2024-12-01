@@ -76,6 +76,7 @@ const Logos = () => {
 
     return (
         <div className='w-full'>
+            {/* Search Bar */}
             <div className='w-full p-5 relative rounded-md border-[1px] border-[#C1C1C1] mb-6'>
                 <input
                     type='search'
@@ -90,19 +91,47 @@ const Logos = () => {
                     />
                 )}
             </div>
-            <Swiper spaceBetween={50} slidesPerView={6} className='cursor-grab'>
+
+            {/* Swiper for logos */}
+            <Swiper
+                spaceBetween={20}
+                slidesPerView={1}
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                    1280: {
+                        slidesPerView: 5,
+                        spaceBetween: 30,
+                    },
+                }}
+                className='cursor-grab'
+            >
                 {logos.map((logo) => (
                     <SwiperSlide key={logo.id} onClick={() => handleOptionClick(logo.id, logo.image)}>
                         <div className='relative flex flex-col justify-center items-center gap-3'>
+                            {/* Logo Image */}
                             <Image
                                 width={300}
                                 height={300}
                                 src={logo.image}
                                 alt='شعار'
-                                className='w-3/4'
+                                className='w-3/4 object-cover rounded-lg'
                             />
+                            {/* Price */}
                             <p className='text-xs font-bold text-gray-500'>{logo.price} ر.س</p>
                         </div>
+
+                        {/* Checkmark for selected option */}
                         <span className={`w-6 h-6 flex justify-center items-center bg-[#F5F3F3] border-2 border-black cursor-pointer absolute right-5 top-0`}>
                             {selectedOption === logo.id && (
                                 <FontAwesomeIcon

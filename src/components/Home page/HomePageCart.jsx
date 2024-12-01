@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 const HomePageCart = () => {
   const [customOrder, setCustomOrder] = useState(null);
   const { isLoggedIn } = useStatusContext();
+  const { customImg, setCustomImg } = useStatusContext();
 
   const fetchCustomOrder = () => {
     const custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || null;
@@ -18,13 +19,14 @@ const HomePageCart = () => {
   }
 
   useEffect(() => {
-    fetchCustomOrder();
+    setInterval(() => {
+        fetchCustomOrder();
+      }, 1000);
   }, []);
 
   const renderExampleImg = () => (
     customOrder?.example_img && (
       <div className="flex items-center gap-2">
-        {customOrder.example_img}
         <Image width={74} height={74} src={customOrder.example_img} className='w-[74px] rounded-md' alt="example Image" />
         <FontAwesomeIcon icon={faPlus} className='w-8 h-8' />
       </div>
@@ -34,7 +36,6 @@ const HomePageCart = () => {
   const renderNameImg = () => (
     customOrder?.name_img && (
       <div className="flex items-center gap-2">
-        {customOrder.name_img}
         <Image width={74} height={74} src={customOrder.name_img} className='w-[74px] rounded-md' alt="name Image" />
         <FontAwesomeIcon icon={faPlus} className='w-8 h-8' />
       </div>
@@ -44,7 +45,6 @@ const HomePageCart = () => {
   const renderLogoImg = () => (
     customOrder?.logo_img && (
       <div className="flex items-center gap-2">
-        {customOrder.logo_img}
         <Image width={74} height={74} src={customOrder.logo_img} className='w-[74px] rounded-md' alt="logo Image" />
         <FontAwesomeIcon icon={faPlus} className='w-8 h-8' />
       </div>
@@ -54,7 +54,6 @@ const HomePageCart = () => {
   const renderImg = () => (
     customOrder?.image_img && (
       <div className="flex items-center gap-2">
-        {customOrder.image_img}
         <Image width={74} height={74} src={customOrder.image_img} className='w-[74px] rounded-md' alt="Image" />
         <FontAwesomeIcon icon={faPlus} className='w-8 h-8' />
       </div>
@@ -109,12 +108,13 @@ const HomePageCart = () => {
   const removeCart = () => {
     window.localStorage.removeItem('custom_order');
     setCustomOrder(null);
+    setCustomImg(null);
   }
 
   return (
     <div className='w-3/4 p-5 mb-6 rounded-xl border border-black flex flex-col justify-center items-center gap-3 bg-gradient-to-tr from-[#FEF8B3] to-[#FEDF2B]'>
-      <div className='w-full flex justify-start gap-12'>
-        <div className='w-full p-7 rounded-2xl border border-black flex justify-center items-center gap-3 bg-gradient-to-tr from-[#87CFC3] to-[#00A387]'>
+      <div className='w-full flex max-md:flex-col max-md:justify-center max-md:gap-4 justify-start gap-12'>
+        <div className='w-full p-7 rounded-2xl border border-black flex flex-wrap justify-center items-center gap-3 bg-gradient-to-tr from-[#87CFC3] to-[#00A387]'>
           {renderExampleImg()}
           {renderNameImg()}
           {renderLogoImg()}
@@ -125,11 +125,11 @@ const HomePageCart = () => {
           {renderPrintColor()}
           {renderProductImage()}
         </div>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 max-md:flex-row max-md:justify-center'>
           {isLoggedIn ? (
             <button
               className='p-2 w-12 h-12 flex justify-center items-center rounded-full bg-gradient-to-r from-[#28B571] to-[#00954D]'
-              onClick={addToCart}
+              onClick={() => addToCart(customImg)}
               aria-label="Add to Cart"
             >
               <FontAwesomeIcon icon={faCheck} className='w-8 h-8 text-white' />

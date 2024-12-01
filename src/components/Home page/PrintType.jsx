@@ -9,35 +9,42 @@ import { GET_PRINT_TYPES } from "../../Utils/APIs";
 import { GET_DATA } from "../../Utils/Data/getData";
 
 const PrintType = () => {
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedPrintType, setSelectedPrintType] = useState(null); // Stores selected print type ID
+    const [selectedPrintName, setSelectedPrintName] = useState(null); // Stores selected print type name
     const [printTypes, setPrintTypes] = useState([]);
-    const [selectedPrintType, setSelectedPrintType] = useState(null);
-
+    
     useEffect(() => {
         const customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
-        setSelectedOption(customOrder.print_type || null);
-        setSelectedOption(customOrder.print_name || null);
+        setSelectedPrintType(customOrder.print_type || null);
+        setSelectedPrintName(customOrder.print_name || null);
     }, []);
 
     const handleOptionClick = (id, name) => {
-        setSelectedOption(prevOption => (prevOption === id ? null : id));
-        setSelectedPrintType(prevOption => (prevOption === name ? null : name));
+        if (id === null) {
+            setSelectedPrintType(null); // Reset print type
+            setSelectedPrintName(null); // Reset print name
+        } else {
+            setSelectedPrintType(id);
+            setSelectedPrintName(name);
+        }
     };
 
     const handleChoosePrintType = () => {
-        const custom_order = JSON.parse(window.localStorage.getItem('custom_order')) || {};
-        custom_order.print_type = selectedOption;
-        custom_order.print_name = selectedPrintType;
-        window.localStorage.setItem('custom_order', JSON.stringify(custom_order));
+        const customOrder = JSON.parse(window.localStorage.getItem('custom_order')) || {};
+        customOrder.print_type = selectedPrintType;
+        customOrder.print_name = selectedPrintName;
+        window.localStorage.setItem('custom_order', JSON.stringify(customOrder));
     };
 
     useEffect(() => {
-        GET_DATA(GET_PRINT_TYPES).then((data) => setPrintTypes(data));
+        GET_DATA(GET_PRINT_TYPES)
+            .then((data) => setPrintTypes(data))
+            .catch((err) => console.error("Failed to fetch print types", err)); // Graceful error handling
     }, []);
 
     useEffect(() => {
-        handleChoosePrintType();
-    }, [selectedOption]);
+        handleChoosePrintType(); // Update localStorage on changes to selection
+    }, [selectedPrintType, selectedPrintName]);
 
     return (
         <div className='w-full flex flex-col justify-center items-center gap-5'>
@@ -54,12 +61,13 @@ const PrintType = () => {
                 />
             </div>
             <div className='w-full flex justify-center items-center gap-20 flex-wrap'>
+                {/* 'None' option */}
                 <div className='flex justify-center items-center gap-4 font-bold w-fit'>
-                    <span 
-                        className={`w-8 h-8 flex justify-center items-center ${selectedOption === null ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
-                        onClick={() => handleOptionClick(null)}
+                    <span
+                        className={`w-8 h-8 flex justify-center items-center ${selectedPrintType === null ? 'bg-[#F5F3F3]' : ''} border-2 border-black cursor-pointer`}
+                        onClick={() => handleOptionClick(null, null)}
                     >
-                        {selectedOption === null && 
+                        {selectedPrintType === null && 
                             <FontAwesomeIcon
                                 icon={faCheck}
                                 className='w-7 h-7'
@@ -71,13 +79,15 @@ const PrintType = () => {
                         <p>none</p>
                     </div>
                 </div>
+                
+                {/* Render print types */}
                 {printTypes && printTypes.length > 0 && printTypes.map(printType => (
-                    <div key={printType.id} className='flex justify-center items-center gap-4 font-bold w-fit'>
-                        <span 
-                            className={`w-8 h-8 flex justify-center items-center ${selectedOption === printType.id ? '' : 'bg-[#F5F3F3]' } border-2 border-black cursor-pointer`}
+                    <div key={`${printType.id}-${printType.name_en}`} className='flex justify-center items-center gap-4 font-bold w-fit'>
+                        <span
+                            className={`w-8 h-8 flex justify-center items-center ${selectedPrintType === printType.id ? '' : 'bg-[#F5F3F3]'} border-2 border-black cursor-pointer`}
                             onClick={() => handleOptionClick(printType.id, printType.name_ar)}
                         >
-                            {selectedOption === printType.id && 
+                            {selectedPrintType === printType.id && 
                                 <FontAwesomeIcon
                                     icon={faCheck}
                                     className='w-7 h-7'

@@ -62,7 +62,6 @@ const Examples = () => {
         customOrder.example_id = selectedOption || null; 
         customOrder.example_img = selectedExampleImg || null; 
 
-        
         window.localStorage.setItem('custom_order', JSON.stringify(customOrder));
     }, [selectedOption]);
 
@@ -82,7 +81,30 @@ const Examples = () => {
                     />
                 )}
             </div>
-            <Swiper spaceBetween={50} slidesPerView={6} className='cursor-grab'>
+
+            <Swiper
+                spaceBetween={20}
+                slidesPerView={1} // Default view for small screens
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    1280: {
+                        slidesPerView: 5,
+                        spaceBetween: 30,
+                    },
+                }}
+                className='cursor-grab'
+            >
                 {examples.map((example) => (
                     <SwiperSlide key={example.id} onClick={() => handleOptionClick(example.id, example.media)}>
                         <div className='relative flex flex-col justify-center items-center gap-3'>
@@ -91,7 +113,7 @@ const Examples = () => {
                                 height={300}
                                 src={example.media}
                                 alt={example.name}
-                                className='w-3/4'
+                                className='w-3/4 object-cover rounded-lg'
                             />
                             <p className='text-xs font-bold text-gray-500'>{example.price} ر.س</p>
                         </div>

@@ -232,14 +232,14 @@ const Examples = () => {
                         <p className='text-xs font-bold text-gray-500'>{example.price} ر.س</p>
                         <div className='w-full rounded-lg shadow-2xl bg-[#D9D9D97D] p-2 flex justify-around items-center'>
                             <FontAwesomeIcon
-                                onClick={() => deleteExampleModal(example.id)}
-                                icon={faTrash}
-                                className='w-4 h-4 text-center text-red-500 hover:text-red-300 duration-200 cursor-pointer'
+                              onClick={() => deleteExampleModal(example.id)}
+                              icon={faTrash}
+                              className='w-4 h-4 text-center text-red-500 hover:text-red-300 duration-200 cursor-pointer'
                             />
                             <FontAwesomeIcon
-                                onClick={() => updateExampleModal(example.id)}
-                                icon={faEdit}
-                                className='w-4 h-4 text-center text-blue-500 hover:text-blue-300 duration-200 cursor-pointer'
+                              onClick={() => updateExampleModal(example.id)}
+                              icon={faEdit}
+                              className='w-4 h-4 text-center text-blue-500 hover:text-blue-300 duration-200 cursor-pointer'
                             />
                         </div>
                     </div>
@@ -252,16 +252,16 @@ const Examples = () => {
                 <h2 className='font-bold text-lg'>هل أنت متأكد من حذف هذا المثل</h2>
                 <span className='flex justify-center items-center gap-6'>
                     <Image
-                        src={confirm}
-                        onClick={handleDeleteExample}
-                        className='w-full cursor-pointer'
-                        alt='confirmation'
+                      src={confirm}
+                      onClick={handleDeleteExample}
+                      className='w-full cursor-pointer'
+                      alt='confirmation'
                     />
                     <Image
-                        src={decline}
-                        onClick={() => setDeleteMood(false)}
-                        className='w-full cursor-pointer'
-                        alt='decline'
+                      src={decline}
+                      onClick={() => setDeleteMood(false)}
+                      className='w-full cursor-pointer'
+                      alt='decline'
                     />
                 </span>
             </div>

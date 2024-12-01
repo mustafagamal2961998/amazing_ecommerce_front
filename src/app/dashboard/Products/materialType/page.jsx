@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import ProductsLinks from "../ProductsLinks"
 import axios from "axios";
-import { ADD_PRINT_TYPE, UPDATE_PRINT_TYPE, DELETE_PRINT_TYPE, GET_PRINT_TYPES_DASHBOARD } from "../../../../Utils/APIs";
+import { ADD_MATERIAL, UPDATE_MATERIAL, DELETE_MATERIAL, GET_MATERIALS_DASHBOARD } from "../../../../Utils/APIs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import confirm from '../../../../assets/dashboard/confirm.svg'
@@ -12,89 +12,89 @@ import { CONFIG } from "../../../../Utils/Auth/Config";
 import { handleShowAlert } from "../../../../Utils/Alerts/handleShowAlert";
 import Image from "next/image";
 
-const PrintType = () => {
+const Material = () => {
     const [isEditingMode, setIsEditingMode] = useState(false);
-    const [printTypes, setPrintTypes] = useState([]);
-    const [printType, setPrintType] = useState({
+    const [materials, setMaterials] = useState([]);
+    const [material, setMaterial] = useState({
         name_ar: "",
         name_en: "",
         price: 0,
         isActive: true,
     });
-    const [printTypeId, setPrintTypeId] = useState(null);
+    const [materialId, setMaterialId] = useState(null);
     const [deleteMood, setDeleteMood] = useState(false);
 
-    const fetchPrintTypes = async () => {
+    const fetchMaterials = async () => {
         try {
-            const res = await axios.get(GET_PRINT_TYPES_DASHBOARD);
+            const res = await axios.get(GET_MATERIALS_DASHBOARD);
             const data = res.data.data;
-            setPrintTypes(data);
+            setMaterials(data);
         }catch(error) {
             console.log(error)
         }
     }
 
     useEffect(() => {
-        fetchPrintTypes();
+        fetchMaterials();
     }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setPrintType({...printType, [name]: value });
+        setMaterial({...material, [name]: value });
     };
 
-    const handleAddPrintType = async (e) => {
+    const handleAddMaterial = async (e) => {
         e.preventDefault();
         try {
             const formData = new FormData();
-            formData.append("name_ar", printType.name_ar);
-            formData.append("name_en", printType.name_en);
-            formData.append("price", printType.price);
-            formData.append("status", printType.isActive ? 'active' : 'archived');
+            formData.append("name_ar", material.name_ar);
+            formData.append("name_en", material.name_en);
+            formData.append("price", material.price);
+            formData.append("status", material.isActive ? 'active' : 'archived');
             
-            const res = await axios.post(ADD_PRINT_TYPE, formData, CONFIG, {
+            const res = await axios.post(ADD_MATERIAL, formData, CONFIG, {
                 headers: {
                   'Content-Type': 'application/json',
                 },
             });
             const data = res.data;
-            fetchPrintTypes();
+            fetchMaterials();
             handleShowAlert(data.statusCode, data.message);
     
-            setPrintType({name_ar: "", name_en: "", price: "", isActive: true})
+            setMaterial({name_ar: "", name_en: "", price: "", isActive: true})
         }catch (error) {
           console.log(error);
         }
       }
     
-      const handleUpdatePrintType = async (e) => {
+      const handleUpdateMaterial = async (e) => {
         e.preventDefault();
     
         try {
             const formData = new FormData();
-            formData.append("name_ar", printType.name_ar);
-            formData.append("name_en", printType.name_en);
-            formData.append("price", printType.price);
-            formData.append("status", printType.isActive ? 'active' : 'archived');
+            formData.append("name_ar", material.name_ar);
+            formData.append("name_en", material.name_en);
+            formData.append("price", material.price);
+            formData.append("status", material.isActive ? 'active' : 'archived');
 
-            const res = await axios.put(UPDATE_PRINT_TYPE + printTypeId, formData, {
+            const res = await axios.put(UPDATE_MATERIAL + materialId, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
             const data = res.data;
-            fetchPrintTypes();
+            fetchMaterials();
             handleShowAlert(data.statusCode, data.message);
             setIsEditingMode(false);
-            setPrintTypeId(null);
-            setPrintType({name_ar: "", name_en: "", price: "", isActive: true})
+            setMaterialId(null);
+            setMaterial({name_ar: "", name_en: "", price: "", isActive: true})
         }catch (error) {
           console.log(error);
         }
       }
     
-        const deletePrintTypeModal = (id) => {
-            setPrintTypeId(id);
+        const deleteMaterialModal = (id) => {
+            setMaterialId(id);
             setDeleteMood(true);
             window.scrollTo({
                 top: 0,
@@ -102,8 +102,8 @@ const PrintType = () => {
             })
         }
     
-        const updatePrintTypeModal = (id) => {
-            setPrintTypeId(id);
+        const updateMaterialModal = (id) => {
+            setMaterialId(id);
             setIsEditingMode(true);
     
             window.scrollTo({
@@ -111,21 +111,21 @@ const PrintType = () => {
                 behavior: "smooth",
             });
     
-            const selectedPrintType = printTypes.find((type) => type.id === id);
-            setPrintType({
-                name_ar: selectedPrintType.name_ar,
-                name_en: selectedPrintType.name_en,
-                price: selectedPrintType.price,
-                isActive: selectedPrintType.status === 'active',
+            const selectedMaterial = materials.find((type) => type.id === id);
+            setMaterial({
+                name_ar: selectedMaterial.name_ar,
+                name_en: selectedMaterial.name_en,
+                price: selectedMaterial.price,
+                isActive: selectedMaterial.status === 'active',
             });
         }
     
-      const handleDeletePrintType = async (e) => {
+      const handleDeleteMaterial = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.delete(DELETE_PRINT_TYPE + printTypeId);
+            const res = await axios.delete(DELETE_MATERIAL + materialId);
             const data = res.data;
-            fetchPrintTypes();
+            fetchMaterials();
             handleShowAlert(data.statusCode, data.message);
             setDeleteMood(false)
         }catch (error) {
@@ -139,65 +139,65 @@ const PrintType = () => {
       <div className="relative w-full h-fit flex flex-col gap-2 rounded-lg border-[1px] border-[#C3C3C3] p-3">
         <div className="absolute top-0 right-0 w-full rounded-t-lg bg-[#34766A] p-2">
           <h1 className="text-right text-white font-bold text-lg p-1">
-            {isEditingMode ? 'تعديل' : 'اضافة'} نوع طباعة   
+            {isEditingMode ? 'تعديل' : 'اضافة'} نوع خامة   
           </h1>
         </div>
         <div className="flex flex-col items-start gap-2 mt-12 p-2">
           <input
             type="text"
             name="name_ar"
-            value={printType.name_ar}
+            value={material.name_ar}
             onChange={handleChange}
             className="w-full p-2 placeholder:text-sm outline-none text-sm border-[1px] border-[#C3C3C3] rounded-full"
-            placeholder="نص نوع الطباعة"
+            placeholder="نص نوع الخامة"
           />
-          <p className="text-[#FFABAB] text-sm mr-4">كتابة نص نوع الطباعة باللغة العربية</p>
+          <p className="text-[#FFABAB] text-sm mr-4">كتابة نص نوع الخامة باللغة العربية</p>
         </div>
         <div className="flex flex-col items-start gap-2 p-2">
           <input
             type="text"
             name="name_en"
-            value={printType.name_en}
+            value={material.name_en}
             onChange={handleChange}
             className="w-full p-2 placeholder:text-sm outline-none text-sm border-[1px] border-[#C3C3C3] rounded-full"
-            placeholder="نص نوع الطباعة باللغة الانجليزية"
+            placeholder="نص نوع الخامة باللغة الانجليزية"
           />
-          <p className="text-[#FFABAB] text-sm mr-4">كتابة نص نوع الطباعة باللغة الانجليزية</p>
+          <p className="text-[#FFABAB] text-sm mr-4">كتابة نص نوع الخامة باللغة الانجليزية</p>
         </div>
         <div className="flex flex-col items-start gap-2 p-2">
           <input
             type="number"
             name="price"
-            value={printType.price}
+            value={material.price}
             onChange={handleChange}
             className="w-full p-2 placeholder:text-sm outline-none text-sm border-[1px] border-[#C3C3C3] rounded-full"
-            placeholder="إضافة سعر نوع الطباعة"
+            placeholder="إضافة سعر نوع الخامة"
           />
           <p className="text-[#FFABAB] text-sm mr-4">
-            كتابة سعر نوع الطباعة
+            كتابة سعر نوع الخامة
           </p>
         </div>
         <div className="flex flex-col items-start gap-2 p-2">
-          <p className="text-[#FFABAB] text-sm">حالة نوع الطباعة</p>
+          <p className="text-[#FFABAB] text-sm">حالة نوع الخامة</p>
             <label className="inline-flex items-center cursor-pointer">
-                <input type="checkbox" checked={printType.isActive} className="sr-only peer" onChange={() => setPrintType({...printType, isActive: !printType.isActive})} />
+                <input type="checkbox" checked={material.isActive} className="sr-only peer" onChange={() => setMaterial({...material, isActive: !material.isActive})} />
                 <div className="relative w-11 h-6 bg-[#F12222] rounded-full peer-checked:bg-[#07932E]">
-                    <div className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition-transform ${printType.isActive ? 'translate-x-full' : ''}`}></div>
+                    <div className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition-transform ${material.isActive ? 'translate-x-full' : ''}`}></div>
                 </div>
-                <span className="ms-3 text-sm font-medium">{printType.isActive ? 'نشط' : 'غير نشط'}</span>
+                <span className="ms-3 text-sm font-medium">{material.isActive ? 'نشط' : 'غير نشط'}</span>
             </label>
         </div>  
-        <button className="w-fit m-auto px-8 py-2 bg-[#007762] text-white rounded-full duration-200 hover:bg-[#014E40] hover:cursor-pointer" onClick={isEditingMode ? handleUpdatePrintType : handleAddPrintType}>
+        <button className="w-fit m-auto px-8 py-2 bg-[#007762] text-white rounded-full duration-200 hover:bg-[#014E40] hover:cursor-pointer" onClick={isEditingMode ? handleUpdateMaterial : handleAddMaterial}>
           حفظ
         </button>
       </div>
       <div className={`w-full p-5 rounded-md ${deleteMood ? 'flex' : 'hidden'} flex-col justify-center items-center bg-[#D9D9D97D]`}>
             <div className='w-full p-5 border-[1px] border-[#FFFFFF] rounded-md flex flex-col justify-center items-center gap-3'>
-                <h2 className='font-bold text-lg'>هل أنت متأكد من حذف هذا النوع</h2>
+                <h2 className='font-bold text-lg'>هل أنت متأكد من حذف هذه الخامة</h2>
                 <span className='flex justify-center items-center gap-6'>
                     <Image
                         src={confirm}
-                        onClick={handleDeletePrintType}
+                        onClick={handleDeleteMaterial}
                         className='w-full cursor-pointer'
                         alt='confirmation'
                     />
@@ -211,7 +211,7 @@ const PrintType = () => {
             </div>
         </div> 
         <h1 className='text-center text-2xl font-bold ml-auto'>
-          أنواع الطباعة
+          أنواع الخامة
         </h1>
        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 w-full">
             <div className="inline-block min-w-full">
@@ -229,28 +229,28 @@ const PrintType = () => {
                   </thead>
                   <tbody className="text-black border-[1px] border-[#F1F1F1] p-3">
                     {
-                      printTypes && printTypes.length > 0 && printTypes.map((printType) => (
-                        <tr className="text-center border-b-[1px] border-[#F1F1F1]" key={printType.id}>
+                      materials && materials.length > 0 && materials.map((material) => (
+                        <tr className="text-center border-b-[1px] border-[#F1F1F1]" key={material.id}>
                           <td className="whitespace-nowrap border-l-[1px] border-[#F1F1F1]">
-                            {printType.name_ar}
+                            {material.name_ar}
                           </td>
-                          <td className='text-base border-l-[1px] border-[#F1F1F1]'>{printType.name_en}</td>
+                          <td className='text-base border-l-[1px] border-[#F1F1F1]'>{material.name_en}</td>
                           <td className='border-l-[1px] border-[#F1F1F1]'>
-                            {printType.price} ر.س
+                            {material.price} ر.س
                           </td>
                           <td className='border-l-[1px] border-[#F1F1F1]'>
-                            {printType.status === 'active' ? 'نشط' : 'غير نشط'}
+                            {material.status === 'active' ? 'نشط' : 'غير نشط'}
                           </td>
                           <td className='border-l-[1px] border-[#F1F1F1]'>
                             <FontAwesomeIcon
-                                onClick={() => updatePrintTypeModal(printType.id)}
+                                onClick={() => updateMaterialModal(material.id)}
                                 icon={faEdit}
                                 className='w-4 h-4 text-center text-blue-500 hover:text-blue-300 duration-200 cursor-pointer'
                             />
                           </td>
                           <td className='border-l-[1px] border-[#F1F1F1]'>
                             <FontAwesomeIcon
-                                onClick={() => deletePrintTypeModal(printType.id)}
+                                onClick={() => deleteMaterialModal(material.id)}
                                 icon={faTrash}
                                 className='w-4 h-4 text-center text-red-500 hover:text-red-300 duration-200 cursor-pointer'
                             />
@@ -267,4 +267,4 @@ const PrintType = () => {
   )
 }
 
-export default PrintType
+export default Material

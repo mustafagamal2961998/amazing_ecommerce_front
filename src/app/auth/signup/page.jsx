@@ -38,9 +38,9 @@ const Signup = () => {
   }
 
   return (
-    <div className='signup flex flex-row-reverse max-md:flex-col bg-[#BCE3DC]'>
+    <div className='signup flex flex-row-reverse bg-[#BCE3DC]'>
       <Slogan />
-      <div className='flex flex-col justify-center items-center gap-5 text-center max-md:w-full p-5 w-[40%]'>
+      <div className='flex flex-col justify-center items-center gap-5 text-center max-md:w-full p-5 w-[40%] max-md:absolute max-md:top-1/4'>
         <Image src={purpleLogo} className='max-md:hidden' alt='Amazing' />
         <p>حساب جديد</p>
         <form>

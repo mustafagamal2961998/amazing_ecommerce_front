@@ -17,7 +17,7 @@ const Landing = () => {
           alt='sun'
           className='w-full relative'
         />
-        <p className='text-3xl absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-1/4 z-10 w-max'>
+        <p className='text-3xl absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-1/4 z-10 w-max max-md:text-sm max-md:top-[30%] max-md:left-[60%]'>
           صمم عبارتك بنفسك
           <br />
           Design your words
@@ -32,17 +32,17 @@ const Landing = () => {
         <Image 
           src={name2}
           alt='name2'
-          className='w-1/4 animate-move2'
+          className='w-1/4 max-md:w-full animate-move2'
         />
         <Image 
           src={name3}
           alt='name3'
-          className='w-3/4 animate-move3'
+          className='w-3/4 max-md:w-full animate-move3'
         />
         <Image 
           src={name4}
           alt='name4'
-          className='w-2/4 animate-move4'
+          className='w-2/4 max-md:w-full animate-move4'
         />
         <Image 
           src={name5}
@@ -54,7 +54,7 @@ const Landing = () => {
         <Image 
           src={name2}
           alt='name2'
-          className='w-1/4 animate-move2'
+          className='w-1/4 max-md:w-full animate-move2'
         />
         <Image 
           src={name1}
@@ -64,7 +64,7 @@ const Landing = () => {
         <Image 
           src={name3}
           alt='name3'
-          className='w-3/4 animate-move3'
+          className='w-3/4 max-md:w-full animate-move3'
         />
         <Image 
           src={name5}
@@ -74,19 +74,19 @@ const Landing = () => {
         <Image 
           src={name2}
           alt='name2'
-          className='w-1/4 animate-move2'
+          className='w-1/4 max-md:w-full animate-move2'
         />
       </div>
       <div className='w-full flex flex-col items-start gap-7'>
         <Image 
           src={name3}
           alt='name3'
-          className='w-3/4 animate-move3'
+          className='w-3/4 max-md:w-full animate-move3'
         />
         <Image 
           src={name4}
           alt='name4'
-          className='w-2/4 animate-move4'
+          className='w-2/4 max-md:w-full animate-move4'
         />
         <Image 
           src={name1}
@@ -96,7 +96,7 @@ const Landing = () => {
         <Image 
           src={name2}
           alt='name2'
-          className='w-1/4 animate-move2'
+          className='w-1/4 max-md:w-full animate-move2'
         />
         <Image 
           src={name5}
@@ -108,7 +108,7 @@ const Landing = () => {
         <Image 
           src={name4}
           alt='name4'
-          className='w-2/4 animate-move4'
+          className='w-2/4 max-md:w-full animate-move4'
         />
         <Image 
           src={name5}
@@ -118,12 +118,12 @@ const Landing = () => {
         <Image 
           src={name2}
           alt='name2'
-          className='w-1/4 animate-move2'
+          className='w-1/4 max-md:w-full animate-move2'
         />
         <Image 
           src={name3}
           alt='name3'
-          className='w-3/4 animate-move3'
+          className='w-3/4 max-md:w-full animate-move3'
         />
         <Image 
           src={name1}
@@ -145,17 +145,17 @@ const Landing = () => {
         <Image 
           src={name2}
           alt='name2'
-          className='w-1/4 animate-move2'
+          className='w-1/4 max-md:w-full animate-move2'
         />
         <Image 
           src={name4}
           alt='name4'
-          className='w-2/4 animate-move4'
+          className='w-2/4 max-md:w-full animate-move4'
         />
         <Image 
           src={name3}
           alt='name3'
-          className='w-3/4 animate-move3'
+          className='w-3/4 max-md:w-full animate-move3'
         />
       </div>
     </div>
